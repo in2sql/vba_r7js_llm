@@ -1,13 +1,13 @@
 
 papers/
 aux_data/
-source_data/
-data_temp/
-dataset/
-logs/
-result/
+source_data/*
+data_temp/*
+dataset/*
+logs/*
+result/*
 .idea/
-rag_data/
+rag_data/*
 
 ### Python template
 # Byte-compiled / optimized / DLL files
