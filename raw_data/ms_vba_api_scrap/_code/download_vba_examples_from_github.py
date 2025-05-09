@@ -25,7 +25,7 @@ logger = logging.getLogger(__name__)
 
 HEADERS = {
     "Accept": "application/vnd.github.v3+json",
-    "Authorization": "Token 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"
+    "Authorization": "Token "
 }
 
 # Search tracking dictionary (flags only)
