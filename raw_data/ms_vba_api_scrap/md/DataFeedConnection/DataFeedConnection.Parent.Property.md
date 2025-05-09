@@ -1,0 +1,10 @@
+# DataFeedConnection Parent Property
+
+## Business Description
+Returns an Object that represents the parent object of the specified DataFeedConnection object. Read-only.
+
+## Behavior
+Returns anObjectthat represents the parent object of the specifiedDataFeedConnection Object (Excel)object. Read-only.
+
+## Example Usage
+No VBA example available.

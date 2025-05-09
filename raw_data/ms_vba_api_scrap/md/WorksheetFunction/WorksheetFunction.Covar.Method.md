@@ -1,0 +1,10 @@
+# WorksheetFunction Covar Method
+
+## Business Description
+Returns covariance, the average of the products of deviations for each data point pair.
+
+## Behavior
+Returns covariance, the average of the products of deviations for each data point pair.
+
+## Example Usage
+No VBA example available.
