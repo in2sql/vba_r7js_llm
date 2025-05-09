@@ -1,0 +1,47 @@
+```json
+{
+  "description": "Conversion of OnlyOffice API methods to Excel VBA equivalents.",
+  "methods": [
+    {
+      "OnlyOffice_JS": "var oWorksheet = Api.GetActiveSheet();",
+      "Excel_VBA": "Set oWorksheet = ActiveSheet"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange('B1').SetValue('Region');",
+      "Excel_VBA": "oWorksheet.Range(\"B1\").Value = \"Region\""
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange('C1').SetValue('Price');",
+      "Excel_VBA": "oWorksheet.Range(\"C1\").Value = \"Price\""
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange('B2').SetValue('East');",
+      "Excel_VBA": "oWorksheet.Range(\"B2\").Value = \"East\""
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange('B3').SetValue('West');",
+      "Excel_VBA": "oWorksheet.Range(\"B3\").Value = \"West\""
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange('C2').SetValue(42.5);",
+      "Excel_VBA": "oWorksheet.Range(\"C2\").Value = 42.5"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange('C3').SetValue(35.2);",
+      "Excel_VBA": "oWorksheet.Range(\"C3\").Value = 35.2"
+    },
+    {
+      "OnlyOffice_JS": "var dataRef = Api.GetRange(\"'Sheet1'!$B$1:$C$3\");",
+      "Excel_VBA": "Set dataRef = Worksheets(\"Sheet1\").Range(\"B1:C3\")"
+    },
+    {
+      "OnlyOffice_JS": "var pivotRef = oWorksheet.GetRange('A7');",
+      "Excel_VBA": "Set pivotRef = oWorksheet.Range(\"A7\")"
+    },
+    {
+      "OnlyOffice_JS": "var pivotTable = Api.InsertPivotExistingWorksheet(dataRef, pivotRef);",
+      "Excel_VBA": "Set pivotTable = oWorksheet.PivotTableWizard(SourceType:=xlDatabase, SourceData:=dataRef, TableDestination:=pivotRef)"
+    }
+  ]
+}
+```

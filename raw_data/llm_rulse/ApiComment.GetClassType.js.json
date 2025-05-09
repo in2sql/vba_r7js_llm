@@ -1,0 +1,9 @@
+```json
+{
+  "Description": "This example gets a class type and inserts it into the table.",
+  "Code": {
+    "OnlyOffice_JS": "// This example gets a class type and inserts it into the table.\nvar oWorksheet = Api.GetActiveSheet();\noWorksheet.GetRange(\"A1\").SetValue(\"1\");\nvar oRange = oWorksheet.GetRange(\"A1\");\noRange.AddComment(\"This is just a number.\");\nvar oComment = oRange.GetComment();\nvar sType = oComment.GetClassType();\noWorksheet.GetRange(\"A3\").SetValue(\"Type: \" + sType);",
+    "Excel_VBA": "' This example gets a class type and inserts it into the table.\nSub Example()\n    Dim oWorksheet As Worksheet\n    Set oWorksheet = ThisWorkbook.ActiveSheet\n    oWorksheet.Range(\"A1\").Value = \"1\"\n    Dim oRange As Range\n    Set oRange = oWorksheet.Range(\"A1\")\n    oRange.AddComment \"This is just a number.\"\n    Dim oComment As Comment\n    Set oComment = oRange.Comment\n    ' VBA does not have a direct equivalent of GetClassType, using Shape.Name as an example\n    Dim sType As String\n    sType = oComment.Shape.Name\n    oWorksheet.Range(\"A3\").Value = \"Type: \" & sType\nEnd Sub"
+  }
+}
+```

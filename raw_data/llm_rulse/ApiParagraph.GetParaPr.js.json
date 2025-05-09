@@ -1,0 +1,67 @@
+```json
+{
+  "Description": "This example shows how to get the paragraph properties.",
+  "Methods": [
+    {
+      "Action": "Get the active worksheet",
+      "VBA": "Set oWorksheet = ActiveSheet",
+      "OnlyOfficeJS": "var oWorksheet = Api.GetActiveSheet();"
+    },
+    {
+      "Action": "Create a solid fill with RGB color (255, 111, 61)",
+      "VBA": "Set oFill = CreateSolidFill(CreateRGBColor(255, 111, 61))",
+      "OnlyOfficeJS": "var oFill = Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61));"
+    },
+    {
+      "Action": "Create a stroke with weight 0 and no fill",
+      "VBA": "Set oStroke = CreateStroke(0, CreateNoFill())",
+      "OnlyOfficeJS": "var oStroke = Api.CreateStroke(0, Api.CreateNoFill());"
+    },
+    {
+      "Action": "Add a shape to the worksheet",
+      "VBA": "Set oShape = oWorksheet.Shapes.AddShape(msoShapeFlowchartOnlineStorage, 120 * 36000, 70 * 36000, oFill, oStroke, 0, 2 * 36000, 0, 3 * 36000)",
+      "OnlyOfficeJS": "var oShape = oWorksheet.AddShape(\"flowChartOnlineStorage\", 120 * 36000, 70 * 36000, oFill, oStroke, 0, 2 * 36000, 0, 3 * 36000);"
+    },
+    {
+      "Action": "Get the content of the shape",
+      "VBA": "Set oDocContent = oShape.TextFrame.TextRange",
+      "OnlyOfficeJS": "var oDocContent = oShape.GetContent();"
+    },
+    {
+      "Action": "Get the first paragraph",
+      "VBA": "Set oParagraph = oDocContent.Paragraphs(1)",
+      "OnlyOfficeJS": "var oParagraph = oDocContent.GetElement(0);"
+    },
+    {
+      "Action": "Get paragraph properties",
+      "VBA": "Set oParaPr = oParagraph.ParagraphFormat",
+      "OnlyOfficeJS": "var oParaPr = oParagraph.GetParaPr();"
+    },
+    {
+      "Action": "Set spacing after the paragraph to 1440",
+      "VBA": "oParaPr.SpaceAfter = 1440",
+      "OnlyOfficeJS": "oParaPr.SetSpacingAfter(1440);"
+    },
+    {
+      "Action": "Add text to the first paragraph",
+      "VBA": "oParagraph.Text = oParagraph.Text & \"This is an example of setting a space after a paragraph. \" & _\n\"The second paragraph will have an offset of one inch from the top. \" & _\n\"This is due to the fact that the first paragraph has this offset enabled.\"",
+      "OnlyOfficeJS": "oParagraph.AddText(\"This is an example of setting a space after a paragraph. \");\noParagraph.AddText(\"The second paragraph will have an offset of one inch from the top. \");\noParagraph.AddText(\"This is due to the fact that the first paragraph has this offset enabled.\");"
+    },
+    {
+      "Action": "Create a new paragraph",
+      "VBA": "Set oParagraph = oDocContent.Paragraphs.Add",
+      "OnlyOfficeJS": "oParagraph = Api.CreateParagraph();"
+    },
+    {
+      "Action": "Add text to the second paragraph",
+      "VBA": "oParagraph.Text = \"This is the second paragraph and it is one inch away from the first paragraph.\"",
+      "OnlyOfficeJS": "oParagraph.AddText(\"This is the second paragraph and it is one inch away from the first paragraph.\");"
+    },
+    {
+      "Action": "Push the new paragraph to the document content",
+      "VBA": "oDocContent.Paragraphs.Add oParagraph",
+      "OnlyOfficeJS": "oDocContent.Push(oParagraph);"
+    }
+  ]
+}
+```

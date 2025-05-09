@@ -1,0 +1,24 @@
+**Description:**  
+This code retrieves the active worksheet, formats the number "123456" according to the provided format string "$#,##0", and sets the formatted value in cell A1.
+
+```json
+{
+  "RAG_Table": [
+    {
+      "Action": "Get Active Sheet",
+      "OnlyOffice_JS": "var oWorksheet = Api.GetActiveSheet();",
+      "Excel_VBA": "Dim oWorksheet As Worksheet\nSet oWorksheet = ThisWorkbook.ActiveSheet"
+    },
+    {
+      "Action": "Format Value",
+      "OnlyOffice_JS": "var oFormat = Api.Format(\"123456\", \"$#,##0\");",
+      "Excel_VBA": "Dim oFormat As String\noFormat = Format(123456, \"$#,##0\")"
+    },
+    {
+      "Action": "Set Value in Cell",
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"A1\").SetValue(oFormat);",
+      "Excel_VBA": "oWorksheet.Range(\"A1\").Value = oFormat"
+    }
+  ]
+}
+```

@@ -1,0 +1,27 @@
+```json
+{
+  "Description": "This code sets the theme colors to the current spreadsheet, populates cells with each theme color, applies a specific theme color, and updates a cell with a descriptive message.",
+  "CodeMappings": [
+    {
+      "OnlyOffice_JS": "var oWorksheet = Api.GetActiveSheet();",
+      "Excel_VBA": "Dim oWorksheet As Worksheet\nSet oWorksheet = ThisWorkbook.ActiveSheet"
+    },
+    {
+      "OnlyOffice_JS": "var themes = Api.GetThemesColors();",
+      "Excel_VBA": "Dim themes As Variant\nthemes = ThisWorkbook.Theme.ThemeColorScheme"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"A\" + (i + 1)).SetValue(themes[i]);",
+      "Excel_VBA": "oWorksheet.Range(\"A\" & (i + 1)).Value = themes(i)"
+    },
+    {
+      "OnlyOffice_JS": "Api.SetThemeColors(themes[3]);",
+      "Excel_VBA": "ThisWorkbook.Theme.ThemeColorScheme.Colors(4) = themes(3)"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"C3\").SetValue(\"The 'Apex' theme colors were set to the current spreadsheet.\");",
+      "Excel_VBA": "oWorksheet.Range(\"C3\").Value = \"The 'Apex' theme colors were set to the current spreadsheet.\""
+    }
+  ]
+}
+```

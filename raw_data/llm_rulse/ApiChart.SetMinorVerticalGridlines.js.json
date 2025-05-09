@@ -1,0 +1,87 @@
+```json
+{
+  "description": "This code populates specific cells with data and creates a 3D bar chart titled 'Financial Overview' with customized series fills and minor vertical gridlines.",
+  "codeMappings": [
+    {
+      "OnlyOfficeJS": "var oWorksheet = Api.GetActiveSheet();",
+      "ExcelVBA": "Dim oWorksheet As Worksheet\nSet oWorksheet = ActiveSheet"
+    },
+    {
+      "OnlyOfficeJS": "oWorksheet.GetRange(\"B1\").SetValue(2014);",
+      "ExcelVBA": "oWorksheet.Range(\"B1\").Value = 2014"
+    },
+    {
+      "OnlyOfficeJS": "oWorksheet.GetRange(\"C1\").SetValue(2015);",
+      "ExcelVBA": "oWorksheet.Range(\"C1\").Value = 2015"
+    },
+    {
+      "OnlyOfficeJS": "oWorksheet.GetRange(\"D1\").SetValue(2016);",
+      "ExcelVBA": "oWorksheet.Range(\"D1\").Value = 2016"
+    },
+    {
+      "OnlyOfficeJS": "oWorksheet.GetRange(\"A2\").SetValue(\"Projected Revenue\");",
+      "ExcelVBA": "oWorksheet.Range(\"A2\").Value = \"Projected Revenue\""
+    },
+    {
+      "OnlyOfficeJS": "oWorksheet.GetRange(\"A3\").SetValue(\"Estimated Costs\");",
+      "ExcelVBA": "oWorksheet.Range(\"A3\").Value = \"Estimated Costs\""
+    },
+    {
+      "OnlyOfficeJS": "oWorksheet.GetRange(\"B2\").SetValue(200);",
+      "ExcelVBA": "oWorksheet.Range(\"B2\").Value = 200"
+    },
+    {
+      "OnlyOfficeJS": "oWorksheet.GetRange(\"B3\").SetValue(250);",
+      "ExcelVBA": "oWorksheet.Range(\"B3\").Value = 250"
+    },
+    {
+      "OnlyOfficeJS": "oWorksheet.GetRange(\"C2\").SetValue(240);",
+      "ExcelVBA": "oWorksheet.Range(\"C2\").Value = 240"
+    },
+    {
+      "OnlyOfficeJS": "oWorksheet.GetRange(\"C3\").SetValue(260);",
+      "ExcelVBA": "oWorksheet.Range(\"C3\").Value = 260"
+    },
+    {
+      "OnlyOfficeJS": "oWorksheet.GetRange(\"D2\").SetValue(280);",
+      "ExcelVBA": "oWorksheet.Range(\"D2\").Value = 280"
+    },
+    {
+      "OnlyOfficeJS": "oWorksheet.GetRange(\"D3\").SetValue(280);",
+      "ExcelVBA": "oWorksheet.Range(\"D3\").Value = 280"
+    },
+    {
+      "OnlyOfficeJS": "var oChart = oWorksheet.AddChart(\"'Sheet1'!$A$1:$D$3\", true, \"bar3D\", 2, 100 * 36000, 70 * 36000, 0, 2 * 36000, 5, 3 * 36000);",
+      "ExcelVBA": "Dim oChart As ChartObject\nSet oChart = oWorksheet.ChartObjects.Add(Left:=100, Top:=70, Width:=200, Height:=150)\noChart.Chart.SetSourceData Source:=oWorksheet.Range(\"A1:D3\")\noChart.Chart.ChartType = xl3DBarClustered"
+    },
+    {
+      "OnlyOfficeJS": "oChart.SetTitle(\"Financial Overview\", 13);",
+      "ExcelVBA": "oChart.Chart.HasTitle = True\nioChart.Chart.ChartTitle.Text = \"Financial Overview\"\noChart.Chart.ChartTitle.Font.Size = 13"
+    },
+    {
+      "OnlyOfficeJS": "var oFill = Api.CreateSolidFill(Api.CreateRGBColor(51, 51, 51));",
+      "ExcelVBA": "Dim oFill As Fill\nSet oFill = oChart.Chart.SeriesCollection(1).Format.Fill\noFill.ForeColor.RGB = RGB(51, 51, 51)"
+    },
+    {
+      "OnlyOfficeJS": "oChart.SetSeriesFill(oFill, 0, false);",
+      "ExcelVBA": "oChart.Chart.SeriesCollection(1).Format.Fill = oFill"
+    },
+    {
+      "OnlyOfficeJS": "oFill = Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61));",
+      "ExcelVBA": "Set oFill = oChart.Chart.SeriesCollection(2).Format.Fill\noFill.ForeColor.RGB = RGB(255, 111, 61)"
+    },
+    {
+      "OnlyOfficeJS": "oChart.SetSeriesFill(oFill, 1, false);",
+      "ExcelVBA": "oChart.Chart.SeriesCollection(2).Format.Fill = oFill"
+    },
+    {
+      "OnlyOfficeJS": "var oStroke = Api.CreateStroke(1 * 5000, Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61)));",
+      "ExcelVBA": "With oChart.Chart.Axes(xlValue).MinorGridlines.Format.Line\n    .Weight = 1\n    .ForeColor.RGB = RGB(255, 111, 61)\n    .Visible = msoTrue\nEnd With"
+    },
+    {
+      "OnlyOfficeJS": "oChart.SetMinorVerticalGridlines(oStroke);",
+      "ExcelVBA": "oChart.Chart.Axes(xlValue).HasMinorGridlines = True"
+    }
+  ]
+}
+```

@@ -1,0 +1,27 @@
+```json
+{
+  "description": "This code sets the value of cell A1 to '1', attaches an event handler for worksheet changes, and then detaches the event handler.",
+  "methods": [
+    {
+      "OnlyOffice_JS": "var oWorksheet = Api.GetActiveSheet();",
+      "Excel_VBA": "Set oWorksheet = ThisWorkbook.ActiveSheet"
+    },
+    {
+      "OnlyOffice_JS": "var oRange = oWorksheet.GetRange(\"A1\");",
+      "Excel_VBA": "Set oRange = oWorksheet.Range(\"A1\")"
+    },
+    {
+      "OnlyOffice_JS": "oRange.SetValue(\"1\");",
+      "Excel_VBA": "oRange.Value = \"1\""
+    },
+    {
+      "OnlyOffice_JS": "Api.attachEvent(\"onWorksheetChange\", function(oRange){\n    console.log(\"onWorksheetChange\");\n    console.log(oRange.GetAddress());\n});",
+      "Excel_VBA": "Private Sub Workbook_SheetChange(ByVal Sh As Object, ByVal Target As Range)\n    Debug.Print \"onWorksheetChange\"\n    Debug.Print Target.Address\nEnd Sub"
+    },
+    {
+      "OnlyOffice_JS": "Api.detachEvent(\"onWorksheetChange\");",
+      "Excel_VBA": "' To detach, you would remove or comment out the Workbook_SheetChange event handler."
+    }
+  ]
+}
+```

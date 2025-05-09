@@ -1,0 +1,54 @@
+```json
+{
+  "table": {
+    "headers": ["Description", "OnlyOffice JS", "Excel VBA"],
+    "rows": [
+      {
+        "Description": "Get the active worksheet",
+        "OnlyOffice JS": "var oWorksheet = Api.GetActiveSheet();",
+        "Excel VBA": "Set oWorksheet = ActiveSheet"
+      },
+      {
+        "Description": "Set value '1' to cell A1",
+        "OnlyOffice JS": "oWorksheet.GetRange(\"A1\").SetValue(\"1\");",
+        "Excel VBA": "oWorksheet.Range(\"A1\").Value = \"1\""
+      },
+      {
+        "Description": "Get range A1",
+        "OnlyOffice JS": "var oRange = oWorksheet.GetRange(\"A1\");",
+        "Excel VBA": "Set oRange = oWorksheet.Range(\"A1\")"
+      },
+      {
+        "Description": "Add comment to the range",
+        "OnlyOffice JS": "var oComment = oRange.AddComment(\"This is just a number.\");",
+        "Excel VBA": "Set oComment = oRange.AddComment(\"This is just a number.\")"
+      },
+      {
+        "Description": "Add reply to the comment",
+        "OnlyOffice JS": "oComment.AddReply(\"Reply 1\", \"John Smith\", \"uid-1\");",
+        "Excel VBA": "oComment.Replies.Add \"Reply 1\", \"John Smith\", \"uid-1\""
+      },
+      {
+        "Description": "Get the reply",
+        "OnlyOffice JS": "var oReply = oComment.GetReply();",
+        "Excel VBA": "Set oReply = oComment.Replies(1)"
+      },
+      {
+        "Description": "Set the reply timestamp",
+        "OnlyOffice JS": "oReply.SetTime(Date.now());",
+        "Excel VBA": "oReply.Time = Now"
+      },
+      {
+        "Description": "Set value 'Comment's reply timestamp: ' to cell A3",
+        "OnlyOffice JS": "oWorksheet.GetRange(\"A3\").SetValue(\"Comment's reply timestamp: \");",
+        "Excel VBA": "oWorksheet.Range(\"A3\").Value = \"Comment's reply timestamp: \""
+      },
+      {
+        "Description": "Set the reply timestamp value to cell B3",
+        "OnlyOffice JS": "oWorksheet.GetRange(\"B3\").SetValue(oReply.GetTime());",
+        "Excel VBA": "oWorksheet.Range(\"B3\").Value = oReply.Time"
+      }
+    ]
+  }
+}
+```

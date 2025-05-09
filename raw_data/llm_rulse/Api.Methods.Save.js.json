@@ -1,0 +1,22 @@
+```json
+{
+  "Description": "This example saves changes to the specified document.",
+  "Methods": [
+    {
+      "Description": "Get the active worksheet",
+      "OnlyOffice_JS": "var oWorksheet = Api.GetActiveSheet();",
+      "VBA": "Set oWorksheet = ActiveSheet"
+    },
+    {
+      "Description": "Set value to cell A1",
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"A1\").SetValue(\"This sample text is saved to the worksheet.\");",
+      "VBA": "oWorksheet.Range(\"A1\").Value = \"This sample text is saved to the worksheet.\""
+    },
+    {
+      "Description": "Save the document",
+      "OnlyOffice_JS": "Api.Save();",
+      "VBA": "ThisWorkbook.Save"
+    }
+  ]
+}
+```

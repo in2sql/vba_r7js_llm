@@ -1,0 +1,7 @@
+```json
+{
+  "Description": "Creates a shape with a specific fill color and no stroke, then adds formatted bold text with font size 30 to the shape.",
+  "OnlyOfficeJS": "// This example creates the empty text properties.\nvar oWorksheet = Api.GetActiveSheet();\nvar oFill = Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61));\nvar oStroke = Api.CreateStroke(0, Api.CreateNoFill());\nvar oShape = oWorksheet.AddShape(\"flowChartOnlineStorage\", 80 * 36000, 50 * 36000, oFill, oStroke, 0, 2 * 36000, 0, 3 * 36000);\nvar oDocContent = oShape.GetContent();\noDocContent.RemoveAllElements();\nvar oTextPr = Api.CreateTextPr();\noTextPr.SetFontSize(30);\noTextPr.SetBold(true);\nvar oParagraph = Api.CreateParagraph();\noParagraph.SetJc(\"left\");\noParagraph.AddText(\"This is a sample text with the font size set to 30 and the font weight set to bold.\");\noParagraph.SetTextPr(oTextPr);\noDocContent.Push(oParagraph);",
+  "ExcelVBA": "' Create a shape with specific fill color and no outline\nDim oShape As Shape\nSet oShape = ActiveSheet.Shapes.AddShape(msoShapeFlowchartOfflineStorage, 80, 50, 200, 150)\nWith oShape\n    .Fill.ForeColor.RGB = RGB(255, 111, 61)\n    .Line.Visible = msoFalse\n    ' Add and format text within the shape\n    With .TextFrame.Characters.Font\n        .Size = 30\n        .Bold = True\n    End With\n    .TextFrame.Characters.Text = \"This is a sample text with the font size set to 30 and the font weight set to bold.\"\n    .TextFrame.HorizontalAlignment = xlHAlignLeft\nEnd With"
+}
+```

@@ -1,0 +1,34 @@
+**Description:**
+This code creates a solid fill with a selected color and adds a flow chart shape to the active worksheet.
+
+```json
+{
+  "RAG_Table": [
+    {
+      "OnlyOffice_JS_Method": "Api.GetActiveSheet()",
+      "Excel_VBA_Equivalent": "Set oWorksheet = ActiveSheet",
+      "Status": "Green"
+    },
+    {
+      "OnlyOffice_JS_Method": "Api.CreateRGBColor(255, 111, 61)",
+      "Excel_VBA_Equivalent": "RGB(255, 111, 61)",
+      "Status": "Green"
+    },
+    {
+      "OnlyOffice_JS_Method": "Api.CreateSolidFill(oRGBColor)",
+      "Excel_VBA_Equivalent": "oFill.ForeColor.RGB = oRGBColor",
+      "Status": "Amber"
+    },
+    {
+      "OnlyOffice_JS_Method": "Api.CreateStroke(0, Api.CreateNoFill())",
+      "Excel_VBA_Equivalent": "With oShape.Line\n    .Visible = msoFalse\nEnd With",
+      "Status": "Red"
+    },
+    {
+      "OnlyOffice_JS_Method": "oWorksheet.AddShape(\"flowChartOnlineStorage\", 60 * 36000, 35 * 36000, oFill, oStroke, 0, 2 * 36000, 1, 3 * 36000)",
+      "Excel_VBA_Equivalent": "Set oShape = oWorksheet.Shapes.AddShape(msoShapeFlowchartStorage, Left, Top, Width, Height)\noShape.Fill.ForeColor.RGB = oRGBColor",
+      "Status": "Amber"
+    }
+  ]
+}
+```

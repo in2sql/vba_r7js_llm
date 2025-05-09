@@ -1,0 +1,84 @@
+**This code sets values in cells and creates a 3D bar chart with a customized title and series colors.**
+
+```json
+{
+  "RAGTable": [
+    {
+      "OnlyOffice JS": "Api.GetActiveSheet()",
+      "VBA": "Set oWorksheet = ActiveSheet"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"B1\").SetValue(2014)",
+      "VBA": "Range(\"B1\").Value = 2014"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"C1\").SetValue(2015)",
+      "VBA": "Range(\"C1\").Value = 2015"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"D1\").SetValue(2016)",
+      "VBA": "Range(\"D1\").Value = 2016"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"A2\").SetValue(\"Projected Revenue\")",
+      "VBA": "Range(\"A2\").Value = \"Projected Revenue\""
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"A3\").SetValue(\"Estimated Costs\")",
+      "VBA": "Range(\"A3\").Value = \"Estimated Costs\""
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"B2\").SetValue(200)",
+      "VBA": "Range(\"B2\").Value = 200"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"B3\").SetValue(250)",
+      "VBA": "Range(\"B3\").Value = 250"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"C2\").SetValue(240)",
+      "VBA": "Range(\"C2\").Value = 240"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"C3\").SetValue(260)",
+      "VBA": "Range(\"C3\").Value = 260"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"D2\").SetValue(280)",
+      "VBA": "Range(\"D2\").Value = 280"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"D3\").SetValue(280)",
+      "VBA": "Range(\"D3\").Value = 280"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.AddChart(\"'Sheet1'!$A$1:$D$3\", true, \"bar3D\", 2, 100 * 36000, 70 * 36000, 0, 2 * 36000, 7, 3 * 36000)",
+      "VBA": "Charts.Add\nSet oChart = ActiveChart\noChart.SetSourceData Source:=Range(\"A1:D3\")\noChart.ChartType = xlBar3D"
+    },
+    {
+      "OnlyOffice JS": "oChart.SetTitle(\"Financial Overview\", 13)",
+      "VBA": "With ActiveChart\n    .HasTitle = True\n    .ChartTitle.Text = \"Financial Overview\"\n    .ChartTitle.Font.Size = 13\nEnd With"
+    },
+    {
+      "OnlyOffice JS": "oChart.SetAxieNumFormat(\"0.00\", \"left\")",
+      "VBA": "ActiveChart.Axes(xlCategory).NumberFormat = \"0.00\""
+    },
+    {
+      "OnlyOffice JS": "Api.CreateSolidFill(Api.CreateRGBColor(51, 51, 51))",
+      "VBA": "RGBColor = RGB(51, 51, 51)"
+    },
+    {
+      "OnlyOffice JS": "oChart.SetSeriesFill(oFill, 0, false)",
+      "VBA": "ActiveChart.SeriesCollection(1).Format.Fill.ForeColor.RGB = RGB(51, 51, 51)"
+    },
+    {
+      "OnlyOffice JS": "Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61))",
+      "VBA": "RGBColor = RGB(255, 111, 61)"
+    },
+    {
+      "OnlyOffice JS": "oChart.SetSeriesFill(oFill, 1, false)",
+      "VBA": "ActiveChart.SeriesCollection(2).Format.Fill.ForeColor.RGB = RGB(255, 111, 61)"
+    }
+  ]
+}
+```

@@ -1,0 +1,27 @@
+```json
+{
+  "Description": "This example shows how to get an object that represents the active sheet and sets values in specific cells.",
+  "CodeEquivalents": [
+    {
+      "OnlyOffice JS": "var oWorksheet = Api.GetActiveSheet();",
+      "Excel VBA": "Set oWorksheet = ActiveSheet"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"B1\").SetValue(\"2\");",
+      "Excel VBA": "Range(\"B1\").Value = \"2\""
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"B2\").SetValue(\"2\");",
+      "Excel VBA": "Range(\"B2\").Value = \"2\""
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"A3\").SetValue(\"2x2=\");",
+      "Excel VBA": "Range(\"A3\").Value = \"2x2=\""
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"B3\").SetValue(\"=B1*B2\");",
+      "Excel VBA": "Range(\"B3\").Formula = \"=B1*B2\""
+    }
+  ]
+}
+```

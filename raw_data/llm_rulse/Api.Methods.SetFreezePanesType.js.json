@@ -1,0 +1,7 @@
+```json
+{
+  "Description": "This example freezes the first column and pastes the frozen range address into the table.",
+  "OnlyOffice_JS": "// This example freezes first column and get pastes a freezed range address into the table.\nApi.SetFreezePanesType('column');\nvar oWorksheet = Api.GetActiveSheet();\nvar oFreezePanes = oWorksheet.GetFreezePanes();\nvar oRange = oFreezePanes.GetLocation();\noWorksheet.GetRange(\"A1\").SetValue(\"Location: \");\noWorksheet.GetRange(\"B1\").SetValue(oRange.GetAddress());",
+  "Excel_VBA": "' This example freezes the first column and pastes the frozen range address into the table.\nSub FreezeFirstColumn()\n    ' Freeze first column\n    With ActiveWindow\n        .FreezePanes = False\n        .SplitColumn = 1\n        .FreezePanes = True\n    End With\n    \n    ' Get the address of the frozen panes\n    Dim freezeAddress As String\n    freezeAddress = \"B1\" ' Since freezing the first column affects column A\n    Range(\"A1\").Value = \"Location: \"\n    Range(\"B1\").Value = freezeAddress\nEnd Sub"
+}
+```

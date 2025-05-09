@@ -1,0 +1,67 @@
+```json
+{
+  "description": "This code sets the paragraph contents justification by creating a shape with specific fill and stroke, adding it to the active sheet, and aligning the text to center.",
+  "RAG_Table": [
+    {
+      "OnlyOfficeJS": "Api.GetActiveSheet();",
+      "VBA": "Set oWorksheet = ActiveSheet",
+      "RAG": "Green"
+    },
+    {
+      "OnlyOfficeJS": "Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61));",
+      "VBA": "Set oFill = oWorksheet.Shapes.Fill.ForeColor.RGB = RGB(255, 111, 61)",
+      "RAG": "Green"
+    },
+    {
+      "OnlyOfficeJS": "Api.CreateStroke(0, Api.CreateNoFill());",
+      "VBA": "Set oStroke = oWorksheet.Shapes.Line.Visible = msoFalse",
+      "RAG": "Green"
+    },
+    {
+      "OnlyOfficeJS": "oWorksheet.AddShape(\"flowChartOnlineStorage\", 120 * 36000, 70 * 36000, oFill, oStroke, 0, 2 * 36000, 0, 3 * 36000);",
+      "VBA": "Set oShape = oWorksheet.Shapes.AddShape(msoShapeFlowchartProcess, 120, 70, 200, 150)\nWith oShape\n    .Fill.ForeColor.RGB = RGB(255, 111, 61)\n    .Line.Visible = msoFalse\nEnd With",
+      "RAG": "Green"
+    },
+    {
+      "OnlyOfficeJS": "oShape.GetContent();",
+      "VBA": "Set oDocContent = oShape.TextFrame",
+      "RAG": "Green"
+    },
+    {
+      "OnlyOfficeJS": "oDocContent.GetElement(0);",
+      "VBA": "Set oParagraph = oDocContent.TextRange.Paragraphs(1)",
+      "RAG": "Green"
+    },
+    {
+      "OnlyOfficeJS": "oParagraph.GetParaPr();",
+      "VBA": "Set oParaPr = oParagraph.ParagraphFormat",
+      "RAG": "Green"
+    },
+    {
+      "OnlyOfficeJS": "oParaPr.SetJc(\"center\");",
+      "VBA": "oParaPr.Alignment = xlCenter",
+      "RAG": "Green"
+    },
+    {
+      "OnlyOfficeJS": "oParagraph.AddText(\"This is a paragraph with the text in it aligned by the center. \");",
+      "VBA": "oParagraph.Text = \"This is a paragraph with the text in it aligned by the center. \"",
+      "RAG": "Green"
+    },
+    {
+      "OnlyOfficeJS": "oParagraph.AddText(\"The justification is specified in the paragraph style. \");",
+      "VBA": "oParagraph.Text = oParagraph.Text & \"The justification is specified in the paragraph style. \"",
+      "RAG": "Green"
+    },
+    {
+      "OnlyOfficeJS": "oParagraph.AddText(\"These sentences are used to add lines for demonstrative purposes. \");",
+      "VBA": "oParagraph.Text = oParagraph.Text & \"These sentences are used to add lines for demonstrative purposes. \"",
+      "RAG": "Green"
+    },
+    {
+      "OnlyOfficeJS": "oParagraph.AddText(\"These sentences are used to add lines for demonstrative purposes.\");",
+      "VBA": "oParagraph.Text = oParagraph.Text & \"These sentences are used to add lines for demonstrative purposes.\"",
+      "RAG": "Green"
+    }
+  ]
+}
+```

@@ -1,0 +1,7 @@
+```json
+{
+  "Description": "This example sets the superscript property to the specified font.",
+  "OnlyOffice_JS": "// This example sets the superscript property to the specified font.\nvar oWorksheet = Api.GetActiveSheet();\nvar oRange = oWorksheet.GetRange(\"B1\");\noRange.SetValue(\"This is just a sample text.\");\nvar oCharacters = oRange.GetCharacters(9, 4);\nvar oFont = oCharacters.GetFont();\noFont.SetSuperscript(true);",
+  "Excel_VBA": "' This example sets the superscript property to the specified font.\nSub SetSuperscript()\n    Dim oWorksheet As Worksheet\n    Set oWorksheet = ThisWorkbook.ActiveSheet\n    Dim oRange As Range\n    Set oRange = oWorksheet.Range(\"B1\")\n    oRange.Value = \"This is just a sample text.\"\n    Dim oCharacters As Characters\n    Set oCharacters = oRange.Characters(Start:=9, Length:=4)\n    oCharacters.Font.Superscript = True\nEnd Sub"
+}
+```

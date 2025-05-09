@@ -1,0 +1,87 @@
+```json
+{
+  "Description": "This script populates cells with data, creates a combo bar-line chart, sets its title and series fill colors, retrieves all chart series, and logs their types.",
+  "Table": [
+    {
+      "OnlyOffice_JS": "var oWorksheet = Api.GetActiveSheet();",
+      "Excel_VBA": "Set oWorksheet = ActiveSheet"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"B1\").SetValue(2014);",
+      "Excel_VBA": "Range(\"B1\").Value = 2014"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"C1\").SetValue(2015);",
+      "Excel_VBA": "Range(\"C1\").Value = 2015"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"D1\").SetValue(2016);",
+      "Excel_VBA": "Range(\"D1\").Value = 2016"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"A2\").SetValue(\"Projected Revenue\");",
+      "Excel_VBA": "Range(\"A2\").Value = \"Projected Revenue\""
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"A3\").SetValue(\"Estimated Costs\");",
+      "Excel_VBA": "Range(\"A3\").Value = \"Estimated Costs\""
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"B2\").SetValue(200);",
+      "Excel_VBA": "Range(\"B2\").Value = 200"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"B3\").SetValue(250);",
+      "Excel_VBA": "Range(\"B3\").Value = 250"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"C2\").SetValue(240);",
+      "Excel_VBA": "Range(\"C2\").Value = 240"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"C3\").SetValue(260);",
+      "Excel_VBA": "Range(\"C3\").Value = 260"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"D2\").SetValue(280);",
+      "Excel_VBA": "Range(\"D2\").Value = 280"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"D3\").SetValue(280);",
+      "Excel_VBA": "Range(\"D3\").Value = 280"
+    },
+    {
+      "OnlyOffice_JS": "var oChart = oWorksheet.AddChart(\"'Sheet1'!$A$1:$D$3\", true, \"comboBarLine\", 2, 100 * 36000, 70 * 36000, 0, 2 * 36000, 5, 3 * 36000);",
+      "Excel_VBA": "Set oChart = oWorksheet.Shapes.AddChart2(-1, xlCombo, 100, 70, 200, 150).Chart\noChart.SetSourceData Source:=Range(\"'Sheet1'!$A$1:$D$3\")\noChart.ChartType = xlCombo"
+    },
+    {
+      "OnlyOffice_JS": "oChart.SetTitle(\"Financial Overview\", 13);",
+      "Excel_VBA": "With oChart\n  .HasTitle = True\n  .ChartTitle.Text = \"Financial Overview\"\n  .ChartTitle.Font.Size = 13\nEnd With"
+    },
+    {
+      "OnlyOffice_JS": "var oFill = Api.CreateSolidFill(Api.CreateRGBColor(51, 51, 51));",
+      "Excel_VBA": "Set oFill = oChart.SeriesCollection(1).Format.Fill\noFill.ForeColor.RGB = RGB(51, 51, 51)\noFill.Solid"
+    },
+    {
+      "OnlyOffice_JS": "oChart.SetSeriesFill(oFill, 0, false);",
+      "Excel_VBA": "With oChart.SeriesCollection(1).Format.Fill\n  .Visible = msoTrue\n  .ForeColor.RGB = RGB(51, 51, 51)\n  .Solid\nEnd With"
+    },
+    {
+      "OnlyOffice_JS": "oFill = Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61));",
+      "Excel_VBA": "Set oFill = oChart.SeriesCollection(2).Format.Fill\noFill.ForeColor.RGB = RGB(255, 111, 61)\noFill.Solid"
+    },
+    {
+      "OnlyOffice_JS": "oChart.SetSeriesFill(oFill, 1, false);",
+      "Excel_VBA": "With oChart.SeriesCollection(2).Format.Fill\n  .Visible = msoTrue\n  .ForeColor.RGB = RGB(255, 111, 61)\n  .Solid\nEnd With"
+    },
+    {
+      "OnlyOffice_JS": "var aAllSeries = oChart.GetAllSeries();",
+      "Excel_VBA": "Set aAllSeries = oChart.SeriesCollection"
+    },
+    {
+      "OnlyOffice_JS": "for(var nSeries = 0; nSeries < aAllSeries.length; ++nSeries) {\n oSeries = aAllSeries[nSeries];\n sSeriesType = oSeries.GetChartType();\n oWorksheet.GetRange(\"F\" + (nSeries + 1)).SetValue((nSeries + 1) + \" Series Type = \" + sSeriesType);\n}",
+      "Excel_VBA": "Dim nSeries As Integer\nDim sSeriesType As String\nFor nSeries = 1 To aAllSeries.Count\n  sSeriesType = aAllSeries(nSeries).ChartType\n  oWorksheet.Range(\"F\" & nSeries).Value = nSeries & \" Series Type = \" & sSeriesType\nNext nSeries"
+    }
+  ]
+}
+```

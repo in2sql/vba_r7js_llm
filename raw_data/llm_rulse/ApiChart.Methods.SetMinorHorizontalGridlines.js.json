@@ -1,0 +1,91 @@
+```json
+{
+  "table": [
+    {
+      "Description": "Get active worksheet",
+      "OnlyOffice_JS": "var oWorksheet = Api.GetActiveSheet();",
+      "VBA": "Set oWorksheet = ThisWorkbook.ActiveSheet"
+    },
+    {
+      "Description": "Set value of cell B1",
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"B1\").SetValue(2014);",
+      "VBA": "oWorksheet.Range(\"B1\").Value = 2014"
+    },
+    {
+      "Description": "Set value of cell C1",
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"C1\").SetValue(2015);",
+      "VBA": "oWorksheet.Range(\"C1\").Value = 2015"
+    },
+    {
+      "Description": "Set value of cell D1",
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"D1\").SetValue(2016);",
+      "VBA": "oWorksheet.Range(\"D1\").Value = 2016"
+    },
+    {
+      "Description": "Set value of cell A2",
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"A2\").SetValue(\"Projected Revenue\");",
+      "VBA": "oWorksheet.Range(\"A2\").Value = \"Projected Revenue\""
+    },
+    {
+      "Description": "Set value of cell A3",
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"A3\").SetValue(\"Estimated Costs\");",
+      "VBA": "oWorksheet.Range(\"A3\").Value = \"Estimated Costs\""
+    },
+    {
+      "Description": "Set value of cell B2",
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"B2\").SetValue(200);",
+      "VBA": "oWorksheet.Range(\"B2\").Value = 200"
+    },
+    {
+      "Description": "Set value of cell B3",
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"B3\").SetValue(250);",
+      "VBA": "oWorksheet.Range(\"B3\").Value = 250"
+    },
+    {
+      "Description": "Set value of cell C2",
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"C2\").SetValue(240);",
+      "VBA": "oWorksheet.Range(\"C2\").Value = 240"
+    },
+    {
+      "Description": "Set value of cell C3",
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"C3\").SetValue(260);",
+      "VBA": "oWorksheet.Range(\"C3\").Value = 260"
+    },
+    {
+      "Description": "Set value of cell D2",
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"D2\").SetValue(280);",
+      "VBA": "oWorksheet.Range(\"D2\").Value = 280"
+    },
+    {
+      "Description": "Set value of cell D3",
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"D3\").SetValue(280);",
+      "VBA": "oWorksheet.Range(\"D3\").Value = 280"
+    },
+    {
+      "Description": "Add a 3D bar chart",
+      "OnlyOffice_JS": "var oChart = oWorksheet.AddChart(\"'Sheet1'!$A$1:$D$3\", true, \"bar3D\", 2, 100 * 36000, 70 * 36000, 0, 2 * 36000, 5, 3 * 36000);",
+      "VBA": "Set oChart = oWorksheet.Shapes.AddChart2(251, xlBar3D, 200, 100, 300, 200).Chart\noChart.SetSourceData Source:=oWorksheet.Range(\"A1:D3\")"
+    },
+    {
+      "Description": "Set chart title",
+      "OnlyOffice_JS": "oChart.SetTitle(\"Financial Overview\", 13);",
+      "VBA": "oChart.HasTitle = True\noChart.ChartTitle.Text = \"Financial Overview\"\nWith oChart.ChartTitle.Format.TextFrame2.TextRange.Font\n    .Size = 13\nEnd With"
+    },
+    {
+      "Description": "Set fill color for series 0",
+      "OnlyOffice_JS": "var oFill = Api.CreateSolidFill(Api.CreateRGBColor(51, 51, 51));\noChart.SetSeriesFill(oFill, 0, false);",
+      "VBA": "oChart.SeriesCollection(1).Format.Fill.ForeColor.RGB = RGB(51, 51, 51)"
+    },
+    {
+      "Description": "Set fill color for series 1",
+      "OnlyOffice_JS": "oFill = Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61));\noChart.SetSeriesFill(oFill, 1, false);",
+      "VBA": "oChart.SeriesCollection(2).Format.Fill.ForeColor.RGB = RGB(255, 111, 61)"
+    },
+    {
+      "Description": "Set minor horizontal gridlines stroke",
+      "OnlyOffice_JS": "var oStroke = Api.CreateStroke(1 * 5000, Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61)));\noChart.SetMinorHorizontalGridlines(oStroke);",
+      "VBA": "With oChart.Axes(xlValue).MinorGridlines.Format.Line\n    .Visible = msoTrue\n    .Weight = 1\n    .ForeColor.RGB = RGB(255, 111, 61)\nEnd With"
+    }
+  ]
+}
+```

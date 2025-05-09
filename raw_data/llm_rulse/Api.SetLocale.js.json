@@ -1,0 +1,19 @@
+```json
+{
+  "description": "This example sets a locale to the document.",
+  "RAG_table": [
+    {
+      "OnlyOffice_JS": "var oWorksheet = Api.GetActiveSheet();",
+      "Excel_VBA": "Set oWorksheet = ThisWorkbook.ActiveSheet"
+    },
+    {
+      "OnlyOffice_JS": "Api.SetLocale(\"en-CA\");",
+      "Excel_VBA": "' Excel VBA does not have a direct equivalent to set the locale. Locale settings are typically managed through system settings."
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"A1\").SetValue(\"A sample spreadsheet with the language set to English (Canada).\");",
+      "Excel_VBA": "oWorksheet.Range(\"A1\").Value = \"A sample spreadsheet with the language set to English (Canada).\""
+    }
+  ]
+}
+```

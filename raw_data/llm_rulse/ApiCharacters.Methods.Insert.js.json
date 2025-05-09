@@ -1,0 +1,30 @@
+```json
+{
+  "description": "This example inserts a string replacing the specified characters.",
+  "table": {
+    "columns": ["VBA", "OnlyOffice JS"],
+    "rows": [
+      {
+        "VBA": "Set oWorksheet = ActiveSheet",
+        "OnlyOffice JS": "var oWorksheet = Api.GetActiveSheet();"
+      },
+      {
+        "VBA": "Set oRange = oWorksheet.Range(\"B1\")",
+        "OnlyOffice JS": "var oRange = oWorksheet.GetRange(\"B1\");"
+      },
+      {
+        "VBA": "oRange.Value = \"This is just a sample text.\"",
+        "OnlyOffice JS": "oRange.SetValue(\"This is just a sample text.\");"
+      },
+      {
+        "VBA": "Set oCharacters = oRange.Characters(23, 4)",
+        "OnlyOffice JS": "var oCharacters = oRange.GetCharacters(23, 4);"
+      },
+      {
+        "VBA": "oCharacters.Insert \"string\"",
+        "OnlyOffice JS": "oCharacters.Insert(\"string\");"
+      }
+    ]
+  }
+}
+```

@@ -1,0 +1,14 @@
+```json
+{
+  "description": "This example shows how to get the application ID from the OLE object.",
+  "table": {
+    "columns": ["VBA", "OnlyOfficeJS"],
+    "rows": [
+      {
+        "VBA": "Sub GetOLEApplicationID()\n    Dim oWorksheet As Worksheet\n    Dim oOleObject As OLEObject\n    Dim sAppId As String\n\n    Set oWorksheet = ActiveSheet\n    Set oOleObject = oWorksheet.OLEObjects.Add(Filename:=\"https://api.onlyoffice.com/content/img/docbuilder/examples/ole-object-image.png\", _\n                                               Link:=False, _\n                                               DisplayAsIcon:=False, _\n                                               Left:=130 * 36000, _\n                                               Top:=90 * 36000, _\n                                               Width:=2 * 36000, _\n                                               Height:=3 * 36000)\n\n    sAppId = oOleObject.Object.ApplicationID\n    oWorksheet.Range(\"A1\").Value = \"The OLE object application ID: \" & sAppId\nEnd Sub",
+        "OnlyOfficeJS": "// This example shows how to get the application ID from the OLE object.\nvar oWorksheet = Api.GetActiveSheet();\nvar oOleObject = oWorksheet.AddOleObject(\"https://api.onlyoffice.com/content/img/docbuilder/examples/ole-object-image.png\", 130 * 36000, 90 * 36000, \"https://youtu.be/SKGz4pmnpgY\", \"asc.{38E022EA-AD92-45FC-B22B-49DF39746DB4}\", 0, 2 * 36000, 4, 3 * 36000);\nvar sAppId = oOleObject.GetApplicationId();\noWorksheet.GetRange(\"A1\").SetValue(\"The OLE object application ID: \" + sAppId);"
+      }
+    ]
+  }
+}
+```

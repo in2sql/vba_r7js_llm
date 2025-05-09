@@ -1,0 +1,57 @@
+```json
+{
+  "Description": "This example shows how to get the next paragraph.",
+  "Methods": [
+    {
+      "Step": 1,
+      "VBA": "Set oWorksheet = ThisWorkbook.ActiveSheet",
+      "OnlyOfficeJS": "var oWorksheet = Api.GetActiveSheet();"
+    },
+    {
+      "Step": 2,
+      "VBA": "Set oFill = oWorksheet.Shapes.Fill.ForeColor.RGB = RGB(255, 111, 61)",
+      "OnlyOfficeJS": "var oFill = Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61));"
+    },
+    {
+      "Step": 3,
+      "VBA": "With oShape.Line\n    .Weight = 0\n    .Visible = msoFalse\nEnd With",
+      "OnlyOfficeJS": "var oStroke = Api.CreateStroke(0, Api.CreateNoFill());"
+    },
+    {
+      "Step": 4,
+      "VBA": "Set oShape = oWorksheet.Shapes.AddShape(msoShapeFlowChartOnlineStorage, 60 * 36000, 35 * 36000, 2 * 36000, 3 * 36000)",
+      "OnlyOfficeJS": "var oShape = oWorksheet.AddShape(\"flowChartOnlineStorage\", 60 * 36000, 35 * 36000, oFill, oStroke, 0, 2 * 36000, 0, 3 * 36000);"
+    },
+    {
+      "Step": 5,
+      "VBA": "Set oDocContent = oShape.TextFrame.TextRange",
+      "OnlyOfficeJS": "var oDocContent = oShape.GetContent();"
+    },
+    {
+      "Step": 6,
+      "VBA": "oDocContent.Text = \"\"",
+      "OnlyOfficeJS": "oDocContent.RemoveAllElements();"
+    },
+    {
+      "Step": 7,
+      "VBA": "oDocContent.Text = \"This is the first paragraph.\"",
+      "OnlyOfficeJS": "var oParagraph1 = Api.CreateParagraph();\noParagraph1.AddText(\"This is the first paragraph.\");\noDocContent.Push(oParagraph1);"
+    },
+    {
+      "Step": 8,
+      "VBA": "oDocContent.Text = oDocContent.Text & vbCrLf & \"This is the second paragraph.\"",
+      "OnlyOfficeJS": "var oParagraph2 = Api.CreateParagraph();\noParagraph2.AddText(\"This is the second paragraph.\");\noDocContent.Push(oParagraph2);"
+    },
+    {
+      "Step": 9,
+      "VBA": "Set oNextParagraph = oDocContent.Paragraphs(2)",
+      "OnlyOfficeJS": "var oNextParagraph = oParagraph1.GetNext();"
+    },
+    {
+      "Step": 10,
+      "VBA": "oNextParagraph.Font.Bold = True",
+      "OnlyOfficeJS": "oNextParagraph.SetBold(true);"
+    }
+  ]
+}
+```

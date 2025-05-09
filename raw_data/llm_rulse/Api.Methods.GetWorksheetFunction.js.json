@@ -1,0 +1,21 @@
+```json
+{
+  "Table": [
+    {
+      "Description": "Get the active worksheet",
+      "VBA": "Set oWorksheet = ActiveSheet",
+      "OnlyOfficeJS": "var oWorksheet = Api.GetActiveSheet();"
+    },
+    {
+      "Description": "Get worksheet functions",
+      "VBA": "Set oFunction = Application.WorksheetFunction",
+      "OnlyOfficeJS": "var oFunction = Api.GetWorksheetFunction();"
+    },
+    {
+      "Description": "Set value of cell A1 using ASC function",
+      "VBA": "Range(\"A1\").Value = Asc(\"text\")",
+      "OnlyOfficeJS": "oWorksheet.GetRange(\"A1\").SetValue(oFunction.ASC(\"text\"));"
+    }
+  ]
+}
+```

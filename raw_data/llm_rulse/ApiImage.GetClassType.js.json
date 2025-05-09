@@ -1,0 +1,9 @@
+```json
+{
+  "Table": {
+    "Description": "This example gets a class type and inserts it into the document.",
+    "OnlyOffice_JS": "// This example gets a class type and inserts it into the document.\nvar oWorksheet = Api.GetActiveSheet();\nvar oImage = oWorksheet.AddImage(\"https://api.onlyoffice.com/content/img/docbuilder/examples/coordinate_aspects.png\", 60 * 36000, 35 * 36000, 0, 2 * 36000, 2, 3 * 36000);\nvar sClassType = oImage.GetClassType();\noWorksheet.SetColumnWidth(0, 15);\noWorksheet.SetColumnWidth(1, 10);\noWorksheet.GetRange(\"A1\").SetValue(\"Class Type = \");\noWorksheet.GetRange(\"B1\").SetValue(sClassType);",
+    "Excel_VBA": "' This example gets a class type and inserts it into the document.\nSub InsertClassType()\n    Dim oWorksheet As Worksheet\n    Set oWorksheet = ActiveSheet\n    \n    ' AddImage equivalent: Download the image first or use a local path.\n    ' Assuming the image is saved locally at "C:\\Images\\coordinate_aspects.png"\n    Dim oImage As Shape\n    Set oImage = oWorksheet.Shapes.AddPicture(\"C:\\Images\\coordinate_aspects.png\", _\n        msoFalse, msoCTrue, 60, 35, 200, 150) ' Adjust the position and size as needed\n    \n    ' VBA does not have GetClassType, using the name as an example\n    Dim sClassType As String\n    sClassType = oImage.Name\n    \n    ' Set column widths\n    oWorksheet.Columns(1).ColumnWidth = 15\n    oWorksheet.Columns(2).ColumnWidth = 10\n    \n    ' Set cell values\n    oWorksheet.Range(\"A1\").Value = \"Class Type = \"\n    oWorksheet.Range(\"B1\").Value = sClassType\nEnd Sub"
+  }
+}
+```

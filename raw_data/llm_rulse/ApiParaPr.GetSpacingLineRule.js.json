@@ -1,0 +1,82 @@
+```json
+{
+  "Description": "This example demonstrates how to replicate OnlyOffice API methods using Excel VBA.",
+  "Steps": [
+    {
+      "Description": "Get the active worksheet.",
+      "OnlyOffice JS": "var oWorksheet = Api.GetActiveSheet();",
+      "Excel VBA": "Set oWorksheet = ActiveSheet"
+    },
+    {
+      "Description": "Create a solid fill with RGB color (255, 111, 61).",
+      "OnlyOffice JS": "var oFill = Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61));",
+      "Excel VBA": "Set oFill = oWorksheet.Shapes.Fill.ForeColor.RGB = RGB(255, 111, 61)"
+    },
+    {
+      "Description": "Create a stroke with specific parameters.",
+      "OnlyOffice JS": "var oStroke = Api.CreateStroke(0, Api.CreateNoFill());",
+      "Excel VBA": "With oWorksheet.Shapes.Stroke\n    .Weight = 0\n    .Visible = msoFalse\nEnd With"
+    },
+    {
+      "Description": "Add a shape to the worksheet with specified properties.",
+      "OnlyOffice JS": "var oShape = oWorksheet.AddShape(\"flowChartOnlineStorage\", 120 * 36000, 70 * 36000, oFill, oStroke, 0, 2 * 36000, 0, 3 * 36000);",
+      "Excel VBA": "Set oShape = oWorksheet.Shapes.AddShape(msoShapeFlowchartOnlineStorage, 120, 70, 200, 150)\nWith oShape\n    .Fill.ForeColor.RGB = RGB(255, 111, 61)\n    .Line.Visible = msoFalse\nEnd With"
+    },
+    {
+      "Description": "Get the content of the shape.",
+      "OnlyOffice JS": "var oDocContent = oShape.GetContent();",
+      "Excel VBA": "' Excel VBA does not have a direct equivalent; content management differs."
+    },
+    {
+      "Description": "Get the first paragraph element.",
+      "OnlyOffice JS": "var oParagraph = oDocContent.GetElement(0);",
+      "Excel VBA": "' Excel VBA does not have a direct equivalent for paragraph elements within shapes."
+    },
+    {
+      "Description": "Get paragraph properties.",
+      "OnlyOffice JS": "var oParaPr = oParagraph.GetParaPr();",
+      "Excel VBA": "' Excel VBA uses different objects for paragraph properties, typically accessed via TextFrame."
+    },
+    {
+      "Description": "Set line spacing to 3 times the common paragraph line spacing.",
+      "OnlyOffice JS": "oParaPr.SetSpacingLine(3 * 240, \"auto\");",
+      "Excel VBA": "With oShape.TextFrame2.TextRange.ParagraphFormat\n    .LineSpacingRule = msoLineSpaceMultiple\n    .LineSpacing = 3 * 240\nEnd With"
+    },
+    {
+      "Description": "Add text to the paragraph.",
+      "OnlyOffice JS": "oParagraph.AddText(\"Paragraph 1. Spacing: 3 times of a common paragraph line spacing.\");",
+      "Excel VBA": "oShape.TextFrame2.TextRange.Text = \"Paragraph 1. Spacing: 3 times of a common paragraph line spacing.\""
+    },
+    {
+      "Description": "Add a line break.",
+      "OnlyOffice JS": "oParagraph.AddLineBreak();",
+      "Excel VBA": "oShape.TextFrame2.TextRange.InsertAfter vbCrLf"
+    },
+    {
+      "Description": "Add additional text for demonstration.",
+      "OnlyOffice JS": "oParagraph.AddText(\"These sentences are used to add lines for demonstrative purposes.\");",
+      "Excel VBA": "oShape.TextFrame2.TextRange.InsertAfter \"These sentences are used to add lines for demonstrative purposes.\""
+    },
+    {
+      "Description": "Get the spacing line rule.",
+      "OnlyOffice JS": "var sSpacingLineRule = oParaPr.GetSpacingLineRule();",
+      "Excel VBA": "' Excel VBA does not provide a direct method to get the line spacing rule as a string."
+    },
+    {
+      "Description": "Create a new paragraph.",
+      "OnlyOffice JS": "oParagraph = Api.CreateParagraph();",
+      "Excel VBA": "' Excel VBA manages paragraphs within TextRange objects differently."
+    },
+    {
+      "Description": "Add text displaying the spacing line rule.",
+      "OnlyOffice JS": "oParagraph.AddText(\"Spacing line rule : \" + sSpacingLineRule);",
+      "Excel VBA": "oShape.TextFrame2.TextRange.InsertAfter \"Spacing line rule : \" & LineSpacingRule"
+    },
+    {
+      "Description": "Push the new paragraph to the document content.",
+      "OnlyOffice JS": "oDocContent.Push(oParagraph);",
+      "Excel VBA": "' In Excel VBA, changes to TextRange are automatically reflected; no push method is needed."
+    }
+  ]
+}
+```

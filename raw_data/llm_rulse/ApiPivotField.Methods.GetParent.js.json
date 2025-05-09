@@ -1,0 +1,101 @@
+**This code initializes a worksheet, sets cell values, creates a pivot table, and configures its fields.**
+
+```json
+{
+  "Description": "This code initializes a worksheet, sets cell values, creates a pivot table, and configures its fields.",
+  "Mappings": [
+    {
+      "OnlyOffice JS": "var oWorksheet = Api.GetActiveSheet();",
+      "Excel VBA": "Set oWorksheet = ActiveSheet"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange('B1').SetValue('Region');",
+      "Excel VBA": "Range(\"B1\").Value = \"Region\""
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange('C1').SetValue('Style');",
+      "Excel VBA": "Range(\"C1\").Value = \"Style\""
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange('D1').SetValue('Price');",
+      "Excel VBA": "Range(\"D1\").Value = \"Price\""
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange('B2').SetValue('East');",
+      "Excel VBA": "Range(\"B2\").Value = \"East\""
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange('B3').SetValue('West');",
+      "Excel VBA": "Range(\"B3\").Value = \"West\""
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange('B4').SetValue('East');",
+      "Excel VBA": "Range(\"B4\").Value = \"East\""
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange('B5').SetValue('West');",
+      "Excel VBA": "Range(\"B5\").Value = \"West\""
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange('C2').SetValue('Fancy');",
+      "Excel VBA": "Range(\"C2\").Value = \"Fancy\""
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange('C3').SetValue('Fancy');",
+      "Excel VBA": "Range(\"C3\").Value = \"Fancy\""
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange('C4').SetValue('Tee');",
+      "Excel VBA": "Range(\"C4\").Value = \"Tee\""
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange('C5').SetValue('Tee');",
+      "Excel VBA": "Range(\"C5\").Value = \"Tee\""
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange('D2').SetValue(42.5);",
+      "Excel VBA": "Range(\"D2\").Value = 42.5"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange('D3').SetValue(35.2);",
+      "Excel VBA": "Range(\"D3\").Value = 35.2"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange('D4').SetValue(12.3);",
+      "Excel VBA": "Range(\"D4\").Value = 12.3"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange('D5').SetValue(24.8);",
+      "Excel VBA": "Range(\"D5\").Value = 24.8"
+    },
+    {
+      "OnlyOffice JS": "var dataRef = Api.GetRange(\"'Sheet1'!$B$1:$D$5\");",
+      "Excel VBA": "Set dataRef = Worksheets(\"Sheet1\").Range(\"B1:D5\")"
+    },
+    {
+      "OnlyOffice JS": "var pivotTable = Api.InsertPivotNewWorksheet(dataRef);",
+      "Excel VBA": "Set pivotTable = ActiveWorkbook.PivotCaches.Create(SourceType:=xlDatabase, SourceData:=dataRef).CreatePivotTable(TableDestination:=Sheets.Add().Range(\"A1\"), TableName:=\"PivotTable1\")"
+    },
+    {
+      "OnlyOffice JS": "pivotTable.AddFields({ rows: ['Region', 'Style'], });",
+      "Excel VBA": "With pivotTable\n    .PivotFields(\"Region\").Orientation = xlRowField\n    .PivotFields(\"Style\").Orientation = xlRowField\nEnd With"
+    },
+    {
+      "OnlyOffice JS": "pivotTable.AddDataField('Price');",
+      "Excel VBA": "With pivotTable\n    .AddDataField .PivotFields(\"Price\"), \"Sum of Price\", xlSum\nEnd With"
+    },
+    {
+      "OnlyOffice JS": "var pivotWorksheet = Api.GetActiveSheet();",
+      "Excel VBA": "Set pivotWorksheet = ActiveSheet"
+    },
+    {
+      "OnlyOffice JS": "var pivotField = pivotTable.GetPivotFields('Style');",
+      "Excel VBA": "Set pivotField = pivotTable.PivotFields(\"Style\")"
+    },
+    {
+      "OnlyOffice JS": "pivotField.GetParent().AddDataField('Region');",
+      "Excel VBA": "With pivotTable\n    .AddDataField .PivotFields(\"Region\"), \"Count of Region\", xlCount\nEnd With"
+    }
+  ]
+}
+```

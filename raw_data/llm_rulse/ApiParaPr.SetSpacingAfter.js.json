@@ -1,0 +1,63 @@
+```json
+{
+  "description": "This example sets the spacing after the current paragraph.",
+  "code": [
+    {
+      "OnlyOffice JS": "var oWorksheet = Api.GetActiveSheet();",
+      "Excel VBA": "Set oWorksheet = Api.GetActiveSheet()"
+    },
+    {
+      "OnlyOffice JS": "var oFill = Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61));",
+      "Excel VBA": "Set oFill = Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61))"
+    },
+    {
+      "OnlyOffice JS": "var oStroke = Api.CreateStroke(0, Api.CreateNoFill());",
+      "Excel VBA": "Set oStroke = Api.CreateStroke(0, Api.CreateNoFill())"
+    },
+    {
+      "OnlyOffice JS": "var oShape = oWorksheet.AddShape(\"flowChartOnlineStorage\", 120 * 36000, 70 * 36000, oFill, oStroke, 0, 2 * 36000, 0, 3 * 36000);",
+      "Excel VBA": "Set oShape = oWorksheet.AddShape(\"flowChartOnlineStorage\", 120 * 36000, 70 * 36000, oFill, oStroke, 0, 2 * 36000, 0, 3 * 36000)"
+    },
+    {
+      "OnlyOffice JS": "var oDocContent = oShape.GetContent();",
+      "Excel VBA": "Set oDocContent = oShape.GetContent()"
+    },
+    {
+      "OnlyOffice JS": "var oParagraph = oDocContent.GetElement(0);",
+      "Excel VBA": "Set oParagraph = oDocContent.GetElement(0)"
+    },
+    {
+      "OnlyOffice JS": "var oParaPr = oParagraph.GetParaPr();",
+      "Excel VBA": "Set oParaPr = oParagraph.GetParaPr()"
+    },
+    {
+      "OnlyOffice JS": "oParaPr.SetSpacingAfter(1440);",
+      "Excel VBA": "oParaPr.SetSpacingAfter 1440"
+    },
+    {
+      "OnlyOffice JS": "oParagraph.AddText(\"This is an example of setting a space after a paragraph. \");",
+      "Excel VBA": "oParagraph.AddText \"This is an example of setting a space after a paragraph. \""
+    },
+    {
+      "OnlyOffice JS": "oParagraph.AddText(\"The second paragraph will have an offset of one inch from the top. \");",
+      "Excel VBA": "oParagraph.AddText \"The second paragraph will have an offset of one inch from the top. \""
+    },
+    {
+      "OnlyOffice JS": "oParagraph.AddText(\"This is due to the fact that the first paragraph has this offset enabled.\");",
+      "Excel VBA": "oParagraph.AddText \"This is due to the fact that the first paragraph has this offset enabled.\""
+    },
+    {
+      "OnlyOffice JS": "oParagraph = Api.CreateParagraph();",
+      "Excel VBA": "Set oParagraph = Api.CreateParagraph()"
+    },
+    {
+      "OnlyOffice JS": "oParagraph.AddText(\"This is the second paragraph and it is one inch away from the first paragraph.\");",
+      "Excel VBA": "oParagraph.AddText \"This is the second paragraph and it is one inch away from the first paragraph.\""
+    },
+    {
+      "OnlyOffice JS": "oDocContent.Push(oParagraph);",
+      "Excel VBA": "oDocContent.Push oParagraph"
+    }
+  ]
+}
+```

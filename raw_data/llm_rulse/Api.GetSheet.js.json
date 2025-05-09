@@ -1,0 +1,9 @@
+```json
+{
+  "Description": "This code retrieves the 'Sheet1' worksheet, selects cell A1, and sets its value to a specified text.",
+  "Code": {
+    "OnlyOffice JS": "// This example shows how to get an object that represents a sheet.\nvar oWorksheet = Api.GetSheet(\"Sheet1\");\noWorksheet.GetRange(\"A1\").SetValue(\"This is a sample text on 'Sheet1'.\");",
+    "VBA": "Sub SetCellValue()\n    Dim ws As Worksheet\n    Set ws = ThisWorkbook.Sheets(\"Sheet1\")\n    ws.Range(\"A1\").Value = \"This is a sample text on 'Sheet1'.\"\nEnd Sub"
+  }
+}
+```

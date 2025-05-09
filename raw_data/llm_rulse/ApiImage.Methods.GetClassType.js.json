@@ -1,0 +1,35 @@
+```json
+{
+  "description": "This example retrieves the active worksheet, inserts an image, obtains the image's class type, sets column widths, and assigns values to specific cells.",
+  "code": [
+    {
+      "OnlyOffice_JS": "var oWorksheet = Api.GetActiveSheet();",
+      "Excel_VBA": "Dim oWorksheet As Worksheet\nSet oWorksheet = ThisWorkbook.ActiveSheet"
+    },
+    {
+      "OnlyOffice_JS": "var oImage = oWorksheet.AddImage(\"https://api.onlyoffice.com/content/img/docbuilder/examples/coordinate_aspects.png\", 60 * 36000, 35 * 36000, 0, 2 * 36000, 2, 3 * 36000);",
+      "Excel_VBA": "Dim oImage As Shape\nSet oImage = oWorksheet.Shapes.AddPicture(\"https://api.onlyoffice.com/content/img/docbuilder/examples/coordinate_aspects.png\", msoFalse, msoCTrue, 60 * 36000, 35 * 36000, 2 * 36000, 3 * 36000)"
+    },
+    {
+      "OnlyOffice_JS": "var sClassType = oImage.GetClassType();",
+      "Excel_VBA": "Dim sClassType As String\nsClassType = oImage.Name ' Adjust based on actual property equivalent to GetClassType"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.SetColumnWidth(0, 15);",
+      "Excel_VBA": "oWorksheet.Columns(1).ColumnWidth = 15"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.SetColumnWidth(1, 10);",
+      "Excel_VBA": "oWorksheet.Columns(2).ColumnWidth = 10"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"A1\").SetValue(\"Class Type = \");",
+      "Excel_VBA": "oWorksheet.Range(\"A1\").Value = \"Class Type = \""
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"B1\").SetValue(sClassType);",
+      "Excel_VBA": "oWorksheet.Range(\"B1\").Value = sClassType"
+    }
+  ]
+}
+```

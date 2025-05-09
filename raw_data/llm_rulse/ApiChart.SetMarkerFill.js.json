@@ -1,0 +1,108 @@
+```json
+[
+  {
+    "Set the active worksheet": {
+      "OnlyOfficeJS": "var oWorksheet = Api.GetActiveSheet();",
+      "VBA": "Set oWorksheet = ActiveWorkbook.ActiveSheet"
+    }
+  },
+  {
+    "Set header values in cells B1, C1, D1": {
+      "OnlyOfficeJS": "oWorksheet.GetRange(\"B1\").SetValue(2014);\n" +
+                    "oWorksheet.GetRange(\"C1\").SetValue(2015);\n" +
+                    "oWorksheet.GetRange(\"D1\").SetValue(2016);",
+      "VBA": "oWorksheet.Range(\"B1\").Value = 2014\n" +
+             "oWorksheet.Range(\"C1\").Value = 2015\n" +
+             "oWorksheet.Range(\"D1\").Value = 2016"
+    }
+  },
+  {
+    "Set labels in cells A2 and A3": {
+      "OnlyOfficeJS": "oWorksheet.GetRange(\"A2\").SetValue(\"Projected Revenue\");\n" +
+                    "oWorksheet.GetRange(\"A3\").SetValue(\"Estimated Costs\");",
+      "VBA": "oWorksheet.Range(\"A2\").Value = \"Projected Revenue\"\n" +
+             "oWorksheet.Range(\"A3\").Value = \"Estimated Costs\""
+    }
+  },
+  {
+    "Set values in cells B2, B3, C2, C3, D2, D3": {
+      "OnlyOfficeJS": "oWorksheet.GetRange(\"B2\").SetValue(200);\n" +
+                    "oWorksheet.GetRange(\"B3\").SetValue(250);\n" +
+                    "oWorksheet.GetRange(\"C2\").SetValue(240);\n" +
+                    "oWorksheet.GetRange(\"C3\").SetValue(260);\n" +
+                    "oWorksheet.GetRange(\"D2\").SetValue(280);\n" +
+                    "oWorksheet.GetRange(\"D3\").SetValue(280);",
+      "VBA": "oWorksheet.Range(\"B2\").Value = 200\n" +
+             "oWorksheet.Range(\"B3\").Value = 250\n" +
+             "oWorksheet.Range(\"C2\").Value = 240\n" +
+             "oWorksheet.Range(\"C3\").Value = 260\n" +
+             "oWorksheet.Range(\"D2\").Value = 280\n" +
+             "oWorksheet.Range(\"D3\").Value = 280"
+    }
+  },
+  {
+    "Add a scatter chart to the worksheet": {
+      "OnlyOfficeJS": "var oChart = oWorksheet.AddChart(\"'Sheet1'!$A$1:$D$3\", true, \"scatter\", 2, 100 * 36000, 70 * 36000, 0, 2 * 36000, 7, 3 * 36000);",
+      "VBA": "Set oChart = oWorksheet.Shapes.AddChart2(-1, xlXYScatter).Chart\n" +
+             "' Set the data range\n" +
+             "oChart.SetSourceData Source:=oWorksheet.Range(\"A1:D3\")"
+    }
+  },
+  {
+    "Set the chart title": {
+      "OnlyOfficeJS": "oChart.SetTitle(\"Financial Overview\", 13);",
+      "VBA": "With oChart\n" +
+             "    .HasTitle = True\n" +
+             "    .ChartTitle.Text = \"Financial Overview\"\n" +
+             "    .ChartTitle.Font.Size = 13\n" +
+             "End With"
+    }
+  },
+  {
+    "Set marker fill for series 0, point 0": {
+      "OnlyOfficeJS": "var oFill = Api.CreateSolidFill(Api.CreateRGBColor(51, 51, 51));\n" +
+                    "oChart.SetMarkerFill(oFill, 0, 0, true);",
+      "VBA": "With oChart.SeriesCollection(1).Points(1).Format.Fill\n" +
+             "    .Visible = msoTrue\n" +
+             "    .ForeColor.RGB = RGB(51, 51, 51)\n" +
+             "    .Solid\n" +
+             "End With"
+    }
+  },
+  {
+    "Set marker outline for series 0, point 0": {
+      "OnlyOfficeJS": "var oStroke = Api.CreateStroke(0.5 * 36000, Api.CreateSolidFill(Api.CreateRGBColor(51, 51, 51)));\n" +
+                    "oChart.SetMarkerOutLine(oStroke, 0, 0, true);",
+      "VBA": "With oChart.SeriesCollection(1).Points(1).Format.Line\n" +
+             "    .Visible = msoTrue\n" +
+             "    .ForeColor.RGB = RGB(51, 51, 51)\n" +
+             "    .Weight = 0.5\n" +
+             "    .Solid\n" +
+             "End With"
+    }
+  },
+  {
+    "Set marker fill for series 1, point 0": {
+      "OnlyOfficeJS": "oFill = Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61));\n" +
+                    "oChart.SetMarkerFill(oFill, 1, 0, true);",
+      "VBA": "With oChart.SeriesCollection(2).Points(1).Format.Fill\n" +
+             "    .Visible = msoTrue\n" +
+             "    .ForeColor.RGB = RGB(255, 111, 61)\n" +
+             "    .Solid\n" +
+             "End With"
+    }
+  },
+  {
+    "Set marker outline for series 1, point 0": {
+      "OnlyOfficeJS": "oStroke = Api.CreateStroke(0.5 * 36000, Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61)));\n" +
+                    "oChart.SetMarkerOutLine(oStroke, 1, 0, true);",
+      "VBA": "With oChart.SeriesCollection(2).Points(1).Format.Line\n" +
+             "    .Visible = msoTrue\n" +
+             "    .ForeColor.RGB = RGB(255, 111, 61)\n" +
+             "    .Weight = 0.5\n" +
+             "    .Solid\n" +
+             "End With"
+    }
+  }
+]
+```

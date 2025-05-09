@@ -1,0 +1,19 @@
+```json
+{
+  "Description": "This example saves changes to the specified document by setting the value of cell A1 in the active worksheet and then saving the document.",
+  "CodeMappings": [
+    {
+      "OnlyOffice JS": "var oWorksheet = Api.GetActiveSheet();",
+      "Excel VBA": "Set oWorksheet = ThisWorkbook.ActiveSheet"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"A1\").SetValue(\"This sample text is saved to the worksheet.\");",
+      "Excel VBA": "oWorksheet.Range(\"A1\").Value = \"This sample text is saved to the worksheet.\""
+    },
+    {
+      "OnlyOffice JS": "Api.Save();",
+      "Excel VBA": "ThisWorkbook.Save"
+    }
+  ]
+}
+```

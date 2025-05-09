@@ -1,0 +1,7 @@
+```json
+{
+  "description": "This example shows how to get the user ID of the comment author.",
+  "OnlyOfficeJS": "// This example shows how to get the user ID of the comment author.\nvar oWorksheet = Api.GetActiveSheet();\noWorksheet.GetRange(\"A1\").SetValue(\"1\");\nvar oRange = oWorksheet.GetRange(\"A1\");\nvar oComment = oRange.AddComment(\"This is just a number.\");\noWorksheet.GetRange(\"A3\").SetValue(\"Comment's user Id: \");\noWorksheet.GetRange(\"B3\").SetValue(oComment.GetUserId());",
+  "ExcelVBA": "Sub GetCommentAuthorUserID()\n    Dim oWorksheet As Worksheet\n    Set oWorksheet = ActiveSheet\n    oWorksheet.Range(\"A1\").Value = \"1\"\n    Dim oRange As Range\n    Set oRange = oWorksheet.Range(\"A1\")\n    oRange.AddComment \"This is just a number.\"\n    oWorksheet.Range(\"A3\").Value = \"Comment's user Id: \"\n    oWorksheet.Range(\"B3\").Value = oRange.Comment.Author\nEnd Sub"
+}
+```

@@ -1,0 +1,124 @@
+```json
+[
+  {
+    "description": "Get the active worksheet",
+    "OnlyOffice JS": "var oWorksheet = Api.GetActiveSheet();",
+    "Excel VBA": "Set oWorksheet = ActiveWorkbook.ActiveSheet"
+  },
+  {
+    "description": "Set header 'Region' in cell B1",
+    "OnlyOffice JS": "oWorksheet.GetRange('B1').SetValue('Region');",
+    "Excel VBA": "oWorksheet.Range(\"B1\").Value = \"Region\""
+  },
+  {
+    "description": "Set header 'Style' in cell C1",
+    "OnlyOffice JS": "oWorksheet.GetRange('C1').SetValue('Style');",
+    "Excel VBA": "oWorksheet.Range(\"C1\").Value = \"Style\""
+  },
+  {
+    "description": "Set header 'Price' in cell D1",
+    "OnlyOffice JS": "oWorksheet.GetRange('D1').SetValue('Price');",
+    "Excel VBA": "oWorksheet.Range(\"D1\").Value = \"Price\""
+  },
+  {
+    "description": "Set 'East' in cell B2",
+    "OnlyOffice JS": "oWorksheet.GetRange('B2').SetValue('East');",
+    "Excel VBA": "oWorksheet.Range(\"B2\").Value = \"East\""
+  },
+  {
+    "description": "Set 'West' in cell B3",
+    "OnlyOffice JS": "oWorksheet.GetRange('B3').SetValue('West');",
+    "Excel VBA": "oWorksheet.Range(\"B3\").Value = \"West\""
+  },
+  {
+    "description": "Set 'East' in cell B4",
+    "OnlyOffice JS": "oWorksheet.GetRange('B4').SetValue('East');",
+    "Excel VBA": "oWorksheet.Range(\"B4\").Value = \"East\""
+  },
+  {
+    "description": "Set 'West' in cell B5",
+    "OnlyOffice JS": "oWorksheet.GetRange('B5').SetValue('West');",
+    "Excel VBA": "oWorksheet.Range(\"B5\").Value = \"West\""
+  },
+  {
+    "description": "Set 'Fancy' in cell C2",
+    "OnlyOffice JS": "oWorksheet.GetRange('C2').SetValue('Fancy');",
+    "Excel VBA": "oWorksheet.Range(\"C2\").Value = \"Fancy\""
+  },
+  {
+    "description": "Set 'Fancy' in cell C3",
+    "OnlyOffice JS": "oWorksheet.GetRange('C3').SetValue('Fancy');",
+    "Excel VBA": "oWorksheet.Range(\"C3\").Value = \"Fancy\""
+  },
+  {
+    "description": "Set 'Tee' in cell C4",
+    "OnlyOffice JS": "oWorksheet.GetRange('C4').SetValue('Tee');",
+    "Excel VBA": "oWorksheet.Range(\"C4\").Value = \"Tee\""
+  },
+  {
+    "description": "Set 'Tee' in cell C5",
+    "OnlyOffice JS": "oWorksheet.GetRange('C5').SetValue('Tee');",
+    "Excel VBA": "oWorksheet.Range(\"C5\").Value = \"Tee\""
+  },
+  {
+    "description": "Set price 42.5 in cell D2",
+    "OnlyOffice JS": "oWorksheet.GetRange('D2').SetValue(42.5);",
+    "Excel VBA": "oWorksheet.Range(\"D2\").Value = 42.5"
+  },
+  {
+    "description": "Set price 35.2 in cell D3",
+    "OnlyOffice JS": "oWorksheet.GetRange('D3').SetValue(35.2);",
+    "Excel VBA": "oWorksheet.Range(\"D3\").Value = 35.2"
+  },
+  {
+    "description": "Set price 12.3 in cell D4",
+    "OnlyOffice JS": "oWorksheet.GetRange('D4').SetValue(12.3);",
+    "Excel VBA": "oWorksheet.Range(\"D4\").Value = 12.3"
+  },
+  {
+    "description": "Set price 24.8 in cell D5",
+    "OnlyOffice JS": "oWorksheet.GetRange('D5').SetValue(24.8);",
+    "Excel VBA": "oWorksheet.Range(\"D5\").Value = 24.8"
+  },
+  {
+    "description": "Get data range B1:D5",
+    "OnlyOffice JS": "var dataRef = Api.GetRange(\"'Sheet1'!$B$1:$D$5\");",
+    "Excel VBA": "Set dataRef = ActiveSheet.Range(\"B1:D5\")"
+  },
+  {
+    "description": "Insert pivot table on new worksheet",
+    "OnlyOffice JS": "var pivotTable = Api.InsertPivotNewWorksheet(dataRef);",
+    "Excel VBA": "Set pivotWorksheet = Worksheets.Add\nSet pivotTable = pivotWorksheet.PivotTableWizard(SourceType:=xlDatabase, SourceData:=dataRef)"
+  },
+  {
+    "description": "Add fields to pivot table with 'Style' as page field and 'Region' as row field",
+    "OnlyOffice JS": "pivotTable.AddFields({\n\tpages: ['Style'],\n\trows: 'Region'\n});",
+    "Excel VBA": "With pivotTable\n\t.PivotFields(\"Style\").Orientation = xlPageField\n\t.PivotFields(\"Region\").Orientation = xlRowField\nEnd With"
+  },
+  {
+    "description": "Add 'Style' as data field in pivot table",
+    "OnlyOffice JS": "pivotTable.AddDataField('Style');",
+    "Excel VBA": "pivotTable.AddDataField pivotTable.PivotFields(\"Style\"), \"Count of Style\", xlCount"
+  },
+  {
+    "description": "Get the active sheet for the pivot table",
+    "OnlyOffice JS": "var pivotWorksheet = Api.GetActiveSheet();",
+    "Excel VBA": "Set pivotWorksheet = ActiveWorkbook.ActiveSheet"
+  },
+  {
+    "description": "Get pivot field 'Style'",
+    "OnlyOffice JS": "var pivotField = pivotTable.GetPivotFields('Style');",
+    "Excel VBA": "Set pivotField = pivotTable.PivotFields(\"Style\")"
+  },
+  {
+    "description": "Set 'Current Page' label in cell A13",
+    "OnlyOffice JS": "pivotWorksheet.GetRange('A13').SetValue('Current Page');",
+    "Excel VBA": "pivotWorksheet.Range(\"A13\").Value = \"Current Page\""
+  },
+  {
+    "description": "Set current page value in cell B13",
+    "OnlyOffice JS": "pivotWorksheet.GetRange('B13').SetValue(pivotField.GetCurrentPage());",
+    "Excel VBA": "pivotWorksheet.Range(\"B13\").Value = pivotField.CurrentPage"
+  }
+]
+```

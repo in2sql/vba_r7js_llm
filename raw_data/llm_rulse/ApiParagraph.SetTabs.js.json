@@ -1,0 +1,79 @@
+```json
+{
+  "Description": "This example sets a sequence of custom tab stops which will be used for any tab characters in the paragraph.",
+  "CodeMappings": [
+    {
+      "OnlyOffice JS": "var oWorksheet = Api.GetActiveSheet();",
+      "Excel VBA": "Set oWorksheet = ActiveWorkbook.ActiveSheet"
+    },
+    {
+      "OnlyOffice JS": "var oFill = Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61));",
+      "Excel VBA": "Set oFill = RGB(255, 111, 61)"
+    },
+    {
+      "OnlyOffice JS": "var oStroke = Api.CreateStroke(0, Api.CreateNoFill());",
+      "Excel VBA": "With oShape.Line\n    .Weight = 0\n    .Visible = msoFalse\nEnd With"
+    },
+    {
+      "OnlyOffice JS": "var oShape = oWorksheet.AddShape(\"flowChartOnlineStorage\", 150 * 36000, 70 * 36000, oFill, oStroke, 0, 2 * 36000, 0, 3 * 36000);",
+      "Excel VBA": "Set oShape = oWorksheet.Shapes.AddShape(msoShapeFlowchartStorage, 150, 70, 72, 108)\nWith oShape.Fill\n    .ForeColor.RGB = RGB(255, 111, 61)\n    .Solid\nEnd With\nWith oShape.Line\n    .Weight = 0\n    .Visible = msoFalse\nEnd With"
+    },
+    {
+      "OnlyOffice JS": "var oDocContent = oShape.GetContent();",
+      "Excel VBA": "Set oDocContent = oShape.TextFrame.TextRange"
+    },
+    {
+      "OnlyOffice JS": "var oParagraph = oDocContent.GetElement(0);",
+      "Excel VBA": "Set oParagraph = oDocContent.Paragraphs(1)"
+    },
+    {
+      "OnlyOffice JS": "oParagraph.SetTabs([1440, 2880, 4320], [\"left\", \"center\", \"right\"]);",
+      "Excel VBA": "With oParagraph.ParagraphFormat\n    .TabStops.ClearAll\n    .TabStops.Add Position:=72, Alignment:=xlLeft\n    .TabStops.Add Position:=144, Alignment:=xlCenter\n    .TabStops.Add Position:=216, Alignment:=xlRight\nEnd With"
+    },
+    {
+      "OnlyOffice JS": "oParagraph.AddTabStop();",
+      "Excel VBA": "oDocContent.InsertTab"
+    },
+    {
+      "OnlyOffice JS": "oParagraph.AddText(\"Custom tab - 1 inch left\");",
+      "Excel VBA": "oDocContent.InsertAfter \"Custom tab - 1 inch left\""
+    },
+    {
+      "OnlyOffice JS": "oParagraph.AddLineBreak();",
+      "Excel VBA": "oDocContent.InsertAfter vbCrLf"
+    },
+    {
+      "OnlyOffice JS": "oParagraph.AddTabStop();",
+      "Excel VBA": "oDocContent.InsertTab"
+    },
+    {
+      "OnlyOffice JS": "oParagraph.AddTabStop();",
+      "Excel VBA": "oDocContent.InsertTab"
+    },
+    {
+      "OnlyOffice JS": "oParagraph.AddText(\"Custom tab - 2 inches center\");",
+      "Excel VBA": "oDocContent.InsertAfter \"Custom tab - 2 inches center\""
+    },
+    {
+      "OnlyOffice JS": "oParagraph.AddLineBreak();",
+      "Excel VBA": "oDocContent.InsertAfter vbCrLf"
+    },
+    {
+      "OnlyOffice JS": "oParagraph.AddTabStop();",
+      "Excel VBA": "oDocContent.InsertTab"
+    },
+    {
+      "OnlyOffice JS": "oParagraph.AddTabStop();",
+      "Excel VBA": "oDocContent.InsertTab"
+    },
+    {
+      "OnlyOffice JS": "oParagraph.AddTabStop();",
+      "Excel VBA": "oDocContent.InsertTab"
+    },
+    {
+      "OnlyOffice JS": "oParagraph.AddText(\"Custom tab - 3 inches right\");",
+      "Excel VBA": "oDocContent.InsertAfter \"Custom tab - 3 inches right\""
+    }
+  ]
+}
+```

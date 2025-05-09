@@ -1,0 +1,39 @@
+```json
+{
+  "Description": "This example shows how to get the strikethrough property of the specified font.",
+  "RAG_Table": [
+    {
+      "OnlyOffice JS": "var oWorksheet = Api.GetActiveSheet();",
+      "VBA": "Set oWorksheet = ActiveWorkbook.ActiveSheet"
+    },
+    {
+      "OnlyOffice JS": "var oRange = oWorksheet.GetRange(\"B1\");",
+      "VBA": "Set oRange = oWorksheet.Range(\"B1\")"
+    },
+    {
+      "OnlyOffice JS": "oRange.SetValue(\"This is just a sample text.\");",
+      "VBA": "oRange.Value = \"This is just a sample text.\""
+    },
+    {
+      "OnlyOffice JS": "var oCharacters = oRange.GetCharacters(9, 4);",
+      "VBA": "Set oCharacters = oRange.Characters(9, 4)"
+    },
+    {
+      "OnlyOffice JS": "var oFont = oCharacters.GetFont();",
+      "VBA": "Set oFont = oCharacters.Font"
+    },
+    {
+      "OnlyOffice JS": "oFont.SetStrikethrough(true);",
+      "VBA": "oFont.Strikethrough = True"
+    },
+    {
+      "OnlyOffice JS": "var bStrikethrough = oFont.GetStrikethrough();",
+      "VBA": "bStrikethrough = oFont.Strikethrough"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"B3\").SetValue(\"Strikethrough property: \" + bStrikethrough);",
+      "VBA": "oWorksheet.Range(\"B3\").Value = \"Strikethrough property: \" & bStrikethrough"
+    }
+  ]
+}
+```

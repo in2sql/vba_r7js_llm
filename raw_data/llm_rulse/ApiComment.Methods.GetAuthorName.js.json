@@ -1,0 +1,37 @@
+```json
+{
+  "Description": "This example shows how to get the comment author's name.",
+  "Steps": [
+    {
+      "Step": "Get the active worksheet",
+      "OnlyOffice JS": "var oWorksheet = Api.GetActiveSheet();",
+      "Excel VBA": "Set oWorksheet = ThisWorkbook.ActiveSheet"
+    },
+    {
+      "Step": "Set value '1' in cell A1",
+      "OnlyOffice JS": "oWorksheet.GetRange(\"A1\").SetValue(\"1\");",
+      "Excel VBA": "oWorksheet.Range(\"A1\").Value = \"1\""
+    },
+    {
+      "Step": "Get range A1",
+      "OnlyOffice JS": "var oRange = oWorksheet.GetRange(\"A1\");",
+      "Excel VBA": "Set oRange = oWorksheet.Range(\"A1\")"
+    },
+    {
+      "Step": "Add a comment to range A1",
+      "OnlyOffice JS": "var oComment = oRange.AddComment(\"This is just a number.\");",
+      "Excel VBA": "oRange.AddComment \"This is just a number.\"\nSet oComment = oRange.Comment"
+    },
+    {
+      "Step": "Set value 'Comment's author: ' in cell A3",
+      "OnlyOffice JS": "oWorksheet.GetRange(\"A3\").SetValue(\"Comment's author: \");",
+      "Excel VBA": "oWorksheet.Range(\"A3\").Value = \"Comment's author: \""
+    },
+    {
+      "Step": "Set value of cell B3 to the comment author's name",
+      "OnlyOffice JS": "oWorksheet.GetRange(\"B3\").SetValue(oComment.GetAuthorName());",
+      "Excel VBA": "oWorksheet.Range(\"B3\").Value = oComment.Author"
+    }
+  ]
+}
+```

@@ -1,0 +1,44 @@
+```json
+[
+  {
+    "Description": "Get the active worksheet",
+    "OnlyOffice JS": "var oWorksheet = Api.GetActiveSheet();",
+    "Excel VBA": "Set oWorksheet = ActiveWorkbook.ActiveSheet"
+  },
+  {
+    "Description": "Create a solid fill with the specified RGB color",
+    "OnlyOffice JS": "var oFill = Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61));",
+    "Excel VBA": "Set oFill = CreateSolidFill(CreateRGBColor(255, 111, 61))"
+  },
+  {
+    "Description": "Create a stroke with no fill",
+    "OnlyOffice JS": "var oStroke = Api.CreateStroke(0, Api.CreateNoFill());",
+    "Excel VBA": "Set oStroke = CreateStroke(0, CreateNoFill())"
+  },
+  {
+    "Description": "Add a shape to the worksheet with specified properties",
+    "OnlyOffice JS": "var oShape = oWorksheet.AddShape(\"flowChartOnlineStorage\", 120 * 36000, 70 * 36000, oFill, oStroke, 0, 2 * 36000, 0, 3 * 36000);",
+    "Excel VBA": "Set oShape = oWorksheet.Shapes.AddShape(msoShapeFlowChartOnlineStorage, 120 * 36000, 70 * 36000, oFill, oStroke, 0, 2 * 36000, 0, 3 * 36000)"
+  },
+  {
+    "Description": "Get the content of the shape",
+    "OnlyOffice JS": "var oDocContent = oShape.GetContent();",
+    "Excel VBA": "Set oDocContent = oShape.TextFrame.TextRange"
+  },
+  {
+    "Description": "Get the first paragraph in the content",
+    "OnlyOffice JS": "var oParagraph = oDocContent.GetElement(0);",
+    "Excel VBA": "Set oParagraph = oDocContent.Paragraphs(1)"
+  },
+  {
+    "Description": "Get the class type of the paragraph",
+    "OnlyOffice JS": "var sClassType = oParagraph.GetClassType();",
+    "Excel VBA": "sClassType = oParagraph.ClassType"
+  },
+  {
+    "Description": "Add text to the paragraph displaying the class type",
+    "OnlyOffice JS": "oParagraph.AddText(\"Class Type = \" + sClassType);",
+    "Excel VBA": "oParagraph.Text = \"Class Type = \" & sClassType"
+  }
+]
+```

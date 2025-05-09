@@ -1,0 +1,44 @@
+```json
+[
+  {
+    "Description": "Get the active worksheet",
+    "OnlyOffice_JS": "var oWorksheet = Api.GetActiveSheet();",
+    "Excel_VBA": "Set oWorksheet = ActiveWorkbook.ActiveSheet"
+  },
+  {
+    "Description": "Get the range B1",
+    "OnlyOffice_JS": "var oRange = oWorksheet.GetRange(\"B1\");",
+    "Excel_VBA": "Set oRange = oWorksheet.Range(\"B1\")"
+  },
+  {
+    "Description": "Set value in range B1",
+    "OnlyOffice_JS": "oRange.SetValue(\"This is just a sample text.\");",
+    "Excel_VBA": "oRange.Value = \"This is just a sample text.\""
+  },
+  {
+    "Description": "Get characters from position 9 with length 4",
+    "OnlyOffice_JS": "var oCharacters = oRange.GetCharacters(9, 4);",
+    "Excel_VBA": "Set oCharacters = oRange.Characters(9, 4)"
+  },
+  {
+    "Description": "Get the font of the specified characters",
+    "OnlyOffice_JS": "var oFont = oCharacters.GetFont();",
+    "Excel_VBA": "Set oFont = oCharacters.Font"
+  },
+  {
+    "Description": "Set superscript property to true",
+    "OnlyOffice_JS": "oFont.SetSuperscript(true);",
+    "Excel_VBA": "oFont.Superscript = True"
+  },
+  {
+    "Description": "Get the superscript property",
+    "OnlyOffice_JS": "var bSuperscript = oFont.GetSuperscript();",
+    "Excel_VBA": "bSuperscript = oFont.Superscript"
+  },
+  {
+    "Description": "Set value in range B3 with superscript property",
+    "OnlyOffice_JS": "oWorksheet.GetRange(\"B3\").SetValue(\"Superscript property: \" + bSuperscript);",
+    "Excel_VBA": "oWorksheet.Range(\"B3\").Value = \"Superscript property: \" & bSuperscript"
+  }
+]
+```

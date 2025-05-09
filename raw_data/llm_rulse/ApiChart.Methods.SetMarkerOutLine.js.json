@@ -1,0 +1,93 @@
+**Description:**  
+This code populates an active worksheet with data, creates a scatter chart based on the specified data range, sets the chart title, and customizes the marker fill and outline for the chart series.
+
+```json
+{
+  "EquivalentMethods": [
+    {
+      "OnlyOffice_JS": "var oWorksheet = Api.GetActiveSheet();",
+      "Excel_VBA": "Set oWorksheet = ThisWorkbook.ActiveSheet"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"B1\").SetValue(2014);",
+      "Excel_VBA": "oWorksheet.Range(\"B1\").Value = 2014"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"C1\").SetValue(2015);",
+      "Excel_VBA": "oWorksheet.Range(\"C1\").Value = 2015"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"D1\").SetValue(2016);",
+      "Excel_VBA": "oWorksheet.Range(\"D1\").Value = 2016"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"A2\").SetValue(\"Projected Revenue\");",
+      "Excel_VBA": "oWorksheet.Range(\"A2\").Value = \"Projected Revenue\""
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"A3\").SetValue(\"Estimated Costs\");",
+      "Excel_VBA": "oWorksheet.Range(\"A3\").Value = \"Estimated Costs\""
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"B2\").SetValue(200);",
+      "Excel_VBA": "oWorksheet.Range(\"B2\").Value = 200"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"B3\").SetValue(250);",
+      "Excel_VBA": "oWorksheet.Range(\"B3\").Value = 250"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"C2\").SetValue(240);",
+      "Excel_VBA": "oWorksheet.Range(\"C2\").Value = 240"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"C3\").SetValue(260);",
+      "Excel_VBA": "oWorksheet.Range(\"C3\").Value = 260"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"D2\").SetValue(280);",
+      "Excel_VBA": "oWorksheet.Range(\"D2\").Value = 280"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"D3\").SetValue(280);",
+      "Excel_VBA": "oWorksheet.Range(\"D3\").Value = 280"
+    },
+    {
+      "OnlyOffice_JS": "var oChart = oWorksheet.AddChart(\"'Sheet1'!$A$1:$D$3\", true, \"scatter\", 2, 100 * 36000, 70 * 36000, 0, 2 * 36000, 7, 3 * 36000);",
+      "Excel_VBA": "Set oChart = oWorksheet.Shapes.AddChart2(-1, xlXYScatter).Chart\noChart.SetSourceData Source:=oWorksheet.Range(\"A1:D3\")\nWith oChart.Parent\n    .Left = 100\n    .Top = 70\n    .Width = 280 'Adjust as needed\n    .Height = 210 'Adjust as needed\nEnd With"
+    },
+    {
+      "OnlyOffice_JS": "oChart.SetTitle(\"Financial Overview\", 13);",
+      "Excel_VBA": "oChart.HasTitle = True\nWith oChart.ChartTitle\n    .Text = \"Financial Overview\"\n    .Format.TextFrame2.TextRange.Font.Size = 13\nEnd With"
+    },
+    {
+      "OnlyOffice_JS": "var oFill = Api.CreateSolidFill(Api.CreateRGBColor(51, 51, 51));",
+      "Excel_VBA": "With oChart.SeriesCollection(1).Format.Fill\n    .ForeColor.RGB = RGB(51, 51, 51)\n    .Visible = msoTrue\nEnd With"
+    },
+    {
+      "OnlyOffice_JS": "oChart.SetMarkerFill(oFill, 0, 0, true);",
+      "Excel_VBA": "With oChart.SeriesCollection(1).MarkerBackgroundColor\n    .RGB = RGB(51, 51, 51)\nEnd With\nWith oChart.SeriesCollection(1).MarkerForegroundColor\n    .RGB = RGB(51, 51, 51)\nEnd With"
+    },
+    {
+      "OnlyOffice_JS": "var oStroke = Api.CreateStroke(0.5 * 36000, Api.CreateSolidFill(Api.CreateRGBColor(51, 51, 51)));",
+      "Excel_VBA": "With oChart.SeriesCollection(1).Format.Line\n    .Visible = msoTrue\n    .ForeColor.RGB = RGB(51, 51, 51)\n    .Weight = 0.5\nEnd With"
+    },
+    {
+      "OnlyOffice_JS": "oChart.SetMarkerOutLine(oStroke, 0, 0, true);",
+      "Excel_VBA": "With oChart.SeriesCollection(1).Format.Line\n    .Visible = msoTrue\n    .ForeColor.RGB = RGB(51, 51, 51)\n    .Weight = 0.5\nEnd With"
+    },
+    {
+      "OnlyOffice_JS": "oFill = Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61));",
+      "Excel_VBA": "With oChart.SeriesCollection(2).Format.Fill\n    .ForeColor.RGB = RGB(255, 111, 61)\n    .Visible = msoTrue\nEnd With"
+    },
+    {
+      "OnlyOffice_JS": "oChart.SetMarkerFill(oFill, 1, 0, true);",
+      "Excel_VBA": "With oChart.SeriesCollection(2).MarkerBackgroundColor\n    .RGB = RGB(255, 111, 61)\nEnd With\nWith oChart.SeriesCollection(2).MarkerForegroundColor\n    .RGB = RGB(255, 111, 61)\nEnd With"
+    },
+    {
+      "OnlyOffice_JS": "oChart.SetMarkerOutLine(oStroke, 1, 0, true);",
+      "Excel_VBA": "With oChart.SeriesCollection(2).Format.Line\n    .Visible = msoTrue\n    .ForeColor.RGB = RGB(51, 51, 51)\n    .Weight = 0.5\nEnd With"
+    }
+  ]
+}
+```

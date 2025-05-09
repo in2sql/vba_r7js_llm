@@ -1,0 +1,55 @@
+```json
+{
+  "description": "This example gets a class type and inserts it into the document.",
+  "code_mapping": [
+    {
+      "OnlyOffice_JS": "var oWorksheet = Api.GetActiveSheet();",
+      "Excel_VBA": "Set oWorksheet = ActiveSheet"
+    },
+    {
+      "OnlyOffice_JS": "var oPresetColor = Api.CreatePresetColor(\"peachPuff\");",
+      "Excel_VBA": "Set oPresetColor = Application.CreatePresetColor(\"peachPuff\")"
+    },
+    {
+      "OnlyOffice_JS": "var oGs1 = Api.CreateGradientStop(oPresetColor, 0);",
+      "Excel_VBA": "Set oGs1 = Application.CreateGradientStop(oPresetColor, 0)"
+    },
+    {
+      "OnlyOffice_JS": "var oGs2 = Api.CreateGradientStop(Api.CreateRGBColor(255, 111, 61), 100000);",
+      "Excel_VBA": "Set oGs2 = Application.CreateGradientStop(Application.CreateRGBColor(255, 111, 61), 100000)"
+    },
+    {
+      "OnlyOffice_JS": "var oFill = Api.CreateLinearGradientFill([oGs1, oGs2], 5400000);",
+      "Excel_VBA": "Set oFill = Application.CreateLinearGradientFill(Array(oGs1, oGs2), 5400000)"
+    },
+    {
+      "OnlyOffice_JS": "var oStroke = Api.CreateStroke(0, Api.CreateNoFill());",
+      "Excel_VBA": "Set oStroke = Application.CreateStroke(0, Application.CreateNoFill())"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.AddShape(\"flowChartOnlineStorage\", 60 * 36000, 35 * 36000, oFill, oStroke, 0, 2 * 36000, 1, 3 * 36000);",
+      "Excel_VBA": "oWorksheet.Shapes.AddShape(msoShapeFlowchartOnlineStorage, 60 * 36000, 35 * 36000, oFill, oStroke, 0, 2 * 36000, 1, 3 * 36000)"
+    },
+    {
+      "OnlyOffice_JS": "var sClassType = oPresetColor.GetClassType();",
+      "Excel_VBA": "sClassType = oPresetColor.ClassType"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.SetColumnWidth(0, 15);",
+      "Excel_VBA": "oWorksheet.Columns(1).ColumnWidth = 15"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.SetColumnWidth(1, 10);",
+      "Excel_VBA": "oWorksheet.Columns(2).ColumnWidth = 10"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"A1\").SetValue(\"Class Type = \");",
+      "Excel_VBA": "oWorksheet.Range(\"A1\").Value = \"Class Type = \""
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"B1\").SetValue(sClassType);",
+      "Excel_VBA": "oWorksheet.Range(\"B1\").Value = sClassType"
+    }
+  ]
+}
+```

@@ -1,0 +1,39 @@
+```json
+{
+  "table": {
+    "headers": ["Description", "VBA", "OnlyOffice_JS"],
+    "rows": [
+      {
+        "Description": "Add a new sheet named 'new_sheet_name'",
+        "VBA": "Sheets.Add(Name:=\"new_sheet_name\")",
+        "OnlyOffice_JS": "Api.AddSheet(\"new_sheet_name\");"
+      },
+      {
+        "Description": "Get all sheets in the active workbook",
+        "VBA": "Dim sheets As Sheets\nSet sheets = ThisWorkbook.Sheets",
+        "OnlyOffice_JS": "var sheets = Api.GetSheets();"
+      },
+      {
+        "Description": "Get the name of the first sheet",
+        "VBA": "Dim sheet_name1 As String\nsheet_name1 = sheets(1).Name",
+        "OnlyOffice_JS": "var sheet_name1 = sheets[0].GetName();"
+      },
+      {
+        "Description": "Get the name of the second sheet",
+        "VBA": "Dim sheet_name2 As String\nsheet_name2 = sheets(2).Name",
+        "OnlyOffice_JS": "var sheet_name2 = sheets[1].GetName();"
+      },
+      {
+        "Description": "Set the value of cell A1 in the second sheet to sheet_name1",
+        "VBA": "sheets(2).Range(\"A1\").Value = sheet_name1",
+        "OnlyOffice_JS": "sheets[1].GetRange(\"A1\").SetValue(sheet_name1);"
+      },
+      {
+        "Description": "Set the value of cell A2 in the second sheet to sheet_name2",
+        "VBA": "sheets(2).Range(\"A2\").Value = sheet_name2",
+        "OnlyOffice_JS": "sheets[1].GetRange(\"A2\").SetValue(sheet_name2);"
+      }
+    ]
+  }
+}
+```

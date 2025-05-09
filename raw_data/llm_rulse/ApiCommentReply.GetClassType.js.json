@@ -1,0 +1,7 @@
+```json
+{
+  "Description": "This example gets a class type and inserts it into the table.",
+  "VBA": "Sub InsertClassType()\n    Dim oWorksheet As Worksheet\n    Set oWorksheet = ActiveSheet\n    oWorksheet.Range(\"A1\").Value = \"1\"\n    Dim oRange As Range\n    Set oRange = oWorksheet.Range(\"A1\")\n    Dim oComment As Comment\n    Set oComment = oRange.AddComment(\"This is just a number.\")\n    oComment.Replies.Add \"Reply 1\", \"John Smith\"\n    Dim oReply As CommentReply\n    Set oReply = oComment.Replies(1)\n    Dim sType As String\n    sType = TypeName(oReply)\n    oWorksheet.Range(\"A3\").Value = \"Type: \" & sType\nEnd Sub",
+  "OnlyOffice_JS": "// This example gets a class type and inserts it into the table.\nvar oWorksheet = Api.GetActiveSheet();\noWorksheet.GetRange(\"A1\").SetValue(\"1\");\nvar oRange = oWorksheet.GetRange(\"A1\");\nvar oComment = oRange.AddComment(\"This is just a number.\");\noComment.AddReply(\"Reply 1\", \"John Smith\", \"uid-1\");\nvar oReply = oComment.GetReply();\nvar sType = oReply.GetClassType();\noWorksheet.GetRange(\"A3\").SetValue(\"Type: \" + sType);"
+}
+```

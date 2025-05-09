@@ -1,0 +1,35 @@
+```json
+{
+  "description": "This example deletes the ApiComment object.",
+  "methods": [
+    {
+      "OnlyOffice JS": "var oWorksheet = Api.GetActiveSheet();",
+      "Excel VBA": "Set oWorksheet = ActiveSheet"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"A1\").SetValue(\"1\");",
+      "Excel VBA": "Range(\"A1\").Value = \"1\""
+    },
+    {
+      "OnlyOffice JS": "var oRange = oWorksheet.GetRange(\"A1\");",
+      "Excel VBA": "Set oRange = Range(\"A1\")"
+    },
+    {
+      "OnlyOffice JS": "oRange.AddComment(\"This is just a number.\");",
+      "Excel VBA": "oRange.AddComment \"This is just a number.\""
+    },
+    {
+      "OnlyOffice JS": "var oComment = oRange.GetComment();",
+      "Excel VBA": "Set oComment = oRange.Comment"
+    },
+    {
+      "OnlyOffice JS": "oComment.Delete();",
+      "Excel VBA": "oComment.Delete"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"A3\").SetValue(\"The comment was just deleted from A1.\");",
+      "Excel VBA": "Range(\"A3\").Value = \"The comment was just deleted from A1.\""
+    }
+  ]
+}
+```

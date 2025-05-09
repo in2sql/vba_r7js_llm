@@ -1,0 +1,19 @@
+```json
+{
+  "description": "This example sets the data to the current OLE object.",
+  "codeMappings": [
+    {
+      "OnlyOffice_JS": "var oWorksheet = Api.GetActiveSheet();",
+      "VBA": "Dim oWorksheet As Worksheet\nSet oWorksheet = ActiveSheet"
+    },
+    {
+      "OnlyOffice_JS": "var oOleObject = oWorksheet.AddOleObject(\"https://api.onlyoffice.com/content/img/docbuilder/examples/ole-object-image.png\", 130 * 36000, 90 * 36000, \"https://youtu.be/SKGz4pmnpgY\", \"asc.{38E022EA-AD92-45FC-B22B-49DF39746DB4}\", 0, 2 * 36000, 4, 3 * 36000);",
+      "VBA": "Dim oOleObject As OLEObject\nSet oOleObject = oWorksheet.OLEObjects.Add(Filename:= \"https://api.onlyoffice.com/content/img/docbuilder/examples/ole-object-image.png\", Link:=False, DisplayAsIcon:=False, Left:=130 * 36000, Top:=90 * 36000)"
+    },
+    {
+      "OnlyOffice_JS": "oOleObject.SetData(\"https://youtu.be/eJxpkjQG6Ew\");",
+      "VBA": "oOleObject.Object.Data = \"https://youtu.be/eJxpkjQG6Ew\""
+    }
+  ]
+}
+```

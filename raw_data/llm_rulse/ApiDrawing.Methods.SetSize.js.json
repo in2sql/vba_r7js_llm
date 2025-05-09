@@ -1,0 +1,32 @@
+// Description: This code sets the size and position of a shape's bounding box in the active worksheet.
+
+```json
+{
+  "RAG_Table": [
+    {
+      "OnlyOffice_JS": "var oWorksheet = Api.GetActiveSheet();",
+      "VBA": "Set oWorksheet = ActiveWorkbook.ActiveSheet"
+    },
+    {
+      "OnlyOffice_JS": "var oFill = Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61));",
+      "VBA": "With oWorksheet.Shapes.AddShape(msoShapeRectangle, 0, 0, 100, 100).Fill\n    .ForeColor.RGB = RGB(255, 111, 61)\nEnd With"
+    },
+    {
+      "OnlyOffice_JS": "var oStroke = Api.CreateStroke(0, Api.CreateNoFill());",
+      "VBA": "With oWorksheet.Shapes(1).Line\n    .Visible = msoFalse\nEnd With"
+    },
+    {
+      "OnlyOffice_JS": "var oDrawing = oWorksheet.AddShape(\"flowChartOnlineStorage\", 60 * 36000, 35 * 36000, oFill, oStroke, 0, 2 * 36000, 0, 3 * 36000);",
+      "VBA": "Set oDrawing = oWorksheet.Shapes.AddShape(msoShapeFlowchartDatabase, 60, 35, 100, 100)"
+    },
+    {
+      "OnlyOffice_JS": "oDrawing.SetSize(120 * 36000, 70 * 36000);",
+      "VBA": "With oDrawing\n    .Width = 120\n    .Height = 70\nEnd With"
+    },
+    {
+      "OnlyOffice_JS": "oDrawing.SetPosition(0, 2 * 36000, 2, 3 * 36000);",
+      "VBA": "With oDrawing\n    .Left = 2\n    .Top = 3\nEnd With"
+    }
+  ]
+}
+```

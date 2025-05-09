@@ -1,0 +1,35 @@
+```json
+{
+  "Description": "This example sets the timestamp of the comment creation in the current time zone format.",
+  "CodeEquivalents": [
+    {
+      "OnlyOffice JS": "var oWorksheet = Api.GetActiveSheet();",
+      "VBA": "Set oWorksheet = ThisWorkbook.ActiveSheet"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"A1\").SetValue(\"1\");",
+      "VBA": "oWorksheet.Range(\"A1\").Value = \"1\""
+    },
+    {
+      "OnlyOffice JS": "var oRange = oWorksheet.GetRange(\"A1\");",
+      "VBA": "Set oRange = oWorksheet.Range(\"A1\")"
+    },
+    {
+      "OnlyOffice JS": "var oComment = oRange.AddComment(\"This is just a number.\", \"John Smith\");",
+      "VBA": "Set oComment = oRange.AddComment(\"This is just a number.\")\noComment.Author = \"John Smith\""
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"A3\").SetValue(\"Timestamp: \");",
+      "VBA": "oWorksheet.Range(\"A3\").Value = \"Timestamp: \""
+    },
+    {
+      "OnlyOffice JS": "oComment.SetTime(Date.now());",
+      "VBA": "oComment.Shape.TextFrame.Characters.Text = oComment.Shape.TextFrame.Characters.Text & \"\\nTimestamp: \" & Now"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"B3\").SetValue(oComment.GetTime());",
+      "VBA": "oWorksheet.Range(\"B3\").Value = Now"
+    }
+  ]
+}
+```

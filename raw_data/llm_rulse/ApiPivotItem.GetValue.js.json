@@ -1,0 +1,107 @@
+```json
+{
+  "Description": "The code initializes data in the worksheet and creates a pivot table based on that data.",
+  "Methods": [
+    {
+      "OnlyOffice JS": "var oWorksheet = Api.GetActiveSheet();",
+      "VBA": "Dim oWorksheet As Worksheet\nSet oWorksheet = ThisWorkbook.ActiveSheet"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange('B1').SetValue('Region');",
+      "VBA": "oWorksheet.Range(\"B1\").Value = \"Region\""
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange('C1').SetValue('Style');",
+      "VBA": "oWorksheet.Range(\"C1\").Value = \"Style\""
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange('D1').SetValue('Price');",
+      "VBA": "oWorksheet.Range(\"D1\").Value = \"Price\""
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange('B2').SetValue('East');",
+      "VBA": "oWorksheet.Range(\"B2\").Value = \"East\""
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange('B3').SetValue('West');",
+      "VBA": "oWorksheet.Range(\"B3\").Value = \"West\""
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange('B4').SetValue('East');",
+      "VBA": "oWorksheet.Range(\"B4\").Value = \"East\""
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange('B5').SetValue('West');",
+      "VBA": "oWorksheet.Range(\"B5\").Value = \"West\""
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange('C2').SetValue('Fancy');",
+      "VBA": "oWorksheet.Range(\"C2\").Value = \"Fancy\""
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange('C3').SetValue('Fancy');",
+      "VBA": "oWorksheet.Range(\"C3\").Value = \"Fancy\""
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange('C4').SetValue('Tee');",
+      "VBA": "oWorksheet.Range(\"C4\").Value = \"Tee\""
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange('C5').SetValue('Tee');",
+      "VBA": "oWorksheet.Range(\"C5\").Value = \"Tee\""
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange('D2').SetValue(42.5);",
+      "VBA": "oWorksheet.Range(\"D2\").Value = 42.5"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange('D3').SetValue(35.2);",
+      "VBA": "oWorksheet.Range(\"D3\").Value = 35.2"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange('D4').SetValue(12.3);",
+      "VBA": "oWorksheet.Range(\"D4\").Value = 12.3"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange('D5').SetValue(24.8);",
+      "VBA": "oWorksheet.Range(\"D5\").Value = 24.8"
+    },
+    {
+      "OnlyOffice JS": "var dataRef = Api.GetRange(\"'Sheet1'!$B$1:$D$5\");",
+      "VBA": "Dim dataRef As Range\nSet dataRef = ThisWorkbook.Sheets(\"Sheet1\").Range(\"B1:D5\")"
+    },
+    {
+      "OnlyOffice JS": "var pivotTable = Api.InsertPivotNewWorksheet(dataRef);",
+      "VBA": "Dim pivotTable As PivotTable\nSet pivotTable = ThisWorkbook.PivotCaches.Create(SourceType:=xlDatabase, SourceData:=dataRef).CreatePivotTable(TableDestination:=ThisWorkbook.Sheets.Add().Range(\"A1\"), TableName:=\"PivotTable1\")"
+    },
+    {
+      "OnlyOffice JS": "pivotTable.AddFields({ columns: ['Style'], rows: 'Region' });",
+      "VBA": "With pivotTable\n    .PivotFields(\"Style\").Orientation = xlColumnField\n    .PivotFields(\"Region\").Orientation = xlRowField\nEnd With"
+    },
+    {
+      "OnlyOffice JS": "pivotTable.AddDataField('Style');",
+      "VBA": "pivotTable.AddDataField pivotTable.PivotFields(\"Style\"), \"Sum of Style\", xlSum"
+    },
+    {
+      "OnlyOffice JS": "var pivotWorksheet = Api.GetActiveSheet();",
+      "VBA": "Dim pivotWorksheet As Worksheet\nSet pivotWorksheet = ThisWorkbook.ActiveSheet"
+    },
+    {
+      "OnlyOffice JS": "var pivotField = pivotTable.GetPivotFields('Style');",
+      "VBA": "Dim pivotField As PivotField\nSet pivotField = pivotTable.PivotFields(\"Style\")"
+    },
+    {
+      "OnlyOffice JS": "var pivotItems = pivotField.GetPivotItems();",
+      "VBA": "Dim pivotItems As PivotItem\n' VBA does not have a direct equivalent array, you'd typically loop through pivotField.PivotItems"
+    },
+    {
+      "OnlyOffice JS": "pivotWorksheet.GetRangeByNumber(15, 0).SetValue('Style item values')",
+      "VBA": "pivotWorksheet.Cells(16, 1).Value = \"Style item values\""
+    },
+    {
+      "OnlyOffice JS": "for (var i = 0; i < pivotItems.length; i += 1) { pivotWorksheet.GetRangeByNumber(15 + i, 1).SetValue(pivotItems[i].GetValue()); }",
+      "VBA": "Dim i As Integer\nFor i = 0 To pivotTable.PivotFields(\"Style\").PivotItems.Count - 1\n    pivotWorksheet.Cells(16 + i, 2).Value = pivotTable.PivotFields(\"Style\").PivotItems(i + 1).Name\nNext i"
+    }
+  ]
+}
+```

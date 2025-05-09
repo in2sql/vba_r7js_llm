@@ -1,0 +1,27 @@
+```json
+{
+  "Description": "This code demonstrates how to set a value in cell A1, add a comment to it, and retrieve the quote text of the comment, then display it in cell B3.",
+  "CodeEquivalents": [
+    {
+      "Method": "GetActiveSheet",
+      "OnlyOfficeJS": "var oWorksheet = Api.GetActiveSheet();",
+      "VBA": "Set oWorksheet = ActiveWorkbook.ActiveSheet"
+    },
+    {
+      "Method": "GetRange(\"A1\").SetValue(\"1\")",
+      "OnlyOfficeJS": "oWorksheet.GetRange(\"A1\").SetValue(\"1\");",
+      "VBA": "oWorksheet.Range(\"A1\").Value = \"1\""
+    },
+    {
+      "Method": "AddComment",
+      "OnlyOfficeJS": "var oComment = oRange.AddComment(\"This is just a number.\");",
+      "VBA": "Set oComment = oRange.AddComment(\"This is just a number.\")"
+    },
+    {
+      "Method": "GetQuoteText",
+      "OnlyOfficeJS": "oWorksheet.GetRange(\"B3\").SetValue(oComment.GetQuoteText());",
+      "VBA": "oWorksheet.Range(\"B3\").Value = oComment.Text"
+    }
+  ]
+}
+```

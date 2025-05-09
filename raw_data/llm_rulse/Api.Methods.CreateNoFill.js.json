@@ -1,0 +1,31 @@
+```json
+{
+  "description": "This example creates a shape with a linear gradient fill and no stroke in the active worksheet.",
+  "methods": [
+    {
+      "OnlyOffice_JS": "var oWorksheet = Api.GetActiveSheet();",
+      "Excel_VBA": "Set oWorksheet = ThisWorkbook.ActiveSheet"
+    },
+    {
+      "OnlyOffice_JS": "var oGs1 = Api.CreateGradientStop(Api.CreateRGBColor(255, 213, 191), 0);",
+      "Excel_VBA": "Set oGs1 = oWorksheet.GradientStops.Add(Color:=RGB(255, 213, 191), Position:=0)"
+    },
+    {
+      "OnlyOffice_JS": "var oGs2 = Api.CreateGradientStop(Api.CreateRGBColor(255, 111, 61), 100000);",
+      "Excel_VBA": "Set oGs2 = oWorksheet.GradientStops.Add(Color:=RGB(255, 111, 61), Position:=100)"
+    },
+    {
+      "OnlyOffice_JS": "var oFill = Api.CreateLinearGradientFill([oGs1, oGs2], 5400000);",
+      "Excel_VBA": "With oWorksheet.Shapes.AddShape(msoShapeRectangle, 60, 35, 100, 50)\n    .Fill.TwoColorGradient msoGradientHorizontal, 1\n    .Fill.GradientStops.Insert RGB(255, 213, 191), 0\n    .Fill.GradientStops.Insert RGB(255, 111, 61), 1\nEnd With"
+    },
+    {
+      "OnlyOffice_JS": "var oStroke = Api.CreateStroke(0, Api.CreateNoFill());",
+      "Excel_VBA": "With oWorksheet.Shapes(oWorksheet.Shapes.Count)\n    .Line.Visible = msoFalse\nEnd With"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.AddShape(\"flowChartOnlineStorage\", 60 * 36000, 35 * 36000, oFill, oStroke, 0, 2 * 36000, 1, 3 * 36000);",
+      "Excel_VBA": "' Shape is already added and configured in the previous steps"
+    }
+  ]
+}
+```

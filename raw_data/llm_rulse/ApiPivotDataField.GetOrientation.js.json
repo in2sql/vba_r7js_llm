@@ -1,0 +1,100 @@
+```json
+{
+  "Get the active worksheet": {
+    "OnlyOfficeJS": "var oWorksheet = Api.GetActiveSheet();",
+    "VBA": "Dim oWorksheet As Worksheet\nSet oWorksheet = ActiveWorkbook.ActiveSheet"
+  },
+  "Set value 'Region' in cell B1": {
+    "OnlyOfficeJS": "oWorksheet.GetRange('B1').SetValue('Region');",
+    "VBA": "oWorksheet.Range(\"B1\").Value = \"Region\""
+  },
+  "Set value 'Style' in cell C1": {
+    "OnlyOfficeJS": "oWorksheet.GetRange('C1').SetValue('Style');",
+    "VBA": "oWorksheet.Range(\"C1\").Value = \"Style\""
+  },
+  "Set value 'Price' in cell D1": {
+    "OnlyOfficeJS": "oWorksheet.GetRange('D1').SetValue('Price');",
+    "VBA": "oWorksheet.Range(\"D1\").Value = \"Price\""
+  },
+  "Set value 'East' in cell B2": {
+    "OnlyOfficeJS": "oWorksheet.GetRange('B2').SetValue('East');",
+    "VBA": "oWorksheet.Range(\"B2\").Value = \"East\""
+  },
+  "Set value 'West' in cell B3": {
+    "OnlyOfficeJS": "oWorksheet.GetRange('B3').SetValue('West');",
+    "VBA": "oWorksheet.Range(\"B3\").Value = \"West\""
+  },
+  "Set value 'East' in cell B4": {
+    "OnlyOfficeJS": "oWorksheet.GetRange('B4').SetValue('East');",
+    "VBA": "oWorksheet.Range(\"B4\").Value = \"East\""
+  },
+  "Set value 'West' in cell B5": {
+    "OnlyOfficeJS": "oWorksheet.GetRange('B5').SetValue('West');",
+    "VBA": "oWorksheet.Range(\"B5\").Value = \"West\""
+  },
+  "Set value 'Fancy' in cell C2": {
+    "OnlyOfficeJS": "oWorksheet.GetRange('C2').SetValue('Fancy');",
+    "VBA": "oWorksheet.Range(\"C2\").Value = \"Fancy\""
+  },
+  "Set value 'Fancy' in cell C3": {
+    "OnlyOfficeJS": "oWorksheet.GetRange('C3').SetValue('Fancy');",
+    "VBA": "oWorksheet.Range(\"C3\").Value = \"Fancy\""
+  },
+  "Set value 'Tee' in cell C4": {
+    "OnlyOfficeJS": "oWorksheet.GetRange('C4').SetValue('Tee');",
+    "VBA": "oWorksheet.Range(\"C4\").Value = \"Tee\""
+  },
+  "Set value 'Tee' in cell C5": {
+    "OnlyOfficeJS": "oWorksheet.GetRange('C5').SetValue('Tee');",
+    "VBA": "oWorksheet.Range(\"C5\").Value = \"Tee\""
+  },
+  "Set value 42.5 in cell D2": {
+    "OnlyOfficeJS": "oWorksheet.GetRange('D2').SetValue(42.5);",
+    "VBA": "oWorksheet.Range(\"D2\").Value = 42.5"
+  },
+  "Set value 35.2 in cell D3": {
+    "OnlyOfficeJS": "oWorksheet.GetRange('D3').SetValue(35.2);",
+    "VBA": "oWorksheet.Range(\"D3\").Value = 35.2"
+  },
+  "Set value 12.3 in cell D4": {
+    "OnlyOfficeJS": "oWorksheet.GetRange('D4').SetValue(12.3);",
+    "VBA": "oWorksheet.Range(\"D4\").Value = 12.3"
+  },
+  "Set value 24.8 in cell D5": {
+    "OnlyOfficeJS": "oWorksheet.GetRange('D5').SetValue(24.8);",
+    "VBA": "oWorksheet.Range(\"D5\").Value = 24.8"
+  },
+  "Get data range B1:D5": {
+    "OnlyOfficeJS": "var dataRef = Api.GetRange(\"'Sheet1'!$B$1:$D$5\");",
+    "VBA": "Dim dataRef As Range\nSet dataRef = oWorksheet.Range(\"B1:D5\")"
+  },
+  "Insert pivot table into new worksheet": {
+    "OnlyOfficeJS": "var pivotTable = Api.InsertPivotNewWorksheet(dataRef);",
+    "VBA": "Dim pivotTable As PivotTable\nDim pivotCache As PivotCache\nSet pivotCache = ActiveWorkbook.PivotCaches.Create(SourceType:=xlDatabase, SourceData:=dataRef)\nSet pivotTable = pivotCache.CreatePivotTable(TableDestination:=ActiveWorkbook.Worksheets.Add.Range(\"A1\"), TableName:=\"PivotTable1\")"
+  },
+  "Add 'Region' and 'Style' as row fields in pivot table": {
+    "OnlyOfficeJS": "pivotTable.AddFields({ rows: ['Region', 'Style'], });",
+    "VBA": "With pivotTable\n    .PivotFields(\"Region\").Orientation = xlRowField\n    .PivotFields(\"Style\").Orientation = xlRowField\nEnd With"
+  },
+  "Add 'Price' as data field in pivot table": {
+    "OnlyOfficeJS": "pivotTable.AddDataField('Price');",
+    "VBA": "With pivotTable\n    .AddDataField .PivotFields(\"Price\"), \"Sum of Price\", xlSum\nEnd With"
+  },
+  "Add 'Price' as second data field and set its position": {
+    "OnlyOfficeJS": "var dataField = pivotTable.AddDataField('Price');\ndataField.SetPosition(1);",
+    "VBA": "With pivotTable\n    Dim dataField As PivotField\n    Set dataField = .AddDataField(.PivotFields(\"Price\"), \"Sum of Price\", xlSum)\n    dataField.Position = 1\nEnd With"
+  },
+  "Get the active worksheet for pivot table": {
+    "OnlyOfficeJS": "var pivotWorksheet = Api.GetActiveSheet();",
+    "VBA": "Dim pivotWorksheet As Worksheet\nSet pivotWorksheet = ActiveWorkbook.ActiveSheet"
+  },
+  "Set text 'Sum of Price2 orientation:' in cell A15": {
+    "OnlyOfficeJS": "pivotWorksheet.GetRange('A15').SetValue('Sum of Price2 orientation:');",
+    "VBA": "pivotWorksheet.Range(\"A15\").Value = \"Sum of Price2 orientation:\""
+  },
+  "Set the orientation of data field in cell B15": {
+    "OnlyOfficeJS": "pivotWorksheet.GetRange('B15').SetValue(dataField.GetOrientation());",
+    "VBA": "pivotWorksheet.Range(\"B15\").Value = dataField.Orientation"
+  }
+}
+```

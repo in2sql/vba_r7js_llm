@@ -1,0 +1,55 @@
+```json
+{
+  "description": "This code sets the paragraph line spacing, adds shapes, and adds text with line breaks.",
+  "codeComparison": [
+    {
+      "OnlyOfficeJS": "var oWorksheet = Api.GetActiveSheet();",
+      "ExcelVBA": "Set oWorksheet = ThisWorkbook.ActiveSheet"
+    },
+    {
+      "OnlyOfficeJS": "var oFill = Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61));",
+      "ExcelVBA": "oShape.Fill.ForeColor.RGB = RGB(255, 111, 61)"
+    },
+    {
+      "OnlyOfficeJS": "var oStroke = Api.CreateStroke(0, Api.CreateNoFill());",
+      "ExcelVBA": "With oShape.Line\n    .Visible = msoFalse\nEnd With"
+    },
+    {
+      "OnlyOfficeJS": "var oShape = oWorksheet.AddShape(\"flowChartOnlineStorage\", 120 * 36000, 70 * 36000, oFill, oStroke, 0, 2 * 36000, 0, 3 * 36000);",
+      "ExcelVBA": "Set oShape = oWorksheet.Shapes.AddShape(msoShapeFlowchartProcess, 120, 70, 200, 100)\nWith oShape\n    .Fill.ForeColor.RGB = RGB(255, 111, 61)\n    .Line.Visible = msoFalse\nEnd With"
+    },
+    {
+      "OnlyOfficeJS": "var oDocContent = oShape.GetContent();",
+      "ExcelVBA": "Set oDocContent = oShape.TextFrame2.TextRange"
+    },
+    {
+      "OnlyOfficeJS": "var oParagraph = oDocContent.GetElement(0);",
+      "ExcelVBA": "Set oParagraph = oDocContent.Paragraphs(1)"
+    },
+    {
+      "OnlyOfficeJS": "var oParaPr = oParagraph.GetParaPr();",
+      "ExcelVBA": "Set oParaPr = oParagraph.ParagraphFormat"
+    },
+    {
+      "OnlyOfficeJS": "oParaPr.SetSpacingLine(3 * 240, \"auto\");",
+      "ExcelVBA": "With oParaPr\n    .LineSpacing = 240 * 3\n    .LineSpacingRule = msoLineSpacingExactly\nEnd With"
+    },
+    {
+      "OnlyOfficeJS": "oParagraph.AddText(\"Paragraph 1. Spacing: 3 times of a common paragraph line spacing.\");",
+      "ExcelVBA": "oDocContent.Text = oDocContent.Text & \"Paragraph 1. Spacing: 3 times of a common paragraph line spacing.\""
+    },
+    {
+      "OnlyOfficeJS": "oParagraph.AddLineBreak();",
+      "ExcelVBA": "oDocContent.Text = oDocContent.Text & vbCrLf"
+    },
+    {
+      "OnlyOfficeJS": "oParagraph.AddText(\"These sentences are used to add lines for demonstrative purposes. \");",
+      "ExcelVBA": "oDocContent.Text = oDocContent.Text & \"These sentences are used to add lines for demonstrative purposes. \""
+    },
+    {
+      "OnlyOfficeJS": "oParagraph.AddText(\"These sentences are used to add lines for demonstrative purposes. \");",
+      "ExcelVBA": "oDocContent.Text = oDocContent.Text & \"These sentences are used to add lines for demonstrative purposes. \""
+    }
+  ]
+}
+```

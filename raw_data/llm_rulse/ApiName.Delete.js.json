@@ -1,0 +1,38 @@
+```json
+{
+  "description": "Excel VBA equivalents for OnlyOffice API methods used in the provided code example.",
+  "table": {
+    "headers": ["OnlyOffice JS", "Excel VBA"],
+    "rows": [
+      [
+        "Api.GetActiveSheet();",
+        "Set oWorksheet = ActiveSheet"
+      ],
+      [
+        "oWorksheet.GetRange(\"A1\").SetValue(\"1\");",
+        "oWorksheet.Range(\"A1\").Value = \"1\""
+      ],
+      [
+        "oWorksheet.GetRange(\"B1\").SetValue(\"2\");",
+        "oWorksheet.Range(\"B1\").Value = \"2\""
+      ],
+      [
+        "Api.AddDefName(\"numbers\", \"Sheet1!$A$1:$B$1\");",
+        "ThisWorkbook.Names.Add Name:=\"numbers\", RefersTo:=Sheet1.Range(\"A1:B1\")"
+      ],
+      [
+        "Api.GetDefName(\"numbers\");",
+        "Set oDefName = ThisWorkbook.Names(\"numbers\")"
+      ],
+      [
+        "oDefName.Delete();",
+        "oDefName.Delete"
+      ],
+      [
+        "oWorksheet.GetRange(\"A3\").SetValue(\"The name 'numbers' of the range A1:B1 was deleted.\");",
+        "oWorksheet.Range(\"A3\").Value = \"The name 'numbers' of the range A1:B1 was deleted.\""
+      ]
+    ]
+  }
+}
+```

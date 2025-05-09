@@ -1,0 +1,11 @@
+```json
+{
+  "RAG_Table": [
+    {
+      "Description": "This example creates a new worksheet.",
+      "OnlyOffice_JS": "var oSheet = Api.AddSheet(\"New sheet\");",
+      "VBA": "Dim oSheet As Worksheet\nSet oSheet = Worksheets.Add\noSheet.Name = \"New sheet\""
+    }
+  ]
+}
+```

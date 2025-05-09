@@ -1,0 +1,39 @@
+```json
+{
+  "Description": "This code example demonstrates how to add a comment with a reply to a cell and retrieve the reply text, both in OnlyOffice JavaScript API and Excel VBA.",
+  "Mappings": [
+    {
+      "OnlyOffice_JS": "var oWorksheet = Api.GetActiveSheet();",
+      "Excel_VBA": "Set oWorksheet = ActiveSheet"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"A1\").SetValue(\"1\");",
+      "Excel_VBA": "oWorksheet.Range(\"A1\").Value = \"1\""
+    },
+    {
+      "OnlyOffice_JS": "var oRange = oWorksheet.GetRange(\"A1\");",
+      "Excel_VBA": "Set oRange = oWorksheet.Range(\"A1\")"
+    },
+    {
+      "OnlyOffice_JS": "var oComment = oRange.AddComment(\"This is just a number.\");",
+      "Excel_VBA": "Set oComment = oRange.AddComment(\"This is just a number.\")"
+    },
+    {
+      "OnlyOffice_JS": "oComment.AddReply(\"Reply 1\", \"John Smith\", \"uid-1\");",
+      "Excel_VBA": "oComment.Replies.Add \"Reply 1\", \"John Smith\""
+    },
+    {
+      "OnlyOffice_JS": "var oReply = oComment.GetReply();",
+      "Excel_VBA": "Set oReply = oComment.Replies(1)"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"A3\").SetValue(\"Comment's reply text: \");",
+      "Excel_VBA": "oWorksheet.Range(\"A3\").Value = \"Comment's reply text:\""
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"B3\").SetValue(oReply.GetText());",
+      "Excel_VBA": "oWorksheet.Range(\"B3\").Value = oReply.Text"
+    }
+  ]
+}
+```

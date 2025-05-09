@@ -1,0 +1,64 @@
+```
+// This code creates a shape with specific fill and stroke properties, adds text paragraphs to the shape, and sets spacing after the first paragraph.
+
+{
+  "RAG_Table": [
+    {
+      "OnlyOffice_JS": "Api.GetActiveSheet()",
+      "Excel_VBA": "Set oWorksheet = ActiveSheet"
+    },
+    {
+      "OnlyOffice_JS": "Api.CreateRGBColor(255, 111, 61)",
+      "Excel_VBA": "RGB(255, 111, 61)"
+    },
+    {
+      "OnlyOffice_JS": "Api.CreateSolidFill(color)",
+      "Excel_VBA": "oShape.Fill.ForeColor.RGB = RGB(255, 111, 61)"
+    },
+    {
+      "OnlyOffice_JS": "Api.CreateNoFill()",
+      "Excel_VBA": "oShape.Line.Visible = msoFalse"
+    },
+    {
+      "OnlyOffice_JS": "Api.CreateStroke(0, fill)",
+      "Excel_VBA": "With oShape.Line\n    .Weight = 0\n    .Visible = msoFalse\nEnd With"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.AddShape(type, width, height, fill, stroke, left, top, rotation, zOrder)",
+      "Excel_VBA": "Set oShape = oWorksheet.Shapes.AddShape(msoShapeFlowchartProcess, Left, Top, Width, Height)\nWith oShape\n    .Fill.ForeColor.RGB = RGB(255, 111, 61)\n    .Line.Visible = msoFalse\n    .Rotation = Rotation\n    .ZOrder ZOrder\nEnd With"
+    },
+    {
+      "OnlyOffice_JS": "oShape.GetContent()",
+      "Excel_VBA": "Set oDocContent = oShape.TextFrame2.TextRange"
+    },
+    {
+      "OnlyOffice_JS": "oDocContent.GetElement(index)",
+      "Excel_VBA": "Set oParagraph1 = oDocContent.Paragraphs(index + 1)"
+    },
+    {
+      "OnlyOffice_JS": "oParagraph.AddText(text)",
+      "Excel_VBA": "oParagraph1.Text = oParagraph1.Text & \"This is an example of setting a space after a paragraph. \""
+    },
+    {
+      "OnlyOffice_JS": "oParagraph.SetSpacingAfter(value)",
+      "Excel_VBA": "oParagraph1.ParagraphFormat.SpaceAfter = value"
+    },
+    {
+      "OnlyOffice_JS": "Api.CreateParagraph()",
+      "Excel_VBA": "Set oParagraph2 = oDocContent.Paragraphs.Add"
+    },
+    {
+      "OnlyOffice_JS": "oParagraph.AddLineBreak()",
+      "Excel_VBA": "oParagraph2.Text = oParagraph2.Text & vbLf"
+    },
+    {
+      "OnlyOffice_JS": "oParagraph.GetSpacingAfter()",
+      "Excel_VBA": "nSpacingAfter = oParagraph1.ParagraphFormat.SpaceAfter"
+    },
+    {
+      "OnlyOffice_JS": "oDocContent.Push(oParagraph)",
+      "Excel_VBA": "oParagraph2.InsertAfter \"Spacing after: \" & nSpacingAfter"
+    }
+  ]
+}
+```

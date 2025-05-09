@@ -1,0 +1,129 @@
+**Description:**
+This code initializes a worksheet with specific data, creates a pivot table based on that data, and retrieves layout information from the pivot table's fields.
+
+```json
+{
+  "RAG_Mapping": [
+    {
+      "Status": "Green",
+      "OnlyOffice_JS": "var oWorksheet = Api.GetActiveSheet();",
+      "VBA": "Dim oWorksheet As Worksheet\nSet oWorksheet = ActiveSheet"
+    },
+    {
+      "Status": "Green",
+      "OnlyOffice_JS": "oWorksheet.GetRange('B1').SetValue('Region');",
+      "VBA": "Range(\"B1\").Value = \"Region\""
+    },
+    {
+      "Status": "Green",
+      "OnlyOffice_JS": "oWorksheet.GetRange('C1').SetValue('Style');",
+      "VBA": "Range(\"C1\").Value = \"Style\""
+    },
+    {
+      "Status": "Green",
+      "OnlyOffice_JS": "oWorksheet.GetRange('D1').SetValue('Price');",
+      "VBA": "Range(\"D1\").Value = \"Price\""
+    },
+    {
+      "Status": "Green",
+      "OnlyOffice_JS": "oWorksheet.GetRange('B2').SetValue('East');",
+      "VBA": "Range(\"B2\").Value = \"East\""
+    },
+    {
+      "Status": "Green",
+      "OnlyOffice_JS": "oWorksheet.GetRange('B3').SetValue('West');",
+      "VBA": "Range(\"B3\").Value = \"West\""
+    },
+    {
+      "Status": "Green",
+      "OnlyOffice_JS": "oWorksheet.GetRange('B4').SetValue('East');",
+      "VBA": "Range(\"B4\").Value = \"East\""
+    },
+    {
+      "Status": "Green",
+      "OnlyOffice_JS": "oWorksheet.GetRange('B5').SetValue('West');",
+      "VBA": "Range(\"B5\").Value = \"West\""
+    },
+    {
+      "Status": "Green",
+      "OnlyOffice_JS": "oWorksheet.GetRange('C2').SetValue('Fancy');",
+      "VBA": "Range(\"C2\").Value = \"Fancy\""
+    },
+    {
+      "Status": "Green",
+      "OnlyOffice_JS": "oWorksheet.GetRange('C3').SetValue('Fancy');",
+      "VBA": "Range(\"C3\").Value = \"Fancy\""
+    },
+    {
+      "Status": "Green",
+      "OnlyOffice_JS": "oWorksheet.GetRange('C4').SetValue('Tee');",
+      "VBA": "Range(\"C4\").Value = \"Tee\""
+    },
+    {
+      "Status": "Green",
+      "OnlyOffice_JS": "oWorksheet.GetRange('C5').SetValue('Tee');",
+      "VBA": "Range(\"C5\").Value = \"Tee\""
+    },
+    {
+      "Status": "Green",
+      "OnlyOffice_JS": "oWorksheet.GetRange('D2').SetValue(42.5);",
+      "VBA": "Range(\"D2\").Value = 42.5"
+    },
+    {
+      "Status": "Green",
+      "OnlyOffice_JS": "oWorksheet.GetRange('D3').SetValue(35.2);",
+      "VBA": "Range(\"D3\").Value = 35.2"
+    },
+    {
+      "Status": "Green",
+      "OnlyOffice_JS": "oWorksheet.GetRange('D4').SetValue(12.3);",
+      "VBA": "Range(\"D4\").Value = 12.3"
+    },
+    {
+      "Status": "Green",
+      "OnlyOffice_JS": "oWorksheet.GetRange('D5').SetValue(24.8);",
+      "VBA": "Range(\"D5\").Value = 24.8"
+    },
+    {
+      "Status": "Green",
+      "OnlyOffice_JS": "var dataRef = Api.GetRange(\"'Sheet1'!$B$1:$D$5\");",
+      "VBA": "Dim dataRef As Range\nSet dataRef = Worksheets(\"Sheet1\").Range(\"B1:D5\")"
+    },
+    {
+      "Status": "Green",
+      "OnlyOffice_JS": "var pivotTable = Api.InsertPivotNewWorksheet(dataRef);",
+      "VBA": "Dim pivotTable As PivotTable\nSet pivotTable = Worksheets.Add.PivotTableWizard(SourceType:=xlDatabase, SourceData:=dataRef)"
+    },
+    {
+      "Status": "Green",
+      "OnlyOffice_JS": "pivotTable.AddFields({ rows: ['Region', 'Style'] });",
+      "VBA": "With pivotTable\n\t.With .PivotFields(\"Region\")\n\t\t.Orientation = xlRowField\n\t.End With\n\t.With .PivotFields(\"Style\")\n\t\t.Orientation = xlRowField\n\t.End With\nEnd With"
+    },
+    {
+      "Status": "Green",
+      "OnlyOffice_JS": "pivotTable.AddDataField('Price');",
+      "VBA": "pivotTable.AddDataField pivotTable.PivotFields(\"Price\"), \"Sum of Price\", xlSum"
+    },
+    {
+      "Status": "Green",
+      "OnlyOffice_JS": "var pivotWorksheet = Api.GetActiveSheet();",
+      "VBA": "Dim pivotWorksheet As Worksheet\nSet pivotWorksheet = ActiveSheet"
+    },
+    {
+      "Status": "Green",
+      "OnlyOffice_JS": "var pivotField = pivotTable.GetPivotFields('Region');",
+      "VBA": "Dim pivotField As PivotField\nSet pivotField = pivotTable.PivotFields(\"Region\")"
+    },
+    {
+      "Status": "Green",
+      "OnlyOffice_JS": "pivotWorksheet.GetRange('A12').SetValue('Region layout form');",
+      "VBA": "Range(\"A12\").Value = \"Region layout form\""
+    },
+    {
+      "Status": "Green",
+      "OnlyOffice_JS": "pivotWorksheet.GetRange('B12').SetValue(pivotField.GetLayoutForm());",
+      "VBA": "Range(\"B12\").Value = pivotField.LayoutForm"
+    }
+  ]
+}
+```

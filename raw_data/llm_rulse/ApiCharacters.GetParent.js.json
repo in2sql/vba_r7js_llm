@@ -1,0 +1,36 @@
+```json
+{
+  "table": [
+    {
+      "Description": "Get the active worksheet",
+      "OnlyOffice_JS": "var oWorksheet = Api.GetActiveSheet();",
+      "Excel_VBA": "Set oWorksheet = ActiveSheet"
+    },
+    {
+      "Description": "Get the range 'B1' on the worksheet",
+      "OnlyOffice_JS": "var oRange = oWorksheet.GetRange(\"B1\");",
+      "Excel_VBA": "Set oRange = oWorksheet.Range(\"B1\")"
+    },
+    {
+      "Description": "Set the value of the range to 'This is just a sample text.'",
+      "OnlyOffice_JS": "oRange.SetValue(\"This is just a sample text.\");",
+      "Excel_VBA": "oRange.Value = \"This is just a sample text.\""
+    },
+    {
+      "Description": "Get characters starting at position 23 with length 4",
+      "OnlyOffice_JS": "var oCharacters = oRange.GetCharacters(23, 4);",
+      "Excel_VBA": "Set oCharacters = oRange.Characters(Start:=23, Length:=4)"
+    },
+    {
+      "Description": "Get the parent object of the characters",
+      "OnlyOffice_JS": "var oParent = oCharacters.GetParent();",
+      "Excel_VBA": "Set oParent = oCharacters.Parent"
+    },
+    {
+      "Description": "Set the bottom border to thick with specified color",
+      "OnlyOffice_JS": "oParent.SetBorders(\"Bottom\", \"Thick\", Api.CreateColorFromRGB(255, 111, 61));",
+      "Excel_VBA": "With oParent.Borders(xlEdgeBottom)\n    .LineStyle = xlContinuous\n    .Weight = xlThick\n    .Color = RGB(255, 111, 61)\nEnd With"
+    }
+  ]
+}
+```

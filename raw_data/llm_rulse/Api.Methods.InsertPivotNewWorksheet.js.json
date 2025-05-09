@@ -1,0 +1,29 @@
+```json
+{
+  "Description": "Sets values in cells B1:C3 and creates a pivot table based on that range.",
+  "OnlyOffice JS": "var oWorksheet = Api.GetActiveSheet();\n\n" +
+                  "oWorksheet.GetRange('B1').SetValue('Region');\n" +
+                  "oWorksheet.GetRange('C1').SetValue('Price');\n" +
+                  "oWorksheet.GetRange('B2').SetValue('East');\n" +
+                  "oWorksheet.GetRange('B3').SetValue('West');\n" +
+                  "oWorksheet.GetRange('C2').SetValue(42.5);\n" +
+                  "oWorksheet.GetRange('C3').SetValue(35.2);\n\n" +
+                  "var dataRef = Api.GetRange(\"'Sheet1'!$B$1:$C$3\");\n" +
+                  "var pivotTable = Api.InsertPivotNewWorksheet(dataRef);",
+  "Excel VBA": "Sub SetValuesAndCreatePivot()\n" +
+              "    Dim oWorksheet As Worksheet\n" +
+              "    Set oWorksheet = ActiveSheet\n\n" +
+              "    oWorksheet.Range(\"B1\").Value = \"Region\"\n" +
+              "    oWorksheet.Range(\"C1\").Value = \"Price\"\n" +
+              "    oWorksheet.Range(\"B2\").Value = \"East\"\n" +
+              "    oWorksheet.Range(\"B3\").Value = \"West\"\n" +
+              "    oWorksheet.Range(\"C2\").Value = 42.5\n" +
+              "    oWorksheet.Range(\"C3\").Value = 35.2\n\n" +
+              "    Dim dataRef As Range\n" +
+              "    Set dataRef = Sheets(\"Sheet1\").Range(\"$B$1:$C$3\")\n" +
+              "    Dim pivotCache As PivotCache\n" +
+              "    Set pivotCache = ThisWorkbook.PivotCaches.Create(xlDatabase, dataRef)\n" +
+              "    pivotCache.CreatePivotTable TableDestination:=Sheets.Add, TableName:=\"PivotTable1\"\n" +
+              "End Sub"
+}
+```

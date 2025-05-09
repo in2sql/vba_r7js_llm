@@ -1,0 +1,20 @@
+```json
+{
+  "Attach event handler for worksheet changes": {
+    "OnlyOffice JS": "Api.attachEvent(\"onWorksheetChange\", function(oRange){\n    console.log(\"onWorksheetChange\");\n    console.log(oRange.GetAddress());\n});",
+    "Excel VBA": "Private Sub Worksheet_Change(ByVal Target As Range)\n    Debug.Print \"onWorksheetChange\"\n    Debug.Print Target.Address\nEnd Sub"
+  },
+  "Get the active worksheet": {
+    "OnlyOffice JS": "var oWorksheet = Api.GetActiveSheet();",
+    "Excel VBA": "Set oWorksheet = ActiveSheet"
+  },
+  "Get range A1 from active worksheet": {
+    "OnlyOffice JS": "var oRange = oWorksheet.GetRange(\"A1\");",
+    "Excel VBA": "Set oRange = oWorksheet.Range(\"A1\")"
+  },
+  "Set value of the range to \"1\"": {
+    "OnlyOffice JS": "oRange.SetValue(\"1\");",
+    "Excel VBA": "oRange.Value = \"1\""
+  }
+}
+```

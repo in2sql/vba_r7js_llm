@@ -1,0 +1,71 @@
+```json
+{
+  "description": "This example shows how to get and set the spacing after value of the paragraph.",
+  "codeComparison": [
+    {
+      "OnlyOffice_JS": "var oWorksheet = Api.GetActiveSheet();",
+      "Excel_VBA": "Dim oWorksheet As Worksheet\nSet oWorksheet = ActiveSheet"
+    },
+    {
+      "OnlyOffice_JS": "var oFill = Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61));",
+      "Excel_VBA": "Dim oFill As FillFormat\nSet oFill = oShape.Fill\noFill.ForeColor.RGB = RGB(255, 111, 61)"
+    },
+    {
+      "OnlyOffice_JS": "var oStroke = Api.CreateStroke(0, Api.CreateNoFill());",
+      "Excel_VBA": "With oShape.Line\n    .Visible = msoFalse\nEnd With"
+    },
+    {
+      "OnlyOffice_JS": "var oShape = oWorksheet.AddShape(\"flowChartOnlineStorage\", 120 * 36000, 70 * 36000, oFill, oStroke, 0, 2 * 36000, 0, 3 * 36000);",
+      "Excel_VBA": "Dim oShape As Shape\nSet oShape = oWorksheet.Shapes.AddShape(msoShapeFlowchartOnlineStorage, 120, 70, 200, 150)\nWith oShape.Fill\n    .Visible = msoTrue\n    .ForeColor.RGB = RGB(255, 111, 61)\nEnd With\nWith oShape.Line\n    .Visible = msoFalse\nEnd With"
+    },
+    {
+      "OnlyOffice_JS": "var oDocContent = oShape.GetContent();",
+      "Excel_VBA": "Dim oDocContent As TextFrame2\nSet oDocContent = oShape.TextFrame2"
+    },
+    {
+      "OnlyOffice_JS": "var oParagraph1 = oDocContent.GetElement(0);",
+      "Excel_VBA": ""
+    },
+    {
+      "OnlyOffice_JS": "oParagraph1.AddText(\"This is an example of setting a space after a paragraph. \");",
+      "Excel_VBA": "oDocContent.Text = \"This is an example of setting a space after a paragraph. \""
+    },
+    {
+      "OnlyOffice_JS": "oParagraph1.AddText(\"The second paragraph will have an offset of one inch from the top. \");",
+      "Excel_VBA": "oDocContent.Text = oDocContent.Text & \"The second paragraph will have an offset of one inch from the top. \""
+    },
+    {
+      "OnlyOffice_JS": "oParagraph1.AddText(\"This is due to the fact that the first paragraph has this offset enabled.\");",
+      "Excel_VBA": "oDocContent.Text = oDocContent.Text & \"This is due to the fact that the first paragraph has this offset enabled.\""
+    },
+    {
+      "OnlyOffice_JS": "oParagraph1.SetSpacingAfter(1440);",
+      "Excel_VBA": "oShape.TextFrame2.TextRange.ParagraphFormat.SpaceAfter = 1440"
+    },
+    {
+      "OnlyOffice_JS": "var oParagraph2 = Api.CreateParagraph();",
+      "Excel_VBA": ""
+    },
+    {
+      "OnlyOffice_JS": "oParagraph2.AddText(\"This is the second paragraph and it is one inch away from the first paragraph.\");",
+      "Excel_VBA": "oDocContent.Text = oDocContent.Text & vbCrLf & \"This is the second paragraph and it is one inch away from the first paragraph.\""
+    },
+    {
+      "OnlyOffice_JS": "oParagraph2.AddLineBreak();",
+      "Excel_VBA": "oDocContent.Text = oDocContent.Text & vbCrLf"
+    },
+    {
+      "OnlyOffice_JS": "var nSpacingAfter = oParagraph1.GetSpacingAfter();",
+      "Excel_VBA": "Dim nSpacingAfter As Single\nnSpacingAfter = oShape.TextFrame2.TextRange.ParagraphFormat.SpaceAfter"
+    },
+    {
+      "OnlyOffice_JS": "oParagraph2.AddText(\"Spacing after: \" + nSpacingAfter);",
+      "Excel_VBA": "oDocContent.Text = oDocContent.Text & \"Spacing after: \" & nSpacingAfter"
+    },
+    {
+      "OnlyOffice_JS": "oDocContent.Push(oParagraph2);",
+      "Excel_VBA": ""
+    }
+  ]
+}
+```

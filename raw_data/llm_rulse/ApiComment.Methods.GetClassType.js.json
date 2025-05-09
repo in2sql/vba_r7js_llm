@@ -1,0 +1,35 @@
+```json
+{
+  "description": "This example gets a class type and inserts it into the table.",
+  "code_mapping": [
+    {
+      "OnlyOffice_JS": "var oWorksheet = Api.GetActiveSheet();",
+      "Excel_VBA": "Set oWorksheet = ActiveWorkbook.ActiveSheet"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"A1\").SetValue(\"1\");",
+      "Excel_VBA": "Range(\"A1\").Value = \"1\""
+    },
+    {
+      "OnlyOffice_JS": "var oRange = oWorksheet.GetRange(\"A1\");",
+      "Excel_VBA": "Set oRange = Range(\"A1\")"
+    },
+    {
+      "OnlyOffice_JS": "oRange.AddComment(\"This is just a number.\");",
+      "Excel_VBA": "oRange.AddComment \"This is just a number.\""
+    },
+    {
+      "OnlyOffice_JS": "var oComment = oRange.GetComment();",
+      "Excel_VBA": "Set oComment = oRange.Comment"
+    },
+    {
+      "OnlyOffice_JS": "var sType = oComment.GetClassType();",
+      "Excel_VBA": "sType = TypeName(oComment)"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"A3\").SetValue(\"Type: \" + sType);",
+      "Excel_VBA": "Range(\"A3\").Value = \"Type: \" & sType"
+    }
+  ]
+}
+```

@@ -1,0 +1,36 @@
+```json
+{
+  "description": "This example replaces each paragraph (or text in cell) in the selection with the corresponding text from an array of strings.",
+  "table": {
+    "headers": ["OnlyOffice JavaScript", "Excel VBA"],
+    "rows": [
+      [
+        "var oWorksheet = Api.GetActiveSheet();",
+        "Set oWorksheet = ThisWorkbook.ActiveSheet"
+      ],
+      [
+        "oWorksheet.GetRange(\"A1\").SetValue(\"1\");",
+        "oWorksheet.Range(\"A1\").Value = \"1\""
+      ],
+      [
+        "oWorksheet.GetRange(\"A2\").SetValue(\"2\");",
+        "oWorksheet.Range(\"A2\").Value = \"2\""
+      ],
+      [
+        "var oRange = oWorksheet.GetRange(\"A1:A2\");",
+        "Set oRange = oWorksheet.Range(\"A1:A2\")"
+      ],
+      [
+        "oRange.Select();",
+        "oRange.Select"
+      ],
+      [
+        "Api.ReplaceTextSmart([\"Cell 1\", \"Cell 2\"]);",
+        "' ReplaceTextSmart equivalent in VBA\n" +
+        "oRange.Cells(1, 1).Value = \"Cell 1\"\n" +
+        "oRange.Cells(2, 1).Value = \"Cell 2\""
+      ]
+    ]
+  }
+}
+```

@@ -1,0 +1,13 @@
+```json
+{
+  "description": "This example shows how to get the previous paragraph.",
+  "codes": [
+    {
+      "OnlyOfficeJS": "// This example shows how to get the previous paragraph.\nvar oWorksheet = Api.GetActiveSheet();\nvar oFill = Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61));\nvar oStroke = Api.CreateStroke(0, Api.CreateNoFill());\nvar oShape = oWorksheet.AddShape(\"flowChartOnlineStorage\", 60 * 36000, 35 * 36000, oFill, oStroke, 0, 2 * 36000, 0, 3 * 36000);\nvar oDocContent = oShape.GetContent();\noDocContent.RemoveAllElements();\nvar oParagraph1 = Api.CreateParagraph();\noParagraph1.AddText(\"This is the first paragraph.\");\noDocContent.Push(oParagraph1);\nvar oParagraph2 = Api.CreateParagraph();\noParagraph2.AddText(\"This is the second paragraph.\");\noDocContent.Push(oParagraph2);\nvar oPreviousParagraph = oParagraph2.GetPrevious();\noPreviousParagraph.SetBold(true);"
+    },
+    {
+      "ExcelVBA": "' This example shows how to get the previous paragraph.\nDim oWorksheet As Object\nSet oWorksheet = Api.GetActiveSheet()\nDim oFill As Object\nSet oFill = Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61))\nDim oStroke As Object\nSet oStroke = Api.CreateStroke(0, Api.CreateNoFill())\nDim oShape As Object\nSet oShape = oWorksheet.AddShape(\"flowChartOnlineStorage\", 60 * 36000, 35 * 36000, oFill, oStroke, 0, 2 * 36000, 0, 3 * 36000)\nDim oDocContent As Object\nSet oDocContent = oShape.GetContent()\noDocContent.RemoveAllElements()\nDim oParagraph1 As Object\nSet oParagraph1 = Api.CreateParagraph()\noParagraph1.AddText(\"This is the first paragraph.\")\noDocContent.Push oParagraph1\nDim oParagraph2 As Object\nSet oParagraph2 = Api.CreateParagraph()\noParagraph2.AddText(\"This is the second paragraph.\")\noDocContent.Push oParagraph2\nDim oPreviousParagraph As Object\nSet oPreviousParagraph = oParagraph2.GetPrevious()\noPreviousParagraph.SetBold True"
+    }
+  ]
+}
+```

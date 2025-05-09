@@ -1,0 +1,56 @@
+```json
+{
+  "Table": [
+    {
+      "Description": "Get the active worksheet",
+      "VBA": "Set oWorksheet = ActiveSheet",
+      "OnlyOffice JS": "var oWorksheet = Api.GetActiveSheet();"
+    },
+    {
+      "Description": "Set value of cell A1 to '1'",
+      "VBA": "Range(\"A1\").Value = \"1\"",
+      "OnlyOffice JS": "oWorksheet.GetRange(\"A1\").SetValue(\"1\");"
+    },
+    {
+      "Description": "Set value of cell B1 to '2'",
+      "VBA": "Range(\"B1\").Value = \"2\"",
+      "OnlyOffice JS": "oWorksheet.GetRange(\"B1\").SetValue(\"2\");"
+    },
+    {
+      "Description": "Set value of cell C1 to '3'",
+      "VBA": "Range(\"C1\").Value = \"3\"",
+      "OnlyOffice JS": "oWorksheet.GetRange(\"C1\").SetValue(\"3\");"
+    },
+    {
+      "Description": "Add a protected range named 'Protected range' for cells A1:C1",
+      "VBA": "oWorksheet.Range(\"$A$1:$C$1\").Locked = True\n' Additional protection steps may be required",
+      "OnlyOffice JS": "oWorksheet.AddProtectedRange(\"Protected range\", \"$A$1:$C$1\");"
+    },
+    {
+      "Description": "Get the protected range named 'Protected range'",
+      "VBA": "Set oProtectedRange = oWorksheet.Range(\"$A$1:$C$1\")\n' Additional protection steps may be required",
+      "OnlyOffice JS": "var oProtectedRange = oWorksheet.GetProtectedRange(\"Protected range\");"
+    },
+    {
+      "Description": "Add user 'John Smith' with edit permissions to the protected range",
+      "VBA": "' VBA does not have a direct equivalent; you would need to manage user permissions differently",
+      "OnlyOffice JS": "oProtectedRange.AddUser(\"uid-1\", \"John Smith\", \"CanEdit\");"
+    },
+    {
+      "Description": "Add user 'Mark Potato' with view permissions to the protected range",
+      "VBA": "' VBA does not have a direct equivalent; you would need to manage user permissions differently",
+      "OnlyOffice JS": "oProtectedRange.AddUser(\"uid-2\", \"Mark Potato\", \"CanView\");"
+    },
+    {
+      "Description": "Get all users of the protected range",
+      "VBA": "' VBA does not have a direct equivalent; you would need to manage user permissions differently",
+      "OnlyOffice JS": "var aUsers = oProtectedRange.GetAllUsers();"
+    },
+    {
+      "Description": "Set value of cell A3 to the name of the first user in the protected range",
+      "VBA": "Range(\"A3\").Value = aUsers(1).Name",
+      "OnlyOffice JS": "oWorksheet.GetRange(\"A3\").SetValue(aUsers[0].GetName());"
+    }
+  ]
+}
+```

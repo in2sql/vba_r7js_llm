@@ -1,0 +1,64 @@
+```json
+[
+  {
+    "Get the active worksheet": {
+      "OnlyOffice JS": "var oWorksheet = Api.GetActiveSheet();",
+      "Excel VBA": "Set oWorksheet = ThisWorkbook.ActiveSheet"
+    }
+  },
+  {
+    "Create first gradient stop with RGB color (255, 213, 191) at position 0": {
+      "OnlyOffice JS": "var oGs1 = Api.CreateGradientStop(Api.CreateRGBColor(255, 213, 191), 0);",
+      "Excel VBA": "Set oGs1 = Api.CreateGradientStop(CreateRGBColor(255, 213, 191), 0)"
+    }
+  },
+  {
+    "Create second gradient stop with RGB color (255, 111, 61) at position 100000": {
+      "OnlyOffice JS": "var oGs2 = Api.CreateGradientStop(Api.CreateRGBColor(255, 111, 61), 100000);",
+      "Excel VBA": "Set oGs2 = Api.CreateGradientStop(CreateRGBColor(255, 111, 61), 100000)"
+    }
+  },
+  {
+    "Create linear gradient fill with gradient stops and angle 5400000": {
+      "OnlyOffice JS": "var oFill = Api.CreateLinearGradientFill([oGs1, oGs2], 5400000);",
+      "Excel VBA": "Set oFill = Api.CreateLinearGradientFill(Array(oGs1, oGs2), 5400000)"
+    }
+  },
+  {
+    "Create stroke with width 0 and no fill": {
+      "OnlyOffice JS": "var oStroke = Api.CreateStroke(0, Api.CreateNoFill());",
+      "Excel VBA": "Set oStroke = Api.CreateStroke(0, Api.CreateNoFill())"
+    }
+  },
+  {
+    "Add shape 'flowChartOnlineStorage' to the worksheet with specified dimensions and styles": {
+      "OnlyOffice JS": "oWorksheet.AddShape(\"flowChartOnlineStorage\", 60 * 36000, 35 * 36000, oFill, oStroke, 0, 2 * 36000, 1, 3 * 36000);",
+      "Excel VBA": "oWorksheet.Shapes.AddShape(msoShapeFlowChartOnlineStorage, 60 * 36000, 35 * 36000, oFill, oStroke, 0, 2 * 36000, 1, 3 * 36000)"
+    }
+  },
+  {
+    "Get the class type of the first gradient stop": {
+      "OnlyOffice JS": "var sClassType = oGs1.GetClassType();",
+      "Excel VBA": "sClassType = oGs1.GetClassType()"
+    }
+  },
+  {
+    "Set the width of the first column to 15": {
+      "OnlyOffice JS": "oWorksheet.SetColumnWidth(0, 15);",
+      "Excel VBA": "oWorksheet.Columns(1).ColumnWidth = 15"
+    }
+  },
+  {
+    "Set the width of the second column to 10": {
+      "OnlyOffice JS": "oWorksheet.SetColumnWidth(1, 10);",
+      "Excel VBA": "oWorksheet.Columns(2).ColumnWidth = 10"
+    }
+  },
+  {
+    "Set the value of cell A1 to display the class type": {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"A1\").SetValue(\"Class Type = \" + sClassType);",
+      "Excel VBA": "oWorksheet.Range(\"A1\").Value = \"Class Type = \" & sClassType"
+    }
+  }
+]
+```

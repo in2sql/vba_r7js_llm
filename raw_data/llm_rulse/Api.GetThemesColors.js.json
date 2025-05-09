@@ -1,0 +1,19 @@
+```json
+{
+  "Description": "This example shows how to get a list of all the available theme colors for the spreadsheet.",
+  "Methods": [
+    {
+      "OnlyOffice_JS": "var oWorksheet = Api.GetActiveSheet();",
+      "Excel_VBA": "Set oWorksheet = ActiveSheet"
+    },
+    {
+      "OnlyOffice_JS": "var themes = Api.GetThemesColors();",
+      "Excel_VBA": "themes = ActiveWorkbook.Theme.ThemeColorScheme.Colors"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"A\" + (i + 1)).SetValue(themes[i]);",
+      "Excel_VBA": "oWorksheet.Range(\"A\" & (i + 1)).Value = themes(i)"
+    }
+  ]
+}
+```

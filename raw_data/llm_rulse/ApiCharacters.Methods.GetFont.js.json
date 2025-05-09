@@ -1,0 +1,36 @@
+```json
+{
+  "Table": [
+    {
+      "Description": "Get the active worksheet",
+      "OnlyOffice JS": "var oWorksheet = Api.GetActiveSheet();",
+      "VBA": "Set oWorksheet = ActiveWorkbook.ActiveSheet"
+    },
+    {
+      "Description": "Get range B1",
+      "OnlyOffice JS": "var oRange = oWorksheet.GetRange(\"B1\");",
+      "VBA": "Set oRange = oWorksheet.Range(\"B1\")"
+    },
+    {
+      "Description": "Set value in B1",
+      "OnlyOffice JS": "oRange.SetValue(\"This is just a sample text.\");",
+      "VBA": "oRange.Value = \"This is just a sample text.\""
+    },
+    {
+      "Description": "Get characters from position 9, length 4",
+      "OnlyOffice JS": "var oCharacters = oRange.GetCharacters(9, 4);",
+      "VBA": "Set oCharacters = oRange.Characters(9, 4)"
+    },
+    {
+      "Description": "Get the font of the characters",
+      "OnlyOffice JS": "var oFont = oCharacters.GetFont();",
+      "VBA": "Set oFont = oCharacters.Font"
+    },
+    {
+      "Description": "Set font to bold",
+      "OnlyOffice JS": "oFont.SetBold(true);",
+      "VBA": "oFont.Bold = True"
+    }
+  ]
+}
+```

@@ -1,0 +1,9 @@
+```json
+{
+  "description": "Sets a value in cell B1, retrieves characters 23-26, obtains their parent object, and applies a thick bottom border with a specific RGB color.",
+  "code": {
+    "OnlyOffice_JS": "// This example shows how to get the parent object of the specified characters.\nvar oWorksheet = Api.GetActiveSheet();\nvar oRange = oWorksheet.GetRange(\"B1\");\noRange.SetValue(\"This is just a sample text.\");\nvar oCharacters = oRange.GetCharacters(23, 4);\nvar oParent = oCharacters.GetParent();\noParent.SetBorders(\"Bottom\", \"Thick\", Api.CreateColorFromRGB(255, 111, 61));",
+    "Excel_VBA": "' Sets a value in cell B1, retrieves characters 23-26, gets their parent, and sets a thick bottom border with a specific color.\nSub SetBordersExample()\n    Dim ws As Worksheet\n    Set ws = ActiveSheet\n    Dim rng As Range\n    Set rng = ws.Range(\"B1\")\n    rng.Value = \"This is just a sample text.\"\n    Dim characters As Characters\n    Set characters = rng.Characters(Start:=23, Length:=4)\n    Dim parentRange As Range\n    Set parentRange = characters.Parent\n    With parentRange.Borders(xlEdgeBottom)\n        .LineStyle = xlContinuous\n        .Weight = xlThick\n        .Color = RGB(255, 111, 61)\n    End With\nEnd Sub"
+  }
+}
+```

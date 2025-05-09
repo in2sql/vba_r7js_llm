@@ -1,0 +1,99 @@
+```json
+{
+  "table": {
+    "headers": ["Description", "OnlyOffice JS", "Excel VBA"],
+    "rows": [
+      {
+        "Description": "Get the active worksheet.",
+        "OnlyOffice JS": "var oWorksheet = Api.GetActiveSheet();",
+        "Excel VBA": "Set oWorksheet = ThisWorkbook.ActiveSheet"
+      },
+      {
+        "Description": "Create an RGB color.",
+        "OnlyOffice JS": "var oRGBColor = Api.CreateRGBColor(255, 111, 61);",
+        "Excel VBA": "Dim oRGBColor As Long\noRGBColor = RGB(255, 111, 61)"
+      },
+      {
+        "Description": "Create a solid fill with the RGB color.",
+        "OnlyOffice JS": "var oFill = Api.CreateSolidFill(oRGBColor);",
+        "Excel VBA": "Dim oFill As Object\nSet oFill = oWorksheet.Range(\"A1\").Interior\noFill.Color = oRGBColor"
+      },
+      {
+        "Description": "Create a stroke with no fill.",
+        "OnlyOffice JS": "var oStroke = Api.CreateStroke(0, Api.CreateNoFill());",
+        "Excel VBA": "Dim oStroke As Object\nSet oStroke = oWorksheet.Shapes.AddLine(0, 0, 100, 100)\noStroke.Line.Visible = msoFalse"
+      },
+      {
+        "Description": "Add a shape to the worksheet.",
+        "OnlyOffice JS": "var oShape = oWorksheet.AddShape(\"flowChartOnlineStorage\", 120 * 36000, 70 * 36000, oFill, oStroke, 0, 2 * 36000, 0, 3 * 36000);",
+        "Excel VBA": "Dim oShape As Shape\nSet oShape = oWorksheet.Shapes.AddShape(msoShapeFlowchartData, 120, 70, 200, 100)\noShape.Fill.ForeColor.RGB = oRGBColor\n'oShape.Line.Visible = msoFalse ' Equivalent to no stroke"
+      },
+      {
+        "Description": "Get the content of the shape.",
+        "OnlyOffice JS": "var oDocContent = oShape.GetContent();",
+        "Excel VBA": "Dim oDocContent As Object\nSet oDocContent = oShape.TextFrame"
+      },
+      {
+        "Description": "Get the first paragraph from the content.",
+        "OnlyOffice JS": "var oParagraph = oDocContent.GetElement(0);",
+        "Excel VBA": "Dim oParagraph As TextRange\nSet oParagraph = oDocContent.Characters"
+      },
+      {
+        "Description": "Add text to the first paragraph.",
+        "OnlyOffice JS": "oParagraph.AddText(\"This is an example of setting a space before a paragraph.\");",
+        "Excel VBA": "oParagraph.Text = \"This is an example of setting a space before a paragraph.\""
+      },
+      {
+        "Description": "Add more text to the first paragraph.",
+        "OnlyOffice JS": "oParagraph.AddText(\"The second paragraph will have an offset of one inch from the top. \");",
+        "Excel VBA": "oParagraph.InsertAfter \"The second paragraph will have an offset of one inch from the top.\""
+      },
+      {
+        "Description": "Add additional text to the first paragraph.",
+        "OnlyOffice JS": "oParagraph.AddText(\"This is due to the fact that the second paragraph has this offset enabled.\");",
+        "Excel VBA": "oParagraph.InsertAfter \"This is due to the fact that the second paragraph has this offset enabled.\""
+      },
+      {
+        "Description": "Create a second paragraph.",
+        "OnlyOffice JS": "var oParagraph2 = Api.CreateParagraph();",
+        "Excel VBA": "Dim oParagraph2 As TextRange\nSet oParagraph2 = oDocContent.InsertAfter(\"\")"
+      },
+      {
+        "Description": "Add text to the second paragraph.",
+        "OnlyOffice JS": "oParagraph2.AddText(\"This is the second paragraph and it is one inch away from the first paragraph.\");",
+        "Excel VBA": "oParagraph2.Text = \"This is the second paragraph and it is one inch away from the first paragraph.\""
+      },
+      {
+        "Description": "Set spacing before for the second paragraph.",
+        "OnlyOffice JS": "oParagraph2.SetSpacingBefore(1440);",
+        "Excel VBA": "With oParagraph2.ParagraphFormat\n    .SpaceBefore = 72 ' Points (1 inch)\nEnd With"
+      },
+      {
+        "Description": "Push the second paragraph to the document content.",
+        "OnlyOffice JS": "oDocContent.Push(oParagraph2);",
+        "Excel VBA": "' In VBA, the paragraph is already part of the TextFrame after insertion."
+      },
+      {
+        "Description": "Get the spacing before value of the second paragraph.",
+        "OnlyOffice JS": "var nSpacingBefore = oParagraph2.GetSpacingBefore();",
+        "Excel VBA": "Dim nSpacingBefore As Long\nnSpacingBefore = oParagraph2.ParagraphFormat.SpaceBefore"
+      },
+      {
+        "Description": "Create a third paragraph.",
+        "OnlyOffice JS": "var oParagraph = Api.CreateParagraph();",
+        "Excel VBA": "Dim oParagraph3 As TextRange\nSet oParagraph3 = oDocContent.InsertAfter(\"\")"
+      },
+      {
+        "Description": "Add text with spacing information to the third paragraph.",
+        "OnlyOffice JS": "oParagraph.AddText(\"Spacing before: \" + nSpacingBefore);",
+        "Excel VBA": "oParagraph3.Text = \"Spacing before: \" & nSpacingBefore"
+      },
+      {
+        "Description": "Push the third paragraph to the document content.",
+        "OnlyOffice JS": "oDocContent.Push(oParagraph);",
+        "Excel VBA": "' In VBA, the paragraph is already part of the TextFrame after insertion."
+      }
+    ]
+  }
+}
+```

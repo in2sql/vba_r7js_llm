@@ -1,0 +1,29 @@
+**Description:**  
+This example creates a complex color scheme by selecting from one of the available schemes and adds a curved up arrow shape to the active worksheet with specified dimensions and styling.
+
+```json
+{
+  "RAG_Table": [
+    {
+      "OnlyOffice JS": "var oWorksheet = Api.GetActiveSheet();",
+      "Excel VBA": "Set oWorksheet = ActiveWorkbook.ActiveSheet"
+    },
+    {
+      "OnlyOffice JS": "var oSchemeColor = Api.CreateSchemeColor(\"dk1\");",
+      "Excel VBA": "Set oSchemeColor = ActiveWorkbook.Colors(\"dk1\")"
+    },
+    {
+      "OnlyOffice JS": "var oFill = Api.CreateSolidFill(oSchemeColor);",
+      "Excel VBA": "Set oFill = oSchemeColor.SolidFill"
+    },
+    {
+      "OnlyOffice JS": "var oStroke = Api.CreateStroke(0, Api.CreateNoFill());",
+      "Excel VBA": "Set oStroke = ActiveWorkbook.Stroke.Create(0, Nothing)"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.AddShape(\"curvedUpArrow\", 60 * 36000, 35 * 36000, oFill, oStroke, 0, 2 * 36000, 1, 3 * 36000);",
+      "Excel VBA": "oWorksheet.Shapes.AddShape(msoShapeCurvedUpArrow, 60, 35, oFill, oStroke, 0, 2, 1, 3)"
+    }
+  ]
+}
+```

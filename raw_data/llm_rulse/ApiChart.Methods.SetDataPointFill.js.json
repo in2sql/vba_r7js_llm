@@ -1,0 +1,107 @@
+```json
+{
+  "description": "This script sets values in specific cells on the active worksheet, adds a 3D bar chart based on the specified range, sets the chart title, and customizes the fill colors for the chart series and data points.",
+  "methods": [
+    {
+      "description": "Get the active worksheet",
+      "OnlyOffice_JS": "var oWorksheet = Api.GetActiveSheet();",
+      "Excel_VBA": "Set ws = ThisWorkbook.ActiveSheet"
+    },
+    {
+      "description": "Set value in cell B1",
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"B1\").SetValue(2014);",
+      "Excel_VBA": "ws.Range(\"B1\").Value = 2014"
+    },
+    {
+      "description": "Set value in cell C1",
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"C1\").SetValue(2015);",
+      "Excel_VBA": "ws.Range(\"C1\").Value = 2015"
+    },
+    {
+      "description": "Set value in cell D1",
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"D1\").SetValue(2016);",
+      "Excel_VBA": "ws.Range(\"D1\").Value = 2016"
+    },
+    {
+      "description": "Set value in cell A2",
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"A2\").SetValue(\"Projected Revenue\");",
+      "Excel_VBA": "ws.Range(\"A2\").Value = \"Projected Revenue\""
+    },
+    {
+      "description": "Set value in cell A3",
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"A3\").SetValue(\"Estimated Costs\");",
+      "Excel_VBA": "ws.Range(\"A3\").Value = \"Estimated Costs\""
+    },
+    {
+      "description": "Set value in cell B2",
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"B2\").SetValue(200);",
+      "Excel_VBA": "ws.Range(\"B2\").Value = 200"
+    },
+    {
+      "description": "Set value in cell B3",
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"B3\").SetValue(250);",
+      "Excel_VBA": "ws.Range(\"B3\").Value = 250"
+    },
+    {
+      "description": "Set value in cell C2",
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"C2\").SetValue(240);",
+      "Excel_VBA": "ws.Range(\"C2\").Value = 240"
+    },
+    {
+      "description": "Set value in cell C3",
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"C3\").SetValue(260);",
+      "Excel_VBA": "ws.Range(\"C3\").Value = 260"
+    },
+    {
+      "description": "Set value in cell D2",
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"D2\").SetValue(280);",
+      "Excel_VBA": "ws.Range(\"D2\").Value = 280"
+    },
+    {
+      "description": "Set value in cell D3",
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"D3\").SetValue(280);",
+      "Excel_VBA": "ws.Range(\"D3\").Value = 280"
+    },
+    {
+      "description": "Add a 3D bar chart based on range A1:D3 with specified parameters",
+      "OnlyOffice_JS": "var oChart = oWorksheet.AddChart(\"'Sheet1'!$A$1:$D$3\", true, \"bar3D\", 2, 100 * 36000, 70 * 36000, 0, 2 * 36000, 7, 3 * 36000);",
+      "Excel_VBA": "Set chartObj = ws.ChartObjects.Add(100, 100, 350, 250)\nSet chart = chartObj.Chart\nchart.SetSourceData Source:=ws.Range(\"A1:D3\")\nchart.ChartType = xlBar3DClustered"
+    },
+    {
+      "description": "Set chart title",
+      "OnlyOffice_JS": "oChart.SetTitle(\"Financial Overview\", 13);",
+      "Excel_VBA": "chart.HasTitle = True\nchart.ChartTitle.Text = \"Financial Overview\""
+    },
+    {
+      "description": "Create a solid fill with RGB color (51,51,51)",
+      "OnlyOffice_JS": "var oFill = Api.CreateSolidFill(Api.CreateRGBColor(51, 51, 51));",
+      "Excel_VBA": "' VBA does not require separate creation of fill objects; setting the RGB directly"
+    },
+    {
+      "description": "Set fill for series 0",
+      "OnlyOffice_JS": "oChart.SetSeriesFill(oFill, 0, false);",
+      "Excel_VBA": "chart.SeriesCollection(1).Format.Fill.ForeColor.RGB = RGB(51, 51, 51)"
+    },
+    {
+      "description": "Create a solid fill with RGB color (255,111,61)",
+      "OnlyOffice_JS": "oFill = Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61));",
+      "Excel_VBA": "' VBA does not require separate creation of fill objects; setting the RGB directly"
+    },
+    {
+      "description": "Set fill for series 1",
+      "OnlyOffice_JS": "oChart.SetSeriesFill(oFill, 1, false);",
+      "Excel_VBA": "chart.SeriesCollection(2).Format.Fill.ForeColor.RGB = RGB(255, 111, 61)"
+    },
+    {
+      "description": "Create a solid fill with RGB color (128,128,128)",
+      "OnlyOffice_JS": "oFill = Api.CreateSolidFill(Api.CreateRGBColor(128, 128, 128));",
+      "Excel_VBA": "' VBA does not require separate creation of fill objects; setting the RGB directly"
+    },
+    {
+      "description": "Set fill for data point (series 0, point 0)",
+      "OnlyOffice_JS": "oChart.SetDataPointFill(oFill, 0, 0, false);",
+      "Excel_VBA": "chart.SeriesCollection(1).Points(1).Format.Fill.ForeColor.RGB = RGB(128, 128, 128)"
+    }
+  ]
+}
+```

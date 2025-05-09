@@ -1,0 +1,116 @@
+```json
+{
+  "Table": [
+    {
+      "Description": "Get the active worksheet",
+      "Excel VBA": "Set oWorksheet = ActiveSheet",
+      "OnlyOffice JS": "var oWorksheet = Api.GetActiveSheet();"
+    },
+    {
+      "Description": "Set value 2014 in cell B1",
+      "Excel VBA": "Range(\"B1\").Value = 2014",
+      "OnlyOffice JS": "oWorksheet.GetRange(\"B1\").SetValue(2014);"
+    },
+    {
+      "Description": "Set value 2015 in cell C1",
+      "Excel VBA": "Range(\"C1\").Value = 2015",
+      "OnlyOffice JS": "oWorksheet.GetRange(\"C1\").SetValue(2015);"
+    },
+    {
+      "Description": "Set value 2016 in cell D1",
+      "Excel VBA": "Range(\"D1\").Value = 2016",
+      "OnlyOffice JS": "oWorksheet.GetRange(\"D1\").SetValue(2016);"
+    },
+    {
+      "Description": "Set header 'Projected Revenue' in cell A2",
+      "Excel VBA": "Range(\"A2\").Value = \"Projected Revenue\"",
+      "OnlyOffice JS": "oWorksheet.GetRange(\"A2\").SetValue(\"Projected Revenue\");"
+    },
+    {
+      "Description": "Set header 'Estimated Costs' in cell A3",
+      "Excel VBA": "Range(\"A3\").Value = \"Estimated Costs\"",
+      "OnlyOffice JS": "oWorksheet.GetRange(\"A3\").SetValue(\"Estimated Costs\");"
+    },
+    {
+      "Description": "Set value 200 in cell B2",
+      "Excel VBA": "Range(\"B2\").Value = 200",
+      "OnlyOffice JS": "oWorksheet.GetRange(\"B2\").SetValue(200);"
+    },
+    {
+      "Description": "Set value 250 in cell B3",
+      "Excel VBA": "Range(\"B3\").Value = 250",
+      "OnlyOffice JS": "oWorksheet.GetRange(\"B3\").SetValue(250);"
+    },
+    {
+      "Description": "Set value 240 in cell C2",
+      "Excel VBA": "Range(\"C2\").Value = 240",
+      "OnlyOffice JS": "oWorksheet.GetRange(\"C2\").SetValue(240);"
+    },
+    {
+      "Description": "Set value 260 in cell C3",
+      "Excel VBA": "Range(\"C3\").Value = 260",
+      "OnlyOffice JS": "oWorksheet.GetRange(\"C3\").SetValue(260);"
+    },
+    {
+      "Description": "Set value 280 in cell D2",
+      "Excel VBA": "Range(\"D2\").Value = 280",
+      "OnlyOffice JS": "oWorksheet.GetRange(\"D2\").SetValue(280);"
+    },
+    {
+      "Description": "Set value 280 in cell D3",
+      "Excel VBA": "Range(\"D3\").Value = 280",
+      "OnlyOffice JS": "oWorksheet.GetRange(\"D3\").SetValue(280);"
+    },
+    {
+      "Description": "Add a scatter chart with specified range and properties",
+      "Excel VBA": "Set oChart = oWorksheet.Shapes.AddChart2(201, xlXYScatter).Chart\n" +
+                    "oChart.SetSourceData Source:=oWorksheet.Range(\"A1:D3\")\n" +
+                    "oChart.ChartArea.Left = 100\n" +
+                    "oChart.ChartArea.Top = 70",
+      "OnlyOffice JS": "var oChart = oWorksheet.AddChart(\"'Sheet1'!$A$1:$D$3\", true, \"scatter\", 2, 100 * 36000, 70 * 36000, 70 * 36000, 0, 2 * 36000, 5, 3 * 36000);"
+    },
+    {
+      "Description": "Set the chart title to 'Financial Overview' with font size 13",
+      "Excel VBA": "oChart.HasTitle = True\n" +
+                    "oChart.ChartTitle.Text = \"Financial Overview\"\n" +
+                    "oChart.ChartTitle.Font.Size = 13",
+      "OnlyOffice JS": "oChart.SetTitle(\"Financial Overview\", 13);"
+    },
+    {
+      "Description": "Set horizontal axis major tick mark to 'cross'",
+      "Excel VBA": "oChart.Axes(xlCategory).MajorTickMark = xlTickMarkCross",
+      "OnlyOffice JS": "oChart.SetHorAxisMajorTickMark(\"cross\");"
+    },
+    {
+      "Description": "Create and set marker fill color to RGB(51,51,51)",
+      "Excel VBA": "Dim oFill As FillFormat\n" +
+                    "Set oFill = oChart.SeriesCollection(1).MarkerBackgroundColor\n" +
+                    "oFill.RGB = RGB(51, 51, 51)",
+      "OnlyOffice JS": "var oFill = Api.CreateSolidFill(Api.CreateRGBColor(51, 51, 51));\n" +
+                       "oChart.SetMarkerFill(oFill, 0, 0, true);"
+    },
+    {
+      "Description": "Create and set marker outline with stroke width 0.5 and RGB(51,51,51)",
+      "Excel VBA": "Dim oStroke As LineFormat\n" +
+                    "Set oStroke = oChart.SeriesCollection(1).MarkerForegroundColor\n" +
+                    "oStroke.Weight = 0.5\n" +
+                    "oStroke.RGB = RGB(51, 51, 51)",
+      "OnlyOffice JS": "var oStroke = Api.CreateStroke(0.5 * 36000, Api.CreateSolidFill(Api.CreateRGBColor(51, 51, 51)));\n" +
+                       "oChart.SetMarkerOutLine(oStroke, 0, 0, true);"
+    },
+    {
+      "Description": "Set second marker fill color to RGB(255,111,61)",
+      "Excel VBA": "oChart.SeriesCollection(2).MarkerBackgroundColor.RGB = RGB(255, 111, 61)",
+      "OnlyOffice JS": "var oFill = Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61));\n" +
+                       "oChart.SetMarkerFill(oFill, 1, 0, true);"
+    },
+    {
+      "Description": "Set second marker outline with stroke width 0.5 and RGB(255,111,61)",
+      "Excel VBA": "oChart.SeriesCollection(2).MarkerForegroundColor.Weight = 0.5\n" +
+                    "oChart.SeriesCollection(2).MarkerForegroundColor.RGB = RGB(255, 111, 61)",
+      "OnlyOffice JS": "var oStroke = Api.CreateStroke(0.5 * 36000, Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61)));\n" +
+                       "oChart.SetMarkerOutLine(oStroke, 1, 0, true);"
+    }
+  ]
+}
+```

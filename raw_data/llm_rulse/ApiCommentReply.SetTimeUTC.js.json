@@ -1,0 +1,44 @@
+### This example sets the timestamp of the comment reply creation in UTC format.
+
+```json
+{
+  "RAG_Table": [
+    {
+      "OnlyOffice_JS_Method": "Api.GetActiveSheet()",
+      "Excel_VBA_Equivalent": "Set oWorksheet = ThisWorkbook.ActiveSheet"
+    },
+    {
+      "OnlyOffice_JS_Method": "oWorksheet.GetRange(\"A1\").SetValue(\"1\")",
+      "Excel_VBA_Equivalent": "ThisWorkbook.ActiveSheet.Range(\"A1\").Value = \"1\""
+    },
+    {
+      "OnlyOffice_JS_Method": "oWorksheet.GetRange(\"A1\")",
+      "Excel_VBA_Equivalent": "Set oRange = ThisWorkbook.ActiveSheet.Range(\"A1\")"
+    },
+    {
+      "OnlyOffice_JS_Method": "oRange.AddComment(\"This is just a number.\")",
+      "Excel_VBA_Equivalent": "Set oComment = oRange.AddComment(\"This is just a number.\")"
+    },
+    {
+      "OnlyOffice_JS_Method": "oComment.AddReply(\"Reply 1\", \"John Smith\", \"uid-1\")",
+      "Excel_VBA_Equivalent": "oComment.Replies.Add \"Reply 1\", \"John Smith\""
+    },
+    {
+      "OnlyOffice_JS_Method": "oComment.GetReply()",
+      "Excel_VBA_Equivalent": "Set oReply = oComment.Replies(oComment.Replies.Count)"
+    },
+    {
+      "OnlyOffice_JS_Method": "oReply.SetTimeUTC(Date.now())",
+      "Excel_VBA_Equivalent": "oReply.Date = Now"
+    },
+    {
+      "OnlyOffice_JS_Method": "oWorksheet.GetRange(\"A3\").SetValue(\"Comment's reply timestamp UTC: \")",
+      "Excel_VBA_Equivalent": "ThisWorkbook.ActiveSheet.Range(\"A3\").Value = \"Comment's reply timestamp UTC: \""
+    },
+    {
+      "OnlyOffice_JS_Method": "oWorksheet.GetRange(\"B3\").SetValue(oReply.GetTimeUTC())",
+      "Excel_VBA_Equivalent": "ThisWorkbook.ActiveSheet.Range(\"B3\").Value = oReply.Date"
+    }
+  ]
+}
+```

@@ -1,0 +1,63 @@
+```json
+{
+  "description": "This example shows how to get the paragraph left side indentation.",
+  "methods": [
+    {
+      "OnlyOffice_JS": "var oWorksheet = Api.GetActiveSheet();",
+      "Excel_VBA": "Set oWorksheet = ActiveSheet"
+    },
+    {
+      "OnlyOffice_JS": "var oFill = Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61));",
+      "Excel_VBA": "oFillColor = RGB(255, 111, 61)"
+    },
+    {
+      "OnlyOffice_JS": "var oStroke = Api.CreateStroke(0, Api.CreateNoFill());",
+      "Excel_VBA": "With oShape.Line\n    .Visible = msoFalse\nEnd With"
+    },
+    {
+      "OnlyOffice_JS": "var oShape = oWorksheet.AddShape(\"flowChartOnlineStorage\", 120 * 36000, 70 * 36000, oFill, oStroke, 0, 2 * 36000, 0, 3 * 36000);",
+      "Excel_VBA": "Set oShape = oWorksheet.Shapes.AddShape(msoShapeFlowchartOnlineStorage, 120, 70, 200, 300)"
+    },
+    {
+      "OnlyOffice_JS": "var oDocContent = oShape.GetContent();",
+      "Excel_VBA": "Set oDocContent = oShape.TextFrame2.TextRange"
+    },
+    {
+      "OnlyOffice_JS": "var oParagraph = oDocContent.GetElement(0);",
+      "Excel_VBA": "Set oParagraph = oDocContent.Paragraphs(1)"
+    },
+    {
+      "OnlyOffice_JS": "var oParaPr = oParagraph.GetParaPr();",
+      "Excel_VBA": "Set oParaPr = oParagraph.ParagraphFormat"
+    },
+    {
+      "OnlyOffice_JS": "oParaPr.SetIndLeft(2880);",
+      "Excel_VBA": "oParaPr.LeftIndent = 2880"
+    },
+    {
+      "OnlyOffice_JS": "oParagraph.AddText(\"This is the first paragraph with the indent of 2 inches set to it. \");",
+      "Excel_VBA": "oParagraph.Text = oParagraph.Text & \"This is the first paragraph with the indent of 2 inches set to it. \""
+    },
+    {
+      "OnlyOffice_JS": "oParagraph.AddText(\"This indent is set by the paragraph style. No paragraph inline style is applied. \");",
+      "Excel_VBA": "oParagraph.Text = oParagraph.Text & \"This indent is set by the paragraph style. No paragraph inline style is applied. \""
+    },
+    {
+      "OnlyOffice_JS": "var nIndLeft = oParaPr.GetIndLeft();",
+      "Excel_VBA": "nIndLeft = oParaPr.LeftIndent"
+    },
+    {
+      "OnlyOffice_JS": "oParagraph = Api.CreateParagraph();",
+      "Excel_VBA": "Set oParagraph = oDocContent.Paragraphs.Add"
+    },
+    {
+      "OnlyOffice_JS": "oParagraph.AddText(\"Left indent: \" + nIndLeft);",
+      "Excel_VBA": "oParagraph.Text = \"Left indent: \" & nIndLeft"
+    },
+    {
+      "OnlyOffice_JS": "oDocContent.Push(oParagraph);",
+      "Excel_VBA": "oDocContent.Paragraphs.Add oParagraph"
+    }
+  ]
+}
+```

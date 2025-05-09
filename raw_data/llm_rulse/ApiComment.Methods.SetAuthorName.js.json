@@ -1,0 +1,35 @@
+```json
+{
+  "description": "This code sets values in cells, adds a comment with an author to a cell, modifies the comment's author name, and writes the updated author name to another cell.",
+  "codeComparison": [
+    {
+      "OnlyOffice_JS": "var oWorksheet = Api.GetActiveSheet();",
+      "Excel_VBA": "Dim oWorksheet As Worksheet\nSet oWorksheet = ThisWorkbook.ActiveSheet"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"A1\").SetValue(\"1\");",
+      "Excel_VBA": "oWorksheet.Range(\"A1\").Value = \"1\""
+    },
+    {
+      "OnlyOffice_JS": "var oRange = oWorksheet.GetRange(\"A1\");",
+      "Excel_VBA": "Dim oRange As Range\nSet oRange = oWorksheet.Range(\"A1\")"
+    },
+    {
+      "OnlyOffice_JS": "var oComment = oRange.AddComment(\"This is just a number.\", \"John Smith\");",
+      "Excel_VBA": "Dim oComment As Comment\nSet oComment = oRange.AddComment(\"This is just a number.\")\noComment.Author = \"John Smith\""
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"A3\").SetValue(\"Comment's author: \");",
+      "Excel_VBA": "oWorksheet.Range(\"A3\").Value = \"Comment's author: \""
+    },
+    {
+      "OnlyOffice_JS": "oComment.SetAuthorName(\"Mark Potato\");",
+      "Excel_VBA": "oComment.Author = \"Mark Potato\""
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"B3\").SetValue(oComment.GetAuthorName());",
+      "Excel_VBA": "oWorksheet.Range(\"B3\").Value = oComment.Author"
+    }
+  ]
+}
+```

@@ -1,0 +1,27 @@
+```json
+{
+  "description": "This example changes the user protected range.",
+  "methods": [
+    {
+      "OnlyOffice JS": "var oWorksheet = Api.GetActiveSheet();",
+      "Excel VBA": "Dim oWorksheet As Worksheet\nSet oWorksheet = ThisWorkbook.ActiveSheet"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.AddProtectedRange(\"protectedRange\", \"$A$1:$B$1\");",
+      "Excel VBA": "oWorksheet.Protect Password:=\"\", UserInterfaceOnly:=True\noWorksheet.Range(\"A1:B1\").Locked = True"
+    },
+    {
+      "OnlyOffice JS": "var protectedRange = oWorksheet.GetProtectedRange(\"protectedRange\");",
+      "Excel VBA": "Dim protectedRange As Range\nSet protectedRange = oWorksheet.Range(\"A1:B1\")"
+    },
+    {
+      "OnlyOffice JS": "protectedRange.AddUser(\"userId\", \"name\", \"CanView\");",
+      "Excel VBA": "' Excel VBA does not support adding users to a protected range directly."
+    },
+    {
+      "OnlyOffice JS": "protectedRange.DeleteUser(\"userId\");",
+      "Excel VBA": "' Excel VBA does not support deleting users from a protected range directly."
+    }
+  ]
+}
+```

@@ -1,0 +1,47 @@
+```json
+{
+  "description": "This script adds a shape to the active worksheet with specific styling, clears its existing content, and inserts a new left-aligned paragraph with custom text.",
+  "codeComparison": [
+    {
+      "OnlyOffice_JS": "var oWorksheet = Api.GetActiveSheet();",
+      "Excel_VBA": "Set oWorksheet = ThisWorkbook.ActiveSheet"
+    },
+    {
+      "OnlyOffice_JS": "var oFill = Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61));",
+      "Excel_VBA": "Set oFill = oWorksheet.Shapes.Fill.ForeColor.RGB = RGB(255, 111, 61)"
+    },
+    {
+      "OnlyOffice_JS": "var oStroke = Api.CreateStroke(0, Api.CreateNoFill());",
+      "Excel_VBA": "With oWorksheet.Shapes.Line\n    .Visible = msoFalse\nEnd With"
+    },
+    {
+      "OnlyOffice_JS": "var oShape = oWorksheet.AddShape(\"flowChartOnlineStorage\", 60 * 36000, 35 * 36000, oFill, oStroke, 0, 2 * 36000, 0, 3 * 36000);",
+      "Excel_VBA": "Set oShape = oWorksheet.Shapes.AddShape(msoShapeFlowchartOfflineStorage, 60, 35, 200, 150)\nWith oShape.Fill\n    .ForeColor.RGB = RGB(255, 111, 61)\nEnd With\nWith oShape.Line\n    .Visible = msoFalse\nEnd With"
+    },
+    {
+      "OnlyOffice_JS": "var oDocContent = oShape.GetContent();",
+      "Excel_VBA": "Set oDocContent = oShape.TextFrame"
+    },
+    {
+      "OnlyOffice_JS": "oDocContent.RemoveAllElements();",
+      "Excel_VBA": "oDocContent.Text = \"\""
+    },
+    {
+      "OnlyOffice_JS": "var oParagraph = Api.CreateParagraph();",
+      "Excel_VBA": "Set oParagraph = oDocContent.Text"
+    },
+    {
+      "OnlyOffice_JS": "oParagraph.SetJc(\"left\");",
+      "Excel_VBA": "oParagraph.ParagraphFormat.Alignment = xlLeft"
+    },
+    {
+      "OnlyOffice_JS": "oParagraph.AddText(\"We removed all elements from the shape and added a new paragraph inside it.\");",
+      "Excel_VBA": "oParagraph.Text = \"We removed all elements from the shape and added a new paragraph inside it.\""
+    },
+    {
+      "OnlyOffice_JS": "oDocContent.Push(oParagraph);",
+      "Excel_VBA": "// Not required as text is directly assigned in VBA"
+    }
+  ]
+}
+```

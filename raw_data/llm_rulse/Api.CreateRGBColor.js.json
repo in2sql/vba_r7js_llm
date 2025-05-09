@@ -1,0 +1,44 @@
+```json
+{
+  "table": {
+    "header": ["Description", "OnlyOffice JS", "Excel VBA"],
+    "rows": [
+      {
+        "Description": "Gets the active worksheet",
+        "OnlyOffice JS": "var oWorksheet = Api.GetActiveSheet();",
+        "Excel VBA": "Dim oWorksheet As Worksheet\nSet oWorksheet = ThisWorkbook.ActiveSheet"
+      },
+      {
+        "Description": "Creates an RGB color with specified red, green, and blue components",
+        "OnlyOffice JS": "var color = Api.CreateRGBColor(255, 213, 191);",
+        "Excel VBA": "Dim color As Long\ncolor = RGB(255, 213, 191)"
+      },
+      {
+        "Description": "Creates a gradient stop with a specified color and position",
+        "OnlyOffice JS": "var oGs1 = Api.CreateGradientStop(Api.CreateRGBColor(255, 213, 191), 0);",
+        "Excel VBA": "Dim oGs1 As GradientStop\nSet oGs1 = CreateGradientStop(RGB(255, 213, 191), 0)"
+      },
+      {
+        "Description": "Creates another gradient stop with a different color and position",
+        "OnlyOffice JS": "var oGs2 = Api.CreateGradientStop(Api.CreateRGBColor(255, 111, 61), 100000);",
+        "Excel VBA": "Dim oGs2 As GradientStop\nSet oGs2 = CreateGradientStop(RGB(255, 111, 61), 100000)"
+      },
+      {
+        "Description": "Creates a linear gradient fill using the gradient stops and a specified angle",
+        "OnlyOffice JS": "var oFill = Api.CreateLinearGradientFill([oGs1, oGs2], 5400000);",
+        "Excel VBA": "Dim oFill As GradientFill\nSet oFill = CreateLinearGradientFill(Array(oGs1, oGs2), 5400000)"
+      },
+      {
+        "Description": "Creates a stroke with no fill",
+        "OnlyOffice JS": "var oStroke = Api.CreateStroke(0, Api.CreateNoFill());",
+        "Excel VBA": "Dim oStroke As Stroke\nSet oStroke = CreateStroke(0, CreateNoFill())"
+      },
+      {
+        "Description": "Adds a shape to the worksheet with specified properties",
+        "OnlyOffice JS": "oWorksheet.AddShape(\"flowChartOnlineStorage\", 60 * 36000, 35 * 36000, oFill, oStroke, 0, 2 * 36000, 1, 3 * 36000);",
+        "Excel VBA": "oWorksheet.Shapes.AddShape(msoShapeFlowChartOfflineStorage, 60 * 36000, 35 * 36000, oFill, oStroke)."
+      }
+    ]
+  }
+}
+```

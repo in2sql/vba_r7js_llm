@@ -1,0 +1,66 @@
+```json
+{
+  "RAG_Table": [
+    {
+      "Description": "Get the active worksheet",
+      "OnlyOffice_JS": "var oWorksheet = Api.GetActiveSheet();",
+      "Excel_VBA": "Set oWorksheet = ThisWorkbook.ActiveSheet"
+    },
+    {
+      "Description": "Create a solid fill with RGB color (255, 111, 61)",
+      "OnlyOffice_JS": "var oFill = Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61));",
+      "Excel_VBA": "Set oFill = oWorksheet.Shapes.Fill.ForeColor.RGB = RGB(255, 111, 61)"
+    },
+    {
+      "Description": "Create a stroke with no fill",
+      "OnlyOffice_JS": "var oStroke = Api.CreateStroke(0, Api.CreateNoFill());",
+      "Excel_VBA": "With oWorksheet.Shapes.Line\n    .Visible = msoFalse\nEnd With"
+    },
+    {
+      "Description": "Add a shape to the worksheet",
+      "OnlyOffice_JS": "var oShape = oWorksheet.AddShape(\"flowChartOnlineStorage\", 60 * 36000, 35 * 36000, oFill, oStroke, 0, 2 * 36000, 0, 3 * 36000);",
+      "Excel_VBA": "Set oShape = oWorksheet.Shapes.AddShape(msoShapeFlowchartProcess, 60, 35, 200, 150)\nWith oShape.Fill\n    .ForeColor.RGB = RGB(255, 111, 61)\nEnd With\nWith oShape.Line\n    .Visible = msoFalse\nEnd With"
+    },
+    {
+      "Description": "Get the content of the shape",
+      "OnlyOffice_JS": "var oDocContent = oShape.GetContent();",
+      "Excel_VBA": "' Excel VBA does not have a direct equivalent for shape content manipulation as in OnlyOffice"
+    },
+    {
+      "Description": "Get the first paragraph element",
+      "OnlyOffice_JS": "var oParagraph = oDocContent.GetElement(0);",
+      "Excel_VBA": "' Excel VBA does not support paragraph elements within shapes in the same way"
+    },
+    {
+      "Description": "Add text to the paragraph",
+      "OnlyOffice_JS": "oParagraph.AddText(\"This is just a sample paragraph.\");",
+      "Excel_VBA": "oShape.TextFrame.Characters.Text = \"This is just a sample paragraph.\""
+    },
+    {
+      "Description": "Remove all elements from the shape content",
+      "OnlyOffice_JS": "oDocContent.RemoveAllElements();",
+      "Excel_VBA": "' To clear text in Excel VBA:\n oShape.TextFrame.Characters.Text = \"\""
+    },
+    {
+      "Description": "Create a new paragraph",
+      "OnlyOffice_JS": "oParagraph = Api.CreateParagraph();",
+      "Excel_VBA": "' Excel VBA does not support creating paragraph objects within shapes."
+    },
+    {
+      "Description": "Set paragraph alignment to left",
+      "OnlyOffice_JS": "oParagraph.SetJc(\"left\");",
+      "Excel_VBA": "With oShape.TextFrame\n    .HorizontalAlignment = xlHAlignLeft\nEnd With"
+    },
+    {
+      "Description": "Add new text to the paragraph",
+      "OnlyOffice_JS": "oParagraph.AddText(\"We removed all elements from the shape and added a new paragraph inside it.\");",
+      "Excel_VBA": "oShape.TextFrame.Characters.Text = \"We removed all elements from the shape and added a new paragraph inside it.\""
+    },
+    {
+      "Description": "Push the new paragraph into the shape content",
+      "OnlyOffice_JS": "oDocContent.Push(oParagraph);",
+      "Excel_VBA": "' In Excel VBA, setting the Text property replaces existing text. Appending would require concatenation.\n oShape.TextFrame.Characters.Text = oShape.TextFrame.Characters.Text & \"We removed all elements from the shape and added a new paragraph inside it.\""
+    }
+  ]
+}
+```

@@ -1,0 +1,48 @@
+**This code demonstrates how to set and retrieve the bold property of a specific font in a cell using OnlyOffice API and its Excel VBA equivalent.**
+
+```json
+{
+  "RAG_Table": [
+    {
+      "OnlyOffice_JS_Method": "Api.GetActiveSheet()",
+      "Excel_VBA_Equivalent": "ActiveSheet",
+      "Status": "Green"
+    },
+    {
+      "OnlyOffice_JS_Method": "oWorksheet.GetRange(\"B1\")",
+      "Excel_VBA_Equivalent": "Range(\"B1\")",
+      "Status": "Green"
+    },
+    {
+      "OnlyOffice_JS_Method": "oRange.SetValue(\"This is just a sample text.\")",
+      "Excel_VBA_Equivalent": "Range(\"B1\").Value = \"This is just a sample text.\"",
+      "Status": "Green"
+    },
+    {
+      "OnlyOffice_JS_Method": "oRange.GetCharacters(9, 4)",
+      "Excel_VBA_Equivalent": "Characters(9, 4)",
+      "Status": "Green"
+    },
+    {
+      "OnlyOffice_JS_Method": "oCharacters.GetFont()",
+      "Excel_VBA_Equivalent": "Font",
+      "Status": "Green"
+    },
+    {
+      "OnlyOffice_JS_Method": "oFont.SetBold(true)",
+      "Excel_VBA_Equivalent": "Font.Bold = True",
+      "Status": "Green"
+    },
+    {
+      "OnlyOffice_JS_Method": "oFont.GetBold()",
+      "Excel_VBA_Equivalent": "Font.Bold",
+      "Status": "Green"
+    },
+    {
+      "OnlyOffice_JS_Method": "oWorksheet.GetRange(\"B3\").SetValue(\"Bold property: \" + bBold)",
+      "Excel_VBA_Equivalent": "Range(\"B3\").Value = \"Bold property: \" & Font.Bold",
+      "Status": "Green"
+    }
+  ]
+}
+```

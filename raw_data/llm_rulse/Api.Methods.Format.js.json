@@ -1,0 +1,9 @@
+```json
+{
+  "Description": "Get active worksheet, format a number as currency, and set it to cell A1.",
+  "CodeExamples": {
+    "OnlyOffice_JS": "// This example shows how to get a class formatted according to the instructions contained in the format expression.\nvar oWorksheet = Api.GetActiveSheet();\nvar oFormat = Api.Format(\"123456\", \"$#,##0\");\noWorksheet.GetRange(\"A1\").SetValue(oFormat);",
+    "Excel_VBA": "Sub SetFormattedValue()\n    Dim ws As Worksheet\n    Set ws = ThisWorkbook.ActiveSheet\n    ws.Range(\"A1\").NumberFormat = \"$#,##0\"\n    ws.Range(\"A1\").Value = 123456\nEnd Sub"
+  }
+}
+```

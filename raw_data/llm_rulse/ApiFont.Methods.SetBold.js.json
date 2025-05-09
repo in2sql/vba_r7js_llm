@@ -1,0 +1,37 @@
+```json
+{
+  "description": "This example sets the bold property to the specified font.",
+  "RAG_Table": [
+    {
+      "Action": "Get Active Sheet",
+      "OnlyOffice_JS": "var oWorksheet = Api.GetActiveSheet();",
+      "Excel_VBA": "Set oWorksheet = ActiveWorkbook.ActiveSheet"
+    },
+    {
+      "Action": "Get Range",
+      "OnlyOffice_JS": "var oRange = oWorksheet.GetRange(\"B1\");",
+      "Excel_VBA": "Set oRange = oWorksheet.Range(\"B1\")"
+    },
+    {
+      "Action": "Set Value",
+      "OnlyOffice_JS": "oRange.SetValue(\"This is just a sample text.\");",
+      "Excel_VBA": "oRange.Value = \"This is just a sample text.\""
+    },
+    {
+      "Action": "Get Characters",
+      "OnlyOffice_JS": "var oCharacters = oRange.GetCharacters(9, 4);",
+      "Excel_VBA": "Set oCharacters = oRange.Characters(9, 4)"
+    },
+    {
+      "Action": "Get Font",
+      "OnlyOffice_JS": "var oFont = oCharacters.GetFont();",
+      "Excel_VBA": "Set oFont = oCharacters.Font"
+    },
+    {
+      "Action": "Set Bold",
+      "OnlyOffice_JS": "oFont.SetBold(true);",
+      "Excel_VBA": "oFont.Bold = True"
+    }
+  ]
+}
+```

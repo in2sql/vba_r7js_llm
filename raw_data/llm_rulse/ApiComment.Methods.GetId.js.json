@@ -1,0 +1,11 @@
+```json
+{
+  "Description": "This example shows how to get the comment ID.",
+  "Methods": [
+    {
+      "OnlyOffice JS": "// This example shows how to get the comment ID.\nvar oWorksheet = Api.GetActiveSheet();\noWorksheet.GetRange(\"A1\").SetValue(\"1\");\nvar oRange = oWorksheet.GetRange(\"A1\");\noRange.AddComment(\"This is just a number.\");\noWorksheet.GetRange(\"A3\").SetValue(\"Comment: \");\noWorksheet.GetRange(\"B3\").SetValue(oRange.GetComment().GetId());",
+      "Excel VBA": "' This example shows how to get the comment ID\nDim oWorksheet As Worksheet\nSet oWorksheet = ActiveSheet\noWorksheet.Range(\"A1\").Value = \"1\"\nDim oRange As Range\nSet oRange = oWorksheet.Range(\"A1\")\noRange.AddComment \"This is just a number.\"\noWorksheet.Range(\"A3\").Value = \"Comment: \"\noWorksheet.Range(\"B3\").Value = oRange.Comment.Text"
+    }
+  ]
+}
+```

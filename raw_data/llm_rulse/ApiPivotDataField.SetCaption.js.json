@@ -1,0 +1,139 @@
+```json
+[
+  {
+    "Description": "Get the active worksheet",
+    "OnlyOffice_JS": "var oWorksheet = Api.GetActiveSheet();",
+    "Excel_VBA": "Dim oWorksheet As Worksheet\nSet oWorksheet = ActiveSheet"
+  },
+  {
+    "Description": "Set value of cell B1 to 'Region'",
+    "OnlyOffice_JS": "oWorksheet.GetRange('B1').SetValue('Region');",
+    "Excel_VBA": "oWorksheet.Range(\"B1\").Value = \"Region\""
+  },
+  {
+    "Description": "Set value of cell C1 to 'Style'",
+    "OnlyOffice_JS": "oWorksheet.GetRange('C1').SetValue('Style');",
+    "Excel_VBA": "oWorksheet.Range(\"C1\").Value = \"Style\""
+  },
+  {
+    "Description": "Set value of cell D1 to 'Price'",
+    "OnlyOffice_JS": "oWorksheet.GetRange('D1').SetValue('Price');",
+    "Excel_VBA": "oWorksheet.Range(\"D1\").Value = \"Price\""
+  },
+  {
+    "Description": "Set value of cell B2 to 'East'",
+    "OnlyOffice_JS": "oWorksheet.GetRange('B2').SetValue('East');",
+    "Excel_VBA": "oWorksheet.Range(\"B2\").Value = \"East\""
+  },
+  {
+    "Description": "Set value of cell B3 to 'West'",
+    "OnlyOffice_JS": "oWorksheet.GetRange('B3').SetValue('West');",
+    "Excel_VBA": "oWorksheet.Range(\"B3\").Value = \"West\""
+  },
+  {
+    "Description": "Set value of cell B4 to 'East'",
+    "OnlyOffice_JS": "oWorksheet.GetRange('B4').SetValue('East');",
+    "Excel_VBA": "oWorksheet.Range(\"B4\").Value = \"East\""
+  },
+  {
+    "Description": "Set value of cell B5 to 'West'",
+    "OnlyOffice_JS": "oWorksheet.GetRange('B5').SetValue('West');",
+    "Excel_VBA": "oWorksheet.Range(\"B5\").Value = \"West\""
+  },
+  {
+    "Description": "Set value of cell C2 to 'Fancy'",
+    "OnlyOffice_JS": "oWorksheet.GetRange('C2').SetValue('Fancy');",
+    "Excel_VBA": "oWorksheet.Range(\"C2\").Value = \"Fancy\""
+  },
+  {
+    "Description": "Set value of cell C3 to 'Fancy'",
+    "OnlyOffice_JS": "oWorksheet.GetRange('C3').SetValue('Fancy');",
+    "Excel_VBA": "oWorksheet.Range(\"C3\").Value = \"Fancy\""
+  },
+  {
+    "Description": "Set value of cell C4 to 'Tee'",
+    "OnlyOffice_JS": "oWorksheet.GetRange('C4').SetValue('Tee');",
+    "Excel_VBA": "oWorksheet.Range(\"C4\").Value = \"Tee\""
+  },
+  {
+    "Description": "Set value of cell C5 to 'Tee'",
+    "OnlyOffice_JS": "oWorksheet.GetRange('C5').SetValue('Tee');",
+    "Excel_VBA": "oWorksheet.Range(\"C5\").Value = \"Tee\""
+  },
+  {
+    "Description": "Set value of cell D2 to 42.5",
+    "OnlyOffice_JS": "oWorksheet.GetRange('D2').SetValue(42.5);",
+    "Excel_VBA": "oWorksheet.Range(\"D2\").Value = 42.5"
+  },
+  {
+    "Description": "Set value of cell D3 to 35.2",
+    "OnlyOffice_JS": "oWorksheet.GetRange('D3').SetValue(35.2);",
+    "Excel_VBA": "oWorksheet.Range(\"D3\").Value = 35.2"
+  },
+  {
+    "Description": "Set value of cell D4 to 12.3",
+    "OnlyOffice_JS": "oWorksheet.GetRange('D4').SetValue(12.3);",
+    "Excel_VBA": "oWorksheet.Range(\"D4\").Value = 12.3"
+  },
+  {
+    "Description": "Set value of cell D5 to 24.8",
+    "OnlyOffice_JS": "oWorksheet.GetRange('D5').SetValue(24.8);",
+    "Excel_VBA": "oWorksheet.Range(\"D5\").Value = 24.8"
+  },
+  {
+    "Description": "Get the range B1:D5 from Sheet1",
+    "OnlyOffice_JS": "var dataRef = Api.GetRange(\"'Sheet1'!$B$1:$D$5\");",
+    "Excel_VBA": "Dim dataRef As Range\nSet dataRef = Worksheets(\"Sheet1\").Range(\"B1:D5\")"
+  },
+  {
+    "Description": "Insert a new pivot table on a new worksheet using the data range",
+    "OnlyOffice_JS": "var pivotTable = Api.InsertPivotNewWorksheet(dataRef);",
+    "Excel_VBA": "Dim pivotTable As PivotTable\nDim pivotCache As PivotCache\nSet pivotCache = ThisWorkbook.PivotCaches.Create(SourceType:=xlDatabase, SourceData:=dataRef)\nSet pivotTable = pivotCache.CreatePivotTable(TableDestination:=Worksheets.Add().Range(\"A1\"), TableName:=\"PivotTable1\")"
+  },
+  {
+    "Description": "Add 'Region' and 'Style' as row fields in the pivot table",
+    "OnlyOffice_JS": "pivotTable.AddFields({\n\trows: ['Region', 'Style'],\n});",
+    "Excel_VBA": "With pivotTable\n\t.PivotFields(\"Region\").Orientation = xlRowField\n\t.PivotFields(\"Style\").Orientation = xlRowField\nEnd With"
+  },
+  {
+    "Description": "Add 'Price' as a data field in the pivot table",
+    "OnlyOffice_JS": "pivotTable.AddDataField('Price');",
+    "Excel_VBA": "With pivotTable\n\t.PivotFields(\"Price\").Orientation = xlDataField\n\t.PivotFields(\"Price\").Function = xlSum\nEnd With"
+  },
+  {
+    "Description": "Get the active worksheet containing the pivot table",
+    "OnlyOffice_JS": "var pivotWorksheet = Api.GetActiveSheet();",
+    "Excel_VBA": "Dim pivotWorksheet As Worksheet\nSet pivotWorksheet = ActiveSheet"
+  },
+  {
+    "Description": "Get the data field 'Sum of Price' from the pivot table",
+    "OnlyOffice_JS": "var dataField = pivotTable.GetDataFields('Sum of Price');",
+    "Excel_VBA": "Dim dataField As PivotField\nSet dataField = pivotTable.PivotFields(\"Sum of Price\")"
+  },
+  {
+    "Description": "Set value of cell A12 to 'Data field caption'",
+    "OnlyOffice_JS": "pivotWorksheet.GetRange('A12').SetValue('Data field caption');",
+    "Excel_VBA": "pivotWorksheet.Range(\"A12\").Value = \"Data field caption\""
+  },
+  {
+    "Description": "Set value of cell B12 to the caption of the data field",
+    "OnlyOffice_JS": "pivotWorksheet.GetRange('B12').SetValue(dataField.GetCaption());",
+    "Excel_VBA": "pivotWorksheet.Range(\"B12\").Value = dataField.Caption"
+  },
+  {
+    "Description": "Set the caption of the data field to 'My Sum of Price'",
+    "OnlyOffice_JS": "dataField.SetCaption('My Sum of Price');",
+    "Excel_VBA": "dataField.Caption = \"My Sum of Price\""
+  },
+  {
+    "Description": "Set value of cell A13 to 'New Data field caption'",
+    "OnlyOffice_JS": "pivotWorksheet.GetRange('A13').SetValue('New Data field caption');",
+    "Excel_VBA": "pivotWorksheet.Range(\"A13\").Value = \"New Data field caption\""
+  },
+  {
+    "Description": "Set value of cell B13 to the new caption of the data field",
+    "OnlyOffice_JS": "pivotWorksheet.GetRange('B13').SetValue(dataField.GetCaption());",
+    "Excel_VBA": "pivotWorksheet.Range(\"B13\").Value = dataField.Caption"
+  }
+]
+```

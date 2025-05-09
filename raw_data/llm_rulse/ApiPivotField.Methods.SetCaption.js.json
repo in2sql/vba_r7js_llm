@@ -1,0 +1,148 @@
+**Description:** This code initializes data in a worksheet, creates a pivot table based on that data, and modifies pivot field captions.
+
+```json
+{
+  "RAG_table": [
+    {
+      "Action": "Get active sheet",
+      "OnlyOffice_JS": "var oWorksheet = Api.GetActiveSheet();",
+      "Excel_VBA": "Set oWorksheet = ThisWorkbook.ActiveSheet"
+    },
+    {
+      "Action": "Set header 'Region' in cell B1",
+      "OnlyOffice_JS": "oWorksheet.GetRange('B1').SetValue('Region');",
+      "Excel_VBA": "oWorksheet.Range(\"B1\").Value = \"Region\""
+    },
+    {
+      "Action": "Set header 'Style' in cell C1",
+      "OnlyOffice_JS": "oWorksheet.GetRange('C1').SetValue('Style');",
+      "Excel_VBA": "oWorksheet.Range(\"C1\").Value = \"Style\""
+    },
+    {
+      "Action": "Set header 'Price' in cell D1",
+      "OnlyOffice_JS": "oWorksheet.GetRange('D1').SetValue('Price');",
+      "Excel_VBA": "oWorksheet.Range(\"D1\").Value = \"Price\""
+    },
+    {
+      "Action": "Set value 'East' in cell B2",
+      "OnlyOffice_JS": "oWorksheet.GetRange('B2').SetValue('East');",
+      "Excel_VBA": "oWorksheet.Range(\"B2\").Value = \"East\""
+    },
+    {
+      "Action": "Set value 'West' in cell B3",
+      "OnlyOffice_JS": "oWorksheet.GetRange('B3').SetValue('West');",
+      "Excel_VBA": "oWorksheet.Range(\"B3\").Value = \"West\""
+    },
+    {
+      "Action": "Set value 'East' in cell B4",
+      "OnlyOffice_JS": "oWorksheet.GetRange('B4').SetValue('East');",
+      "Excel_VBA": "oWorksheet.Range(\"B4\").Value = \"East\""
+    },
+    {
+      "Action": "Set value 'West' in cell B5",
+      "OnlyOffice_JS": "oWorksheet.GetRange('B5').SetValue('West');",
+      "Excel_VBA": "oWorksheet.Range(\"B5\").Value = \"West\""
+    },
+    {
+      "Action": "Set value 'Fancy' in cell C2",
+      "OnlyOffice_JS": "oWorksheet.GetRange('C2').SetValue('Fancy');",
+      "Excel_VBA": "oWorksheet.Range(\"C2\").Value = \"Fancy\""
+    },
+    {
+      "Action": "Set value 'Fancy' in cell C3",
+      "OnlyOffice_JS": "oWorksheet.GetRange('C3').SetValue('Fancy');",
+      "Excel_VBA": "oWorksheet.Range(\"C3\").Value = \"Fancy\""
+    },
+    {
+      "Action": "Set value 'Tee' in cell C4",
+      "OnlyOffice_JS": "oWorksheet.GetRange('C4').SetValue('Tee');",
+      "Excel_VBA": "oWorksheet.Range(\"C4\").Value = \"Tee\""
+    },
+    {
+      "Action": "Set value 'Tee' in cell C5",
+      "OnlyOffice_JS": "oWorksheet.GetRange('C5').SetValue('Tee');",
+      "Excel_VBA": "oWorksheet.Range(\"C5\").Value = \"Tee\""
+    },
+    {
+      "Action": "Set value 42.5 in cell D2",
+      "OnlyOffice_JS": "oWorksheet.GetRange('D2').SetValue(42.5);",
+      "Excel_VBA": "oWorksheet.Range(\"D2\").Value = 42.5"
+    },
+    {
+      "Action": "Set value 35.2 in cell D3",
+      "OnlyOffice_JS": "oWorksheet.GetRange('D3').SetValue(35.2);",
+      "Excel_VBA": "oWorksheet.Range(\"D3\").Value = 35.2"
+    },
+    {
+      "Action": "Set value 12.3 in cell D4",
+      "OnlyOffice_JS": "oWorksheet.GetRange('D4').SetValue(12.3);",
+      "Excel_VBA": "oWorksheet.Range(\"D4\").Value = 12.3"
+    },
+    {
+      "Action": "Set value 24.8 in cell D5",
+      "OnlyOffice_JS": "oWorksheet.GetRange('D5').SetValue(24.8);",
+      "Excel_VBA": "oWorksheet.Range(\"D5\").Value = 24.8"
+    },
+    {
+      "Action": "Get data range B1:D5 from Sheet1",
+      "OnlyOffice_JS": "var dataRef = Api.GetRange(\"'Sheet1'!$B$1:$D$5\");",
+      "Excel_VBA": "Set dataRef = ThisWorkbook.Sheets(\"Sheet1\").Range(\"B1:D5\")"
+    },
+    {
+      "Action": "Insert pivot table in new worksheet based on data range",
+      "OnlyOffice_JS": "var pivotTable = Api.InsertPivotNewWorksheet(dataRef);",
+      "Excel_VBA": "Set pivotTable = ThisWorkbook.PivotTableWizard(SourceType:=xlDatabase, SourceData:=dataRef, TableDestination:=Sheets.Add)"
+    },
+    {
+      "Action": "Add 'Region' and 'Style' as row fields in pivot table",
+      "OnlyOffice_JS": "pivotTable.AddFields({ rows: ['Region', 'Style'] });",
+      "Excel_VBA": "With pivotTable\n    .PivotFields(\"Region\").Orientation = xlRowField\n    .PivotFields(\"Style\").Orientation = xlRowField\nEnd With"
+    },
+    {
+      "Action": "Set row axis layout to Tabular",
+      "OnlyOffice_JS": "pivotTable.SetRowAxisLayout(\"Tabular\", false);",
+      "Excel_VBA": "pivotTable.RowAxisLayout xlTabularRow"
+    },
+    {
+      "Action": "Add 'Price' as data field in pivot table",
+      "OnlyOffice_JS": "pivotTable.AddDataField('Price');",
+      "Excel_VBA": "pivotTable.AddDataField pivotTable.PivotFields(\"Price\"), \"Sum of Price\", xlSum"
+    },
+    {
+      "Action": "Get active sheet (pivot worksheet)",
+      "OnlyOffice_JS": "var pivotWorksheet = Api.GetActiveSheet();",
+      "Excel_VBA": "Set pivotWorksheet = ThisWorkbook.ActiveSheet"
+    },
+    {
+      "Action": "Get 'Style' pivot field",
+      "OnlyOffice_JS": "var pivotField = pivotTable.GetPivotFields('Style');",
+      "Excel_VBA": "Set pivotField = pivotTable.PivotFields(\"Style\")"
+    },
+    {
+      "Action": "Set value 'Style field caption' in cell A12",
+      "OnlyOffice_JS": "pivotWorksheet.GetRange('A12').SetValue('Style field caption');",
+      "Excel_VBA": "pivotWorksheet.Range(\"A12\").Value = \"Style field caption\""
+    },
+    {
+      "Action": "Set pivot field caption in cell B12",
+      "OnlyOffice_JS": "pivotWorksheet.GetRange('B12').SetValue(pivotField.GetCaption());",
+      "Excel_VBA": "pivotWorksheet.Range(\"B12\").Value = pivotField.Caption"
+    },
+    {
+      "Action": "Set value 'New Style field caption' in cell A14",
+      "OnlyOffice_JS": "pivotWorksheet.GetRange('A14').SetValue('New Style field caption');",
+      "Excel_VBA": "pivotWorksheet.Range(\"A14\").Value = \"New Style field caption\""
+    },
+    {
+      "Action": "Change pivot field caption to 'My caption'",
+      "OnlyOffice_JS": "pivotField.SetCaption('My caption');",
+      "Excel_VBA": "pivotField.Caption = \"My caption\""
+    },
+    {
+      "Action": "Set updated pivot field caption in cell B14",
+      "OnlyOffice_JS": "pivotWorksheet.GetRange('B14').SetValue(pivotField.GetCaption());",
+      "Excel_VBA": "pivotWorksheet.Range(\"B14\").Value = pivotField.Caption"
+    }
+  ]
+}
+```

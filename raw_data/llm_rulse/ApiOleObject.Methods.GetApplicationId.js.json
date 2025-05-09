@@ -1,0 +1,24 @@
+**This code demonstrates how to retrieve the application ID from an OLE object in OnlyOffice using JavaScript and its equivalent implementation in Excel VBA.**
+
+```json
+{
+  "MethodMappings": [
+    {
+      "OnlyOffice JS": "Api.GetActiveSheet()",
+      "Excel VBA": "Set oWorksheet = ActiveSheet"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.AddOleObject(\"https://api.onlyoffice.com/content/img/docbuilder/examples/ole-object-image.png\", 130 * 36000, 90 * 36000, \"https://youtu.be/SKGz4pmnpgY\", \"asc.{38E022EA-AD92-45FC-B22B-49DF39746DB4}\", 0, 2 * 36000, 4, 3 * 36000)",
+      "Excel VBA": "Set oOleObject = oWorksheet.OLEObjects.Add(Filename:=\"https://api.onlyoffice.com/content/img/docbuilder/examples/ole-object-image.png\", Left:=130 * 36000, Top:=90 * 36000, Link:=False, DisplayAsIcon:=False)"
+    },
+    {
+      "OnlyOffice JS": "oOleObject.GetApplicationId()",
+      "Excel VBA": "sAppId = oOleObject.Object.ApplicationID"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"A1\").SetValue(\"The OLE object application ID: \" + sAppId)",
+      "Excel VBA": "Range(\"A1\").Value = \"The OLE object application ID: \" & sAppId"
+    }
+  ]
+}
+```

@@ -1,0 +1,37 @@
+```json
+{
+  "Headers": ["Description", "OnlyOffice JS", "Excel VBA"],
+  "Rows": [
+    {
+      "Description": "Get the active worksheet",
+      "OnlyOffice JS": "var oWorksheet = Api.GetActiveSheet();",
+      "Excel VBA": "Set oWorksheet = ThisWorkbook.ActiveSheet"
+    },
+    {
+      "Description": "Set value '1' to cell A1",
+      "OnlyOffice JS": "oWorksheet.GetRange(\"A1\").SetValue(\"1\");",
+      "Excel VBA": "oWorksheet.Range(\"A1\").Value = \"1\""
+    },
+    {
+      "Description": "Get range A1",
+      "OnlyOffice JS": "var oRange = oWorksheet.GetRange(\"A1\");",
+      "Excel VBA": "Set oRange = oWorksheet.Range(\"A1\")"
+    },
+    {
+      "Description": "Add a comment to range A1 with text 'This is just a number.'",
+      "OnlyOffice JS": "var oComment = oRange.AddComment(\"This is just a number.\");",
+      "Excel VBA": "Set oComment = oRange.AddComment(\"This is just a number.\")"
+    },
+    {
+      "Description": "Set value 'Comment's quote text: ' to cell A3",
+      "OnlyOffice JS": "oWorksheet.GetRange(\"A3\").SetValue(\"Comment's quote text: \");",
+      "Excel VBA": "oWorksheet.Range(\"A3\").Value = \"Comment's quote text: \""
+    },
+    {
+      "Description": "Set value of cell B3 to the comment's quote text",
+      "OnlyOffice JS": "oWorksheet.GetRange(\"B3\").SetValue(oComment.GetQuoteText());",
+      "Excel VBA": "oWorksheet.Range(\"B3\").Value = oComment.Text"
+    }
+  ]
+}
+```

@@ -1,0 +1,29 @@
+```json
+[
+  {
+    "Description": "Set values in specific cells of the active worksheet",
+    "OnlyOfficeJS": "var oWorksheet = Api.GetActiveSheet();\noWorksheet.GetRange(\"B1\").SetValue(2014);\noWorksheet.GetRange(\"C1\").SetValue(2015);\noWorksheet.GetRange(\"D1\").SetValue(2016);\noWorksheet.GetRange(\"A2\").SetValue(\"Projected Revenue\");\noWorksheet.GetRange(\"A3\").SetValue(\"Estimated Costs\");\noWorksheet.GetRange(\"B2\").SetValue(200);\noWorksheet.GetRange(\"B3\").SetValue(250);\noWorksheet.GetRange(\"C2\").SetValue(240);\noWorksheet.GetRange(\"C3\").SetValue(260);\noWorksheet.GetRange(\"D2\").SetValue(280);\noWorksheet.GetRange(\"D3\").SetValue(280);",
+    "VBA": "Dim ws As Worksheet\nSet ws = ActiveSheet\nws.Range(\"B1\").Value = 2014\nws.Range(\"C1\").Value = 2015\nws.Range(\"D1\").Value = 2016\nws.Range(\"A2\").Value = \"Projected Revenue\"\nws.Range(\"A3\").Value = \"Estimated Costs\"\nws.Range(\"B2\").Value = 200\nws.Range(\"B3\").Value = 250\nws.Range(\"C2\").Value = 240\nws.Range(\"C3\").Value = 260\nws.Range(\"D2\").Value = 280\nws.Range(\"D3\").Value = 280"
+  },
+  {
+    "Description": "Add a 3D bar chart to the worksheet with specified range and dimensions",
+    "OnlyOfficeJS": "var oChart = oWorksheet.AddChart(\"'Sheet1'!$A$1:$D$3\", true, \"bar3D\", 2, 100 * 36000, 70 * 36000, 0, 2 * 36000, 7, 3 * 36000);",
+    "VBA": "Dim chartObj As ChartObject\nSet chartObj = ws.ChartObjects.Add(Left:=100, Top:=70, Width:=200, Height:=150)\nchartObj.Chart.ChartType = xlBar3D\nchartObj.Chart.SetSourceData Source:=ws.Range(\"A1:D3\")"
+  },
+  {
+    "Description": "Set the title of the chart with specific text and font size",
+    "OnlyOfficeJS": "oChart.SetTitle(\"Financial Overview\", 13);",
+    "VBA": "With chartObj.Chart\n    .HasTitle = True\n    .ChartTitle.Text = \"Financial Overview\"\n    .ChartTitle.Font.Size = 13\nEnd With"
+  },
+  {
+    "Description": "Set the fill color for each series in the chart",
+    "OnlyOfficeJS": "var oFill = Api.CreateSolidFill(Api.CreateRGBColor(51, 51, 51));\noChart.SetSeriesFill(oFill, 0, false);\noFill = Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61));\noChart.SetSeriesFill(oFill, 1, false);",
+    "VBA": "With chartObj.Chart.SeriesCollection(1).Format.Fill\n    .Visible = msoTrue\n    .ForeColor.RGB = RGB(51, 51, 51)\n    .Solid\nEnd With\nWith chartObj.Chart.SeriesCollection(2).Format.Fill\n    .Visible = msoTrue\n    .ForeColor.RGB = RGB(255, 111, 61)\n    .Solid\nEnd With"
+  },
+  {
+    "Description": "Set the outline for a specific data point in the chart",
+    "OnlyOfficeJS": "var oStroke = Api.CreateStroke(0.5 * 36000, Api.CreateSolidFill(Api.CreateRGBColor(51, 51, 51)));\noChart.SetDataPointOutLine(oStroke, 1, 0, false);",
+    "VBA": "With chartObj.Chart.SeriesCollection(2).Points(1).Format.Line\n    .Visible = msoTrue\n    .Weight = 0.5\n    .ForeColor.RGB = RGB(51, 51, 51)\n    .Solid\nEnd With"
+  }
+]
+```

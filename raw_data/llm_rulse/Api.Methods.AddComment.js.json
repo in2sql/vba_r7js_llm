@@ -1,0 +1,39 @@
+**Description:**  
+This code adds comments to the document, retrieves them, and writes the comment text and author to specific cells in the active worksheet.
+
+```json
+{
+  "RAG_Table": [
+    {
+      "Operation": "Add a comment with text and author",
+      "Excel_VBA_Code": "ActiveSheet.Comments.Add Range(\"A1\"), \"Comment 1\" \nActiveSheet.Comments(\"A1\").Author = \"Bob\"",
+      "OnlyOffice_JS_Code": "Api.AddComment(\"Comment 1\", \"Bob\");"
+    },
+    {
+      "Operation": "Add a comment with text only",
+      "Excel_VBA_Code": "ActiveSheet.Comments.Add Range(\"A2\"), \"Comment 2\"",
+      "OnlyOffice_JS_Code": "Api.AddComment(\"Comment 2\");"
+    },
+    {
+      "Operation": "Retrieve all comments",
+      "Excel_VBA_Code": "Dim arrComments As Comments\nSet arrComments = ActiveSheet.Comments",
+      "OnlyOffice_JS_Code": "var arrComments = Api.GetComments();"
+    },
+    {
+      "Operation": "Get the active worksheet",
+      "Excel_VBA_Code": "Dim oWorksheet As Worksheet\nSet oWorksheet = ActiveSheet",
+      "OnlyOffice_JS_Code": "var oWorksheet = Api.GetActiveSheet();"
+    },
+    {
+      "Operation": "Set value with comment text in cell A1",
+      "Excel_VBA_Code": "Range(\"A1\").Value = \"Comment Text: \" & arrComments(1).Text",
+      "OnlyOffice_JS_Code": "oWorksheet.GetRange(\"A1\").SetValue(\"Comment Text: \", arrComments[0].GetText());"
+    },
+    {
+      "Operation": "Set value with comment author in cell B1",
+      "Excel_VBA_Code": "Range(\"B1\").Value = \"Comment Author: \" & arrComments(1).Author",
+      "OnlyOffice_JS_Code": "oWorksheet.GetRange(\"B1\").SetValue(\"Comment Author: \", arrComments[0].GetAuthorName());"
+    }
+  ]
+}
+```

@@ -1,0 +1,51 @@
+```json
+{
+  "description": "Populates a worksheet with data, creates a pivot table on a new worksheet, and retrieves the index of a specific data field.",
+  "code": [
+    {
+      "OnlyOffice_JS": "var oWorksheet = Api.GetActiveSheet();",
+      "Excel_VBA": "Dim oWorksheet As Worksheet\nSet oWorksheet = ActiveSheet"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange('B1').SetValue('Region');\noWorksheet.GetRange('C1').SetValue('Style');\noWorksheet.GetRange('D1').SetValue('Price');",
+      "Excel_VBA": "oWorksheet.Range(\"B1\").Value = \"Region\"\noWorksheet.Range(\"C1\").Value = \"Style\"\noWorksheet.Range(\"D1\").Value = \"Price\""
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange('B2').SetValue('East');\noWorksheet.GetRange('B3').SetValue('West');\noWorksheet.GetRange('B4').SetValue('East');\noWorksheet.GetRange('B5').SetValue('West');",
+      "Excel_VBA": "oWorksheet.Range(\"B2\").Value = \"East\"\noWorksheet.Range(\"B3\").Value = \"West\"\noWorksheet.Range(\"B4\").Value = \"East\"\noWorksheet.Range(\"B5\").Value = \"West\""
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange('C2').SetValue('Fancy');\noWorksheet.GetRange('C3').SetValue('Fancy');\noWorksheet.GetRange('C4').SetValue('Tee');\noWorksheet.GetRange('C5').SetValue('Tee');",
+      "Excel_VBA": "oWorksheet.Range(\"C2\").Value = \"Fancy\"\noWorksheet.Range(\"C3\").Value = \"Fancy\"\noWorksheet.Range(\"C4\").Value = \"Tee\"\noWorksheet.Range(\"C5\").Value = \"Tee\""
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange('D2').SetValue(42.5);\noWorksheet.GetRange('D3').SetValue(35.2);\noWorksheet.GetRange('D4').SetValue(12.3);\noWorksheet.GetRange('D5').SetValue(24.8);",
+      "Excel_VBA": "oWorksheet.Range(\"D2\").Value = 42.5\noWorksheet.Range(\"D3\").Value = 35.2\noWorksheet.Range(\"D4\").Value = 12.3\noWorksheet.Range(\"D5\").Value = 24.8"
+    },
+    {
+      "OnlyOffice_JS": "var dataRef = Api.GetRange(\"'Sheet1'!$B$1:$D$5\");",
+      "Excel_VBA": "Dim dataRef As Range\nSet dataRef = Worksheets(\"Sheet1\").Range(\"$B$1:$D$5\")"
+    },
+    {
+      "OnlyOffice_JS": "var pivotTable = Api.InsertPivotNewWorksheet(dataRef);",
+      "Excel_VBA": "Dim pivotTable As PivotTable\nDim pivotSheet As Worksheet\nSet pivotSheet = Worksheets.Add\nSet pivotTable = pivotSheet.PivotTableWizard(SourceType:=xlDatabase, SourceData:=dataRef)"
+    },
+    {
+      "OnlyOffice_JS": "pivotTable.AddFields({ rows: ['Region', 'Style'] });",
+      "Excel_VBA": "With pivotTable\n    .PivotFields(\"Region\").Orientation = xlRowField\n    .PivotFields(\"Style\").Orientation = xlRowField\nEnd With"
+    },
+    {
+      "OnlyOffice_JS": "pivotTable.AddDataField('Price');\npivotTable.AddDataField('Price');",
+      "Excel_VBA": "With pivotTable\n    .AddDataField .PivotFields(\"Price\"), \"Sum of Price\", xlSum\n    .AddDataField .PivotFields(\"Price\"), \"Sum of Price\", xlSum\nEnd With"
+    },
+    {
+      "OnlyOffice_JS": "var pivotWorksheet = Api.GetActiveSheet();\nvar dataField = pivotTable.GetDataFields('Sum of Price');",
+      "Excel_VBA": "Dim pivotWorksheet As Worksheet\nDim dataField As PivotField\nSet pivotWorksheet = pivotTable.Parent\nSet dataField = pivotTable.PivotFields(\"Sum of Price\")"
+    },
+    {
+      "OnlyOffice_JS": "pivotWorksheet.GetRange('A15').SetValue('Sum of Price index:');\npivotWorksheet.GetRange('B15').SetValue(dataField.GetIndex());",
+      "Excel_VBA": "pivotWorksheet.Range(\"A15\").Value = \"Sum of Price index:\"\npivotWorksheet.Range(\"B15\").Value = dataField.Position"
+    }
+  ]
+}
+```

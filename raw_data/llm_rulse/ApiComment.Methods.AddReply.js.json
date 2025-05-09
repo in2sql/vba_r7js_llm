@@ -1,0 +1,39 @@
+```json
+{
+  "description": "This example adds a reply to a comment.",
+  "methods": [
+    {
+      "OnlyOffice_JS": "var oWorksheet = Api.GetActiveSheet();",
+      "Excel_VBA": "Dim oWorksheet As Worksheet\nSet oWorksheet = ActiveSheet"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"A1\").SetValue(\"1\");",
+      "Excel_VBA": "oWorksheet.Range(\"A1\").Value = 1"
+    },
+    {
+      "OnlyOffice_JS": "var oRange = oWorksheet.GetRange(\"A1\");",
+      "Excel_VBA": "Dim oRange As Range\nSet oRange = oWorksheet.Range(\"A1\")"
+    },
+    {
+      "OnlyOffice_JS": "var oComment = oRange.AddComment(\"This is just a number.\");",
+      "Excel_VBA": "Dim oComment As Comment\nSet oComment = oRange.AddComment(\"This is just a number.\")"
+    },
+    {
+      "OnlyOffice_JS": "oComment.AddReply(\"Reply 1\", \"John Smith\", \"uid-1\");",
+      "Excel_VBA": "oComment.Replies.Add \"Reply 1\", \"John Smith\", \"uid-1\""
+    },
+    {
+      "OnlyOffice_JS": "var oReply = oComment.GetReply();",
+      "Excel_VBA": "Dim oReply As Reply\nSet oReply = oComment.Replies(1)"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"A3\").SetValue(\"Comment's reply text: \");",
+      "Excel_VBA": "oWorksheet.Range(\"A3\").Value = \"Comment's reply text: \""
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"B3\").SetValue(oReply.GetText());",
+      "Excel_VBA": "oWorksheet.Range(\"B3\").Value = oReply.Text"
+    }
+  ]
+}
+```

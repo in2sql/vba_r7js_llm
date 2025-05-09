@@ -1,0 +1,39 @@
+```json
+{
+  "description": "Equivalent VBA code for OnlyOffice API methods",
+  "OnlyOffice_JS_vs_Excel_VBA": [
+    {
+      "OnlyOffice_JS": "var oWorksheet = Api.GetActiveSheet();",
+      "Excel_VBA": "Set oWorksheet = ActiveSheet"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"A1\").SetValue(\"1\");",
+      "Excel_VBA": "oWorksheet.Range(\"A1\").Value = \"1\""
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"B1\").SetValue(\"2\");",
+      "Excel_VBA": "oWorksheet.Range(\"B1\").Value = \"2\""
+    },
+    {
+      "OnlyOffice_JS": "Api.AddDefName(\"name\", \"Sheet1!$A$1:$B$1\");",
+      "Excel_VBA": "Names.Add Name:=\"name\", RefersTo:=Sheet1.Range(\"A1:B1\")"
+    },
+    {
+      "OnlyOffice_JS": "var oDefName = Api.GetDefName(\"name\");",
+      "Excel_VBA": "Set oDefName = Names(\"name\")"
+    },
+    {
+      "OnlyOffice_JS": "oDefName.SetName(\"new_name\");",
+      "Excel_VBA": "oDefName.Name = \"new_name\""
+    },
+    {
+      "OnlyOffice_JS": "var oNewDefName = Api.GetDefName(\"new_name\");",
+      "Excel_VBA": "Set oNewDefName = Names(\"new_name\")"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"A3\").SetValue(\"The new name of the range: \" + oNewDefName.GetName());",
+      "Excel_VBA": "oWorksheet.Range(\"A3\").Value = \"The new name of the range: \" & oNewDefName.Name"
+    }
+  ]
+}
+```

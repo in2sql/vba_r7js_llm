@@ -1,0 +1,43 @@
+```json
+{
+  "Description": "This example gets a class type and inserts it into the document.",
+  "Methods": [
+    {
+      "OnlyOffice JS": "var oWorksheet = Api.GetActiveSheet();",
+      "VBA": "Set oWorksheet = Api.GetActiveSheet()"
+    },
+    {
+      "OnlyOffice JS": "var oFill = Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61));",
+      "VBA": "Set oFill = Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61))"
+    },
+    {
+      "OnlyOffice JS": "var oStroke = Api.CreateStroke(0, Api.CreateNoFill());",
+      "VBA": "Set oStroke = Api.CreateStroke(0, Api.CreateNoFill())"
+    },
+    {
+      "OnlyOffice JS": "var oShape = oWorksheet.AddShape(\"flowChartOnlineStorage\", 200 * 36000, 60 * 36000, oFill, oStroke, 0, 2 * 36000, 0, 3 * 36000);",
+      "VBA": "Set oShape = oWorksheet.AddShape(\"flowChartOnlineStorage\", 200 * 36000, 60 * 36000, oFill, oStroke, 0, 2 * 36000, 0, 3 * 36000)"
+    },
+    {
+      "OnlyOffice JS": "var oDocContent = oShape.GetContent();",
+      "VBA": "Set oDocContent = oShape.GetContent()"
+    },
+    {
+      "OnlyOffice JS": "var sClassType = oDocContent.GetClassType();",
+      "VBA": "sClassType = oDocContent.GetClassType()"
+    },
+    {
+      "OnlyOffice JS": "var oParagraph = oDocContent.GetElement(0);",
+      "VBA": "Set oParagraph = oDocContent.GetElement(0)"
+    },
+    {
+      "OnlyOffice JS": "oParagraph.SetJc(\"left\");",
+      "VBA": "oParagraph.SetJc \"left\""
+    },
+    {
+      "OnlyOffice JS": "oParagraph.AddText(\"Class Type = \" + sClassType);",
+      "VBA": "oParagraph.AddText \"Class Type = \" & sClassType"
+    }
+  ]
+}
+```

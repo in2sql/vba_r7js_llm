@@ -1,0 +1,75 @@
+```json
+{
+  "Description": "This code creates a financial overview chart with projected revenue and estimated costs from 2014 to 2016.",
+  "Table": [
+    {
+      "OnlyOffice JS": "var oWorksheet = Api.GetActiveSheet();",
+      "VBA": "Dim oWorksheet As Worksheet\nSet oWorksheet = ActiveWorkbook.ActiveSheet"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"B1\").SetValue(2014);",
+      "VBA": "oWorksheet.Range(\"B1\").Value = 2014"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"C1\").SetValue(2015);",
+      "VBA": "oWorksheet.Range(\"C1\").Value = 2015"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"D1\").SetValue(2016);",
+      "VBA": "oWorksheet.Range(\"D1\").Value = 2016"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"A2\").SetValue(\"Projected Revenue\");",
+      "VBA": "oWorksheet.Range(\"A2\").Value = \"Projected Revenue\""
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"A3\").SetValue(\"Estimated Costs\");",
+      "VBA": "oWorksheet.Range(\"A3\").Value = \"Estimated Costs\""
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"B2\").SetValue(200);",
+      "VBA": "oWorksheet.Range(\"B2\").Value = 200"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"B3\").SetValue(250);",
+      "VBA": "oWorksheet.Range(\"B3\").Value = 250"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"C2\").SetValue(240);",
+      "VBA": "oWorksheet.Range(\"C2\").Value = 240"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"C3\").SetValue(260);",
+      "VBA": "oWorksheet.Range(\"C3\").Value = 260"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"D2\").SetValue(280);",
+      "VBA": "oWorksheet.Range(\"D2\").Value = 280"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"D3\").SetValue(280);",
+      "VBA": "oWorksheet.Range(\"D3\").Value = 280"
+    },
+    {
+      "OnlyOffice JS": "var oChart = oWorksheet.AddChart(\"'Sheet1'!$A$1:$D$3\", true, \"bar3D\", 2, 100 * 36000, 70 * 36000, 0, 2 * 36000, 5, 3 * 36000);",
+      "VBA": "Dim oChart As Chart\nSet oChart = oWorksheet.Shapes.AddChart.Chart\nWith oChart\n    .SetSourceData Source:=oWorksheet.Range(\"A1:D3\")\n    .ChartType = xlBar3D\n    .Parent.Left = 100\n    .Parent.Top = 70\n    .Parent.Width = 200\n    .Parent.Height = 150\nEnd With"
+    },
+    {
+      "OnlyOffice JS": "oChart.SetTitle(\"Financial Overview\", 13);",
+      "VBA": "oChart.HasTitle = True\n oChart.ChartTitle.Text = \"Financial Overview\"\n oChart.ChartTitle.Font.Size = 13"
+    },
+    {
+      "OnlyOffice JS": "oChart.SetHorAxisOrientation(false);",
+      "VBA": "oChart.Axes(xlCategory).ReversePlotOrder = False"
+    },
+    {
+      "OnlyOffice JS": "var oFill = Api.CreateSolidFill(Api.CreateRGBColor(51, 51, 51));\noChart.SetSeriesFill(oFill, 0, false);",
+      "VBA": "Dim oFill As FillFormat\nSet oFill = oChart.SeriesCollection(1).Format.Fill\nWith oFill\n    .Visible = msoTrue\n    .ForeColor.RGB = RGB(51, 51, 51)\n    .Solid\nEnd With"
+    },
+    {
+      "OnlyOffice JS": "oFill = Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61));\noChart.SetSeriesFill(oFill, 1, false);",
+      "VBA": "Set oFill = oChart.SeriesCollection(2).Format.Fill\nWith oFill\n    .Visible = msoTrue\n    .ForeColor.RGB = RGB(255, 111, 61)\n    .Solid\nEnd With"
+    }
+  ]
+}
+```

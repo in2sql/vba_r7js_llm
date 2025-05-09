@@ -1,0 +1,23 @@
+```json
+{
+  "description": "This code retrieves the active worksheet, selects the range A1:C1, sets its fill color to a specified RGB value, and updates cell A3 with a message indicating the color change.",
+  "table": [
+    {
+      "OnlyOffice JS": "var oWorksheet = Api.GetActiveSheet();",
+      "Excel VBA": "Dim oWorksheet As Worksheet\nSet oWorksheet = ThisWorkbook.ActiveSheet"
+    },
+    {
+      "OnlyOffice JS": "var oRange = Api.GetRange(\"A1:C1\");",
+      "Excel VBA": "Dim oRange As Range\nSet oRange = oWorksheet.Range(\"A1:C1\")"
+    },
+    {
+      "OnlyOffice JS": "oRange.SetFillColor(Api.CreateColorFromRGB(255, 213, 191));",
+      "Excel VBA": "oRange.Interior.Color = RGB(255, 213, 191)"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"A3\").SetValue(\"The color was set to the background of cells A1:C1.\");",
+      "Excel VBA": "oWorksheet.Range(\"A3\").Value = \"The color was set to the background of cells A1:C1.\""
+    }
+  ]
+}
+```

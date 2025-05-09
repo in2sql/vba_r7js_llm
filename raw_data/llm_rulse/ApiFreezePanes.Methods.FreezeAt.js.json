@@ -1,0 +1,7 @@
+```json
+{
+  "Description": "This example freezes the specified range in the top-and-left-most pane of the worksheet.",
+  "OnlyOffice JS": "// This example freezes the specified range in top-and-left-most pane of the worksheet.\nvar oWorksheet = Api.GetActiveSheet();\nvar oFreezePanes = oWorksheet.GetFreezePanes();\nvar oRange = Api.GetRange('H2:K4');\noFreezePanes.FreezeAt(oRange);",
+  "Excel VBA": "Sub FreezePanes()\n    With ActiveWindow\n        .SplitColumn = 7 ' Column H is the 8th column, so SplitColumn is 7\n        .SplitRow = 1 ' Row 2\n        .FreezePanes = True\n    End With\nEnd Sub"
+}
+```

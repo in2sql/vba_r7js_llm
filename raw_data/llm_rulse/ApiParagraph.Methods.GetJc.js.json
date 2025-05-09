@@ -1,0 +1,73 @@
+```json
+{
+  "Description": "This example demonstrates how to create a shape with specific fill and stroke on the active worksheet, add paragraphs with centered justification, and display the justification setting.",
+  "CodeComparison": [
+    {
+      "Method": "GetActiveSheet",
+      "OnlyOfficeJS": "var oWorksheet = Api.GetActiveSheet();",
+      "VBA": "Set oWorksheet = ActiveSheet",
+      "Status": "Green"
+    },
+    {
+      "Method": "CreateSolidFill",
+      "OnlyOfficeJS": "var oFill = Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61));",
+      "VBA": "Set oFill = CreateSolidFill(RGB(255, 111, 61))",
+      "Status": "Green"
+    },
+    {
+      "Method": "CreateStroke",
+      "OnlyOfficeJS": "var oStroke = Api.CreateStroke(0, Api.CreateNoFill());",
+      "VBA": "Set oStroke = CreateStroke(0, CreateNoFill())",
+      "Status": "Green"
+    },
+    {
+      "Method": "AddShape",
+      "OnlyOfficeJS": "var oShape = oWorksheet.AddShape(\"flowChartOnlineStorage\", 120 * 36000, 70 * 36000, oFill, oStroke, 0, 2 * 36000, 0, 3 * 36000);",
+      "VBA": "Set oShape = oWorksheet.Shapes.AddShape(msoShapeFlowchartStorage, 120 * 36000, 70 * 36000, 200, 100)",
+      "Status": "Amber"
+    },
+    {
+      "Method": "GetContent",
+      "OnlyOfficeJS": "var oDocContent = oShape.GetContent();",
+      "VBA": "Set oDocContent = oShape.TextFrame.Characters",
+      "Status": "Green"
+    },
+    {
+      "Method": "GetElement",
+      "OnlyOfficeJS": "var oParagraph = oDocContent.GetElement(0);",
+      "VBA": "Set oParagraph = oDocContent(1)",
+      "Status": "Green"
+    },
+    {
+      "Method": "AddText",
+      "OnlyOfficeJS": "oParagraph.AddText(\"This is a paragraph with the text in it aligned by the center. \");",
+      "VBA": "oParagraph.Text = oParagraph.Text & \"This is a paragraph with the text in it aligned by the center. \"",
+      "Status": "Green"
+    },
+    {
+      "Method": "SetJc",
+      "OnlyOfficeJS": "oParagraph.SetJc(\"center\");",
+      "VBA": "oParagraph.ParagraphFormat.Alignment = xlCenter",
+      "Status": "Green"
+    },
+    {
+      "Method": "GetJc",
+      "OnlyOfficeJS": "var sJc = oParagraph.GetJc();",
+      "VBA": "sJc = oParagraph.ParagraphFormat.Alignment",
+      "Status": "Green"
+    },
+    {
+      "Method": "CreateParagraph",
+      "OnlyOfficeJS": "oParagraph = Api.CreateParagraph();",
+      "VBA": "Set oParagraph = oDocContent.AddNewParagraph",
+      "Status": "Amber"
+    },
+    {
+      "Method": "Push",
+      "OnlyOfficeJS": "oDocContent.Push(oParagraph);",
+      "VBA": "oDocContent.Add oParagraph",
+      "Status": "Green"
+    }
+  ]
+}
+```

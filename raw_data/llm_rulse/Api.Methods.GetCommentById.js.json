@@ -1,0 +1,36 @@
+```json
+{
+  "table": [
+    {
+      "Description": "Add a comment to the document.",
+      "OnlyOffice JS": "var oComment = Api.AddComment(\"Comment\", \"Bob\");",
+      "Excel VBA": "Set oComment = Api.AddComment(\"Comment\", \"Bob\")"
+    },
+    {
+      "Description": "Get the ID of the added comment.",
+      "OnlyOffice JS": "var sId = oComment.GetId();",
+      "Excel VBA": "sId = oComment.GetId()"
+    },
+    {
+      "Description": "Retrieve the comment by its ID.",
+      "OnlyOffice JS": "oComment = Api.GetCommentById(sId);",
+      "Excel VBA": "Set oComment = Api.GetCommentById(sId)"
+    },
+    {
+      "Description": "Get the active worksheet.",
+      "OnlyOffice JS": "var oWorksheet = Api.GetActiveSheet();",
+      "Excel VBA": "Set oWorksheet = Api.GetActiveSheet()"
+    },
+    {
+      "Description": "Set value in cell A1 with the comment text.",
+      "OnlyOffice JS": "oWorksheet.GetRange(\"A1\").SetValue(\"Commet Text: \", oComment.GetText());",
+      "Excel VBA": "oWorksheet.GetRange(\"A1\").SetValue \"Commet Text: \", oComment.GetText()"
+    },
+    {
+      "Description": "Set value in cell B1 with the comment author name.",
+      "OnlyOffice JS": "oWorksheet.GetRange(\"B1\").SetValue(\"Commet Author: \", oComment.GetAuthorName());",
+      "Excel VBA": "oWorksheet.GetRange(\"B1\").SetValue \"Commet Author: \", oComment.GetAuthorName()"
+    }
+  ]
+}
+```

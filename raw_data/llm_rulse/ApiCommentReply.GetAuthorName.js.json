@@ -1,0 +1,39 @@
+```json
+{
+  "description": "This example shows how to get the comment reply author's name.",
+  "methods": [
+    {
+      "OnlyOffice JS": "var oWorksheet = Api.GetActiveSheet();",
+      "Excel VBA": "Set oWorksheet = ActiveWorkbook.ActiveSheet"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"A1\").SetValue(\"1\");",
+      "Excel VBA": "Range(\"A1\").Value = \"1\""
+    },
+    {
+      "OnlyOffice JS": "var oRange = oWorksheet.GetRange(\"A1\");",
+      "Excel VBA": "Set oRange = oWorksheet.Range(\"A1\")"
+    },
+    {
+      "OnlyOffice JS": "var oComment = oRange.AddComment(\"This is just a number.\");",
+      "Excel VBA": "Set oComment = oRange.AddComment(\"This is just a number.\")"
+    },
+    {
+      "OnlyOffice JS": "oComment.AddReply(\"Reply 1\", \"John Smith\", \"uid-1\");",
+      "Excel VBA": "oComment.Replies.Add \"Reply 1\", \"John Smith\", \"uid-1\""
+    },
+    {
+      "OnlyOffice JS": "var oReply = oComment.GetReply();",
+      "Excel VBA": "Set oReply = oComment.Replies(1)"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"A3\").SetValue(\"Comment's reply author: \");",
+      "Excel VBA": "Range(\"A3\").Value = \"Comment's reply author: \""
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"B3\").SetValue(oReply.GetAuthorName());",
+      "Excel VBA": "Range(\"B3\").Value = oReply.AuthorName"
+    }
+  ]
+}
+```

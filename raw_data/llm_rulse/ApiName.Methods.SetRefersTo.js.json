@@ -1,0 +1,41 @@
+**Description:**  
+This code sets values in cells A1 and B1, calculates their sum in C1, defines a named range `summa` referring to A1:B1, sets a formula for `summa`, and writes a description in cell A3.
+
+```json
+{
+  "RAG_Table": [
+    {
+      "OnlyOffice_JS": "// Get Active Sheet",
+      "Excel_VBA": "' Get Active Sheet\nDim oWorksheet As Worksheet\nSet oWorksheet = ThisWorkbook.ActiveSheet"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"A1\").SetValue(\"1\");",
+      "Excel_VBA": "oWorksheet.Range(\"A1\").Value = \"1\""
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"B1\").SetValue(\"2\");",
+      "Excel_VBA": "oWorksheet.Range(\"B1\").Value = \"2\""
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"C1\").SetValue(\"=SUM(A1:B1)\");",
+      "Excel_VBA": "oWorksheet.Range(\"C1\").Formula = \"=SUM(A1:B1)\""
+    },
+    {
+      "OnlyOffice_JS": "Api.AddDefName(\"summa\", \"Sheet1!$A$1:$B$1\");",
+      "Excel_VBA": "ThisWorkbook.Names.Add Name:=\"summa\", RefersTo:=\"=Sheet1!$A$1:$B$1\""
+    },
+    {
+      "OnlyOffice_JS": "var oDefName = Api.GetDefName(\"summa\");",
+      "Excel_VBA": "Dim oDefName As Name\nSet oDefName = ThisWorkbook.Names(\"summa\")"
+    },
+    {
+      "OnlyOffice_JS": "oDefName.SetRefersTo(\"=SUM(A1:B1)\");",
+      "Excel_VBA": "oDefName.RefersTo = \"=SUM(A1:B1)\""
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"A3\").SetValue(\"The name 'summa' refers to the formula from the cell C1.\");",
+      "Excel_VBA": "oWorksheet.Range(\"A3\").Value = \"The name 'summa' refers to the formula from the cell C1.\""
+    }
+  ]
+}
+```

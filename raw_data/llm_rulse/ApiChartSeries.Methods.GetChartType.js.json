@@ -1,0 +1,121 @@
+```json
+{
+  "RAG_Table": [
+    {
+      "Description": "Get the active sheet",
+      "Excel_VBA": "Set oWorksheet = ActiveSheet",
+      "OnlyOffice_JS": "var oWorksheet = Api.GetActiveSheet();"
+    },
+    {
+      "Description": "Set value 2014 in cell B1",
+      "Excel_VBA": "oWorksheet.Range(\"B1\").Value = 2014",
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"B1\").SetValue(2014);"
+    },
+    {
+      "Description": "Set value 2015 in cell C1",
+      "Excel_VBA": "oWorksheet.Range(\"C1\").Value = 2015",
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"C1\").SetValue(2015);"
+    },
+    {
+      "Description": "Set value 2016 in cell D1",
+      "Excel_VBA": "oWorksheet.Range(\"D1\").Value = 2016",
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"D1\").SetValue(2016);"
+    },
+    {
+      "Description": "Set label 'Projected Revenue' in cell A2",
+      "Excel_VBA": "oWorksheet.Range(\"A2\").Value = \"Projected Revenue\"",
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"A2\").SetValue(\"Projected Revenue\");"
+    },
+    {
+      "Description": "Set label 'Estimated Costs' in cell A3",
+      "Excel_VBA": "oWorksheet.Range(\"A3\").Value = \"Estimated Costs\"",
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"A3\").SetValue(\"Estimated Costs\");"
+    },
+    {
+      "Description": "Set value 200 in cell B2",
+      "Excel_VBA": "oWorksheet.Range(\"B2\").Value = 200",
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"B2\").SetValue(200);"
+    },
+    {
+      "Description": "Set value 250 in cell B3",
+      "Excel_VBA": "oWorksheet.Range(\"B3\").Value = 250",
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"B3\").SetValue(250);"
+    },
+    {
+      "Description": "Set value 240 in cell C2",
+      "Excel_VBA": "oWorksheet.Range(\"C2\").Value = 240",
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"C2\").SetValue(240);"
+    },
+    {
+      "Description": "Set value 260 in cell C3",
+      "Excel_VBA": "oWorksheet.Range(\"C3\").Value = 260",
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"C3\").SetValue(260);"
+    },
+    {
+      "Description": "Set value 280 in cell D2",
+      "Excel_VBA": "oWorksheet.Range(\"D2\").Value = 280",
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"D2\").SetValue(280);"
+    },
+    {
+      "Description": "Set value 280 in cell D3",
+      "Excel_VBA": "oWorksheet.Range(\"D3\").Value = 280",
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"D3\").SetValue(280);"
+    },
+    {
+      "Description": "Add a combo bar-line chart to the worksheet",
+      "Excel_VBA": "Set oChart = oWorksheet.Shapes.AddChart2(201, xlColumnClustered, 100, 70, 300, 200).Chart\n" +
+                    "oChart.SetSourceData Source:=oWorksheet.Range(\"A1:D3\")\n" +
+                    "oChart.ChartType = xlColumnClustered",
+      "OnlyOffice_JS": "var oChart = oWorksheet.AddChart(\"'Sheet1'!$A$1:$D$3\", true, \"comboBarLine\", 2, 100 * 36000, 70 * 36000, 0, 2 * 36000, 5, 3 * 36000);"
+    },
+    {
+      "Description": "Set the chart title to 'Financial Overview' with font size 13",
+      "Excel_VBA": "oChart.HasTitle = True\n" +
+                    "oChart.ChartTitle.Text = \"Financial Overview\"\n" +
+                    "oChart.ChartTitle.Font.Size = 13",
+      "OnlyOffice_JS": "oChart.SetTitle(\"Financial Overview\", 13);"
+    },
+    {
+      "Description": "Create a solid fill with RGB color (51, 51, 51)",
+      "Excel_VBA": "Set oFill = oChart.SeriesCollection(1).Format.Fill\n" +
+                    "oFill.Solid\n" +
+                    "oFill.ForeColor.RGB = RGB(51, 51, 51)",
+      "OnlyOffice_JS": "var oFill = Api.CreateSolidFill(Api.CreateRGBColor(51, 51, 51));"
+    },
+    {
+      "Description": "Set the fill for the first series",
+      "Excel_VBA": "oChart.SeriesCollection(1).Format.Fill = oFill\n" +
+                    "oChart.SeriesCollection(1).Format.Fill.Visible = msoTrue",
+      "OnlyOffice_JS": "oChart.SetSeriesFill(oFill, 0, false);"
+    },
+    {
+      "Description": "Create a solid fill with RGB color (255, 111, 61)",
+      "Excel_VBA": "Set oFill = oChart.SeriesCollection(2).Format.Fill\n" +
+                    "oFill.Solid\n" +
+                    "oFill.ForeColor.RGB = RGB(255, 111, 61)",
+      "OnlyOffice_JS": "oFill = Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61));"
+    },
+    {
+      "Description": "Set the fill for the second series",
+      "Excel_VBA": "oChart.SeriesCollection(2).Format.Fill = oFill\n" +
+                    "oChart.SeriesCollection(2).Format.Fill.Visible = msoTrue",
+      "OnlyOffice_JS": "oChart.SetSeriesFill(oFill, 1, false);"
+    },
+    {
+      "Description": "Get the first series of the chart",
+      "Excel_VBA": "Set oSeries = oChart.SeriesCollection(1)",
+      "OnlyOffice_JS": "var oSeries = oChart.GetSeries(0);"
+    },
+    {
+      "Description": "Get the chart type of the first series",
+      "Excel_VBA": "sSeriesType = oSeries.ChartType",
+      "OnlyOffice_JS": "var sSeriesType = oSeries.GetChartType();"
+    },
+    {
+      "Description": "Set the series type in cell F1",
+      "Excel_VBA": "oWorksheet.Range(\"F1\").Value = \"Series Type = \" & sSeriesType",
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"F1\").SetValue(\"Series Type = \" + sSeriesType);"
+    }
+  ]
+}
+```

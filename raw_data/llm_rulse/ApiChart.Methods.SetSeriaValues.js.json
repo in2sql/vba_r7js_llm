@@ -1,0 +1,114 @@
+```json
+{
+  "table": {
+    "headers": ["Description", "OnlyOffice JS", "Excel VBA"],
+    "rows": [
+      {
+        "Description": "Get the active worksheet",
+        "OnlyOffice JS": "var oWorksheet = Api.GetActiveSheet();",
+        "Excel VBA": "Set oWorksheet = ThisWorkbook.ActiveSheet"
+      },
+      {
+        "Description": "Set value of cell B1 to 2014",
+        "OnlyOffice JS": "oWorksheet.GetRange(\"B1\").SetValue(2014);",
+        "Excel VBA": "Range(\"B1\").Value = 2014"
+      },
+      {
+        "Description": "Set value of cell C1 to 2015",
+        "OnlyOffice JS": "oWorksheet.GetRange(\"C1\").SetValue(2015);",
+        "Excel VBA": "Range(\"C1\").Value = 2015"
+      },
+      {
+        "Description": "Set value of cell D1 to 2016",
+        "OnlyOffice JS": "oWorksheet.GetRange(\"D1\").SetValue(2016);",
+        "Excel VBA": "Range(\"D1\").Value = 2016"
+      },
+      {
+        "Description": "Set value of cell A2 to 'Projected Revenue'",
+        "OnlyOffice JS": "oWorksheet.GetRange(\"A2\").SetValue(\"Projected Revenue\");",
+        "Excel VBA": "Range(\"A2\").Value = \"Projected Revenue\""
+      },
+      {
+        "Description": "Set value of cell A3 to 'Estimated Costs'",
+        "OnlyOffice JS": "oWorksheet.GetRange(\"A3\").SetValue(\"Estimated Costs\");",
+        "Excel VBA": "Range(\"A3\").Value = \"Estimated Costs\""
+      },
+      {
+        "Description": "Set value of cell B2 to 200",
+        "OnlyOffice JS": "oWorksheet.GetRange(\"B2\").SetValue(200);",
+        "Excel VBA": "Range(\"B2\").Value = 200"
+      },
+      {
+        "Description": "Set value of cell B3 to 250",
+        "OnlyOffice JS": "oWorksheet.GetRange(\"B3\").SetValue(250);",
+        "Excel VBA": "Range(\"B3\").Value = 250"
+      },
+      {
+        "Description": "Set value of cell B4 to 260",
+        "OnlyOffice JS": "oWorksheet.GetRange(\"B4\").SetValue(260);",
+        "Excel VBA": "Range(\"B4\").Value = 260"
+      },
+      {
+        "Description": "Set value of cell C2 to 240",
+        "OnlyOffice JS": "oWorksheet.GetRange(\"C2\").SetValue(240);",
+        "Excel VBA": "Range(\"C2\").Value = 240"
+      },
+      {
+        "Description": "Set value of cell C3 to 260",
+        "OnlyOffice JS": "oWorksheet.GetRange(\"C3\").SetValue(260);",
+        "Excel VBA": "Range(\"C3\").Value = 260"
+      },
+      {
+        "Description": "Set value of cell C4 to 270",
+        "OnlyOffice JS": "oWorksheet.GetRange(\"C4\").SetValue(270);",
+        "Excel VBA": "Range(\"C4\").Value = 270"
+      },
+      {
+        "Description": "Set value of cell D2 to 280",
+        "OnlyOffice JS": "oWorksheet.GetRange(\"D2\").SetValue(280);",
+        "Excel VBA": "Range(\"D2\").Value = 280"
+      },
+      {
+        "Description": "Set value of cell D3 to 280",
+        "OnlyOffice JS": "oWorksheet.GetRange(\"D3\").SetValue(280);",
+        "Excel VBA": "Range(\"D3\").Value = 280"
+      },
+      {
+        "Description": "Set value of cell D4 to 300",
+        "OnlyOffice JS": "oWorksheet.GetRange(\"D4\").SetValue(300);",
+        "Excel VBA": "Range(\"D4\").Value = 300"
+      },
+      {
+        "Description": "Add a 3D bar chart to the worksheet",
+        "OnlyOffice JS": "var oChart = oWorksheet.AddChart(\"'Sheet1'!$A$1:$D$3\", true, \"bar3D\", 2, 100 * 36000, 70 * 36000, 0, 2 * 36000, 7, 3 * 36000);",
+        "Excel VBA": "Set oChart = oWorksheet.Shapes.AddChart2(251, xlBarStacked, 100, 70, 300, 200).Chart\nWith oChart\n    .SetSourceData Source:=oWorksheet.Range(\"A1:D3\")\n    .ChartType = xlBar3DClustered\nEnd With"
+      },
+      {
+        "Description": "Set the title of the chart to 'Financial Overview' with font size 13",
+        "OnlyOffice JS": "oChart.SetTitle(\"Financial Overview\", 13);",
+        "Excel VBA": "With oChart\n    .HasTitle = True\n    .ChartTitle.Text = \"Financial Overview\"\n    .ChartTitle.Font.Size = 13\nEnd With"
+      },
+      {
+        "Description": "Set series values for the chart",
+        "OnlyOffice JS": "oChart.SetSeriaValues(\"'Sheet1'!$B$4:$D$4\", 1);",
+        "Excel VBA": "oChart.SeriesCollection(1).Values = oWorksheet.Range(\"B4:D4\")"
+      },
+      {
+        "Description": "Disable data labels for series points",
+        "OnlyOffice JS": "oChart.SetShowPointDataLabel(1, 0, false, false, true, false);\noChart.SetShowPointDataLabel(1, 1, false, false, true, false);\noChart.SetShowPointDataLabel(1, 2, false, false, true, false);",
+        "Excel VBA": "Dim i As Integer\nFor i = 1 To 3\n    oChart.SeriesCollection(1).Points(i).HasDataLabel = False\nNext i"
+      },
+      {
+        "Description": "Set fill color of the first series to RGB(51, 51, 51)",
+        "OnlyOffice JS": "var oFill = Api.CreateSolidFill(Api.CreateRGBColor(51, 51, 51));\noChart.SetSeriesFill(oFill, 0, false);",
+        "Excel VBA": "oChart.SeriesCollection(1).Format.Fill.ForeColor.RGB = RGB(51, 51, 51)"
+      },
+      {
+        "Description": "Set fill color of the second series to RGB(255, 111, 61)",
+        "OnlyOffice JS": "oFill = Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61));\noChart.SetSeriesFill(oFill, 1, false);",
+        "Excel VBA": "oChart.SeriesCollection(2).Format.Fill.ForeColor.RGB = RGB(255, 111, 61)"
+      }
+    ]
+  }
+}
+```

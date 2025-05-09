@@ -1,0 +1,102 @@
+```json
+{
+  "Table": [
+    {
+      "Get Active Sheet": "var oWorksheet = Api.GetActiveSheet();",
+      "Excel VBA": "Dim oWorksheet As Worksheet\nSet oWorksheet = ThisWorkbook.ActiveSheet"
+    },
+    {
+      "Set Header 'Region' in B1": "oWorksheet.GetRange('B1').SetValue('Region');",
+      "Excel VBA": "oWorksheet.Range(\"B1\").Value = \"Region\""
+    },
+    {
+      "Set Header 'Style' in C1": "oWorksheet.GetRange('C1').SetValue('Style');",
+      "Excel VBA": "oWorksheet.Range(\"C1\").Value = \"Style\""
+    },
+    {
+      "Set Header 'Price' in D1": "oWorksheet.GetRange('D1').SetValue('Price');",
+      "Excel VBA": "oWorksheet.Range(\"D1\").Value = \"Price\""
+    },
+    {
+      "Set 'East' in B2": "oWorksheet.GetRange('B2').SetValue('East');",
+      "Excel VBA": "oWorksheet.Range(\"B2\").Value = \"East\""
+    },
+    {
+      "Set 'West' in B3": "oWorksheet.GetRange('B3').SetValue('West');",
+      "Excel VBA": "oWorksheet.Range(\"B3\").Value = \"West\""
+    },
+    {
+      "Set 'East' in B4": "oWorksheet.GetRange('B4').SetValue('East');",
+      "Excel VBA": "oWorksheet.Range(\"B4\").Value = \"East\""
+    },
+    {
+      "Set 'West' in B5": "oWorksheet.GetRange('B5').SetValue('West');",
+      "Excel VBA": "oWorksheet.Range(\"B5\").Value = \"West\""
+    },
+    {
+      "Set 'Fancy' in C2": "oWorksheet.GetRange('C2').SetValue('Fancy');",
+      "Excel VBA": "oWorksheet.Range(\"C2\").Value = \"Fancy\""
+    },
+    {
+      "Set 'Fancy' in C3": "oWorksheet.GetRange('C3').SetValue('Fancy');",
+      "Excel VBA": "oWorksheet.Range(\"C3\").Value = \"Fancy\""
+    },
+    {
+      "Set 'Tee' in C4": "oWorksheet.GetRange('C4').SetValue('Tee');",
+      "Excel VBA": "oWorksheet.Range(\"C4\").Value = \"Tee\""
+    },
+    {
+      "Set 'Tee' in C5": "oWorksheet.GetRange('C5').SetValue('Tee');",
+      "Excel VBA": "oWorksheet.Range(\"C5\").Value = \"Tee\""
+    },
+    {
+      "Set 42.5 in D2": "oWorksheet.GetRange('D2').SetValue(42.5);",
+      "Excel VBA": "oWorksheet.Range(\"D2\").Value = 42.5"
+    },
+    {
+      "Set 35.2 in D3": "oWorksheet.GetRange('D3').SetValue(35.2);",
+      "Excel VBA": "oWorksheet.Range(\"D3\").Value = 35.2"
+    },
+    {
+      "Set 12.3 in D4": "oWorksheet.GetRange('D4').SetValue(12.3);",
+      "Excel VBA": "oWorksheet.Range(\"D4\").Value = 12.3"
+    },
+    {
+      "Set 24.8 in D5": "oWorksheet.GetRange('D5').SetValue(24.8);",
+      "Excel VBA": "oWorksheet.Range(\"D5\").Value = 24.8"
+    },
+    {
+      "Get Data Range": "var dataRef = Api.GetRange(\"'Sheet1'!$B$1:$D$5\");",
+      "Excel VBA": "Dim dataRef As Range\nSet dataRef = ThisWorkbook.Sheets(\"Sheet1\").Range(\"B1:D5\")"
+    },
+    {
+      "Insert Pivot Table in New Worksheet": "var pivotTable = Api.InsertPivotNewWorksheet(dataRef);",
+      "Excel VBA": "Dim pivotTable As PivotTable\nSet pivotTable = ThisWorkbook.PivotTableWizard(SourceType:=xlDatabase, SourceData:=dataRef)"
+    },
+    {
+      "Add Fields to Pivot Table - Columns 'Region' and 'Style'": "pivotTable.AddFields({\n\tcolumns: ['Region', 'Style'],\n});",
+      "Excel VBA": "With pivotTable\n    .PivotFields(\"Region\").Orientation = xlColumnField\n    .PivotFields(\"Style\").Orientation = xlColumnField\nEnd With"
+    },
+    {
+      "Add Data Field 'Price' to Pivot Table": "pivotTable.AddDataField('Price');",
+      "Excel VBA": "pivotTable.AddDataField pivotTable.PivotFields(\"Price\"), \"Sum of Price\", xlSum"
+    },
+    {
+      "Get Pivot Fields 'Region'": "var pivotField = pivotTable.GetPivotFields('Region');",
+      "Excel VBA": "Dim pivotField As PivotField\nSet pivotField = pivotTable.PivotFields(\"Region\")"
+    },
+    {
+      "Set Subtotal Name for 'Region' Pivot Field": "pivotField.SetSubtotalName('My name');",
+      "Excel VBA": "pivotField.Caption = \"My name\""
+    },
+    {
+      "Set 'Region subtotal name' in A14": "pivotWorksheet.GetRange('A14').SetValue('Region subtotal name');",
+      "Excel VBA": "pivotWorksheet.Range(\"A14\").Value = \"Region subtotal name\""
+    },
+    {
+      "Set Subtotal Name value in B14": "pivotWorksheet.GetRange('B14').SetValue(pivotField.GetSubtotalName());",
+      "Excel VBA": "pivotWorksheet.Range(\"B14\").Value = pivotField.Caption"
+    }
+  ]
+}
+```

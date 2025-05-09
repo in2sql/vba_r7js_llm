@@ -1,0 +1,13 @@
+```json
+{
+  "description": "This example freezes the first column and inserts the freeze type into the table.",
+  "methods": [
+    {
+      "OnlyOffice JS": "// Freeze the first column\nApi.SetFreezePanesType('column');\n\n// Get the active worksheet\nvar oWorksheet = Api.GetActiveSheet();\n\n// Set value in cell A1\noWorksheet.GetRange(\"A1\").SetValue(\"Type: \");\n\n// Set value in cell B1 with the freeze pane type\noWorksheet.GetRange(\"B1\").SetValue(Api.GetFreezePanesType());"
+    },
+    {
+      "Excel VBA": "' Freeze the first column\nSub FreezeFirstColumn()\n    ActiveWindow.SplitColumn = 1\n    ActiveWindow.FreezePanes = True\n\n    ' Insert freeze type into cells\n    Range(\"A1\").Value = \"Type:\"\n    Range(\"B1\").Value = \"Column\"\nEnd Sub"
+    }
+  ]
+}
+```

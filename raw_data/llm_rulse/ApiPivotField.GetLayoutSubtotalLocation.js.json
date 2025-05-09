@@ -1,0 +1,103 @@
+```json
+{
+  "Description": "This code creates and populates a worksheet, sets values in specific cells, creates a pivot table, adds row and data fields to the pivot table, and retrieves the layout subtotal location of a pivot field.",
+  "CodeExamples": [
+    {
+      "OnlyOffice_JS": "var oWorksheet = Api.GetActiveSheet();",
+      "Excel_VBA": "Dim oWorksheet As Worksheet\nSet oWorksheet = ActiveSheet"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange('B1').SetValue('Region');",
+      "Excel_VBA": "Range(\"B1\").Value = \"Region\""
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange('C1').SetValue('Style');",
+      "Excel_VBA": "Range(\"C1\").Value = \"Style\""
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange('D1').SetValue('Price');",
+      "Excel_VBA": "Range(\"D1\").Value = \"Price\""
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange('B2').SetValue('East');",
+      "Excel_VBA": "Range(\"B2\").Value = \"East\""
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange('B3').SetValue('West');",
+      "Excel_VBA": "Range(\"B3\").Value = \"West\""
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange('B4').SetValue('East');",
+      "Excel_VBA": "Range(\"B4\").Value = \"East\""
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange('B5').SetValue('West');",
+      "Excel_VBA": "Range(\"B5\").Value = \"West\""
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange('C2').SetValue('Fancy');",
+      "Excel_VBA": "Range(\"C2\").Value = \"Fancy\""
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange('C3').SetValue('Fancy');",
+      "Excel_VBA": "Range(\"C3\").Value = \"Fancy\""
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange('C4').SetValue('Tee');",
+      "Excel_VBA": "Range(\"C4\").Value = \"Tee\""
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange('C5').SetValue('Tee');",
+      "Excel_VBA": "Range(\"C5\").Value = \"Tee\""
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange('D2').SetValue(42.5);",
+      "Excel_VBA": "Range(\"D2\").Value = 42.5"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange('D3').SetValue(35.2);",
+      "Excel_VBA": "Range(\"D3\").Value = 35.2"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange('D4').SetValue(12.3);",
+      "Excel_VBA": "Range(\"D4\").Value = 12.3"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange('D5').SetValue(24.8);",
+      "Excel_VBA": "Range(\"D5\").Value = 24.8"
+    },
+    {
+      "OnlyOffice_JS": "var dataRef = Api.GetRange(\"'Sheet1'!$B$1:$D$5\");",
+      "Excel_VBA": "Dim dataRef As Range\nSet dataRef = Sheets(\"Sheet1\").Range(\"B1:D5\")"
+    },
+    {
+      "OnlyOffice_JS": "var pivotTable = Api.InsertPivotNewWorksheet(dataRef);",
+      "Excel_VBA": "Dim pivotTable As PivotTable\nSet pivotTable = ActiveWorkbook.PivotCaches.Create(SourceType:=xlDatabase, SourceData:=dataRef).CreatePivotTable(TableDestination:=Sheets.Add.Range(\"A3\"), TableName:=\"PivotTable1\")"
+    },
+    {
+      "OnlyOffice_JS": "pivotTable.AddFields({ rows: ['Region', 'Style'] });",
+      "Excel_VBA": "With pivotTable\n    .PivotFields(\"Region\").Orientation = xlRowField\n    .PivotFields(\"Style\").Orientation = xlRowField\nEnd With"
+    },
+    {
+      "OnlyOffice_JS": "pivotTable.AddDataField('Price');",
+      "Excel_VBA": "pivotTable.AddDataField pivotTable.PivotFields(\"Price\"), \"Sum of Price\", xlSum"
+    },
+    {
+      "OnlyOffice_JS": "var pivotWorksheet = Api.GetActiveSheet();",
+      "Excel_VBA": "Dim pivotWorksheet As Worksheet\nSet pivotWorksheet = ActiveSheet"
+    },
+    {
+      "OnlyOffice_JS": "var pivotField = pivotTable.GetPivotFields('Region');",
+      "Excel_VBA": "Dim pivotField As PivotField\nSet pivotField = pivotTable.PivotFields(\"Region\")"
+    },
+    {
+      "OnlyOffice_JS": "pivotWorksheet.GetRange('A14').SetValue('Region layout subtotal location');",
+      "Excel_VBA": "Range(\"A14\").Value = \"Region layout subtotal location\""
+    },
+    {
+      "OnlyOffice_JS": "pivotWorksheet.GetRange('B14').SetValue(pivotField.GetLayoutSubtotalLocation());",
+      "Excel_VBA": "Range(\"B14\").Value = pivotField.Subtotals(1)" // Note: Excel VBA does not have a direct equivalent method; this is a representation.
+    }
+  ]
+}
+```

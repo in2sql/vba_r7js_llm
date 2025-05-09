@@ -1,0 +1,63 @@
+```json
+{
+  "description": "This code removes all elements from the current paragraph, adds a shape with a specific fill and stroke to the active worksheet, manages text runs within the paragraph, and updates the document content.",
+  "methods_mapping": [
+    {
+      "OnlyOffice_JS": "Api.GetActiveSheet();",
+      "Excel_VBA": "Set oWorksheet = ThisWorkbook.ActiveSheet"
+    },
+    {
+      "OnlyOffice_JS": "Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61));",
+      "Excel_VBA": "Set oFill = ThisWorkbook.ActiveSheet.Shapes.AddShape(msoShapeRectangle, 0, 0, 100, 50).Fill\noFill.ForeColor.RGB = RGB(255, 111, 61)"
+    },
+    {
+      "OnlyOffice_JS": "Api.CreateStroke(0, Api.CreateNoFill());",
+      "Excel_VBA": "With oShape.Line\n    .Visible = msoFalse\nEnd With"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.AddShape(\"flowChartOnlineStorage\", 120 * 36000, 70 * 36000, oFill, oStroke, 0, 2 * 36000, 0, 3 * 36000);",
+      "Excel_VBA": "Set oShape = oWorksheet.Shapes.AddShape(msoShapeFlowchartPredefined, 120, 70, 200, 150)\noShape.Fill = oFill\n'oStroke is handled by setting .Visible = msoFalse above"
+    },
+    {
+      "OnlyOffice_JS": "oShape.GetContent();",
+      "Excel_VBA": "Set oDocContent = oShape.TextFrame"
+    },
+    {
+      "OnlyOffice_JS": "oDocContent.GetElement(0);",
+      "Excel_VBA": "Set oParagraph = oDocContent.TextRange.Paragraphs(1)"
+    },
+    {
+      "OnlyOffice_JS": "Api.CreateRun();",
+      "Excel_VBA": "Set oRun = oDocContent.TextRange.Characters"
+    },
+    {
+      "OnlyOffice_JS": "oRun.AddText(\"This is the first text run in the current paragraph.\");",
+      "Excel_VBA": "oRun.Text = \"This is the first text run in the current paragraph.\""
+    },
+    {
+      "OnlyOffice_JS": "oParagraph.AddElement(oRun);",
+      "Excel_VBA": "' Already added via oRun.Text"
+    },
+    {
+      "OnlyOffice_JS": "oParagraph.RemoveAllElements();",
+      "Excel_VBA": "oDocContent.Text = \"\""
+    },
+    {
+      "OnlyOffice_JS": "oRun = Api.CreateRun();",
+      "Excel_VBA": "Set oRun = oDocContent.TextRange.Characters"
+    },
+    {
+      "OnlyOffice_JS": "oRun.AddText(\"We removed all the paragraph elements and added a new text run inside it.\");",
+      "Excel_VBA": "oRun.Text = \"We removed all the paragraph elements and added a new text run inside it.\""
+    },
+    {
+      "OnlyOffice_JS": "oParagraph.AddElement(oRun);",
+      "Excel_VBA": "' Already added via oRun.Text"
+    },
+    {
+      "OnlyOffice_JS": "oDocContent.Push(oParagraph);",
+      "Excel_VBA": "' Changes are reflected automatically in Excel VBA"
+    }
+  ]
+}
+```

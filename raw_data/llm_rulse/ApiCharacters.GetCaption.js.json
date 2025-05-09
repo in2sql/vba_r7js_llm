@@ -1,0 +1,31 @@
+```json
+{
+  "description": "This example shows how to get a string value that represents the text of the specified range of characters.",
+  "codeMappings": [
+    {
+      "OnlyOffice_JS": "var oWorksheet = Api.GetActiveSheet();",
+      "Excel_VBA": "Dim oWorksheet As Worksheet\nSet oWorksheet = ThisWorkbook.ActiveSheet"
+    },
+    {
+      "OnlyOffice_JS": "var oRange = oWorksheet.GetRange(\"B1\");",
+      "Excel_VBA": "Dim oRange As Range\nSet oRange = oWorksheet.Range(\"B1\")"
+    },
+    {
+      "OnlyOffice_JS": "oRange.SetValue(\"This is just a sample text.\");",
+      "Excel_VBA": "oRange.Value = \"This is just a sample text.\""
+    },
+    {
+      "OnlyOffice_JS": "var oCharacters = oRange.GetCharacters(23, 4);",
+      "Excel_VBA": "Dim sCaption As String\nsCaption = Mid(oRange.Value, 23, 4)"
+    },
+    {
+      "OnlyOffice_JS": "var sCaption = oCharacters.GetCaption();",
+      "Excel_VBA": "// No direct equivalent; already handled using Mid function"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"B3\").SetValue(\"Caption: \" + sCaption);",
+      "Excel_VBA": "oWorksheet.Range(\"B3\").Value = \"Caption: \" & sCaption"
+    }
+  ]
+}
+```

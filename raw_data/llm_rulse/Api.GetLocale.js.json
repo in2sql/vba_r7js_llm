@@ -1,0 +1,23 @@
+```json
+{
+  "description": "This example shows how to get the current locale ID.",
+  "table": [
+    {
+      "OnlyOffice_JS": "var oWorksheet = Api.GetActiveSheet();",
+      "VBA": "Set oWorksheet = ActiveSheet"
+    },
+    {
+      "OnlyOffice_JS": "Api.SetLocale(\"en-CA\");",
+      "VBA": "Application.LanguageSettings.LanguageID(msoLanguageIDUI) = 3084 ' en-CA"
+    },
+    {
+      "OnlyOffice_JS": "var nLocale = Api.GetLocale();",
+      "VBA": "nLocale = Application.LanguageSettings.LanguageID(msoLanguageIDUI)"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"A1\").SetValue(\"Locale: \" + nLocale);",
+      "VBA": "oWorksheet.Range(\"A1\").Value = \"Locale: \" & nLocale"
+    }
+  ]
+}
+```

@@ -1,0 +1,57 @@
+```json
+{
+  "description": "This code retrieves the active worksheet, creates gradient fills and strokes, adds a specific shape to the worksheet, sets column widths, and writes the class type information into cell A1.",
+  "RAG_Table": [
+    {
+      "Action": "Get active sheet",
+      "OnlyOffice_JS": "var oWorksheet = Api.GetActiveSheet();",
+      "VBA": "Dim oWorksheet As Worksheet\nSet oWorksheet = ThisWorkbook.ActiveSheet"
+    },
+    {
+      "Action": "Create first gradient stop",
+      "OnlyOffice_JS": "var oGs1 = Api.CreateGradientStop(Api.CreateRGBColor(255, 213, 191), 0);",
+      "VBA": "Dim oGs1 As Object\nSet oGs1 = oWorksheet.Shapes.AddShape(msoShapeRectangle, 0, 0, 100, 100).Fill.GradientStops.Add(0, RGB(255, 213, 191))"
+    },
+    {
+      "Action": "Create second gradient stop",
+      "OnlyOffice_JS": "var oGs2 = Api.CreateGradientStop(Api.CreateRGBColor(255, 111, 61), 100000);",
+      "VBA": "Dim oGs2 As Object\nSet oGs2 = oWorksheet.Shapes(1).Fill.GradientStops.Add(1, RGB(255, 111, 61))"
+    },
+    {
+      "Action": "Create linear gradient fill",
+      "OnlyOffice_JS": "var oFill = Api.CreateLinearGradientFill([oGs1, oGs2], 5400000);",
+      "VBA": "With oWorksheet.Shapes(1).Fill\n    .TwoColorGradient msoGradientHorizontal, 1\n    .GradientAngle = 5400000\nEnd With"
+    },
+    {
+      "Action": "Create stroke with no fill",
+      "OnlyOffice_JS": "var oStroke = Api.CreateStroke(0, Api.CreateNoFill());",
+      "VBA": "With oWorksheet.Shapes(1).Line\n    .Weight = 0\n    .Visible = msoFalse\nEnd With"
+    },
+    {
+      "Action": "Add shape to worksheet",
+      "OnlyOffice_JS": "oWorksheet.AddShape(\"flowChartOnlineStorage\", 60 * 36000, 35 * 36000, oFill, oStroke, 0, 2 * 36000, 1, 3 * 36000);",
+      "VBA": "Dim shp As Shape\nSet shp = oWorksheet.Shapes.AddShape(msoShapeFlowchartOnlineStorage, 60 * 36000, 35 * 36000, 2 * 36000, 3 * 36000)\nWith shp.Fill\n    .Visible = msoTrue\n    .ForeColor.RGB = RGB(255, 213, 191)\n    ' Additional gradient settings as needed\nEnd With\nWith shp.Line\n    .Visible = msoFalse\nEnd With"
+    },
+    {
+      "Action": "Get class type of fill",
+      "OnlyOffice_JS": "var sClassType = oFill.GetClassType();",
+      "VBA": "Dim sClassType As String\nsClassType = TypeName(oWorksheet.Shapes(1).Fill)"
+    },
+    {
+      "Action": "Set column width for column A",
+      "OnlyOffice_JS": "oWorksheet.SetColumnWidth(0, 15);",
+      "VBA": "oWorksheet.Columns(1).ColumnWidth = 15"
+    },
+    {
+      "Action": "Set column width for column B",
+      "OnlyOffice_JS": "oWorksheet.SetColumnWidth(1, 10);",
+      "VBA": "oWorksheet.Columns(2).ColumnWidth = 10"
+    },
+    {
+      "Action": "Set value of cell A1",
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"A1\").SetValue(\"Class Type = \" + sClassType);",
+      "VBA": "oWorksheet.Range(\"A1\").Value = \"Class Type = \" & sClassType"
+    }
+  ]
+}
+```

@@ -1,0 +1,35 @@
+```json
+{
+  "Description": "This example sets the timestamp of the comment creation in UTC format.",
+  "CodeEquivalents": [
+    {
+      "OnlyOffice JS": "var oWorksheet = Api.GetActiveSheet();",
+      "Excel VBA": "Dim oWorksheet As Worksheet\nSet oWorksheet = ThisWorkbook.ActiveSheet"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"A1\").SetValue(\"1\");",
+      "Excel VBA": "oWorksheet.Range(\"A1\").Value = \"1\""
+    },
+    {
+      "OnlyOffice JS": "var oRange = oWorksheet.GetRange(\"A1\");",
+      "Excel VBA": "Dim oRange As Range\nSet oRange = oWorksheet.Range(\"A1\")"
+    },
+    {
+      "OnlyOffice JS": "var oComment = oRange.AddComment(\"This is just a number.\", \"John Smith\");",
+      "Excel VBA": "Dim oComment As Comment\nSet oComment = oRange.AddComment(\"This is just a number.\")\noComment.Author = \"John Smith\""
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"A3\").SetValue(\"Timestamp UTC: \");",
+      "Excel VBA": "oWorksheet.Range(\"A3\").Value = \"Timestamp UTC: \""
+    },
+    {
+      "OnlyOffice JS": "oComment.SetTimeUTC(Date.now());",
+      "Excel VBA": "oComment.Shape.TextFrame.Characters.Text = oComment.Shape.TextFrame.Characters.Text & \"\\nTimestamp UTC: \" & Format(Now, \"yyyy-mm-dd HH:MM:SS\")"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"B3\").SetValue(oComment.GetTimeUTC());",
+      "Excel VBA": "oWorksheet.Range(\"B3\").Value = Format(oComment.Shape.TextFrame.Characters.Text, \"yyyy-mm-dd HH:MM:SS\")"
+    }
+  ]
+}
+```

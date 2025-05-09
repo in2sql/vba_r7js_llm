@@ -1,0 +1,124 @@
+```json
+[
+  {
+    "description": "Get the active worksheet",
+    "OnlyOffice_JS": "var oWorksheet = Api.GetActiveSheet();",
+    "Excel_VBA": "Set oWorksheet = ThisWorkbook.ActiveSheet"
+  },
+  {
+    "description": "Set header 'Region' in cell B1",
+    "OnlyOffice_JS": "oWorksheet.GetRange('B1').SetValue('Region');",
+    "Excel_VBA": "oWorksheet.Range(\"B1\").Value = \"Region\""
+  },
+  {
+    "description": "Set header 'Style' in cell C1",
+    "OnlyOffice_JS": "oWorksheet.GetRange('C1').SetValue('Style');",
+    "Excel_VBA": "oWorksheet.Range(\"C1\").Value = \"Style\""
+  },
+  {
+    "description": "Set header 'Price' in cell D1",
+    "OnlyOffice_JS": "oWorksheet.GetRange('D1').SetValue('Price');",
+    "Excel_VBA": "oWorksheet.Range(\"D1\").Value = \"Price\""
+  },
+  {
+    "description": "Set value 'East' in cell B2",
+    "OnlyOffice_JS": "oWorksheet.GetRange('B2').SetValue('East');",
+    "Excel_VBA": "oWorksheet.Range(\"B2\").Value = \"East\""
+  },
+  {
+    "description": "Set value 'West' in cell B3",
+    "OnlyOffice_JS": "oWorksheet.GetRange('B3').SetValue('West');",
+    "Excel_VBA": "oWorksheet.Range(\"B3\").Value = \"West\""
+  },
+  {
+    "description": "Set value 'East' in cell B4",
+    "OnlyOffice_JS": "oWorksheet.GetRange('B4').SetValue('East');",
+    "Excel_VBA": "oWorksheet.Range(\"B4\").Value = \"East\""
+  },
+  {
+    "description": "Set value 'West' in cell B5",
+    "OnlyOffice_JS": "oWorksheet.GetRange('B5').SetValue('West');",
+    "Excel_VBA": "oWorksheet.Range(\"B5\").Value = \"West\""
+  },
+  {
+    "description": "Set value 'Fancy' in cell C2",
+    "OnlyOffice_JS": "oWorksheet.GetRange('C2').SetValue('Fancy');",
+    "Excel_VBA": "oWorksheet.Range(\"C2\").Value = \"Fancy\""
+  },
+  {
+    "description": "Set value 'Fancy' in cell C3",
+    "OnlyOffice_JS": "oWorksheet.GetRange('C3').SetValue('Fancy');",
+    "Excel_VBA": "oWorksheet.Range(\"C3\").Value = \"Fancy\""
+  },
+  {
+    "description": "Set value 'Tee' in cell C4",
+    "OnlyOffice_JS": "oWorksheet.GetRange('C4').SetValue('Tee');",
+    "Excel_VBA": "oWorksheet.Range(\"C4\").Value = \"Tee\""
+  },
+  {
+    "description": "Set value 'Tee' in cell C5",
+    "OnlyOffice_JS": "oWorksheet.GetRange('C5').SetValue('Tee');",
+    "Excel_VBA": "oWorksheet.Range(\"C5\").Value = \"Tee\""
+  },
+  {
+    "description": "Set value 42.5 in cell D2",
+    "OnlyOffice_JS": "oWorksheet.GetRange('D2').SetValue(42.5);",
+    "Excel_VBA": "oWorksheet.Range(\"D2\").Value = 42.5"
+  },
+  {
+    "description": "Set value 35.2 in cell D3",
+    "OnlyOffice_JS": "oWorksheet.GetRange('D3').SetValue(35.2);",
+    "Excel_VBA": "oWorksheet.Range(\"D3\").Value = 35.2"
+  },
+  {
+    "description": "Set value 12.3 in cell D4",
+    "OnlyOffice_JS": "oWorksheet.GetRange('D4').SetValue(12.3);",
+    "Excel_VBA": "oWorksheet.Range(\"D4\").Value = 12.3"
+  },
+  {
+    "description": "Set value 24.8 in cell D5",
+    "OnlyOffice_JS": "oWorksheet.GetRange('D5').SetValue(24.8);",
+    "Excel_VBA": "oWorksheet.Range(\"D5\").Value = 24.8"
+  },
+  {
+    "description": "Get data range B1:D5 from Sheet1",
+    "OnlyOffice_JS": "var dataRef = Api.GetRange(\"'Sheet1'!$B$1:$D$5\");",
+    "Excel_VBA": "Set dataRef = ThisWorkbook.Sheets(\"Sheet1\").Range(\"$B$1:$D$5\")"
+  },
+  {
+    "description": "Insert a new pivot table on a new worksheet using dataRef",
+    "OnlyOffice_JS": "var pivotTable = Api.InsertPivotNewWorksheet(dataRef);",
+    "Excel_VBA": "Set pivotTable = ThisWorkbook.PivotTableWizard(TableDestination:=Sheets.Add.Range(\"A1\"), TableName:=\"PivotTable1\", SourceData:=dataRef)"
+  },
+  {
+    "description": "Add 'Region' as rows and 'Style' as columns to the pivot table",
+    "OnlyOffice_JS": "pivotTable.AddFields({\n    rows: 'Region',\n    columns: 'Style',\n});",
+    "Excel_VBA": "With pivotTable\n    .PivotFields(\"Region\").Orientation = xlRowField\n    .PivotFields(\"Style\").Orientation = xlColumnField\nEnd With"
+  },
+  {
+    "description": "Get the active worksheet (pivot table worksheet)",
+    "OnlyOffice_JS": "var pivotWorksheet = Api.GetActiveSheet();",
+    "Excel_VBA": "Set pivotWorksheet = ThisWorkbook.ActiveSheet"
+  },
+  {
+    "description": "Add 'Price' as a data field to the pivot table",
+    "OnlyOffice_JS": "pivotTable.AddDataField('Price');",
+    "Excel_VBA": "With pivotTable\n    .AddDataField .PivotFields(\"Price\")\nEnd With"
+  },
+  {
+    "description": "Get the pivot field 'Region' and its items",
+    "OnlyOffice_JS": "var pivotField = pivotTable.GetPivotFields('Region');\nvar pivotItems = pivotField.GetPivotItems();",
+    "Excel_VBA": "Set pivotField = pivotTable.PivotFields(\"Region\")\nSet pivotItems = pivotField.PivotItems"
+  },
+  {
+    "description": "Set cell A10 to 'Region pivot items'",
+    "OnlyOffice_JS": "pivotWorksheet.GetRange('A10').SetValue('Region pivot items');",
+    "Excel_VBA": "pivotWorksheet.Range(\"A10\").Value = \"Region pivot items\""
+  },
+  {
+    "description": "Loop through pivot items and set their names in cells below A10",
+    "OnlyOffice_JS": "for (var i = 0; i < pivotItems.length; i += 1) {\n    pivotWorksheet.GetRangeByNumber(9 + i, 1).SetValue(pivotItems[i].GetName());\n}",
+    "Excel_VBA": "Dim i As Integer\nFor i = 0 To pivotItems.Count - 1\n    pivotWorksheet.Cells(10 + i, 1).Value = pivotItems(i).Name\nNext i"
+  }
+]
+```

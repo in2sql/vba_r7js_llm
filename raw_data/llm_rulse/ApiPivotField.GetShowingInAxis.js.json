@@ -1,0 +1,107 @@
+```json
+{
+  "Description": "Equivalent Excel VBA methods for the provided OnlyOffice JS API methods.",
+  "Methods": [
+    {
+      "OnlyOfficeJS": "var oWorksheet = Api.GetActiveSheet();",
+      "VBA": "Set oWorksheet = ActiveSheet"
+    },
+    {
+      "OnlyOfficeJS": "oWorksheet.GetRange('B1').SetValue('Region');",
+      "VBA": "Range(\"B1\").Value = \"Region\""
+    },
+    {
+      "OnlyOfficeJS": "oWorksheet.GetRange('C1').SetValue('Style');",
+      "VBA": "Range(\"C1\").Value = \"Style\""
+    },
+    {
+      "OnlyOfficeJS": "oWorksheet.GetRange('D1').SetValue('Price');",
+      "VBA": "Range(\"D1\").Value = \"Price\""
+    },
+    {
+      "OnlyOfficeJS": "oWorksheet.GetRange('B2').SetValue('East');",
+      "VBA": "Range(\"B2\").Value = \"East\""
+    },
+    {
+      "OnlyOfficeJS": "oWorksheet.GetRange('B3').SetValue('West');",
+      "VBA": "Range(\"B3\").Value = \"West\""
+    },
+    {
+      "OnlyOfficeJS": "oWorksheet.GetRange('B4').SetValue('East');",
+      "VBA": "Range(\"B4\").Value = \"East\""
+    },
+    {
+      "OnlyOfficeJS": "oWorksheet.GetRange('B5').SetValue('West');",
+      "VBA": "Range(\"B5\").Value = \"West\""
+    },
+    {
+      "OnlyOfficeJS": "oWorksheet.GetRange('C2').SetValue('Fancy');",
+      "VBA": "Range(\"C2\").Value = \"Fancy\""
+    },
+    {
+      "OnlyOfficeJS": "oWorksheet.GetRange('C3').SetValue('Fancy');",
+      "VBA": "Range(\"C3\").Value = \"Fancy\""
+    },
+    {
+      "OnlyOfficeJS": "oWorksheet.GetRange('C4').SetValue('Tee');",
+      "VBA": "Range(\"C4\").Value = \"Tee\""
+    },
+    {
+      "OnlyOfficeJS": "oWorksheet.GetRange('C5').SetValue('Tee');",
+      "VBA": "Range(\"C5\").Value = \"Tee\""
+    },
+    {
+      "OnlyOfficeJS": "oWorksheet.GetRange('D2').SetValue(42.5);",
+      "VBA": "Range(\"D2\").Value = 42.5"
+    },
+    {
+      "OnlyOfficeJS": "oWorksheet.GetRange('D3').SetValue(35.2);",
+      "VBA": "Range(\"D3\").Value = 35.2"
+    },
+    {
+      "OnlyOfficeJS": "oWorksheet.GetRange('D4').SetValue(12.3);",
+      "VBA": "Range(\"D4\").Value = 12.3"
+    },
+    {
+      "OnlyOfficeJS": "oWorksheet.GetRange('D5').SetValue(24.8);",
+      "VBA": "Range(\"D5\").Value = 24.8"
+    },
+    {
+      "OnlyOfficeJS": "var dataRef = Api.GetRange(\"'Sheet1'!$B$1:$D$5\");",
+      "VBA": "Set dataRef = Sheets(\"Sheet1\").Range(\"B1:D5\")"
+    },
+    {
+      "OnlyOfficeJS": "var pivotTable = Api.InsertPivotNewWorksheet(dataRef);",
+      "VBA": "Set pivotTable = Worksheets.Add.PivotTableWizard(SourceType:=xlDatabase, SourceData:=dataRef)"
+    },
+    {
+      "OnlyOfficeJS": "pivotTable.AddFields({ rows: ['Region'], });",
+      "VBA": "With pivotTable.PivotFields(\"Region\")\n  .Orientation = xlRowField\n  .Position = 1\nEnd With"
+    },
+    {
+      "OnlyOfficeJS": "pivotTable.AddDataField('Price');",
+      "VBA": "pivotTable.AddDataField pivotTable.PivotFields(\"Price\"), \"Sum of Price\", xlSum"
+    },
+    {
+      "OnlyOfficeJS": "var pivotWorksheet = Api.GetActiveSheet();",
+      "VBA": "Set pivotWorksheet = ActiveSheet"
+    },
+    {
+      "OnlyOfficeJS": "pivotWorksheet.GetRange('A12').SetValue('Region showing in axis');",
+      "VBA": "Range(\"A12\").Value = \"Region showing in axis\""
+    },
+    {
+      "OnlyOfficeJS": "pivotWorksheet.GetRange('B12').SetValue(pivotTable.GetPivotFields('Region').GetShowingInAxis());",
+      "VBA": "Range(\"B12\").Value = pivotTable.PivotFields(\"Region\").Orientation = xlRowField"
+    },
+    {
+      "OnlyOfficeJS": "pivotWorksheet.GetRange('A13').SetValue('Style showing in axis');",
+      "VBA": "Range(\"A13\").Value = \"Style showing in axis\""
+    },
+    {
+      "OnlyOfficeJS": "pivotWorksheet.GetRange('B13').SetValue(pivotTable.GetPivotFields('Style').GetShowingInAxis());",
+      "VBA": "Range(\"B13\").Value = pivotTable.PivotFields(\"Style\").Orientation = xlRowField"
+    }
+  ]
+}
+```

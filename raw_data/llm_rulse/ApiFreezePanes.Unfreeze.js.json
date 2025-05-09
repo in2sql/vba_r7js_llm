@@ -1,0 +1,42 @@
+```json
+{
+  "Description": "This table provides Excel VBA equivalents for the OnlyOffice API methods used in the code that freezes the first column, then unfreezes all panes in the worksheet, and sets values in cells A1 and B1.",
+  "Methods": [
+    {
+      "OnlyOfficeJS": "Api.SetFreezePanesType('column');",
+      "ExcelVBA": "ActiveWindow.SplitColumn = 1\nActiveWindow.FreezePanes = True",
+      "Status": "Green"
+    },
+    {
+      "OnlyOfficeJS": "var oWorksheet = Api.GetActiveSheet();",
+      "ExcelVBA": "Dim oWorksheet As Worksheet\nSet oWorksheet = ActiveSheet",
+      "Status": "Green"
+    },
+    {
+      "OnlyOfficeJS": "var oFreezePanes = oWorksheet.GetFreezePanes();",
+      "ExcelVBA": "Dim oFreezePanes As FreezePanes\nSet oFreezePanes = ActiveWindow.FreezePanes",
+      "Status": "Green"
+    },
+    {
+      "OnlyOfficeJS": "oFreezePanes.Unfreeze();",
+      "ExcelVBA": "ActiveWindow.FreezePanes = False",
+      "Status": "Green"
+    },
+    {
+      "OnlyOfficeJS": "var oRange = oFreezePanes.GetLocation();",
+      "ExcelVBA": "Dim oRange As Range\nSet oRange = ActiveWindow.SplitColumn",
+      "Status": "Yellow"
+    },
+    {
+      "OnlyOfficeJS": "oWorksheet.GetRange(\"A1\").SetValue(\"Location: \");",
+      "ExcelVBA": "Range(\"A1\").Value = \"Location: \"",
+      "Status": "Green"
+    },
+    {
+      "OnlyOfficeJS": "oWorksheet.GetRange(\"B1\").SetValue(oRange + \"\");",
+      "ExcelVBA": "Range(\"B1\").Value = oRange.Address",
+      "Status": "Green"
+    }
+  ]
+}
+```

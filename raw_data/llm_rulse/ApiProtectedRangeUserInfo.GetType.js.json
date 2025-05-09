@@ -1,0 +1,7 @@
+```json
+{
+  "Description": "This example changes the user protected range.",
+  "OnlyOffice_JS": "// This example changes the user protected range.\nvar oWorksheet = Api.GetActiveSheet();\noWorksheet.AddProtectedRange(\"protectedRange\", \"$A$1:$B$1\").AddUser(\"userId\", \"name\", \"CanView\");\nvar protectedRange = oWorksheet.GetProtectedRange(\"protectedRange\");\nvar userInfo = protectedRange.GetUser(\"userId\");\nvar userType = userInfo.GetType();\noWorksheet.GetRange(\"A3\").SetValue(\"Type: \" + userType);",
+  "Excel_VBA": "Sub ChangeUserProtectedRange()\n    ' This example changes the user protected range.\n    Dim oWorksheet As Worksheet\n    Set oWorksheet = ThisWorkbook.ActiveSheet\n    ' Add protected range\n    oWorksheet.Protect Password:=\"\", UserInterfaceOnly:=True\n    ' Note: VBA does not have a direct equivalent for AddProtectedRange and AddUser\n    ' Protected ranges and user permissions require additional implementation\n    ' Retrieve protected range (placeholder)\n    Dim userType As String\n    userType = \"CanView\" ' Example user type\n    ' Set value in cell A3\n    oWorksheet.Range(\"A3\").Value = \"Type: \" & userType\nEnd Sub"
+}
+```

@@ -1,0 +1,110 @@
+```json
+{
+  "description": "Excel VBA equivalents for OnlyOffice JS methods used in the script.",
+  "table": {
+    "headers": ["OnlyOffice JS", "Excel VBA"],
+    "rows": [
+      [
+        "var oWorksheet = Api.GetActiveSheet();",
+        "Set oWorksheet = ActiveSheet"
+      ],
+      [
+        "oWorksheet.GetRange('B1').SetValue('Region');",
+        "Range(\"B1\").Value = \"Region\""
+      ],
+      [
+        "oWorksheet.GetRange('C1').SetValue('Style');",
+        "Range(\"C1\").Value = \"Style\""
+      ],
+      [
+        "oWorksheet.GetRange('D1').SetValue('Price');",
+        "Range(\"D1\").Value = \"Price\""
+      ],
+      [
+        "oWorksheet.GetRange('B2').SetValue('East');",
+        "Range(\"B2\").Value = \"East\""
+      ],
+      [
+        "oWorksheet.GetRange('B3').SetValue('West');",
+        "Range(\"B3\").Value = \"West\""
+      ],
+      [
+        "oWorksheet.GetRange('B4').SetValue('East');",
+        "Range(\"B4\").Value = \"East\""
+      ],
+      [
+        "oWorksheet.GetRange('B5').SetValue('West');",
+        "Range(\"B5\").Value = \"West\""
+      ],
+      [
+        "oWorksheet.GetRange('C2').SetValue('Fancy');",
+        "Range(\"C2\").Value = \"Fancy\""
+      ],
+      [
+        "oWorksheet.GetRange('C3').SetValue('Fancy');",
+        "Range(\"C3\").Value = \"Fancy\""
+      ],
+      [
+        "oWorksheet.GetRange('C4').SetValue('Tee');",
+        "Range(\"C4\").Value = \"Tee\""
+      ],
+      [
+        "oWorksheet.GetRange('C5').SetValue('Tee');",
+        "Range(\"C5\").Value = \"Tee\""
+      ],
+      [
+        "oWorksheet.GetRange('D2').SetValue(42.5);",
+        "Range(\"D2\").Value = 42.5"
+      ],
+      [
+        "oWorksheet.GetRange('D3').SetValue(35.2);",
+        "Range(\"D3\").Value = 35.2"
+      ],
+      [
+        "oWorksheet.GetRange('D4').SetValue(12.3);",
+        "Range(\"D4\").Value = 12.3"
+      ],
+      [
+        "oWorksheet.GetRange('D5').SetValue(24.8);",
+        "Range(\"D5\").Value = 24.8"
+      ],
+      [
+        "var dataRef = Api.GetRange(\"'Sheet1'!$B$1:$D$5\");",
+        "Set dataRef = Range(\"B1:D5\")"
+      ],
+      [
+        "var pivotTable = Api.InsertPivotNewWorksheet(dataRef);",
+        "Set pivotTable = Worksheets.Add.PivotTableWizard(SourceType:=xlDatabase, SourceData:=dataRef)"
+      ],
+      [
+        "pivotTable.AddFields({ rows: ['Region', 'Style'], });",
+        "With pivotTable.PivotFields(\"Region\")\n    .Orientation = xlRowField\nEnd With\nWith pivotTable.PivotFields(\"Style\")\n    .Orientation = xlRowField\nEnd With"
+      ],
+      [
+        "pivotTable.AddDataField('Price');",
+        "pivotTable.AddDataField pivotTable.PivotFields(\"Price\")"
+      ],
+      [
+        "var pivotWorksheet = Api.GetActiveSheet();",
+        "Set pivotWorksheet = ActiveSheet"
+      ],
+      [
+        "var pivotField = pivotTable.GetPivotFields('Region');",
+        "Set pivotField = pivotTable.PivotFields(\"Region\")"
+      ],
+      [
+        "pivotField.SetLayoutCompactRow(false);",
+        "pivotField.LayoutCompactRow = False"
+      ],
+      [
+        "pivotWorksheet.GetRange('A12').SetValue('Region layout compact');",
+        "Range(\"A12\").Value = \"Region layout compact\""
+      ],
+      [
+        "pivotWorksheet.GetRange('B12').SetValue(pivotField.GetLayoutCompactRow());",
+        "Range(\"B12\").Value = pivotField.LayoutCompactRow"
+      ]
+    ]
+  }
+}
+```

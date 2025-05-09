@@ -1,0 +1,7 @@
+```json
+{
+  "Description": "This example sets the subscript property to the specified font.",
+  "OnlyOffice JS": "// This example sets the subscript property to the specified font.\nvar oWorksheet = Api.GetActiveSheet();\nvar oRange = oWorksheet.GetRange(\"B1\");\noRange.SetValue(\"This is just a sample text.\");\nvar oCharacters = oRange.GetCharacters(9, 4);\nvar oFont = oCharacters.GetFont();\noFont.SetSubscript(true);",
+  "Excel VBA": "Sub SetSubscript()\n    With Worksheets(\"Sheet1\").Range(\"B1\")\n        .Value = \"This is just a sample text.\"\n        .Characters(Start:=9, Length:=4).Font.Subscript = True\n    End With\nEnd Sub"
+}
+```

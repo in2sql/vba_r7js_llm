@@ -1,0 +1,41 @@
+```json
+{
+  "RAGTable": [
+    {
+      "Description": "Get the active sheet",
+      "OnlyOffice JS": "var oWorksheet = Api.GetActiveSheet();",
+      "Excel VBA": "Set oWorksheet = ActiveSheet"
+    },
+    {
+      "Description": "Set value of cell A1 to '1'",
+      "OnlyOffice JS": "oWorksheet.GetRange(\"A1\").SetValue(\"1\");",
+      "Excel VBA": "Range(\"A1\").Value = \"1\""
+    },
+    {
+      "Description": "Get range A1",
+      "OnlyOffice JS": "var oRange = oWorksheet.GetRange(\"A1\");",
+      "Excel VBA": "Set oRange = Range(\"A1\")"
+    },
+    {
+      "Description": "Add a comment to the range A1",
+      "OnlyOffice JS": "var oComment = oRange.AddComment(\"This is just a number.\");",
+      "Excel VBA": "Set oComment = oRange.AddComment(\"This is just a number.\")"
+    },
+    {
+      "Description": "Add a reply to the comment",
+      "OnlyOffice JS": "oComment.AddReply(\"Reply 1\", \"John Smith\", \"uid-1\");",
+      "Excel VBA": "oComment.Replies.Add \"Reply 1\", \"John Smith\", \"uid-1\""
+    },
+    {
+      "Description": "Set value of cell A3 to 'Comment replies count: '",
+      "OnlyOffice JS": "oWorksheet.GetRange(\"A3\").SetValue(\"Comment replies count: \");",
+      "Excel VBA": "Range(\"A3\").Value = \"Comment replies count: \""
+    },
+    {
+      "Description": "Set value of cell B3 to the number of comment replies",
+      "OnlyOffice JS": "oWorksheet.GetRange(\"B3\").SetValue(oComment.GetRepliesCount());",
+      "Excel VBA": "Range(\"B3\").Value = oComment.Replies.Count"
+    }
+  ]
+}
+```

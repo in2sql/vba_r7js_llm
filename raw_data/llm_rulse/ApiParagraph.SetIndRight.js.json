@@ -1,0 +1,81 @@
+```json
+{
+  "Actions": [
+    {
+      "Description": "Set the active worksheet",
+      "OnlyOfficeJS": "var oWorksheet = Api.GetActiveSheet();",
+      "ExcelVBA": "Set oWorksheet = ActiveWorkbook.ActiveSheet"
+    },
+    {
+      "Description": "Create a solid fill with RGB(255, 111, 61)",
+      "OnlyOfficeJS": "var oFill = Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61));",
+      "ExcelVBA": "Dim fillColor As Long\nfillColor = RGB(255, 111, 61)"
+    },
+    {
+      "Description": "Create a stroke with weight 0 and no fill",
+      "OnlyOfficeJS": "var oStroke = Api.CreateStroke(0, Api.CreateNoFill());",
+      "ExcelVBA": "With oShape.Line\n    .Weight = 0\n    .Visible = msoFalse\nEnd With"
+    },
+    {
+      "Description": "Add a shape to the worksheet",
+      "OnlyOfficeJS": "var oShape = oWorksheet.AddShape(\"flowChartOnlineStorage\", 120 * 36000, 70 * 36000, oFill, oStroke, 0, 2 * 36000, 0, 3 * 36000);",
+      "ExcelVBA": "Set oShape = oWorksheet.Shapes.AddShape(_\n    Type:=msoShapeFlowchartOfflineStorage, _\n    Left:=120 * 36000 / 72, _\n    Top:=70 * 36000 / 72, _\n    Width:=100, _\n    Height:=50)\nWith oShape.Line\n    .Weight = 0\n    .Visible = msoFalse\nEnd With\nWith oShape.Fill\n    .ForeColor.RGB = RGB(255, 111, 61)\n    .Solid\nEnd With"
+    },
+    {
+      "Description": "Get content of the shape",
+      "OnlyOfficeJS": "var oDocContent = oShape.GetContent();",
+      "ExcelVBA": "Set oDocContent = oShape.TextFrame.TextRange"
+    },
+    {
+      "Description": "Get the first paragraph element",
+      "OnlyOfficeJS": "var oParagraph = oDocContent.GetElement(0);",
+      "ExcelVBA": "Set oParagraph = oDocContent.Paragraphs(1)"
+    },
+    {
+      "Description": "Add first text to the paragraph",
+      "OnlyOfficeJS": "oParagraph.AddText(\"This is a paragraph with the right offset of 2 inches set to it. \");",
+      "ExcelVBA": "oParagraph.Text = oParagraph.Text & \"This is a paragraph with the right offset of 2 inches set to it. \""
+    },
+    {
+      "Description": "Add second text to the paragraph",
+      "OnlyOfficeJS": "oParagraph.AddText(\"We also aligned the text in it by the right side. \");",
+      "ExcelVBA": "oParagraph.Text = oParagraph.Text & \"We also aligned the text in it by the right side. \""
+    },
+    {
+      "Description": "Add third text to the paragraph",
+      "OnlyOfficeJS": "oParagraph.AddText(\"This sentence is used to add lines for demonstrative purposes.\");",
+      "ExcelVBA": "oParagraph.Text = oParagraph.Text & \"This sentence is used to add lines for demonstrative purposes.\""
+    },
+    {
+      "Description": "Set paragraph alignment to right",
+      "OnlyOfficeJS": "oParagraph.SetJc(\"right\");",
+      "ExcelVBA": "With oParagraph.ParagraphFormat\n    .Alignment = xlRight\nEnd With"
+    },
+    {
+      "Description": "Set paragraph right indentation to 2880",
+      "OnlyOfficeJS": "oParagraph.SetIndRight(2880);",
+      "ExcelVBA": "oParagraph.ParagraphFormat.RightIndent = 2880  ' Units may need adjustment"
+    },
+    {
+      "Description": "Create a new paragraph",
+      "OnlyOfficeJS": "oParagraph = Api.CreateParagraph();",
+      "ExcelVBA": "Set oParagraph = oDocContent.Paragraphs.Add"
+    },
+    {
+      "Description": "Add first text to the new paragraph",
+      "OnlyOfficeJS": "oParagraph.AddText(\"This is a paragraph without any offset set to it. \");",
+      "ExcelVBA": "oParagraph.Text = oParagraph.Text & \"This is a paragraph without any offset set to it. \""
+    },
+    {
+      "Description": "Add second text to the new paragraph",
+      "OnlyOfficeJS": "oParagraph.AddText(\"These sentences are used to add lines for demonstrative purposes. \");",
+      "ExcelVBA": "oParagraph.Text = oParagraph.Text & \"These sentences are used to add lines for demonstrative purposes. \""
+    },
+    {
+      "Description": "Push the new paragraph to document content",
+      "OnlyOfficeJS": "oDocContent.Push(oParagraph);",
+      "ExcelVBA": "' In VBA, adding the paragraph is handled by the previous Paragraphs.Add method"
+    }
+  ]
+}
+```

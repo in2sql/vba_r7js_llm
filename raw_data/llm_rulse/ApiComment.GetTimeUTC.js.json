@@ -1,0 +1,43 @@
+```json
+{
+  "RAG_Table": {
+    "Headers": [
+      "Description",
+      "OnlyOffice_JS",
+      "Excel_VBA"
+    ],
+    "Rows": [
+      {
+        "Description": "Get the active worksheet",
+        "OnlyOffice_JS": "var oWorksheet = Api.GetActiveSheet();",
+        "Excel_VBA": "Set oWorksheet = ActiveSheet"
+      },
+      {
+        "Description": "Set value '1' to cell A1",
+        "OnlyOffice_JS": "oWorksheet.GetRange(\"A1\").SetValue(\"1\");",
+        "Excel_VBA": "Range(\"A1\").Value = \"1\""
+      },
+      {
+        "Description": "Get range A1",
+        "OnlyOffice_JS": "var oRange = oWorksheet.GetRange(\"A1\");",
+        "Excel_VBA": "Set oRange = oWorksheet.Range(\"A1\")"
+      },
+      {
+        "Description": "Add a comment to range A1",
+        "OnlyOffice_JS": "var oComment = oRange.AddComment(\"This is just a number.\");",
+        "Excel_VBA": "Set oComment = oRange.AddComment(\"This is just a number.\")"
+      },
+      {
+        "Description": "Set value 'Timestamp UTC: ' to cell A3",
+        "OnlyOffice_JS": "oWorksheet.GetRange(\"A3\").SetValue(\"Timestamp UTC: \");",
+        "Excel_VBA": "Range(\"A3\").Value = \"Timestamp UTC: \""
+      },
+      {
+        "Description": "Set the UTC timestamp of the comment to cell B3",
+        "OnlyOffice_JS": "oWorksheet.GetRange(\"B3\").SetValue(oComment.GetTimeUTC());",
+        "Excel_VBA": "Range(\"B3\").Value = oComment.Author.Date ' Assuming Author.Date returns UTC timestamp"
+      }
+    ]
+  }
+}
+```

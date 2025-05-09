@@ -1,0 +1,29 @@
+```json
+[
+  {
+    "Description": "Get the active worksheet",
+    "OnlyOffice JS": "var oWorksheet = Api.GetActiveSheet();",
+    "VBA": "Set oWorksheet = ActiveSheet"
+  },
+  {
+    "Description": "Get range B1 from the worksheet",
+    "OnlyOffice JS": "var oRange = oWorksheet.GetRange(\"B1\");",
+    "VBA": "Set oRange = oWorksheet.Range(\"B1\")"
+  },
+  {
+    "Description": "Set value to the range",
+    "OnlyOffice JS": "oRange.SetValue(\"This is just a sample text.\");",
+    "VBA": "oRange.Value = \"This is just a sample text.\""
+  },
+  {
+    "Description": "Get characters starting at position 9 with length 4",
+    "OnlyOffice JS": "var oCharacters = oRange.GetCharacters(9, 4);",
+    "VBA": "Set oCharacters = oRange.Characters(Start:=9, Length:=4)"
+  },
+  {
+    "Description": "Delete the characters object",
+    "OnlyOffice JS": "oCharacters.Delete();",
+    "VBA": "oCharacters.Delete"
+  }
+]
+```

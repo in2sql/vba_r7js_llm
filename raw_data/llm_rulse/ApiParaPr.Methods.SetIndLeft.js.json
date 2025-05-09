@@ -1,0 +1,49 @@
+```json
+[
+  {
+    "Description": "Get the active worksheet.",
+    "OnlyOffice JS": "var oWorksheet = Api.GetActiveSheet();",
+    "Excel VBA": "Dim oWorksheet As Worksheet\nSet oWorksheet = ThisWorkbook.ActiveSheet"
+  },
+  {
+    "Description": "Create a solid fill with RGB color (255, 111, 61).",
+    "OnlyOffice JS": "var oFill = Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61));",
+    "Excel VBA": "Dim oFill As Object\nSet oFill = ThisWorkbook.Styles.Add(\"CustomFill\")\noFill.Interior.Color = RGB(255, 111, 61)"
+  },
+  {
+    "Description": "Create a stroke with no fill.",
+    "OnlyOffice JS": "var oStroke = Api.CreateStroke(0, Api.CreateNoFill());",
+    "Excel VBA": "Dim oStroke As Object\n' Excel VBA does not have a direct equivalent for stroke. You can set line properties for shapes instead.\n"
+  },
+  {
+    "Description": "Add a shape to the worksheet with specified parameters.",
+    "OnlyOffice JS": "var oShape = oWorksheet.AddShape(\"flowChartOnlineStorage\", 120 * 36000, 70 * 36000, oFill, oStroke, 0, 2 * 36000, 0, 3 * 36000);",
+    "Excel VBA": "Dim oShape As Shape\nSet oShape = oWorksheet.Shapes.AddShape(msoShapeFlowchartStorage, 120, 70, 200, 100)\nWith oShape\n    .Fill.ForeColor.RGB = RGB(255, 111, 61)\n    .Line.Visible = msoFalse\nEnd With"
+  },
+  {
+    "Description": "Get the content of the shape.",
+    "OnlyOffice JS": "var oDocContent = oShape.GetContent();",
+    "Excel VBA": "Dim oDocContent As TextFrame\nSet oDocContent = oShape.TextFrame"
+  },
+  {
+    "Description": "Get the first paragraph from the content.",
+    "OnlyOffice JS": "var oParagraph = oDocContent.GetElement(0);",
+    "Excel VBA": "Dim oParagraph As TextRange\nSet oParagraph = oDocContent.Characters(1, 1)"
+  },
+  {
+    "Description": "Get the paragraph properties.",
+    "OnlyOffice JS": "var oParaPr = oParagraph.GetParaPr();",
+    "Excel VBA": "With oParagraph.ParagraphFormat"
+  },
+  {
+    "Description": "Set the left indentation of the paragraph to 2880 twips (2 inches).",
+    "OnlyOffice JS": "oParaPr.SetIndLeft(2880);",
+    "Excel VBA": "    .LeftIndent = InchesToPoints(2)\nEnd With"
+  },
+  {
+    "Description": "Add text to the paragraph.",
+    "OnlyOffice JS": "oParagraph.AddText(\"This is the first paragraph with the indent of 2 inches set to it. \");\noParagraph.AddText(\"This indent is set by the paragraph style. No paragraph inline style is applied. \");\noParagraph.AddText(\"These sentences are used to add lines for demonstrative purposes. \");",
+    "Excel VBA": "With oParagraph\n    .Text = \"This is the first paragraph with the indent of 2 inches set to it. \" & _\n            \"This indent is set by the paragraph style. No paragraph inline style is applied. \" & _\n            \"These sentences are used to add lines for demonstrative purposes. \"\nEnd With"
+  }
+]
+```

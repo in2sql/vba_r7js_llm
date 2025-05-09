@@ -1,0 +1,64 @@
+```json
+{
+  "table": {
+    "headers": ["Description", "OnlyOfficeJS", "ExcelVBA"],
+    "rows": [
+      {
+        "Description": "Get the active worksheet",
+        "OnlyOfficeJS": "var oWorksheet = Api.GetActiveSheet();",
+        "ExcelVBA": "Set oWorksheet = ThisWorkbook.ActiveSheet"
+      },
+      {
+        "Description": "Create a solid fill with RGB color (255, 111, 61)",
+        "OnlyOfficeJS": "var oFill = Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61));",
+        "ExcelVBA": "Set oFill = oWorksheet.Shapes.Fill.ForeColor.RGB = RGB(255, 111, 61)"
+      },
+      {
+        "Description": "Create a stroke with no fill",
+        "OnlyOfficeJS": "var oStroke = Api.CreateStroke(0, Api.CreateNoFill());",
+        "ExcelVBA": "With oWorksheet.Shapes.Line\n    .ForeColor.RGB = RGB(255, 255, 255)\n    .Weight = 0\nEnd With"
+      },
+      {
+        "Description": "Add a shape with specified parameters",
+        "OnlyOfficeJS": "var oShape = oWorksheet.AddShape(\"flowChartOnlineStorage\", 120 * 36000, 70 * 36000, oFill, oStroke, 0, 2 * 36000, 0, 3 * 36000);",
+        "ExcelVBA": "Set oShape = oWorksheet.Shapes.AddShape(msoShapeFlowchartOnlineStorage, 120, 70, 2, 3)\nWith oShape.Fill\n    .ForeColor.RGB = RGB(255, 111, 61)\nEnd With\nWith oShape.Line\n    .ForeColor.RGB = RGB(255, 255, 255)\n    .Weight = 0\nEnd With"
+      },
+      {
+        "Description": "Get the content of the shape",
+        "OnlyOfficeJS": "var oDocContent = oShape.GetContent();",
+        "ExcelVBA": "Set oDocContent = oShape.TextFrame"
+      },
+      {
+        "Description": "Get the first paragraph",
+        "OnlyOfficeJS": "var oParagraph = oDocContent.GetElement(0);",
+        "ExcelVBA": "Set oParagraph = oDocContent.Characters(1, oDocContent.Characters.Count).Paragraphs(1)"
+      },
+      {
+        "Description": "Get paragraph properties",
+        "OnlyOfficeJS": "var oParaPr = oParagraph.GetParaPr();",
+        "ExcelVBA": "Set oParaPr = oParagraph.ParagraphFormat"
+      },
+      {
+        "Description": "Set left indentation to 2 inches (2880 twips)",
+        "OnlyOfficeJS": "oParaPr.SetIndLeft(2880);",
+        "ExcelVBA": "oParaPr.LeftIndent = InchesToPoints(2)"
+      },
+      {
+        "Description": "Add first line of text to the paragraph",
+        "OnlyOfficeJS": "oParagraph.AddText(\"This is the first paragraph with the indent of 2 inches set to it. \");",
+        "ExcelVBA": "oDocContent.Text = oDocContent.Text & \"This is the first paragraph with the indent of 2 inches set to it. \""
+      },
+      {
+        "Description": "Add second line of text to the paragraph",
+        "OnlyOfficeJS": "oParagraph.AddText(\"This indent is set by the paragraph style. No paragraph inline style is applied. \");",
+        "ExcelVBA": "oDocContent.Text = oDocContent.Text & \"This indent is set by the paragraph style. No paragraph inline style is applied. \""
+      },
+      {
+        "Description": "Add third line of text to the paragraph",
+        "OnlyOfficeJS": "oParagraph.AddText(\"These sentences are used to add lines for demonstrative purposes. \");",
+        "ExcelVBA": "oDocContent.Text = oDocContent.Text & \"These sentences are used to add lines for demonstrative purposes. \""
+      }
+    ]
+  }
+}
+```

@@ -1,0 +1,38 @@
+**This code checks if a comment is solved or not.**
+
+```json
+{
+  "RAG_Table": [
+    {
+      "Description": "Get the active worksheet.",
+      "OnlyOffice_JS": "var oWorksheet = Api.GetActiveSheet();",
+      "Excel_VBA": "Set oWorksheet = ActiveSheet"
+    },
+    {
+      "Description": "Set the value of cell A1 to '1'.",
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"A1\").SetValue(\"1\");",
+      "Excel_VBA": "Range(\"A1\").Value = \"1\""
+    },
+    {
+      "Description": "Get the range object for cell A1.",
+      "OnlyOffice_JS": "var oRange = oWorksheet.GetRange(\"A1\");",
+      "Excel_VBA": "Set oRange = Range(\"A1\")"
+    },
+    {
+      "Description": "Add a comment to cell A1.",
+      "OnlyOffice_JS": "var oComment = oRange.AddComment(\"This is just a number.\");",
+      "Excel_VBA": "Set oComment = oRange.AddComment(\"This is just a number.\")"
+    },
+    {
+      "Description": "Set the value of cell A3 to 'Comment is solved: '.",
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"A3\").SetValue(\"Comment is solved: \");",
+      "Excel_VBA": "Range(\"A3\").Value = \"Comment is solved: \""
+    },
+    {
+      "Description": "Set the value of cell B3 to the solved status of the comment.",
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"B3\").SetValue(oComment.IsSolved());",
+      "Excel_VBA": "Range(\"B3\").Value = oComment.IsSolved"
+    }
+  ]
+}
+```

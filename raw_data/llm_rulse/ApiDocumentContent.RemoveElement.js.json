@@ -1,0 +1,60 @@
+**Description:** This example removes an element using the position specified.
+
+```json
+{
+  "CodeMapping": [
+    {
+      "OnlyOffice JS": "Api.GetActiveSheet();",
+      "Excel VBA": "Set oWorksheet = ThisWorkbook.ActiveSheet"
+    },
+    {
+      "OnlyOffice JS": "Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61));",
+      "Excel VBA": "oFillColor = RGB(255, 111, 61)"
+    },
+    {
+      "OnlyOffice JS": "Api.CreateStroke(0, Api.CreateNoFill());",
+      "Excel VBA": "With oShape.Line\n  .Visible = msoFalse\nEnd With"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.AddShape(\"flowChartOnlineStorage\", 200 * 36000, 60 * 36000, oFill, oStroke, 0, 2 * 36000, 0, 3 * 36000);",
+      "Excel VBA": "Set oShape = oWorksheet.Shapes.AddShape(msoShapeFlowchartOfflineStorage, 200, 60, 200, 60)"
+    },
+    {
+      "OnlyOffice JS": "oShape.GetContent();",
+      "Excel VBA": "Set oDocContent = oShape.TextFrame"
+    },
+    {
+      "OnlyOffice JS": "oDocContent.GetElement(0);",
+      "Excel VBA": "sText = oDocContent.Text"
+    },
+    {
+      "OnlyOffice JS": "oParagraph.AddText(\"This is paragraph #1.\");",
+      "Excel VBA": "oDocContent.Text = \"This is paragraph #1.\""
+    },
+    {
+      "OnlyOffice JS": "Api.CreateParagraph();",
+      "Excel VBA": "' VBA handles paragraphs within the TextFrame directly"
+    },
+    {
+      "OnlyOffice JS": "oParagraph.AddText(\"This is paragraph #\" + (nParaIncrease + 1) + \".\");",
+      "Excel VBA": "oDocContent.Text = oDocContent.Text & vbCrLf & \"This is paragraph #\" & (nParaIncrease + 1) & \".\""
+    },
+    {
+      "OnlyOffice JS": "oDocContent.Push(oParagraph);",
+      "Excel VBA": "' VBA automatically appends text when using the TextFrame.Text property"
+    },
+    {
+      "OnlyOffice JS": "oDocContent.RemoveElement(2);",
+      "Excel VBA": "Dim paragraphs() As String\nparagraphs = Split(oDocContent.Text, vbCrLf)\nIf UBound(paragraphs) >= 2 Then\n    oDocContent.Text = Join(paragraphs, vbCrLf, 0, 2) & vbCrLf & Join(paragraphs, vbCrLf, 3)\nEnd If"
+    },
+    {
+      "OnlyOffice JS": "oParagraph.AddText(\"We removed paragraph #3, check that out above.\");",
+      "Excel VBA": "oDocContent.Text = oDocContent.Text & vbCrLf & \"We removed paragraph #3, check that out above.\""
+    },
+    {
+      "OnlyOffice JS": "oDocContent.Push(oParagraph);",
+      "Excel VBA": "' VBA automatically appends text when using the TextFrame.Text property"
+    }
+  ]
+}
+```

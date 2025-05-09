@@ -1,0 +1,31 @@
+```json
+{
+  "description": "This example creates a gradient stop used for different types of gradients.",
+  "code": [
+    {
+      "OnlyOffice_JS": "var oWorksheet = Api.GetActiveSheet();",
+      "VBA": "Set oWorksheet = ActiveSheet"
+    },
+    {
+      "OnlyOffice_JS": "var oGs1 = Api.CreateGradientStop(Api.CreateRGBColor(255, 213, 191), 0);",
+      "VBA": "Set oGs1 = oFill.GradientStops.Add(0)\nWith oGs1\n    .Color = RGB(255, 213, 191)\nEnd With"
+    },
+    {
+      "OnlyOffice_JS": "var oGs2 = Api.CreateGradientStop(Api.CreateRGBColor(255, 111, 61), 100000);",
+      "VBA": "Set oGs2 = oFill.GradientStops.Add(1)\nWith oGs2\n    .Color = RGB(255, 111, 61)\nEnd With"
+    },
+    {
+      "OnlyOffice_JS": "var oFill = Api.CreateLinearGradientFill([oGs1, oGs2], 5400000);",
+      "VBA": "With oFill\n    .GradientStyle = msoGradientHorizontal\n    .GradientVariant = 1\nEnd With"
+    },
+    {
+      "OnlyOffice_JS": "var oStroke = Api.CreateStroke(0, Api.CreateNoFill());",
+      "VBA": "With oStroke\n    .Weight = 0\n    .ForeColor.RGB = RGB(255, 255, 255) ' No fill equivalent\nEnd With"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.AddShape(\"flowChartOnlineStorage\", 60 * 36000, 35 * 36000, oFill, oStroke, 0, 2 * 36000, 1, 3 * 36000);",
+      "VBA": "oWorksheet.Shapes.AddShape(msoShapeFlowchartStorage, 60 * 36000, 35 * 36000, 2 * 36000, 3 * 36000).Select\nWith Selection.ShapeRange.Fill\n    .ForeColor.RGB = RGB(255, 213, 191)\n    .OneColorGradient msoGradientHorizontal, 1, 0\nEnd With\nWith Selection.ShapeRange.Line\n    .Weight = 0\n    .Visible = msoFalse\nEnd With"
+    }
+  ]
+}
+```

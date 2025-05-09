@@ -1,0 +1,61 @@
+**Description:**  
+This code deletes a paragraph from a shape's content and updates cell A9 with a notification.
+
+```json
+{
+  "MethodMapping": [
+    {
+      "OnlyOffice JS Method": "Api.GetActiveSheet()",
+      "Excel VBA Equivalent": "Set oWorksheet = ActiveSheet"
+    },
+    {
+      "OnlyOffice JS Method": "Api.CreateRGBColor(255, 111, 61)",
+      "Excel VBA Equivalent": "RGB(255, 111, 61)"
+    },
+    {
+      "OnlyOffice JS Method": "Api.CreateSolidFill(color)",
+      "Excel VBA Equivalent": "oFill.ForeColor.RGB = color"
+    },
+    {
+      "OnlyOffice JS Method": "Api.CreateNoFill()",
+      "Excel VBA Equivalent": "oFill.Visible = msoFalse"
+    },
+    {
+      "OnlyOffice JS Method": "Api.CreateStroke(0, Api.CreateNoFill())",
+      "Excel VBA Equivalent": "With oShape.Line\n    .Visible = msoFalse\nEnd With"
+    },
+    {
+      "OnlyOffice JS Method": "oWorksheet.AddShape(\"flowChartOnlineStorage\", 60 * 36000, 35 * 36000, oFill, oStroke, 0, 2 * 36000, 0, 3 * 36000)",
+      "Excel VBA Equivalent": "Set oShape = oWorksheet.Shapes.AddShape(msoShapeFlowchartStorageData, 60, 35, 200, 150)"
+    },
+    {
+      "OnlyOffice JS Method": "oShape.GetContent()",
+      "Excel VBA Equivalent": "Set oTextFrame = oShape.TextFrame"
+    },
+    {
+      "OnlyOffice JS Method": "oDocContent.RemoveAllElements()",
+      "Excel VBA Equivalent": "oTextFrame.Characters.Text = \"\""
+    },
+    {
+      "OnlyOffice JS Method": "Api.CreateParagraph()",
+      "Excel VBA Equivalent": "\" VBA does not have a direct paragraph object, use text manipulation instead"
+    },
+    {
+      "OnlyOffice JS Method": "oParagraph.AddText(\"This is just a sample text.\")",
+      "Excel VBA Equivalent": "oTextFrame.Characters.Text = \"This is just a sample text.\""
+    },
+    {
+      "OnlyOffice JS Method": "oDocContent.Push(oParagraph)",
+      "Excel VBA Equivalent": "\" Text is already set directly in VBA as shown above"
+    },
+    {
+      "OnlyOffice JS Method": "oParagraph.Delete()",
+      "Excel VBA Equivalent": "oTextFrame.Characters.Text = \"\""
+    },
+    {
+      "OnlyOffice JS Method": "oWorksheet.GetRange(\"A9\").SetValue(\"The paragraph from the shape content was removed.\")",
+      "Excel VBA Equivalent": "oWorksheet.Range(\"A9\").Value = \"The paragraph from the shape content was removed.\""
+    }
+  ]
+}
+```

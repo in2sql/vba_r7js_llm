@@ -1,0 +1,92 @@
+**Description:** This code sets a sequence of custom tab stops which will be used for any tab characters in the paragraph.
+
+```json
+{
+  "methods": [
+    {
+      "OnlyOffice_JS_Method": "Api.GetActiveSheet()",
+      "Excel_VBA_Equivalent": "Set oWorksheet = ActiveSheet"
+    },
+    {
+      "OnlyOffice_JS_Method": "Api.CreateRGBColor(255, 111, 61)",
+      "Excel_VBA_Equivalent": "RGB(255, 111, 61)"
+    },
+    {
+      "OnlyOffice_JS_Method": "Api.CreateSolidFill(color)",
+      "Excel_VBA_Equivalent": "With oWorksheet.Cells.Interior\n    .Color = RGB(255, 111, 61)\nEnd With"
+    },
+    {
+      "OnlyOffice_JS_Method": "Api.CreateNoFill()",
+      "Excel_VBA_Equivalent": "xlNone"
+    },
+    {
+      "OnlyOffice_JS_Method": "Api.CreateStroke(0, Api.CreateNoFill())",
+      "Excel_VBA_Equivalent": "With oShape.Line\n    .Weight = 0\n    .Visible = msoFalse\nEnd With"
+    },
+    {
+      "OnlyOffice_JS_Method": "oWorksheet.AddShape(\"flowChartOnlineStorage\", 150 * 36000, 70 * 36000, oFill, oStroke, 0, 2 * 36000, 0, 3 * 36000)",
+      "Excel_VBA_Equivalent": "Set oShape = oWorksheet.Shapes.AddShape(msoShapeFlowchartProcess, 150, 70, 200, 300)"
+    },
+    {
+      "OnlyOffice_JS_Method": "oShape.GetContent()",
+      "Excel_VBA_Equivalent": "Set oDocContent = oShape.TextFrame.Characters"
+    },
+    {
+      "OnlyOffice_JS_Method": "oDocContent.GetElement(0)",
+      "Excel_VBA_Equivalent": "Set oParagraph = oDocContent.Paragraphs(1)"
+    },
+    {
+      "OnlyOffice_JS_Method": "oParagraph.GetParaPr()",
+      "Excel_VBA_Equivalent": "Set oParaPr = oParagraph.ParagraphFormat"
+    },
+    {
+      "OnlyOffice_JS_Method": "oParaPr.SetTabs([1440, 2880, 4320], [\"left\", \"center\", \"right\"])",
+      "Excel_VBA_Equivalent": "With oParaPr.TabStops\n    .Add Position:=72, Alignment:=wdAlignTabLeft\n    .Add Position:=144, Alignment:=wdAlignTabCenter\n    .Add Position:=216, Alignment:=wdAlignTabRight\nEnd With"
+    },
+    {
+      "OnlyOffice_JS_Method": "oParagraph.AddTabStop()",
+      "Excel_VBA_Equivalent": "oParaPr.TabStops.Add Position:=..." 
+    },
+    {
+      "OnlyOffice_JS_Method": "oParagraph.AddText(\"Custom tab - 1 inch left\")",
+      "Excel_VBA_Equivalent": "oDocContent.Text = \"Custom tab - 1 inch left\""
+    },
+    {
+      "OnlyOffice_JS_Method": "oParagraph.AddLineBreak()",
+      "Excel_VBA_Equivalent": "oDocContent.Text = oDocContent.Text & vbCrLf"
+    },
+    {
+      "OnlyOffice_JS_Method": "oParagraph.AddTabStop()",
+      "Excel_VBA_Equivalent": "oParaPr.TabStops.Add Position:=..."
+    },
+    {
+      "OnlyOffice_JS_Method": "oParagraph.AddTabStop()",
+      "Excel_VBA_Equivalent": "oParaPr.TabStops.Add Position:=..."
+    },
+    {
+      "OnlyOffice_JS_Method": "oParagraph.AddText(\"Custom tab - 2 inches center\")",
+      "Excel_VBA_Equivalent": "oDocContent.Text = oDocContent.Text & \"Custom tab - 2 inches center\""
+    },
+    {
+      "OnlyOffice_JS_Method": "oParagraph.AddLineBreak()",
+      "Excel_VBA_Equivalent": "oDocContent.Text = oDocContent.Text & vbCrLf"
+    },
+    {
+      "OnlyOffice_JS_Method": "oParagraph.AddTabStop()",
+      "Excel_VBA_Equivalent": "oParaPr.TabStops.Add Position:=..."
+    },
+    {
+      "OnlyOffice_JS_Method": "oParagraph.AddTabStop()",
+      "Excel_VBA_Equivalent": "oParaPr.TabStops.Add Position:=..."
+    },
+    {
+      "OnlyOffice_JS_Method": "oParagraph.AddTabStop()",
+      "Excel_VBA_Equivalent": "oParaPr.TabStops.Add Position:=..."
+    },
+    {
+      "OnlyOffice_JS_Method": "oParagraph.AddText(\"Custom tab - 3 inches right\")",
+      "Excel_VBA_Equivalent": "oDocContent.Text = oDocContent.Text & \"Custom tab - 3 inches right\""
+    }
+  ]
+}
+```

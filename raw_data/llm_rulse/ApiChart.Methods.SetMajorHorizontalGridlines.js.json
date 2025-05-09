@@ -1,0 +1,106 @@
+```json
+{
+  "RAGTable": [
+    {
+      "Description": "Get the active worksheet",
+      "OnlyOffice_JS": "var oWorksheet = Api.GetActiveSheet();",
+      "VBA": "Set oWorksheet = ActiveSheet"
+    },
+    {
+      "Description": "Set value in cell B1",
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"B1\").SetValue(2014);",
+      "VBA": "Range(\"B1\").Value = 2014"
+    },
+    {
+      "Description": "Set value in cell C1",
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"C1\").SetValue(2015);",
+      "VBA": "Range(\"C1\").Value = 2015"
+    },
+    {
+      "Description": "Set value in cell D1",
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"D1\").SetValue(2016);",
+      "VBA": "Range(\"D1\").Value = 2016"
+    },
+    {
+      "Description": "Set value in cell A2",
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"A2\").SetValue(\"Projected Revenue\");",
+      "VBA": "Range(\"A2\").Value = \"Projected Revenue\""
+    },
+    {
+      "Description": "Set value in cell A3",
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"A3\").SetValue(\"Estimated Costs\");",
+      "VBA": "Range(\"A3\").Value = \"Estimated Costs\""
+    },
+    {
+      "Description": "Set value in cell B2",
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"B2\").SetValue(200);",
+      "VBA": "Range(\"B2\").Value = 200"
+    },
+    {
+      "Description": "Set value in cell B3",
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"B3\").SetValue(250);",
+      "VBA": "Range(\"B3\").Value = 250"
+    },
+    {
+      "Description": "Set value in cell C2",
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"C2\").SetValue(240);",
+      "VBA": "Range(\"C2\").Value = 240"
+    },
+    {
+      "Description": "Set value in cell C3",
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"C3\").SetValue(260);",
+      "VBA": "Range(\"C3\").Value = 260"
+    },
+    {
+      "Description": "Set value in cell D2",
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"D2\").SetValue(280);",
+      "VBA": "Range(\"D2\").Value = 280"
+    },
+    {
+      "Description": "Set value in cell D3",
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"D3\").SetValue(280);",
+      "VBA": "Range(\"D3\").Value = 280"
+    },
+    {
+      "Description": "Add a 3D bar chart",
+      "OnlyOffice_JS": "var oChart = oWorksheet.AddChart(\"'Sheet1'!$A$1:$D$3\", true, \"bar3D\", 2, 100 * 36000, 70 * 36000, 0, 2 * 36000, 5, 3 * 36000);",
+      "VBA": "Set oChart = oWorksheet.Shapes.AddChart3(201, xlBarClustered, 100, 70, 200, 150).Chart\noChart.SetSourceData Source:=oWorksheet.Range(\"A1:D3\")"
+    },
+    {
+      "Description": "Set chart title",
+      "OnlyOffice_JS": "oChart.SetTitle(\"Financial Overview\", 13);",
+      "VBA": "oChart.HasTitle = True\noChart.ChartTitle.Text = \"Financial Overview\""
+    },
+    {
+      "Description": "Create a solid fill color (RGB: 51, 51, 51)",
+      "OnlyOffice_JS": "var oFill = Api.CreateSolidFill(Api.CreateRGBColor(51, 51, 51));",
+      "VBA": "Dim oFill As Object\nSet oFill = oChart.SeriesCollection(1).Format.Fill\noFill.ForeColor.RGB = RGB(51, 51, 51)"
+    },
+    {
+      "Description": "Set series 0 fill color",
+      "OnlyOffice_JS": "oChart.SetSeriesFill(oFill, 0, false);",
+      "VBA": "oChart.SeriesCollection(1).Format.Fill.ForeColor.RGB = RGB(51, 51, 51)"
+    },
+    {
+      "Description": "Create a solid fill color (RGB: 255, 111, 61)",
+      "OnlyOffice_JS": "oFill = Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61));",
+      "VBA": "Set oFill = oChart.SeriesCollection(2).Format.Fill\noFill.ForeColor.RGB = RGB(255, 111, 61)"
+    },
+    {
+      "Description": "Set series 1 fill color",
+      "OnlyOffice_JS": "oChart.SetSeriesFill(oFill, 1, false);",
+      "VBA": "oChart.SeriesCollection(2).Format.Fill.ForeColor.RGB = RGB(255, 111, 61)"
+    },
+    {
+      "Description": "Create a stroke with width and color",
+      "OnlyOffice_JS": "var oStroke = Api.CreateStroke(1 * 15000, Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61)));",
+      "VBA": "With oChart.ChartArea.Format.Line\n    .Visible = msoTrue\n    .Weight = 1.0\n    .ForeColor.RGB = RGB(255, 111, 61)\nEnd With"
+    },
+    {
+      "Description": "Set major horizontal gridlines stroke",
+      "OnlyOffice_JS": "oChart.SetMajorHorizontalGridlines(oStroke);",
+      "VBA": "With oChart.Axes(xlCategory).MajorGridlines.Format.Line\n    .Visible = msoTrue\n    .Weight = 1.0\n    .ForeColor.RGB = RGB(255, 111, 61)\nEnd With"
+    }
+  ]
+}
+```

@@ -1,0 +1,43 @@
+**This code sets up data in a worksheet, adds a 3D bar chart, sets the chart title, and applies specific fill colors to the chart series.**
+
+```json
+{
+  "RAGTable": [
+    {
+      "OnlyOfficeMethod": "Api.GetActiveSheet()",
+      "Status": "Green",
+      "ExcelVBAEquivalent": "Set oWorksheet = ActiveSheet"
+    },
+    {
+      "OnlyOfficeMethod": "oWorksheet.GetRange(\"A1\").SetValue(value)",
+      "Status": "Green",
+      "ExcelVBAEquivalent": "Range(\"A1\").Value = value"
+    },
+    {
+      "OnlyOfficeMethod": "oWorksheet.AddChart(range, isEmbedded, chartType, left, top, width, height, ...)",
+      "Status": "Green",
+      "ExcelVBAEquivalent": "Set oChart = Charts.Add\nWith oChart\n    .ChartType = xlBar3D\n    .SetSourceData Source:=Range(\"A1:D3\")\n    .Location Where:=xlLocationAsObject, Name:=\"Sheet1\"\n    .Left = 200\n    .Top = 100\n    .Width = 36000\n    .Height = 70\nEnd With"
+    },
+    {
+      "OnlyOfficeMethod": "oChart.SetTitle(title, fontSize)",
+      "Status": "Green",
+      "ExcelVBAEquivalent": "oChart.HasTitle = True\noChart.ChartTitle.Text = \"Financial Overview\"\noChart.ChartTitle.Font.Size = 13"
+    },
+    {
+      "OnlyOfficeMethod": "Api.CreateRGBColor(r, g, b)",
+      "Status": "Green",
+      "ExcelVBAEquivalent": "RGB(r, g, b)"
+    },
+    {
+      "OnlyOfficeMethod": "Api.CreateSolidFill(color)",
+      "Status": "Amber",
+      "ExcelVBAEquivalent": "Use .Format.Fill.ForeColor.RGB = RGB(r, g, b)"
+    },
+    {
+      "OnlyOfficeMethod": "oChart.SetSeriesFill(fill, seriesIndex, ...)",
+      "Status": "Green",
+      "ExcelVBAEquivalent": "oChart.SeriesCollection(seriesIndex + 1).Format.Fill.ForeColor.RGB = RGB(r, g, b)"
+    }
+  ]
+}
+```

@@ -1,0 +1,94 @@
+```json
+{
+  "RAG_Table": {
+    "Headers": ["Description", "VBA Code", "OnlyOffice JS Code"],
+    "Rows": [
+      {
+        "Description": "Get the active worksheet",
+        "VBA Code": "Set oWorksheet = ThisWorkbook.ActiveSheet",
+        "OnlyOffice JS Code": "var oWorksheet = Api.GetActiveSheet();"
+      },
+      {
+        "Description": "Set value in cell B1 to 2014",
+        "VBA Code": "Range(\"B1\").Value = 2014",
+        "OnlyOffice JS Code": "oWorksheet.GetRange(\"B1\").SetValue(2014);"
+      },
+      {
+        "Description": "Set value in cell C1 to 2015",
+        "VBA Code": "Range(\"C1\").Value = 2015",
+        "OnlyOffice JS Code": "oWorksheet.GetRange(\"C1\").SetValue(2015);"
+      },
+      {
+        "Description": "Set value in cell D1 to 2016",
+        "VBA Code": "Range(\"D1\").Value = 2016",
+        "OnlyOffice JS Code": "oWorksheet.GetRange(\"D1\").SetValue(2016);"
+      },
+      {
+        "Description": "Set value in cell A2 to 'Projected Revenue'",
+        "VBA Code": "Range(\"A2\").Value = \"Projected Revenue\"",
+        "OnlyOffice JS Code": "oWorksheet.GetRange(\"A2\").SetValue(\"Projected Revenue\");"
+      },
+      {
+        "Description": "Set value in cell A3 to 'Estimated Costs'",
+        "VBA Code": "Range(\"A3\").Value = \"Estimated Costs\"",
+        "OnlyOffice JS Code": "oWorksheet.GetRange(\"A3\").SetValue(\"Estimated Costs\");"
+      },
+      {
+        "Description": "Set value in cell B2 to 200",
+        "VBA Code": "Range(\"B2\").Value = 200",
+        "OnlyOffice JS Code": "oWorksheet.GetRange(\"B2\").SetValue(200);"
+      },
+      {
+        "Description": "Set value in cell B3 to 250",
+        "VBA Code": "Range(\"B3\").Value = 250",
+        "OnlyOffice JS Code": "oWorksheet.GetRange(\"B3\").SetValue(250);"
+      },
+      {
+        "Description": "Set value in cell C2 to 240",
+        "VBA Code": "Range(\"C2\").Value = 240",
+        "OnlyOffice JS Code": "oWorksheet.GetRange(\"C2\").SetValue(240);"
+      },
+      {
+        "Description": "Set value in cell C3 to 260",
+        "VBA Code": "Range(\"C3\").Value = 260",
+        "OnlyOffice JS Code": "oWorksheet.GetRange(\"C3\").SetValue(260);"
+      },
+      {
+        "Description": "Set value in cell D2 to 280",
+        "VBA Code": "Range(\"D2\").Value = 280",
+        "OnlyOffice JS Code": "oWorksheet.GetRange(\"D2\").SetValue(280);"
+      },
+      {
+        "Description": "Set value in cell D3 to 280",
+        "VBA Code": "Range(\"D3\").Value = 280",
+        "OnlyOffice JS Code": "oWorksheet.GetRange(\"D3\").SetValue(280);"
+      },
+      {
+        "Description": "Add a 3D bar chart to the worksheet",
+        "VBA Code": "Set oChart = oWorksheet.Shapes.AddChart2(227, xlBarClustered, 200, 70, 300, 200).Chart",
+        "OnlyOffice JS Code": "var oChart = oWorksheet.AddChart(\"'Sheet1'!$A$1:$D$3\", true, \"bar3D\", 2, 100 * 36000, 70 * 36000, 0, 2 * 36000, 7, 3 * 36000);"
+      },
+      {
+        "Description": "Set chart title to 'Financial Overview' with font size 13",
+        "VBA Code": "oChart.HasTitle = True\noChart.ChartTitle.Text = \"Financial Overview\"\nWith oChart.ChartTitle.Format.TextFrame2.TextRange.Font\n    .Size = 13\nEnd With",
+        "OnlyOffice JS Code": "oChart.SetTitle(\"Financial Overview\", 13);"
+      },
+      {
+        "Description": "Create and set series fill color to RGB(51,51,51)",
+        "VBA Code": "With oChart.SeriesCollection(1).Format.Fill\n    .Visible = msoTrue\n    .ForeColor.RGB = RGB(51, 51, 51)\n    .Solid\nEnd With",
+        "OnlyOffice JS Code": "var oFill = Api.CreateSolidFill(Api.CreateRGBColor(51, 51, 51));\noChart.SetSeriesFill(oFill, 0, false);"
+      },
+      {
+        "Description": "Create and set series fill color to RGB(255,111,61)",
+        "VBA Code": "With oChart.SeriesCollection(2).Format.Fill\n    .Visible = msoTrue\n    .ForeColor.RGB = RGB(255, 111, 61)\n    .Solid\nEnd With",
+        "OnlyOffice JS Code": "oFill = Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61));\noChart.SetSeriesFill(oFill, 1, false);"
+      },
+      {
+        "Description": "Create and set data point outline",
+        "VBA Code": "With oChart.SeriesCollection(2).Format.Line\n    .Visible = msoTrue\n    .Weight = 0.5\n    .ForeColor.RGB = RGB(51, 51, 51)\nEnd With",
+        "OnlyOffice JS Code": "var oStroke = Api.CreateStroke(0.5 * 36000, Api.CreateSolidFill(Api.CreateRGBColor(51, 51, 51)));\noChart.SetDataPointOutLine(oStroke, 1, 0, false);"
+      }
+    ]
+  }
+}
+```

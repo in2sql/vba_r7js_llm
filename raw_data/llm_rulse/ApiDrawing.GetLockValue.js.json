@@ -1,0 +1,54 @@
+**Description:**  
+This code demonstrates how to add a shape to an active worksheet in OnlyOffice, customize its appearance, set its size and position, apply a lock to prevent selection, retrieve the lock status, and display the lock status in cell A1.
+
+```json
+{
+  "methods": [
+    {
+      "method": "GetActiveSheet",
+      "OnlyOffice_JS": "var oWorksheet = Api.GetActiveSheet();",
+      "VBA": "Dim oWorksheet As Worksheet\nSet oWorksheet = ThisWorkbook.ActiveSheet"
+    },
+    {
+      "method": "CreateSolidFill",
+      "OnlyOffice_JS": "var oFill = Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61));",
+      "VBA": "Dim oFill As Object\nSet oFill = Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61))"
+    },
+    {
+      "method": "CreateStroke",
+      "OnlyOffice_JS": "var oStroke = Api.CreateStroke(0, Api.CreateNoFill());",
+      "VBA": "Dim oStroke As Object\nSet oStroke = Api.CreateStroke(0, Api.CreateNoFill())"
+    },
+    {
+      "method": "AddShape",
+      "OnlyOffice_JS": "var oDrawing = oWorksheet.AddShape(\"flowChartOnlineStorage\", 60 * 36000, 35 * 36000, oFill, oStroke, 0, 2 * 36000, 0, 3 * 36000);",
+      "VBA": "Dim oDrawing As Shape\nSet oDrawing = oWorksheet.Shapes.AddShape(msoShapeFlowchartOnlineStorage, 60 * 36000, 35 * 36000, oFill, oStroke, 0, 2 * 36000, 0, 3 * 36000)"
+    },
+    {
+      "method": "SetSize",
+      "OnlyOffice_JS": "oDrawing.SetSize(120 * 36000, 70 * 36000);",
+      "VBA": "oDrawing.Width = 120 * 36000\noDrawing.Height = 70 * 36000"
+    },
+    {
+      "method": "SetPosition",
+      "OnlyOffice_JS": "oDrawing.SetPosition(0, 2 * 36000, 1, 3 * 36000);",
+      "VBA": "oDrawing.Left = 0 + 2 * 36000\noDrawing.Top = 1 + 3 * 36000"
+    },
+    {
+      "method": "SetLockValue",
+      "OnlyOffice_JS": "oDrawing.SetLockValue(\"noSelect\", true);",
+      "VBA": "oDrawing.Locked = True ' Assuming 'noSelect' corresponds to the Locked property"
+    },
+    {
+      "method": "GetLockValue",
+      "OnlyOffice_JS": "var bLockValue = oDrawing.GetLockValue(\"noSelect\");",
+      "VBA": "Dim bLockValue As Boolean\nbLockValue = oDrawing.Locked"
+    },
+    {
+      "method": "SetValue",
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"A1\").SetValue(\"This drawing cannot be selected: \" + bLockValue);",
+      "VBA": "oWorksheet.Range(\"A1\").Value = \"This drawing cannot be selected: \" & bLockValue"
+    }
+  ]
+}
+```

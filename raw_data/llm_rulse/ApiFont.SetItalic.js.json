@@ -1,0 +1,31 @@
+```json
+{
+  "Description": "This example sets the italic property to the specified font.",
+  "Table": [
+    {
+      "OnlyOffice JS": "var oWorksheet = Api.GetActiveSheet();",
+      "Excel VBA": "Set oWorksheet = ActiveSheet"
+    },
+    {
+      "OnlyOffice JS": "var oRange = oWorksheet.GetRange(\"B1\");",
+      "Excel VBA": "Set oRange = oWorksheet.Range(\"B1\")"
+    },
+    {
+      "OnlyOffice JS": "oRange.SetValue(\"This is just a sample text.\");",
+      "Excel VBA": "oRange.Value = \"This is just a sample text.\""
+    },
+    {
+      "OnlyOffice JS": "var oCharacters = oRange.GetCharacters(9, 4);",
+      "Excel VBA": "Set oCharacters = oRange.Characters(Start:=9, Length:=4)"
+    },
+    {
+      "OnlyOffice JS": "var oFont = oCharacters.GetFont();",
+      "Excel VBA": "Set oFont = oCharacters.Font"
+    },
+    {
+      "OnlyOffice JS": "oFont.SetItalic(true);",
+      "Excel VBA": "oFont.Italic = True"
+    }
+  ]
+}
+```

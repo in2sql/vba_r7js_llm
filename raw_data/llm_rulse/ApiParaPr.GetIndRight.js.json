@@ -1,0 +1,63 @@
+```json
+{
+  "description": "This example shows how to get the paragraph right side indentation.",
+  "table": [
+    {
+      "OnlyOffice_JS": "var oWorksheet = Api.GetActiveSheet();",
+      "Excel_VBA": "Dim oWorksheet As Worksheet\nSet oWorksheet = ActiveSheet"
+    },
+    {
+      "OnlyOffice_JS": "var oFill = Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61));",
+      "Excel_VBA": "Dim oFill As FillFormat\nSet oFill = oShape.Fill\noFill.ForeColor.RGB = RGB(255, 111, 61)\noFill.Solid"
+    },
+    {
+      "OnlyOffice_JS": "var oStroke = Api.CreateStroke(0, Api.CreateNoFill());",
+      "Excel_VBA": "With oShape.Line\n    .Visible = msoTrue\n    .Weight = 0\n    .ForeColor.RGB = RGB(255, 255, 255) ' No fill equivalent\nEnd With"
+    },
+    {
+      "OnlyOffice_JS": "var oShape = oWorksheet.AddShape(\"flowChartOnlineStorage\", 120 * 36000, 70 * 36000, oFill, oStroke, 0, 2 * 36000, 0, 3 * 36000);",
+      "Excel_VBA": "Dim oShape As Shape\nSet oShape = oWorksheet.Shapes.AddShape(msoShapeFlowchartStorage, 120, 70, 200, 150)\nWith oShape.Fill\n    .Visible = msoTrue\n    .ForeColor.RGB = RGB(255, 111, 61)\n    .Solid\nEnd With\nWith oShape.Line\n    .Visible = msoTrue\n    .Weight = 0\n    .ForeColor.RGB = RGB(255, 255, 255)\nEnd With"
+    },
+    {
+      "OnlyOffice_JS": "var oDocContent = oShape.GetContent();",
+      "Excel_VBA": "Dim oDocContent As TextRange\nSet oDocContent = oShape.TextFrame2.TextRange"
+    },
+    {
+      "OnlyOffice_JS": "var oParagraph = oDocContent.GetElement(0);",
+      "Excel_VBA": "Dim oParagraph As ParagraphFormat\nSet oParagraph = oDocContent.Paragraphs(1).ParagraphFormat"
+    },
+    {
+      "OnlyOffice_JS": "var oParaPr = oParagraph.GetParaPr();",
+      "Excel_VBA": "Dim oParaPr As ParagraphFormat\nSet oParaPr = oParagraph"
+    },
+    {
+      "OnlyOffice_JS": "oParaPr.SetIndRight(2880);",
+      "Excel_VBA": "oParaPr.RightIndent = 36 ' Points (2 inches)"
+    },
+    {
+      "OnlyOffice_JS": "oParaPr.SetJc(\"right\");",
+      "Excel_VBA": "oParaPr.Alignment = msoAlignRight"
+    },
+    {
+      "OnlyOffice_JS": "oParagraph.AddText(\"This is the first paragraph with the right offset of 2 inches set to it. \");\n oParagraph.AddText(\"This indent is set by the paragraph style. No paragraph inline style is applied. \");",
+      "Excel_VBA": "oDocContent.Text = \"This is the first paragraph with the right offset of 2 inches set to it. \" & _\n                     \"This indent is set by the paragraph style. No paragraph inline style is applied.\""
+    },
+    {
+      "OnlyOffice_JS": "var nIndRight = oParaPr.GetIndRight();",
+      "Excel_VBA": "Dim nIndRight As Single\nnIndRight = oParaPr.RightIndent"
+    },
+    {
+      "OnlyOffice_JS": "oParagraph = Api.CreateParagraph();",
+      "Excel_VBA": "Dim oNewParagraph As TextRange\nSet oNewParagraph = oDocContent.Paragraphs.Add"
+    },
+    {
+      "OnlyOffice_JS": "oParagraph.AddText(\"Right indent: \" + nIndRight);",
+      "Excel_VBA": "oNewParagraph.Text = \"Right indent: \" & nIndRight"
+    },
+    {
+      "OnlyOffice_JS": "oDocContent.Push(oParagraph);",
+      "Excel_VBA": "' Not directly applicable; adding text updates the TextRange automatically."
+    }
+  ]
+}
+```

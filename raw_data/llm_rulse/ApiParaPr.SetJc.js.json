@@ -1,0 +1,55 @@
+```json
+{
+  "Description": "This code sets the paragraph's text alignment to center, creates and styles a shape on the active worksheet, and adds multiple lines of text to the shape.",
+  "Methods": [
+    {
+      "OnlyOfficeJS": "var oWorksheet = Api.GetActiveSheet();",
+      "VBA": "Set oWorksheet = ThisWorkbook.ActiveSheet"
+    },
+    {
+      "OnlyOfficeJS": "var oFill = Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61));",
+      "VBA": "Set oFill = CreateSolidFill(CreateRGBColor(255, 111, 61))"
+    },
+    {
+      "OnlyOfficeJS": "var oStroke = Api.CreateStroke(0, Api.CreateNoFill());",
+      "VBA": "Set oStroke = CreateStroke(0, CreateNoFill())"
+    },
+    {
+      "OnlyOfficeJS": "var oShape = oWorksheet.AddShape(\"flowChartOnlineStorage\", 120 * 36000, 70 * 36000, oFill, oStroke, 0, 2 * 36000, 0, 3 * 36000);",
+      "VBA": "Set oShape = oWorksheet.Shapes.AddShape(msoShapeFlowchartDocument, 120, 70, oFill, oStroke, 0, 2, 0, 3)"
+    },
+    {
+      "OnlyOfficeJS": "var oDocContent = oShape.GetContent();",
+      "VBA": "Set oDocContent = oShape.TextFrame.TextRange"
+    },
+    {
+      "OnlyOfficeJS": "var oParagraph = oDocContent.GetElement(0);",
+      "VBA": "Set oParagraph = oDocContent.Paragraphs(1)"
+    },
+    {
+      "OnlyOfficeJS": "var oParaPr = oParagraph.GetParaPr();",
+      "VBA": "Set oParaPr = oParagraph.ParagraphFormat"
+    },
+    {
+      "OnlyOfficeJS": "oParaPr.SetJc(\"center\");",
+      "VBA": "oParaPr.Alignment = xlCenter"
+    },
+    {
+      "OnlyOfficeJS": "oParagraph.AddText(\"This is a paragraph with the text in it aligned by the center. \");",
+      "VBA": "oParagraph.Text = oParagraph.Text & \"This is a paragraph with the text in it aligned by the center. \""
+    },
+    {
+      "OnlyOfficeJS": "oParagraph.AddText(\"The justification is specified in the paragraph style. \");",
+      "VBA": "oParagraph.Text = oParagraph.Text & \"The justification is specified in the paragraph style. \""
+    },
+    {
+      "OnlyOfficeJS": "oParagraph.AddText(\"These sentences are used to add lines for demonstrative purposes. \");",
+      "VBA": "oParagraph.Text = oParagraph.Text & \"These sentences are used to add lines for demonstrative purposes. \""
+    },
+    {
+      "OnlyOfficeJS": "oParagraph.AddText(\"These sentences are used to add lines for demonstrative purposes.\");",
+      "VBA": "oParagraph.Text = oParagraph.Text & \"These sentences are used to add lines for demonstrative purposes.\""
+    }
+  ]
+}
+```

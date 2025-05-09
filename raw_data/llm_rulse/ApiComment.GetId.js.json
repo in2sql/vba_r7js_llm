@@ -1,0 +1,39 @@
+```json
+{
+  "table": {
+    "headers": ["Description", "OnlyOffice JS", "Excel VBA"],
+    "rows": [
+      {
+        "Description": "Get the active sheet",
+        "OnlyOffice JS": "var oWorksheet = Api.GetActiveSheet();",
+        "Excel VBA": "Set oWorksheet = ActiveWorkbook.ActiveSheet"
+      },
+      {
+        "Description": "Set value in cell A1",
+        "OnlyOffice JS": "oWorksheet.GetRange(\"A1\").SetValue(\"1\");",
+        "Excel VBA": "oWorksheet.Range(\"A1\").Value = \"1\""
+      },
+      {
+        "Description": "Get range A1",
+        "OnlyOffice JS": "var oRange = oWorksheet.GetRange(\"A1\");",
+        "Excel VBA": "Set oRange = oWorksheet.Range(\"A1\")"
+      },
+      {
+        "Description": "Add comment to A1",
+        "OnlyOffice JS": "oRange.AddComment(\"This is just a number.\");",
+        "Excel VBA": "oRange.AddComment \"This is just a number.\""
+      },
+      {
+        "Description": "Set value in cell A3",
+        "OnlyOffice JS": "oWorksheet.GetRange(\"A3\").SetValue(\"Comment: \");",
+        "Excel VBA": "oWorksheet.Range(\"A3\").Value = \"Comment: \""
+      },
+      {
+        "Description": "Set comment ID in cell B3",
+        "OnlyOffice JS": "oWorksheet.GetRange(\"B3\").SetValue(oRange.GetComment().GetId());",
+        "Excel VBA": "oWorksheet.Range(\"B3\").Value = oRange.Comment.ID"
+      }
+    ]
+  }
+}
+```

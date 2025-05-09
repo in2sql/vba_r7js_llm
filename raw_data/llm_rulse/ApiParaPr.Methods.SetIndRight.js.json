@@ -1,0 +1,51 @@
+```json
+{
+  "description": "This example sets the paragraph right side indentation.",
+  "RAG_Table": [
+    {
+      "OnlyOffice_JS": "var oWorksheet = Api.GetActiveSheet();",
+      "Excel_VBA": "Set oWorksheet = ActiveSheet"
+    },
+    {
+      "OnlyOffice_JS": "var oFill = Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61));",
+      "Excel_VBA": "Set oFill = CreateSolidFill(CreateRGBColor(255, 111, 61))"
+    },
+    {
+      "OnlyOffice_JS": "var oStroke = Api.CreateStroke(0, Api.CreateNoFill());",
+      "Excel_VBA": "Set oStroke = CreateStroke(0, CreateNoFill())"
+    },
+    {
+      "OnlyOffice_JS": "var oShape = oWorksheet.AddShape(\"flowChartOnlineStorage\", 120 * 36000, 70 * 36000, oFill, oStroke, 0, 2 * 36000, 0, 3 * 36000);",
+      "Excel_VBA": "Set oShape = oWorksheet.Shapes.AddShape(msoShapeFlowChartOnlineStorage, 120 * 36000, 70 * 36000, oFill, oStroke, 0, 2 * 36000, 0, 3 * 36000)"
+    },
+    {
+      "OnlyOffice_JS": "var oDocContent = oShape.GetContent();",
+      "Excel_VBA": "Set oDocContent = oShape.Content"
+    },
+    {
+      "OnlyOffice_JS": "var oParagraph = oDocContent.GetElement(0);",
+      "Excel_VBA": "Set oParagraph = oDocContent.Elements(1)"
+    },
+    {
+      "OnlyOffice_JS": "var oParaPr = oParagraph.GetParaPr();",
+      "Excel_VBA": "Set oParaPr = oParagraph.ParagraphFormat"
+    },
+    {
+      "OnlyOffice_JS": "oParaPr.SetIndRight(2880);",
+      "Excel_VBA": "oParaPr.RightIndent = 2880"
+    },
+    {
+      "OnlyOffice_JS": "oParagraph.AddText(\"This is the first paragraph with the right offset of 2 inches set to it. \");",
+      "Excel_VBA": "oParagraph.Range.Text = \"This is the first paragraph with the right offset of 2 inches set to it. \""
+    },
+    {
+      "OnlyOffice_JS": "oParagraph.AddText(\"This offset is set by the paragraph style. No paragraph inline style is applied. \");",
+      "Excel_VBA": "oParagraph.Range.Text = oParagraph.Range.Text & \"This offset is set by the paragraph style. No paragraph inline style is applied. \""
+    },
+    {
+      "OnlyOffice_JS": "oParagraph.AddText(\"These sentences are used to add lines for demonstrative purposes. \");",
+      "Excel_VBA": "oParagraph.Range.Text = oParagraph.Range.Text & \"These sentences are used to add lines for demonstrative purposes. \""
+    }
+  ]
+}
+```

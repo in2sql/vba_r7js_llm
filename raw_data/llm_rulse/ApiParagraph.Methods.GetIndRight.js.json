@@ -1,0 +1,63 @@
+```json
+{
+  "description": "Equivalent Excel VBA code for the provided OnlyOffice JavaScript API example, demonstrating shape creation, paragraph formatting, and indentation retrieval.",
+  "RAG_Table": [
+    {
+      "OnlyOffice_JS": "var oWorksheet = Api.GetActiveSheet();",
+      "Excel_VBA": "Set oWorksheet = ActiveWorkbook.ActiveSheet"
+    },
+    {
+      "OnlyOffice_JS": "var oFill = Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61));",
+      "Excel_VBA": "oFill = RGB(255, 111, 61)"
+    },
+    {
+      "OnlyOffice_JS": "var oStroke = Api.CreateStroke(0, Api.CreateNoFill());",
+      "Excel_VBA": "' No direct equivalent; to remove line: oShape.Line.Visible = msoFalse"
+    },
+    {
+      "OnlyOffice_JS": "var oShape = oWorksheet.AddShape(\"flowChartOnlineStorage\", 120 * 36000, 70 * 36000, oFill, oStroke, 0, 2 * 36000, 0, 3 * 36000);",
+      "Excel_VBA": "Set oShape = oWorksheet.Shapes.AddShape(msoShapeFlowchartOnlineStorage, 120, 70, 2 * 72, 3 * 72)"
+    },
+    {
+      "OnlyOffice_JS": "var oDocContent = oShape.GetContent();",
+      "Excel_VBA": "Set oDocContent = oShape.TextFrame"
+    },
+    {
+      "OnlyOffice_JS": "var oParagraph = oDocContent.GetElement(0);",
+      "Excel_VBA": "Set oParagraph = oShape.TextFrame.Characters"
+    },
+    {
+      "OnlyOffice_JS": "oParagraph.AddText(\"This is a paragraph with the right offset of 2 inches set to it. \");",
+      "Excel_VBA": "oShape.TextFrame.Characters.Text = \"This is a paragraph with the right offset of 2 inches set to it. \""
+    },
+    {
+      "OnlyOffice_JS": "oParagraph.AddText(\"These sentences are used to add lines for demonstrative purposes. \");",
+      "Excel_VBA": "oShape.TextFrame.Characters.Text = oShape.TextFrame.Characters.Text & \"These sentences are used to add lines for demonstrative purposes. \""
+    },
+    {
+      "OnlyOffice_JS": "oParagraph.SetJc(\"right\");",
+      "Excel_VBA": "oShape.TextFrame.HorizontalAlignment = xlRight"
+    },
+    {
+      "OnlyOffice_JS": "oParagraph.SetIndRight(2880);",
+      "Excel_VBA": "oShape.TextFrame.MarginRight = 2 * 72"
+    },
+    {
+      "OnlyOffice_JS": "var nIndRight = oParagraph.GetIndRight();",
+      "Excel_VBA": "nIndRight = oShape.TextFrame.MarginRight"
+    },
+    {
+      "OnlyOffice_JS": "oParagraph = Api.CreateParagraph();",
+      "Excel_VBA": "' VBA does not have a direct method to create a new paragraph; use separate TextFrame or Shapes"
+    },
+    {
+      "OnlyOffice_JS": "oParagraph.AddText(\"Right indent: \" + nIndRight);",
+      "Excel_VBA": "oParagraph.TextFrame.Characters.Text = \"Right indent: \" & nIndRight"
+    },
+    {
+      "OnlyOffice_JS": "oDocContent.Push(oParagraph);",
+      "Excel_VBA": "oShape.TextFrame.Characters.Text = oShape.TextFrame.Characters.Text & oParagraph.TextFrame.Characters.Text"
+    }
+  ]
+}
+```

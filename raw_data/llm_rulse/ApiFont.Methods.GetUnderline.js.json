@@ -1,0 +1,46 @@
+```json
+{
+  "RAGTable": [
+    {
+      "Description": "Get the active worksheet",
+      "VBA": "Set oWorksheet = ActiveSheet",
+      "OnlyOfficeJS": "var oWorksheet = Api.GetActiveSheet();"
+    },
+    {
+      "Description": "Get the range B1",
+      "VBA": "Set oRange = oWorksheet.Range(\"B1\")",
+      "OnlyOfficeJS": "var oRange = oWorksheet.GetRange(\"B1\");"
+    },
+    {
+      "Description": "Set value in range B1",
+      "VBA": "oRange.Value = \"This is just a sample text.\"",
+      "OnlyOfficeJS": "oRange.SetValue(\"This is just a sample text.\");"
+    },
+    {
+      "Description": "Get characters from position 9 with length 4 in range B1",
+      "VBA": "Set oCharacters = oRange.Characters(Start:=9, Length:=4)",
+      "OnlyOfficeJS": "var oCharacters = oRange.GetCharacters(9, 4);"
+    },
+    {
+      "Description": "Get font of the selected characters",
+      "VBA": "Set oFont = oCharacters.Font",
+      "OnlyOfficeJS": "var oFont = oCharacters.GetFont();"
+    },
+    {
+      "Description": "Set underline style to single",
+      "VBA": "oFont.Underline = xlUnderlineStyleSingle",
+      "OnlyOfficeJS": "oFont.SetUnderline(\"xlUnderlineStyleSingle\");"
+    },
+    {
+      "Description": "Get underline style of the font",
+      "VBA": "sUnderline = oFont.Underline",
+      "OnlyOfficeJS": "var sUnderline = oFont.GetUnderline();"
+    },
+    {
+      "Description": "Set value in range B3 with underline property",
+      "VBA": "oWorksheet.Range(\"B3\").Value = \"Underline property: \" & sUnderline",
+      "OnlyOfficeJS": "oWorksheet.GetRange(\"B3\").SetValue(\"Underline property: \" + sUnderline);"
+    }
+  ]
+}
+```

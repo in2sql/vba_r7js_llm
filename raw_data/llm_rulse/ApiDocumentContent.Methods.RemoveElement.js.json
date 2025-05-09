@@ -1,0 +1,56 @@
+```json
+{
+  "RAG_Table": [
+    {
+      "Description": "Get the active worksheet",
+      "VBA": "Set oWorksheet = ActiveSheet",
+      "OnlyOffice_JS": "var oWorksheet = Api.GetActiveSheet();"
+    },
+    {
+      "Description": "Create a solid fill with RGB(255, 111, 61)",
+      "VBA": "Set oFill = oShape.Fill\nWith oFill\n    .ForeColor.RGB = RGB(255, 111, 61)\n    .Visible = msoTrue\n    .Solid\nEnd With",
+      "OnlyOffice_JS": "var oFill = Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61));"
+    },
+    {
+      "Description": "Create a stroke with width 0 and no fill",
+      "VBA": "Set oStroke = oShape.Line\nWith oStroke\n    .Weight = 0\n    .Visible = msoFalse\nEnd With",
+      "OnlyOffice_JS": "var oStroke = Api.CreateStroke(0, Api.CreateNoFill());"
+    },
+    {
+      "Description": "Add a shape to the worksheet with specified parameters",
+      "VBA": "Set oShape = oWorksheet.Shapes.AddShape(_\n    Type:=msoShapeFlowchartOnlineStorage, _\n    Left:=200 * 36000, Top:=60 * 36000, _\n    Width:=2 * 36000, Height:=3 * 36000)\n\n' Apply fill and stroke\nSet oFill = oShape.Fill\nWith oFill\n    .ForeColor.RGB = RGB(255, 111, 61)\n    .Visible = msoTrue\n    .Solid\nEnd With\n\nSet oStroke = oShape.Line\nWith oStroke\n    .Weight = 0\n    .Visible = msoFalse\nEnd With",
+      "OnlyOffice_JS": "var oShape = oWorksheet.AddShape(\"flowChartOnlineStorage\", 200 * 36000, 60 * 36000, oFill, oStroke, 0, 2 * 36000, 0, 3 * 36000);"
+    },
+    {
+      "Description": "Get the content of the shape",
+      "VBA": "Set oDocContent = oShape.TextFrame2.TextRange",
+      "OnlyOffice_JS": "var oDocContent = oShape.GetContent();"
+    },
+    {
+      "Description": "Get the first paragraph",
+      "VBA": "Set oParagraph = oDocContent.Paragraphs(1)",
+      "OnlyOffice_JS": "var oParagraph = oDocContent.GetElement(0);"
+    },
+    {
+      "Description": "Add text to the first paragraph",
+      "VBA": "oParagraph.Text = \"This is paragraph #1.\"",
+      "OnlyOffice_JS": "oParagraph.AddText(\"This is paragraph #1.\");"
+    },
+    {
+      "Description": "Create and add new paragraphs in a loop",
+      "VBA": "Dim nParaIncrease As Integer\nFor nParaIncrease = 2 To 5\n    Set oParagraph = oDocContent.Paragraphs.Add()\n    oParagraph.Text = \"This is paragraph #\" & nParaIncrease & \".\"\nNext nParaIncrease",
+      "OnlyOffice_JS": "for (let nParaIncrease = 1; nParaIncrease < 5; ++nParaIncrease) {\n    oParagraph = Api.CreateParagraph();\n    oParagraph.AddText(\"This is paragraph #\" + (nParaIncrease + 1) + \".\");\n    oDocContent.Push(oParagraph);\n}"
+    },
+    {
+      "Description": "Remove the third paragraph",
+      "VBA": "oDocContent.Paragraphs(3).Delete",
+      "OnlyOffice_JS": "oDocContent.RemoveElement(2);"
+    },
+    {
+      "Description": "Add a new paragraph after removal",
+      "VBA": "Set oParagraph = oDocContent.Paragraphs.Add()\noParagraph.Text = \"We removed paragraph #3, check that out above.\"",
+      "OnlyOffice_JS": "oParagraph = Api.CreateParagraph();\noParagraph.AddText(\"We removed paragraph #3, check that out above.\");\noDocContent.Push(oParagraph);"
+    }
+  ]
+}
+```

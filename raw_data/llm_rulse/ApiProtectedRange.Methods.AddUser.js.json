@@ -1,0 +1,9 @@
+```json
+{
+  "Description": "This example changes the user protected range.",
+  "Codes": {
+    "OnlyOffice_JS": "// This example changes the the user protected range.\nvar oWorksheet = Api.GetActiveSheet();\noWorksheet.AddProtectedRange(\"protectedRange\", \"$A$1:$B$1\");\nvar protectedRange = oWorksheet.GetProtectedRange(\"protectedRange\");\nprotectedRange.AddUser(\"userId\", \"name\", \"CanView\");",
+    "VBA": "' This example changes the user protected range.\nSub ProtectRange()\n    Dim oWorksheet As Worksheet\n    Set oWorksheet = ActiveSheet\n    \n    ' Define the range to protect\n    oWorksheet.Range(\"A1:B1\").Locked = True\n    \n    ' Protect the sheet with a password\n    oWorksheet.Protect Password:=\"password\", UserInterfaceOnly:=True\n    \n    ' Note: Excel VBA does not support adding users with specific permissions directly.\n    ' Additional logic would be required to manage user-specific permissions.\nEnd Sub"
+  }
+}
+```

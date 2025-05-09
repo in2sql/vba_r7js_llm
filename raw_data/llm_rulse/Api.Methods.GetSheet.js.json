@@ -1,0 +1,15 @@
+```json
+{
+  "description": "This example shows how to get an object that represents a sheet and set a value in a cell.",
+  "table": [
+    {
+      "OnlyOffice JS": "var oWorksheet = Api.GetSheet(\"Sheet1\");",
+      "Excel VBA": "Set oWorksheet = ThisWorkbook.Sheets(\"Sheet1\")"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"A1\").SetValue(\"This is a sample text on 'Sheet1'.\");",
+      "Excel VBA": "oWorksheet.Range(\"A1\").Value = \"This is a sample text on 'Sheet1'.\""
+    }
+  ]
+}
+```

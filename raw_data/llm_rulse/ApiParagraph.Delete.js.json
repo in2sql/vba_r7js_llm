@@ -1,0 +1,7 @@
+```json
+{
+  "Description": "This example deletes the paragraph.",
+  "VBA": "Sub DeleteParagraph()\n    ' Get the active sheet\n    Dim oWorksheet As Worksheet\n    Set oWorksheet = ActiveSheet\n\n    ' Add a shape with specific properties\n    Dim oShape As Shape\n    Set oShape = oWorksheet.Shapes.AddShape(msoShapeFlowchartOnlineStorage, 60 * 360, 35 * 360, 200, 150)\n\n    ' Set fill color\n    oShape.Fill.ForeColor.RGB = RGB(255, 111, 61)\n\n    ' Set no line\n    oShape.Line.Visible = msoFalse\n\n    ' Remove all text\n    oShape.TextFrame.Characters.Text = \"\"\n\n    ' Add a new paragraph with text\n    oShape.TextFrame.Characters.Text = \"This is just a sample text.\"\n\n    ' Delete the paragraph\n    oShape.TextFrame.Characters.Text = \"\"\n\n    ' Set cell A9 value\n    oWorksheet.Range(\"A9\").Value = \"The paragraph from the shape content was removed.\"\nEnd Sub",
+  "OnlyOfficeJS": "// This example deletes the paragraph.\nvar oWorksheet = Api.GetActiveSheet();\nvar oFill = Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61));\nvar oStroke = Api.CreateStroke(0, Api.CreateNoFill());\nvar oShape = oWorksheet.AddShape(\"flowChartOnlineStorage\", 60 * 36000, 35 * 36000, oFill, oStroke, 0, 2 * 36000, 0, 3 * 36000);\nvar oDocContent = oShape.GetContent();\noDocContent.RemoveAllElements();\nvar oParagraph = Api.CreateParagraph();\noParagraph.AddText(\"This is just a sample text.\");\noDocContent.Push(oParagraph);\noParagraph.Delete();\noWorksheet.GetRange(\"A9\").SetValue(\"The paragraph from the shape content was removed.\");"
+}
+```

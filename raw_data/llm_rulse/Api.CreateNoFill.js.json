@@ -1,0 +1,31 @@
+```json
+{
+  "Description": "This example creates no fill and removes the fill from the element.",
+  "Methods": [
+    {
+      "OnlyOffice JS": "var oWorksheet = Api.GetActiveSheet();",
+      "VBA": "Dim oWorksheet As Worksheet\nSet oWorksheet = ThisWorkbook.ActiveSheet"
+    },
+    {
+      "OnlyOffice JS": "var oGs1 = Api.CreateGradientStop(Api.CreateRGBColor(255, 213, 191), 0);",
+      "VBA": "Dim oGs1 As GradientStop\nSet oGs1 = oFill.GradientStops.Insert(1)\noGs1.Color = RGB(255, 213, 191)\noGs1.Position = 0"
+    },
+    {
+      "OnlyOffice JS": "var oGs2 = Api.CreateGradientStop(Api.CreateRGBColor(255, 111, 61), 100000);",
+      "VBA": "Dim oGs2 As GradientStop\nSet oGs2 = oFill.GradientStops.Insert(2)\noGs2.Color = RGB(255, 111, 61)\noGs2.Position = 1"
+    },
+    {
+      "OnlyOffice JS": "var oFill = Api.CreateLinearGradientFill([oGs1, oGs2], 5400000);",
+      "VBA": "With oFill\n    .GradientType = msoGradientHorizontal\n    .GradientStops.Clear\n    .GradientStops.Insert(1).Color = RGB(255, 213, 191)\n    .GradientStops.Insert(2).Color = RGB(255, 111, 61)\n    .Rotation = 5400000\nEnd With"
+    },
+    {
+      "OnlyOffice JS": "var oStroke = Api.CreateStroke(0, Api.CreateNoFill());",
+      "VBA": "With oStroke\n    .Weight = 0\n    .ForeColor.RGB = RGB(255, 255, 255)\nEnd With"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.AddShape(\"flowChartOnlineStorage\", 60 * 36000, 35 * 36000, oFill, oStroke, 0, 2 * 36000, 1, 3 * 36000);",
+      "VBA": "Dim oShape As Shape\nSet oShape = oWorksheet.Shapes.AddShape(msoShapeFlowchartData, 60, 35, 200, 150)\nWith oShape.Fill\n    .Visible = msoFalse\nEnd With\nWith oShape.Line\n    .Visible = msoFalse\nEnd With"
+    }
+  ]
+}
+```

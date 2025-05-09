@@ -1,0 +1,87 @@
+```json
+{
+  "Description": "This example populates cells with financial data, adds a scatter chart titled 'Financial Overview', configures its title, sets minor tick marks for the vertical axis, and customizes marker fills and outlines.",
+  "CodeMappings": [
+    {
+      "VBA": "Set oWorksheet = ActiveSheet",
+      "OnlyOfficeJS": "var oWorksheet = Api.GetActiveSheet();"
+    },
+    {
+      "VBA": "oWorksheet.Range(\"B1\").Value = 2014\n" +
+             "oWorksheet.Range(\"C1\").Value = 2015\n" +
+             "oWorksheet.Range(\"D1\").Value = 2016",
+      "OnlyOfficeJS": "oWorksheet.GetRange(\"B1\").SetValue(2014);\n" +
+                      "oWorksheet.GetRange(\"C1\").SetValue(2015);\n" +
+                      "oWorksheet.GetRange(\"D1\").SetValue(2016);"
+    },
+    {
+      "VBA": "oWorksheet.Range(\"A2\").Value = \"Projected Revenue\"\n" +
+             "oWorksheet.Range(\"A3\").Value = \"Estimated Costs\"",
+      "OnlyOfficeJS": "oWorksheet.GetRange(\"A2\").SetValue(\"Projected Revenue\");\n" +
+                      "oWorksheet.GetRange(\"A3\").SetValue(\"Estimated Costs\");"
+    },
+    {
+      "VBA": "oWorksheet.Range(\"B2\").Value = 200\n" +
+             "oWorksheet.Range(\"B3\").Value = 250\n" +
+             "oWorksheet.Range(\"C2\").Value = 240\n" +
+             "oWorksheet.Range(\"C3\").Value = 260\n" +
+             "oWorksheet.Range(\"D2\").Value = 280\n" +
+             "oWorksheet.Range(\"D3\").Value = 280",
+      "OnlyOfficeJS": "oWorksheet.GetRange(\"B2\").SetValue(200);\n" +
+                      "oWorksheet.GetRange(\"B3\").SetValue(250);\n" +
+                      "oWorksheet.GetRange(\"C2\").SetValue(240);\n" +
+                      "oWorksheet.GetRange(\"C3\").SetValue(260);\n" +
+                      "oWorksheet.GetRange(\"D2\").SetValue(280);\n" +
+                      "oWorksheet.GetRange(\"D3\").SetValue(280);"
+    },
+    {
+      "VBA": "Set oChart = oWorksheet.Shapes.AddChart2(-1, xlXYScatter, 100, 70, 200, 150).Chart\n" +
+             "oChart.SetSourceData Source:=oWorksheet.Range(\"A1:D3\")",
+      "OnlyOfficeJS": "var oChart = oWorksheet.AddChart(\"'Sheet1'!$A$1:$D$3\", true, \"scatter\", 2, 100 * 36000, 70 * 36000, 200, 150, 0, 2 * 36000, 5, 3 * 36000);"
+    },
+    {
+      "VBA": "With oChart\n" +
+             "    .HasTitle = True\n" +
+             "    .ChartTitle.Text = \"Financial Overview\"\n" +
+             "    .ChartTitle.Font.Size = 13\n" +
+             "End With",
+      "OnlyOfficeJS": "oChart.SetTitle(\"Financial Overview\", 13);"
+    },
+    {
+      "VBA": "oChart.Axes(xlValue).MinorTickMark = xlTickMarkOutside",
+      "OnlyOfficeJS": "oChart.SetVertAxisMinorTickMark(\"out\");"
+    },
+    {
+      "VBA": "Set oFill = oChart.SeriesCollection(1).Format.Fill\n" +
+             "oFill.ForeColor.RGB = RGB(51, 51, 51)\n" +
+             "oFill.Solid",
+      "OnlyOfficeJS": "var oFill = Api.CreateSolidFill(Api.CreateRGBColor(51, 51, 51));\n" +
+                      "oChart.SetMarkerFill(oFill, 0, 0, true);"
+    },
+    {
+      "VBA": "With oChart.SeriesCollection(1).Format.Line\n" +
+             "    .Weight = 0.5\n" +
+             "    .ForeColor.RGB = RGB(51, 51, 51)\n" +
+             "End With",
+      "OnlyOfficeJS": "var oStroke = Api.CreateStroke(0.5 * 36000, Api.CreateSolidFill(Api.CreateRGBColor(51, 51, 51)));\n" +
+                      "oChart.SetMarkerOutLine(oStroke, 0, 0, true);"
+    },
+    {
+      "VBA": "With oChart.SeriesCollection(2).Format.Fill\n" +
+             "    .ForeColor.RGB = RGB(255, 111, 61)\n" +
+             "    .Solid\n" +
+             "End With",
+      "OnlyOfficeJS": "oFill = Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61));\n" +
+                      "oChart.SetMarkerFill(oFill, 1, 0, true);"
+    },
+    {
+      "VBA": "With oChart.SeriesCollection(2).Format.Line\n" +
+             "    .Weight = 0.5\n" +
+             "    .ForeColor.RGB = RGB(255, 111, 61)\n" +
+             "End With",
+      "OnlyOfficeJS": "oStroke = Api.CreateStroke(0.5 * 36000, Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61)));\n" +
+                      "oChart.SetMarkerOutLine(oStroke, 1, 0, true);"
+    }
+  ]
+}
+```

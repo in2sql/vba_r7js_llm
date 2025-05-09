@@ -1,0 +1,7 @@
+```json
+{
+  "Description": "This example sets the bullet or numbering to the paragraph.",
+  "OnlyOffice_JS": "// This example sets the bullet or numbering to the paragraph.\nvar oWorksheet = Api.GetActiveSheet();\nvar oFill = Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61));\nvar oStroke = Api.CreateStroke(0, Api.CreateNoFill());\nvar oShape = oWorksheet.AddShape(\"flowChartOnlineStorage\", 120 * 36000, 35 * 36000, oFill, oStroke, 0, 2 * 36000, 0, 3 * 36000);\nvar oDocContent = oShape.GetContent();\nvar oParagraph = oDocContent.GetElement(0);\nvar oBullet = Api.CreateBullet(\"-\");\noParagraph.SetBullet(oBullet);\noParagraph.AddText(\" This is an example of the bulleted paragraph.\");",
+  "Excel_VBA": "' This example sets the bullet or numbering to the paragraph.\nSub SetBullet()\n    Dim oWorksheet As Worksheet\n    Set oWorksheet = ActiveSheet\n\n    Dim oShape As Shape\n    Set oShape = oWorksheet.Shapes.AddShape(msoShapeFlowchartOnlineStorage, 120, 35, 200, 100)\n\n    ' Set fill color\n    oShape.Fill.ForeColor.RGB = RGB(255, 111, 61)\n\n    ' Remove stroke\n    oShape.Line.Visible = msoFalse\n\n    ' Set bullet for the first paragraph\n    With oShape.TextFrame.Characters.ParagraphFormat\n        .Bullet.Visible = msoTrue\n        .Bullet.Character = 45 ' ASCII code for '-'\n    End With\n    oShape.TextFrame.Characters.Text = \" This is an example of the bulleted paragraph.\"\nEnd Sub"
+}
+```

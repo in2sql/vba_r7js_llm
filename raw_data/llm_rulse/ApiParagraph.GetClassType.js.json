@@ -1,0 +1,7 @@
+```json
+{
+  "description": "This example gets a class type and inserts it into the document.",
+  "OnlyOffice_JS": "// This example gets a class type and inserts it into the document.\nvar oWorksheet = Api.GetActiveSheet();\nvar oFill = Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61));\nvar oStroke = Api.CreateStroke(0, Api.CreateNoFill());\nvar oShape = oWorksheet.AddShape(\"flowChartOnlineStorage\", 120 * 36000, 70 * 36000, oFill, oStroke, 0, 2 * 36000, 0, 3 * 36000);\nvar oDocContent = oShape.GetContent();\nvar oParagraph = oDocContent.GetElement(0);\nvar sClassType = oParagraph.GetClassType();\noParagraph.AddText(\"Class Type = \" + sClassType);",
+  "Excel_VBA": "' This example gets a class type and inserts it into the document.\nDim oWorksheet As Worksheet\nSet oWorksheet = ActiveSheet\n\nDim oFill As Object\nSet oFill = CreateSolidFill(CreateRGBColor(255, 111, 61))\n\nDim oStroke As Object\nSet oStroke = CreateStroke(0, CreateNoFill())\n\nDim oShape As Shape\nSet oShape = oWorksheet.Shapes.AddShape(msoShapeFlowchartOnlineStorage, 120 * 36000, 70 * 36000, oFill, oStroke, 0, 2 * 36000, 0, 3 * 36000)\n\nDim oDocContent As Object\nSet oDocContent = oShape.GetContent()\n\nDim oParagraph As Object\nSet oParagraph = oDocContent.GetElement(0)\n\nDim sClassType As String\nsClassType = oParagraph.GetClassType()\n\noParagraph.AddText \"Class Type = \" & sClassType"
+}
+```

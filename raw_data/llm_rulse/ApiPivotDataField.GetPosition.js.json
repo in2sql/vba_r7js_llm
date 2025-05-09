@@ -1,0 +1,54 @@
+```json
+[
+  {
+    "Description": "Get the active worksheet",
+    "OnlyOffice JS": "var oWorksheet = Api.GetActiveSheet();",
+    "Excel VBA": "Set oWorksheet = ThisWorkbook.ActiveSheet"
+  },
+  {
+    "Description": "Set header values in B1, C1, D1",
+    "OnlyOffice JS": "\n\toWorksheet.GetRange('B1').SetValue('Region');\n\toWorksheet.GetRange('C1').SetValue('Style');\n\toWorksheet.GetRange('D1').SetValue('Price');",
+    "Excel VBA": "\n\toWorksheet.Range(\"B1\").Value = \"Region\"\n\toWorksheet.Range(\"C1\").Value = \"Style\"\n\toWorksheet.Range(\"D1\").Value = \"Price\""
+  },
+  {
+    "Description": "Set data values in column B",
+    "OnlyOffice JS": "\n\toWorksheet.GetRange('B2').SetValue('East');\n\toWorksheet.GetRange('B3').SetValue('West');\n\toWorksheet.GetRange('B4').SetValue('East');\n\toWorksheet.GetRange('B5').SetValue('West');",
+    "Excel VBA": "\n\toWorksheet.Range(\"B2\").Value = \"East\"\n\toWorksheet.Range(\"B3\").Value = \"West\"\n\toWorksheet.Range(\"B4\").Value = \"East\"\n\toWorksheet.Range(\"B5\").Value = \"West\""
+  },
+  {
+    "Description": "Set data values in column C",
+    "OnlyOffice JS": "\n\toWorksheet.GetRange('C2').SetValue('Fancy');\n\toWorksheet.GetRange('C3').SetValue('Fancy');\n\toWorksheet.GetRange('C4').SetValue('Tee');\n\toWorksheet.GetRange('C5').SetValue('Tee');",
+    "Excel VBA": "\n\toWorksheet.Range(\"C2\").Value = \"Fancy\"\n\toWorksheet.Range(\"C3\").Value = \"Fancy\"\n\toWorksheet.Range(\"C4\").Value = \"Tee\"\n\toWorksheet.Range(\"C5\").Value = \"Tee\""
+  },
+  {
+    "Description": "Set data values in column D",
+    "OnlyOffice JS": "\n\toWorksheet.GetRange('D2').SetValue(42.5);\n\toWorksheet.GetRange('D3').SetValue(35.2);\n\toWorksheet.GetRange('D4').SetValue(12.3);\n\toWorksheet.GetRange('D5').SetValue(24.8);",
+    "Excel VBA": "\n\toWorksheet.Range(\"D2\").Value = 42.5\n\toWorksheet.Range(\"D3\").Value = 35.2\n\toWorksheet.Range(\"D4\").Value = 12.3\n\toWorksheet.Range(\"D5\").Value = 24.8"
+  },
+  {
+    "Description": "Get data range for pivot table",
+    "OnlyOffice JS": "var dataRef = Api.GetRange(\"'Sheet1'!$B$1:$D$5\");",
+    "Excel VBA": "Set dataRef = ThisWorkbook.Worksheets(\"Sheet1\").Range(\"B1:D5\")"
+  },
+  {
+    "Description": "Insert a new pivot table in a new worksheet",
+    "OnlyOffice JS": "var pivotTable = Api.InsertPivotNewWorksheet(dataRef);",
+    "Excel VBA": "Set pivotTable = ThisWorkbook.PivotCaches.Create(SourceType:=xlDatabase, SourceData:=dataRef).CreatePivotTable(TableDestination:=ThisWorkbook.Worksheets.Add().Range(\"A3\"), TableName:=\"PivotTable1\")"
+  },
+  {
+    "Description": "Add row fields 'Region' and 'Style' to the pivot table",
+    "OnlyOffice JS": "\n\npivotTable.AddFields({\n\trows: ['Region', 'Style'],\n});",
+    "Excel VBA": "\n\nWith pivotTable\n\t.PivotFields(\"Region\").Orientation = xlRowField\n\t.PivotFields(\"Style\").Orientation = xlRowField\nEnd With"
+  },
+  {
+    "Description": "Add 'Price' as a data field twice and get its position",
+    "OnlyOffice JS": "\n\npivotTable.AddDataField('Price');\nvar dataField = pivotTable.AddDataField('Price');",
+    "Excel VBA": "\n\nWith pivotTable\n\tWith .PivotFields(\"Price\")\n\t\t.Orientation = xlDataField\n\t\t.Function = xlSum\n\tEnd With\n\tDim dataField As PivotField\n\tSet dataField = .PivotFields(\"Sum of Price\")\nEnd With"
+  },
+  {
+    "Description": "Get the active worksheet for pivot table and set values in A15 and B15",
+    "OnlyOffice JS": "\n\nvar pivotWorksheet = Api.GetActiveSheet();\n\npivotWorksheet.GetRange('A15').SetValue('Sum of Price2 position:');\npivotWorksheet.GetRange('B15').SetValue(dataField.GetPosition());",
+    "Excel VBA": "\n\nSet pivotWorksheet = ThisWorkbook.ActiveSheet\n\npivotWorksheet.Range(\"A15\").Value = \"Sum of Price2 position:\"\npivotWorksheet.Range(\"B15\").Value = dataField.Position"
+  }
+]
+```

@@ -1,0 +1,23 @@
+```json
+{
+  "Description": "This example calculates custom function result.",
+  "RAG_Table": [
+    {
+      "OnlyOffice_JS": "Api.AddCustomFunctionLibrary(\"LibraryName\", function(){\n    /**\n     * Function that returns the argument\n     * @customfunction\n     * @param {any} first First argument.\n     * @returns {any} second argument.\n    */\n    Api.AddCustomFunction(function ADD(first, second) {\n        return first + second;\n    });\n});",
+      "Excel_VBA": "' No direct equivalent. Custom functions are defined directly in VBA modules."
+    },
+    {
+      "OnlyOffice_JS": "Api.AddCustomFunction(function ADD(first, second) {\n    return first + second;\n});",
+      "Excel_VBA": "Function ADD(first As Variant, second As Variant) As Variant\n    ADD = first + second\nEnd Function"
+    },
+    {
+      "OnlyOffice_JS": "var oWorksheet = Api.GetActiveSheet();",
+      "Excel_VBA": "Dim oWorksheet As Worksheet\nSet oWorksheet = ActiveSheet"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange('A1').SetValue('=ADD(1,2)');",
+      "Excel_VBA": "oWorksheet.Range(\"A1\").Value = \"=ADD(1,2)\""
+    }
+  ]
+}
+```

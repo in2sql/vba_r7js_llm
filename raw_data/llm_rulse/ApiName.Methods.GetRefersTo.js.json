@@ -1,0 +1,51 @@
+```json
+{
+  "table": [
+    {
+      "Description": "Get the active worksheet",
+      "OnlyOffice_JS": "var oWorksheet = Api.GetActiveSheet();",
+      "VBA": "Dim oWorksheet As Worksheet\nSet oWorksheet = ActiveSheet"
+    },
+    {
+      "Description": "Set value '1' in cell A1",
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"A1\").SetValue(\"1\");",
+      "VBA": "oWorksheet.Range(\"A1\").Value = 1"
+    },
+    {
+      "Description": "Set value '2' in cell B1",
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"B1\").SetValue(\"2\");",
+      "VBA": "oWorksheet.Range(\"B1\").Value = 2"
+    },
+    {
+      "Description": "Set formula '=SUM(A1:B1)' in cell C1",
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"C1\").SetValue(\"=SUM(A1:B1)\");",
+      "VBA": "oWorksheet.Range(\"C1\").Formula = \"=SUM(A1:B1)\""
+    },
+    {
+      "Description": "Add defined name 'summa' referring to range A1:B1",
+      "OnlyOffice_JS": "Api.AddDefName(\"summa\", \"Sheet1!$A$1:$B$1\");",
+      "VBA": "ThisWorkbook.Names.Add Name:=\"summa\", RefersTo:=\"=Sheet1!$A$1:$B$1\""
+    },
+    {
+      "Description": "Get the defined name 'summa'",
+      "OnlyOffice_JS": "var oDefName = Api.GetDefName(\"summa\");",
+      "VBA": "Dim oDefName As Name\nSet oDefName = ThisWorkbook.Names(\"summa\")"
+    },
+    {
+      "Description": "Set the formula '=SUM(A1:B1)' for the defined name 'summa'",
+      "OnlyOffice_JS": "oDefName.SetRefersTo(\"=SUM(A1:B1)\");",
+      "VBA": "oDefName.RefersTo = \"=SUM(Sheet1!$A$1:$B$1)\""
+    },
+    {
+      "Description": "Set descriptive text in cell A3",
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"A3\").SetValue(\"The name 'summa' refers to the formula from the cell C1.\");",
+      "VBA": "oWorksheet.Range(\"A3\").Value = \"The name 'summa' refers to the formula from the cell C1.\""
+    },
+    {
+      "Description": "Set formula description in cell A4",
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"A4\").SetValue(\"Formula: \" + oDefName.GetRefersTo());",
+      "VBA": "oWorksheet.Range(\"A4\").Value = \"Formula: \" & oDefName.RefersTo"
+    }
+  ]
+}
+```

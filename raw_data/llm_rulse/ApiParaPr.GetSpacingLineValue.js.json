@@ -1,0 +1,72 @@
+```json
+{
+  "Description": "This example demonstrates how to manipulate a worksheet by adding a shape with specific fill and stroke properties, modifying paragraph line spacing, and adding text with line breaks.",
+  "Conversions": [
+    {
+      "Step": "Get the active worksheet",
+      "VBA Equivalent": "Set oWorksheet = ActiveSheet",
+      "OnlyOffice JS": "var oWorksheet = Api.GetActiveSheet();"
+    },
+    {
+      "Step": "Create a solid fill with RGB color (255, 111, 61)",
+      "VBA Equivalent": "oFill = RGB(255, 111, 61)",
+      "OnlyOffice JS": "var oFill = Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61));"
+    },
+    {
+      "Step": "Create a stroke with no fill",
+      "VBA Equivalent": "With oShape.Line\n    .Visible = msoFalse\nEnd With",
+      "OnlyOffice JS": "var oStroke = Api.CreateStroke(0, Api.CreateNoFill());"
+    },
+    {
+      "Step": "Add a shape to the worksheet",
+      "VBA Equivalent": "Set oShape = oWorksheet.Shapes.AddShape(msoShapeFlowchartProcess, 120, 70, 200, 150)\nWith oShape.Fill\n    .ForeColor.RGB = oFill\nEnd With\nWith oShape.Line\n    .Visible = msoFalse\nEnd With",
+      "OnlyOffice JS": "var oShape = oWorksheet.AddShape('flowChartOnlineStorage', 120 * 36000, 70 * 36000, oFill, oStroke, 0, 2 * 36000, 0, 3 * 36000);"
+    },
+    {
+      "Step": "Get the content of the shape",
+      "VBA Equivalent": "Set oDocContent = oShape.TextFrame",
+      "OnlyOffice JS": "var oDocContent = oShape.GetContent();"
+    },
+    {
+      "Step": "Retrieve the first paragraph",
+      "VBA Equivalent": "Set oParagraph = oDocContent.Characters",
+      "OnlyOffice JS": "var oParagraph = oDocContent.GetElement(0);"
+    },
+    {
+      "Step": "Get paragraph properties",
+      "VBA Equivalent": "With oShape.TextFrame.Characters.ParagraphFormat\n    ' VBA has limited paragraph spacing options\nEnd With",
+      "OnlyOffice JS": "var oParaPr = oParagraph.GetParaPr();"
+    },
+    {
+      "Step": "Set line spacing to 3 times the common paragraph line spacing",
+      "VBA Equivalent": "With oShape.TextFrame\n    .Characters.ParagraphFormat.SpaceWithin = 3\nEnd With",
+      "OnlyOffice JS": "oParaPr.SetSpacingLine(3 * 240, 'auto');"
+    },
+    {
+      "Step": "Add first text to the paragraph",
+      "VBA Equivalent": "oShape.TextFrame.Characters.Text = 'Paragraph 1. Spacing: 3 times of a common paragraph line spacing.'",
+      "OnlyOffice JS": "oParagraph.AddText('Paragraph 1. Spacing: 3 times of a common paragraph line spacing.');"
+    },
+    {
+      "Step": "Add a line break",
+      "VBA Equivalent": "oShape.TextFrame.Characters.Text = oShape.TextFrame.Characters.Text & vbCrLf",
+      "OnlyOffice JS": "oParagraph.AddLineBreak();"
+    },
+    {
+      "Step": "Add additional text for demonstration",
+      "VBA Equivalent": "oShape.TextFrame.Characters.Text = oShape.TextFrame.Characters.Text & 'These sentences are used to add lines for demonstrative purposes.'",
+      "OnlyOffice JS": "oParagraph.AddText('These sentences are used to add lines for demonstrative purposes.');"
+    },
+    {
+      "Step": "Retrieve the line spacing value",
+      "VBA Equivalent": "' VBA does not provide a direct way to get line spacing value",
+      "OnlyOffice JS": "var nSpacingLineValue = oParaPr.GetSpacingLineValue();"
+    },
+    {
+      "Step": "Create a new paragraph with spacing line value",
+      "VBA Equivalent": "oShape.TextFrame.Characters.Text = oShape.TextFrame.Characters.Text & vbCrLf & 'Spacing line value: ' & nSpacingLineValue",
+      "OnlyOffice JS": "oParagraph = Api.CreateParagraph();\noParagraph.AddText('Spacing line value : ' + nSpacingLineValue);\noDocContent.Push(oParagraph);"
+    }
+  ]
+}
+```

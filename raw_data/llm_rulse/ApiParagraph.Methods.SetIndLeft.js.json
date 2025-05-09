@@ -1,0 +1,59 @@
+```json
+{
+  "description": "This example sets the paragraph left side indentation.",
+  "methods": [
+    {
+      "OnlyOffice_JS": "var oWorksheet = Api.GetActiveSheet();",
+      "VBA": "Set oWorksheet = ActiveSheet"
+    },
+    {
+      "OnlyOffice_JS": "var oFill = Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61));",
+      "VBA": "oShape.Fill.ForeColor.RGB = RGB(255, 111, 61)"
+    },
+    {
+      "OnlyOffice_JS": "var oStroke = Api.CreateStroke(0, Api.CreateNoFill());",
+      "VBA": "oShape.Line.Visible = msoFalse"
+    },
+    {
+      "OnlyOffice_JS": "var oShape = oWorksheet.AddShape(\"flowChartOnlineStorage\", 120 * 36000, 70 * 36000, oFill, oStroke, 0, 2 * 36000, 0, 3 * 36000);",
+      "VBA": "Set oShape = oWorksheet.Shapes.AddShape(msoShapeFlowchartOnlineStorage, 120, 70, 200, 150)\nWith oShape\n    .Fill.ForeColor.RGB = RGB(255, 111, 61)\n    .Line.Visible = msoFalse\nEnd With"
+    },
+    {
+      "OnlyOffice_JS": "var oDocContent = oShape.GetContent();",
+      "VBA": "Set oTextFrame = oShape.TextFrame"
+    },
+    {
+      "OnlyOffice_JS": "var oParagraph = oDocContent.GetElement(0);",
+      "VBA": "Set oParagraph = oTextFrame.Characters"
+    },
+    {
+      "OnlyOffice_JS": "oParagraph.AddText(\"This is a paragraph with the indent of 2 inches set to it. \");",
+      "VBA": "oParagraph.Text = oParagraph.Text & \"This is a paragraph with the indent of 2 inches set to it. \""
+    },
+    {
+      "OnlyOffice_JS": "oParagraph.AddText(\"These sentences are used to add lines for demonstrative purposes. \");",
+      "VBA": "oParagraph.Text = oParagraph.Text & \"These sentences are used to add lines for demonstrative purposes. \""
+    },
+    {
+      "OnlyOffice_JS": "oParagraph.SetIndLeft(2880);",
+      "VBA": "With oTextFrame.MarginLeft\n    .LeftIndent = InchesToPoints(2)\nEnd With"
+    },
+    {
+      "OnlyOffice_JS": "oParagraph = Api.CreateParagraph();",
+      "VBA": "oTextFrame.Characters.InsertAfter vbCrLf"
+    },
+    {
+      "OnlyOffice_JS": "oParagraph.AddText(\"This is a paragraph without any indent set to it. \");",
+      "VBA": "oParagraph.Text = oParagraph.Text & \"This is a paragraph without any indent set to it. \""
+    },
+    {
+      "OnlyOffice_JS": "oParagraph.AddText(\"These sentences are used to add lines for demonstrative purposes. \");",
+      "VBA": "oParagraph.Text = oParagraph.Text & \"These sentences are used to add lines for demonstrative purposes. \""
+    },
+    {
+      "OnlyOffice_JS": "oDocContent.Push(oParagraph);",
+      "VBA": " ' No direct equivalent needed as text is already appended"
+    }
+  ]
+}
+```

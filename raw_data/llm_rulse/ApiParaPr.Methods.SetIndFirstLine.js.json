@@ -1,0 +1,62 @@
+```json
+{
+  "description": "This example sets the paragraph first line indentation.",
+  "table": {
+    "columns": ["OnlyOffice JS", "Excel VBA"],
+    "rows": [
+      {
+        "OnlyOffice JS": "var oWorksheet = Api.GetActiveSheet();",
+        "Excel VBA": "Set oWorksheet = ThisWorkbook.ActiveSheet"
+      },
+      {
+        "OnlyOffice JS": "var oFill = Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61));",
+        "Excel VBA": "With oWorksheet.Shapes.AddShape(msoShapeRectangle, 120, 70, 200, 100)\n    .Fill.ForeColor.RGB = RGB(255, 111, 61)\nEnd With"
+      },
+      {
+        "OnlyOffice JS": "var oStroke = Api.CreateStroke(0, Api.CreateNoFill());",
+        "Excel VBA": "With oWorksheet.Shapes(1).Line\n    .Weight = 0\n    .Visible = msoFalse\nEnd With"
+      },
+      {
+        "OnlyOffice JS": "var oShape = oWorksheet.AddShape(\"flowChartOnlineStorage\", 120 * 36000, 70 * 36000, oFill, oStroke, 0, 2 * 36000, 0, 3 * 36000);",
+        "Excel VBA": "Set oShape = oWorksheet.Shapes.AddShape(msoShapeFlowchartStorage, 120, 70, 200, 150)\nWith oShape.Fill\n    .ForeColor.RGB = RGB(255, 111, 61)\nEnd With\nWith oShape.Line\n    .Weight = 0\n    .Visible = msoFalse\nEnd With"
+      },
+      {
+        "OnlyOffice JS": "var oDocContent = oShape.GetContent();",
+        "Excel VBA": "Set oDocContent = oShape.TextFrame2.TextRange"
+      },
+      {
+        "OnlyOffice JS": "var oParagraph = oDocContent.GetElement(0);",
+        "Excel VBA": "Set oParagraph = oDocContent.Paragraphs(1)"
+      },
+      {
+        "OnlyOffice JS": "var oParaPr = oParagraph.GetParaPr();",
+        "Excel VBA": "With oParagraph.ParagraphFormat"
+      },
+      {
+        "OnlyOffice JS": "oParaPr.SetIndFirstLine(1440);",
+        "Excel VBA": ".FirstLineIndent = 1440 ' Points"
+      },
+      {
+        "OnlyOffice JS": "oParagraph.AddText(\"This is the first paragraph with the indent of 1 inch set to the first line. \");",
+        "Excel VBA": "oParagraph.Text = \"This is the first paragraph with the indent of 1 inch set to the first line. \""
+      },
+      {
+        "OnlyOffice JS": "oParagraph.AddText(\"This indent is set by the paragraph style. No paragraph inline style is applied. \");",
+        "Excel VBA": "oParagraph.Text = oParagraph.Text & \"This indent is set by the paragraph style. No paragraph inline style is applied. \""
+      },
+      {
+        "OnlyOffice JS": "oParagraph.AddText(\"These sentences are used to add lines for demonstrative purposes. \");",
+        "Excel VBA": "oParagraph.Text = oParagraph.Text & \"These sentences are used to add lines for demonstrative purposes. \""
+      },
+      {
+        "OnlyOffice JS": "oParagraph.AddText(\"These sentences are used to add lines for demonstrative purposes. \");",
+        "Excel VBA": "oParagraph.Text = oParagraph.Text & \"These sentences are used to add lines for demonstrative purposes. \""
+      },
+      {
+        "OnlyOffice JS": "oParagraph.AddText(\"These sentences are used to add lines for demonstrative purposes.\");",
+        "Excel VBA": "oParagraph.Text = oParagraph.Text & \"These sentences are used to add lines for demonstrative purposes.\""
+      }
+    ]
+  }
+}
+```

@@ -1,0 +1,71 @@
+```json
+{
+  "RAG_Table": [
+    {
+      "Description": "Get the active worksheet.",
+      "OnlyOffice_JS": "var oWorksheet = Api.GetActiveSheet();",
+      "Excel_VBA": "Set oWorksheet = ActiveSheet"
+    },
+    {
+      "Description": "Create a solid fill with specific RGB color.",
+      "OnlyOffice_JS": "var oFill = Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61));",
+      "Excel_VBA": "Set oFill = RGB(255, 111, 61)"
+    },
+    {
+      "Description": "Create a stroke with no fill.",
+      "OnlyOffice_JS": "var oStroke = Api.CreateStroke(0, Api.CreateNoFill());",
+      "Excel_VBA": "With oShape.Line\n    .Visible = msoFalse\nEnd With"
+    },
+    {
+      "Description": "Add a shape to the worksheet.",
+      "OnlyOffice_JS": "var oShape = oWorksheet.AddShape(\"flowChartOnlineStorage\", 120 * 36000, 70 * 36000, oFill, oStroke, 0, 2 * 36000, 0, 3 * 36000);",
+      "Excel_VBA": "Set oShape = oWorksheet.Shapes.AddShape(msoShapeFlowchartData, Left:=120, Top:=70, Width:=200, Height:=150)\nWith oShape.Fill\n    .ForeColor.RGB = oFill\n    .Visible = msoTrue\nEnd With"
+    },
+    {
+      "Description": "Get the content of the shape.",
+      "OnlyOffice_JS": "var oDocContent = oShape.GetContent();",
+      "Excel_VBA": "Set oDocContent = oShape.TextFrame2.TextRange"
+    },
+    {
+      "Description": "Get the first paragraph element.",
+      "OnlyOffice_JS": "var oParagraph = oDocContent.GetElement(0);",
+      "Excel_VBA": "Set oParagraph = oDocContent.Paragraphs(1)"
+    },
+    {
+      "Description": "Add text to the paragraph.",
+      "OnlyOffice_JS": "oParagraph.AddText(\"This is a paragraph with the indent of 1 inch set to the first line. \");",
+      "Excel_VBA": "oParagraph.Text = \"This is a paragraph with the indent of 1 inch set to the first line. \""
+    },
+    {
+      "Description": "Add additional text lines to the paragraph.",
+      "OnlyOffice_JS": "oParagraph.AddText(\"These sentences are used to add lines for demonstrative purposes. \");\noParagraph.AddText(\"These sentences are used to add lines for demonstrative purposes. \");\noParagraph.AddText(\"These sentences are used to add lines for demonstrative purposes.\");",
+      "Excel_VBA": "oParagraph.Text = oParagraph.Text & \"These sentences are used to add lines for demonstrative purposes. \"\n oParagraph.Text = oParagraph.Text & \"These sentences are used to add lines for demonstrative purposes. \"\n oParagraph.Text = oParagraph.Text & \"These sentences are used to add lines for demonstrative purposes.\""
+    },
+    {
+      "Description": "Set the first line indentation to 1 inch.",
+      "OnlyOffice_JS": "oParagraph.SetIndFirstLine(1440);",
+      "Excel_VBA": "With oParagraph.ParagraphFormat\n    .FirstLineIndent = InchesToPoints(1)\nEnd With"
+    },
+    {
+      "Description": "Get the first line indentation value.",
+      "OnlyOffice_JS": "var nIndFirstLine = oParagraph.GetIndFirstLine();",
+      "Excel_VBA": "nIndFirstLine = oParagraph.ParagraphFormat.FirstLineIndent"
+    },
+    {
+      "Description": "Create a new paragraph.",
+      "OnlyOffice_JS": "oParagraph = Api.CreateParagraph();",
+      "Excel_VBA": "Set oParagraph = oDocContent.Paragraphs.Add"
+    },
+    {
+      "Description": "Add text displaying the first line indentation value.",
+      "OnlyOffice_JS": "oParagraph.AddText(\"First line indent: \" + nIndFirstLine);",
+      "Excel_VBA": "oParagraph.Text = \"First line indent: \" & nIndFirstLine"
+    },
+    {
+      "Description": "Push the new paragraph to the document content.",
+      "OnlyOffice_JS": "oDocContent.Push(oParagraph);",
+      "Excel_VBA": "oDocContent.Paragraphs.Add oParagraph"
+    }
+  ]
+}
+```

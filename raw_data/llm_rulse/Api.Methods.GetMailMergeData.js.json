@@ -1,0 +1,71 @@
+```json
+{
+  "Description": "This example shows how to get the mail merge data.",
+  "CodeEquivalents": [
+    {
+      "OnlyOffice JS": "var oWorksheet = Api.GetActiveSheet();",
+      "Excel VBA": "Set oWorksheet = Api.GetActiveSheet()"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.SetColumnWidth(0, 20);",
+      "Excel VBA": "oWorksheet.Columns(1).ColumnWidth = 20"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"A1\").SetValue(\"Email address\");",
+      "Excel VBA": "oWorksheet.Range(\"A1\").Value = \"Email address\""
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"B1\").SetValue(\"Greeting\");",
+      "Excel VBA": "oWorksheet.Range(\"B1\").Value = \"Greeting\""
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"C1\").SetValue(\"First name\");",
+      "Excel VBA": "oWorksheet.Range(\"C1\").Value = \"First name\""
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"D1\").SetValue(\"Last name\");",
+      "Excel VBA": "oWorksheet.Range(\"D1\").Value = \"Last name\""
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"A2\").SetValue(\"user1@example.com\");",
+      "Excel VBA": "oWorksheet.Range(\"A2\").Value = \"user1@example.com\""
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"B2\").SetValue(\"Dear\");",
+      "Excel VBA": "oWorksheet.Range(\"B2\").Value = \"Dear\""
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"C2\").SetValue(\"John\");",
+      "Excel VBA": "oWorksheet.Range(\"C2\").Value = \"John\""
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"D2\").SetValue(\"Smith\");",
+      "Excel VBA": "oWorksheet.Range(\"D2\").Value = \"Smith\""
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"A3\").SetValue(\"user2@example.com\");",
+      "Excel VBA": "oWorksheet.Range(\"A3\").Value = \"user2@example.com\""
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"B3\").SetValue(\"Hello\");",
+      "Excel VBA": "oWorksheet.Range(\"B3\").Value = \"Hello\""
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"C3\").SetValue(\"Kate\");",
+      "Excel VBA": "oWorksheet.Range(\"C3\").Value = \"Kate\""
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"D3\").SetValue(\"Cage\");",
+      "Excel VBA": "oWorksheet.Range(\"D3\").Value = \"Cage\""
+    },
+    {
+      "OnlyOffice JS": "var aMailMergeData = Api.GetMailMergeData(0);",
+      "Excel VBA": "aMailMergeData = Api.GetMailMergeData(0)"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"A5\").SetValue(\"Mail merge data: \" + aMailMergeData);",
+      "Excel VBA": "oWorksheet.Range(\"A5\").Value = \"Mail merge data: \" & aMailMergeData"
+    }
+  ]
+}
+```

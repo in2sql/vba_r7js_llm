@@ -1,0 +1,49 @@
+**Description:**  
+This example demonstrates how to obtain the timestamp of a comment reply's creation in the current time zone format using OnlyOffice API and its Excel VBA equivalent.
+
+```json
+{
+  "RAG_Table": [
+    {
+      "Action": "Get Active Worksheet",
+      "OnlyOffice_JS": "var oWorksheet = Api.GetActiveSheet();",
+      "Excel_VBA": "Set oWorksheet = ThisWorkbook.ActiveSheet"
+    },
+    {
+      "Action": "Set Value in Cell A1",
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"A1\").SetValue(\"1\");",
+      "Excel_VBA": "oWorksheet.Range(\"A1\").Value = \"1\""
+    },
+    {
+      "Action": "Get Range A1",
+      "OnlyOffice_JS": "var oRange = oWorksheet.GetRange(\"A1\");",
+      "Excel_VBA": "Set oRange = oWorksheet.Range(\"A1\")"
+    },
+    {
+      "Action": "Add Comment to Range",
+      "OnlyOffice_JS": "var oComment = oRange.AddComment(\"This is just a number.\");",
+      "Excel_VBA": "Set oComment = oRange.AddComment(\"This is just a number.\")"
+    },
+    {
+      "Action": "Add Reply to Comment",
+      "OnlyOffice_JS": "oComment.AddReply(\"Reply 1\", \"John Smith\", \"uid-1\");",
+      "Excel_VBA": "oComment.Replies.Add \"Reply 1\", \"John Smith\", \"uid-1\""
+    },
+    {
+      "Action": "Get Reply from Comment",
+      "OnlyOffice_JS": "var oReply = oComment.GetReply();",
+      "Excel_VBA": "Set oReply = oComment.Replies(1)"
+    },
+    {
+      "Action": "Set Description in Cell A3",
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"A3\").SetValue(\"Comment's reply timestamp: \");",
+      "Excel_VBA": "oWorksheet.Range(\"A3\").Value = \"Comment's reply timestamp: \""
+    },
+    {
+      "Action": "Set Timestamp in Cell B3",
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"B3\").SetValue(oReply.GetTime());",
+      "Excel_VBA": "oWorksheet.Range(\"B3\").Value = oReply.Time"
+    }
+  ]
+}
+```

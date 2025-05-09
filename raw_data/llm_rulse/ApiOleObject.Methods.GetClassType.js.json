@@ -1,0 +1,24 @@
+```json
+[
+  {
+    "Description": "Get the active worksheet",
+    "VBA": "Set oWorksheet = ActiveWorkbook.ActiveSheet",
+    "OnlyOfficeJS": "var oWorksheet = Api.GetActiveSheet();"
+  },
+  {
+    "Description": "Add an OLE Object to the worksheet",
+    "VBA": "Set oOleObject = oWorksheet.OLEObjects.Add(Filename:=\"https://api.onlyoffice.com/content/img/docbuilder/examples/ole-object-image.png\", Link:=False, DisplayAsIcon:=True, IconLabel:=\"https://youtu.be/SKGz4pmnpgY\")\n oOleObject.Left = 130 * 36000\n oOleObject.Top = 90 * 36000\n oOleObject.Width = 2 * 36000\n oOleObject.Height = 3 * 36000",
+    "OnlyOfficeJS": "var oOleObject = oWorksheet.AddOleObject(\"https://api.onlyoffice.com/content/img/docbuilder/examples/ole-object-image.png\", 130 * 36000, 90 * 36000, \"https://youtu.be/SKGz4pmnpgY\", \"asc.{38E022EA-AD92-45FC-B22B-49DF39746DB4}\", 0, 2 * 36000, 4, 3 * 36000);"
+  },
+  {
+    "Description": "Get the class type of the OLE Object",
+    "VBA": "sType = oOleObject.progID",
+    "OnlyOfficeJS": "var sType = oOleObject.GetClassType();"
+  },
+  {
+    "Description": "Set value of cell A1",
+    "VBA": "oWorksheet.Range(\"A1\").Value = \"Class type: \" & sType",
+    "OnlyOfficeJS": "oWorksheet.GetRange(\"A1\").SetValue(\"Class type: \" + sType);"
+  }
+]
+```

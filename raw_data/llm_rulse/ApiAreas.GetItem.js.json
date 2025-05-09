@@ -1,0 +1,57 @@
+```json
+{
+  "description": "This example shows how to get a single object from a collection by its ID.",
+  "codeMappings": [
+    {
+      "Action": "Get the active worksheet",
+      "OnlyOffice_JS": "var oWorksheet = Api.GetActiveSheet();",
+      "VBA": "Set oWorksheet = ActiveWorkbook.ActiveSheet"
+    },
+    {
+      "Action": "Get range B1:D1",
+      "OnlyOffice_JS": "var oRange = oWorksheet.GetRange(\"B1:D1\");",
+      "VBA": "Set oRange = oWorksheet.Range(\"B1:D1\")"
+    },
+    {
+      "Action": "Set value to '1'",
+      "OnlyOffice_JS": "oRange.SetValue(\"1\");",
+      "VBA": "oRange.Value = \"1\""
+    },
+    {
+      "Action": "Select the range",
+      "OnlyOffice_JS": "oRange.Select();",
+      "VBA": "oRange.Select"
+    },
+    {
+      "Action": "Get areas from the range",
+      "OnlyOffice_JS": "var oAreas = oRange.GetAreas();",
+      "VBA": "Set oAreas = oRange.Areas"
+    },
+    {
+      "Action": "Get the first item from areas",
+      "OnlyOffice_JS": "var oItem = oAreas.GetItem(1);",
+      "VBA": "Set oItem = oAreas(1)"
+    },
+    {
+      "Action": "Get range A5",
+      "OnlyOffice_JS": "oRange = oWorksheet.GetRange('A5');",
+      "VBA": "Set oRange = oWorksheet.Range(\"A5\")"
+    },
+    {
+      "Action": "Set value to 'The first item from the areas: '",
+      "OnlyOffice_JS": "oRange.SetValue(\"The first item from the areas: \");",
+      "VBA": "oRange.Value = \"The first item from the areas: \""
+    },
+    {
+      "Action": "Auto fit the range",
+      "OnlyOffice_JS": "oRange.AutoFit(false, true);",
+      "VBA": "oRange.Columns.AutoFit"
+    },
+    {
+      "Action": "Paste the item into B5",
+      "OnlyOffice_JS": "oWorksheet.GetRange('B5').Paste(oItem);",
+      "VBA": "oItem.Copy Destination:=oWorksheet.Range(\"B5\")"
+    }
+  ]
+}
+```

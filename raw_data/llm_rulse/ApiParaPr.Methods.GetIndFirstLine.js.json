@@ -1,0 +1,75 @@
+```json
+{
+  "description": "This code demonstrates how to create a shape, set paragraph indentation, add text, and retrieve indentation settings using the OnlyOffice API and their Excel VBA equivalents.",
+  "table": [
+    {
+      "OnlyOffice JS": "var oWorksheet = Api.GetActiveSheet();",
+      "Excel VBA": "Dim oWorksheet As Worksheet\nSet oWorksheet = ActiveWorkbook.ActiveSheet"
+    },
+    {
+      "OnlyOffice JS": "var oFill = Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61));",
+      "Excel VBA": "Dim oFill As FillFormat\nSet oFill = oWorksheet.Shapes.AddShape(msoShapeRectangle, 0, 0, 100, 100).Fill\noFill.ForeColor.RGB = RGB(255, 111, 61)"
+    },
+    {
+      "OnlyOffice JS": "var oStroke = Api.CreateStroke(0, Api.CreateNoFill());",
+      "Excel VBA": "Dim oStroke As LineFormat\nSet oStroke = oWorksheet.Shapes(1).Line\noStroke.Weight = 0\noStroke.Visible = msoFalse"
+    },
+    {
+      "OnlyOffice JS": "var oShape = oWorksheet.AddShape(\"flowChartOnlineStorage\", 120 * 36000, 70 * 36000, oFill, oStroke, 0, 2 * 36000, 0, 3 * 36000);",
+      "Excel VBA": "Dim oShape As Shape\nSet oShape = oWorksheet.Shapes.AddShape(msoShapeFlowchartStorage, 120, 70, 200, 150)\nWith oShape\n    .Fill.ForeColor.RGB = RGB(255, 111, 61)\n    .Line.Weight = 0\n    .Line.Visible = msoFalse\nEnd With"
+    },
+    {
+      "OnlyOffice JS": "var oDocContent = oShape.GetContent();",
+      "Excel VBA": "Dim oTextFrame As TextFrame\nSet oTextFrame = oShape.TextFrame"
+    },
+    {
+      "OnlyOffice JS": "var oParagraph = oDocContent.GetElement(0);",
+      "Excel VBA": "Dim oParagraph As TextRange\nSet oParagraph = oTextFrame.TextRange.Paragraphs(1)"
+    },
+    {
+      "OnlyOffice JS": "var oParaPr = oParagraph.GetParaPr();",
+      "Excel VBA": "Dim oParaFormat As ParagraphFormat\nSet oParaFormat = oParagraph.ParagraphFormat"
+    },
+    {
+      "OnlyOffice JS": "oParaPr.SetIndFirstLine(1440);",
+      "Excel VBA": "oParaFormat.FirstLineIndent = InchesToPoints(1)"
+    },
+    {
+      "OnlyOffice JS": "oParagraph.AddText(\"This is the first paragraph with the indent of 1 inch set to the first line. \");",
+      "Excel VBA": "oParagraph.Text = \"This is the first paragraph with the indent of 1 inch set to the first line. \""
+    },
+    {
+      "OnlyOffice JS": "oParagraph.AddText(\"This indent is set by the paragraph style. No paragraph inline style is applied. \");",
+      "Excel VBA": "oParagraph.Text = oParagraph.Text & \"This indent is set by the paragraph style. No paragraph inline style is applied. \""
+    },
+    {
+      "OnlyOffice JS": "oParagraph.AddText(\"These sentences are used to add lines for demonstrative purposes. \");",
+      "Excel VBA": "oParagraph.Text = oParagraph.Text & \"These sentences are used to add lines for demonstrative purposes. \""
+    },
+    {
+      "OnlyOffice JS": "oParagraph.AddText(\"These sentences are used to add lines for demonstrative purposes. \");",
+      "Excel VBA": "oParagraph.Text = oParagraph.Text & \"These sentences are used to add lines for demonstrative purposes. \""
+    },
+    {
+      "OnlyOffice JS": "oParagraph.AddText(\"These sentences are used to add lines for demonstrative purposes.\");",
+      "Excel VBA": "oParagraph.Text = oParagraph.Text & \"These sentences are used to add lines for demonstrative purposes.\""
+    },
+    {
+      "OnlyOffice JS": "var nIndFirstLine = oParaPr.GetIndFirstLine();",
+      "Excel VBA": "Dim nIndFirstLine As Single\nnIndFirstLine = oParaFormat.FirstLineIndent"
+    },
+    {
+      "OnlyOffice JS": "oParagraph = Api.CreateParagraph();",
+      "Excel VBA": "Dim newParagraph As TextRange\nSet newParagraph = oTextFrame.TextRange.Paragraphs.Add"
+    },
+    {
+      "OnlyOffice JS": "oParagraph.AddText(\"First line indent: \" + nIndFirstLine);",
+      "Excel VBA": "newParagraph.Text = \"First line indent: \" & nIndFirstLine"
+    },
+    {
+      "OnlyOffice JS": "oDocContent.Push(oParagraph);",
+      "Excel VBA": "' In VBA, text is already added to the TextFrame, no need to push."
+    }
+  ]
+}
+```

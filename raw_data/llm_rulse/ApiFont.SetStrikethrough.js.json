@@ -1,0 +1,8 @@
+```json
+{
+  "This example sets the strikethrough property to the specified font.": {
+    "OnlyOffice_JS": "// This example sets the strikethrough property to the specified font.\nvar oWorksheet = Api.GetActiveSheet();\nvar oRange = oWorksheet.GetRange(\"B1\");\noRange.SetValue(\"This is just a sample text.\");\nvar oCharacters = oRange.GetCharacters(9, 4);\nvar oFont = oCharacters.GetFont();\noFont.SetStrikethrough(true);",
+    "Excel_VBA": "Sub SetStrikethrough()\n    Dim oWorksheet As Worksheet\n    Dim oRange As Range\n    Dim oFont As Font\n    \n    Set oWorksheet = ActiveSheet\n    Set oRange = oWorksheet.Range(\"B1\")\n    oRange.Value = \"This is just a sample text.\"\n    Set oFont = oRange.Characters(Start:=9, Length:=4).Font\n    oFont.Strikethrough = True\nEnd Sub"
+  }
+}
+```

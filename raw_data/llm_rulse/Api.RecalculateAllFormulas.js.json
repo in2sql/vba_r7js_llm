@@ -1,0 +1,51 @@
+```json
+{
+  "description": "This code recalculates all formulas in the active workbook.",
+  "table": [
+    {
+      "OnlyOfficeJS": "// This example recalculates all formulas in the active workbook.",
+      "ExcelVBA": "' This example recalculates all formulas in the active workbook."
+    },
+    {
+      "OnlyOfficeJS": "var oWorksheet = Api.GetActiveSheet();",
+      "ExcelVBA": "Set oWorksheet = ThisWorkbook.ActiveSheet"
+    },
+    {
+      "OnlyOfficeJS": "oWorksheet.GetRange(\"B1\").SetValue(1);",
+      "ExcelVBA": "oWorksheet.Range(\"B1\").Value = 1"
+    },
+    {
+      "OnlyOfficeJS": "oWorksheet.GetRange(\"C1\").SetValue(2);",
+      "ExcelVBA": "oWorksheet.Range(\"C1\").Value = 2"
+    },
+    {
+      "OnlyOfficeJS": "var oRange = oWorksheet.GetRange(\"A1\");",
+      "ExcelVBA": "Set oRange = oWorksheet.Range(\"A1\")"
+    },
+    {
+      "OnlyOfficeJS": "oRange.SetValue(\"=SUM(B1:C1)\");",
+      "ExcelVBA": "oRange.Formula = \"=SUM(B1:C1)\""
+    },
+    {
+      "OnlyOfficeJS": "oRange = oWorksheet.GetRange(\"E1\");",
+      "ExcelVBA": "Set oRange = oWorksheet.Range(\"E1\")"
+    },
+    {
+      "OnlyOfficeJS": "oRange.SetValue(\"=A1+1\");",
+      "ExcelVBA": "oRange.Formula = \"=A1+1\""
+    },
+    {
+      "OnlyOfficeJS": "oWorksheet.GetRange(\"B1\").SetValue(3);",
+      "ExcelVBA": "oWorksheet.Range(\"B1\").Value = 3"
+    },
+    {
+      "OnlyOfficeJS": "Api.RecalculateAllFormulas();",
+      "ExcelVBA": "Application.CalculateFull"
+    },
+    {
+      "OnlyOfficeJS": "oWorksheet.GetRange(\"A3\").SetValue(\"Formulas from cells A1 and E1 were recalculated with a new value from cell C1.\");",
+      "ExcelVBA": "oWorksheet.Range(\"A3\").Value = \"Formulas from cells A1 and E1 were recalculated with a new value from cell C1.\""
+    }
+  ]
+}
+```

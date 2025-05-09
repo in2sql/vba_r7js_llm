@@ -1,0 +1,35 @@
+```json
+{
+  "Description": "This example sets the user ID to the comment author.",
+  "Table": [
+    {
+      "OnlyOffice_JS": "var oWorksheet = Api.GetActiveSheet();",
+      "Excel_VBA": "Dim oWorksheet As Worksheet\nSet oWorksheet = ThisWorkbook.ActiveSheet"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"A1\").SetValue(\"1\");",
+      "Excel_VBA": "oWorksheet.Range(\"A1\").Value = \"1\""
+    },
+    {
+      "OnlyOffice_JS": "var oRange = oWorksheet.GetRange(\"A1\");",
+      "Excel_VBA": "Dim oRange As Range\nSet oRange = oWorksheet.Range(\"A1\")"
+    },
+    {
+      "OnlyOffice_JS": "var oComment = oRange.AddComment(\"This is just a number.\", \"John Smith\");",
+      "Excel_VBA": "Dim oComment As Comment\nSet oComment = oRange.AddComment(\"This is just a number.\")\noComment.Author = \"John Smith\""
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"A3\").SetValue(\"Comment's user Id: \");",
+      "Excel_VBA": "oWorksheet.Range(\"A3\").Value = \"Comment's user Id: \""
+    },
+    {
+      "OnlyOffice_JS": "oComment.SetUserId(\"uid-2\");",
+      "Excel_VBA": "' VBA Comments do not have a SetUserId method. You may need to use a custom property or alternative approach."
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"B3\").SetValue(oComment.GetUserId());",
+      "Excel_VBA": "' VBA Comments do not have a GetUserId method. Retrieve custom property if implemented.\n'oWorksheet.Range(\"B3\").Value = oComment.UserId"
+    }
+  ]
+}
+```

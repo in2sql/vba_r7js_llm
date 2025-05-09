@@ -1,0 +1,94 @@
+```json
+{
+  "Description": "Set the active worksheet",
+  "VBA Code": "Set oWorksheet = ActiveSheet",
+  "OnlyOffice JS Code": "var oWorksheet = Api.GetActiveSheet();"
+},
+{
+  "Description": "Create a solid fill with RGB color (255, 111, 61)",
+  "VBA Code": "Set oFill = Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61))",
+  "OnlyOffice JS Code": "var oFill = Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61));"
+},
+{
+  "Description": "Create a stroke with no fill",
+  "VBA Code": "Set oStroke = Api.CreateStroke(0, Api.CreateNoFill())",
+  "OnlyOffice JS Code": "var oStroke = Api.CreateStroke(0, Api.CreateNoFill());"
+},
+{
+  "Description": "Add a shape to the worksheet",
+  "VBA Code": "Set oShape = oWorksheet.AddShape(\"flowChartOnlineStorage\", 120 * 36000, 70 * 36000, oFill, oStroke, 0, 2 * 36000, 0, 3 * 36000)",
+  "OnlyOffice JS Code": "var oShape = oWorksheet.AddShape(\"flowChartOnlineStorage\", 120 * 36000, 70 * 36000, oFill, oStroke, 0, 2 * 36000, 0, 3 * 36000);"
+},
+{
+  "Description": "Get the content of the shape",
+  "VBA Code": "Set oDocContent = oShape.GetContent()",
+  "OnlyOffice JS Code": "var oDocContent = oShape.GetContent();"
+},
+{
+  "Description": "Get the first paragraph element",
+  "VBA Code": "Set oParagraph = oDocContent.GetElement(0)",
+  "OnlyOffice JS Code": "var oParagraph = oDocContent.GetElement(0);"
+},
+{
+  "Description": "Add text to the paragraph",
+  "VBA Code": "oParagraph.AddText \"This is a paragraph with the text in it aligned by the center. \"\n" +
+              "oParagraph.AddText \"These sentences are used to add lines for demonstrative purposes. \"\n" +
+              "oParagraph.AddText \"These sentences are used to add lines for demonstrative purposes.\"",
+  "OnlyOffice JS Code": "oParagraph.AddText(\"This is a paragraph with the text in it aligned by the center. \");\n" +
+                           "oParagraph.AddText(\"These sentences are used to add lines for demonstrative purposes. \");\n" +
+                           "oParagraph.AddText(\"These sentences are used to add lines for demonstrative purposes.\");"
+},
+{
+  "Description": "Set paragraph justification to center",
+  "VBA Code": "oParagraph.SetJc \"center\"",
+  "OnlyOffice JS Code": "oParagraph.SetJc(\"center\");"
+},
+{
+  "Description": "Create a new paragraph",
+  "VBA Code": "Set oParagraph = Api.CreateParagraph()",
+  "OnlyOffice JS Code": "oParagraph = Api.CreateParagraph();"
+},
+{
+  "Description": "Add text to the new paragraph",
+  "VBA Code": "oParagraph.AddText \"This is a paragraph with the text in it aligned by the right side. \"\n" +
+              "oParagraph.AddText \"These sentences are used to add lines for demonstrative purposes. \"\n" +
+              "oParagraph.AddText \"These sentences are used to add lines for demonstrative purposes.\"",
+  "OnlyOffice JS Code": "oParagraph.AddText(\"This is a paragraph with the text in it aligned by the right side. \");\n" +
+                           "oParagraph.AddText(\"These sentences are used to add lines for demonstrative purposes. \");\n" +
+                           "oParagraph.AddText(\"These sentences are used to add lines for demonstrative purposes.\");"
+},
+{
+  "Description": "Set paragraph justification to right",
+  "VBA Code": "oParagraph.SetJc \"right\"",
+  "OnlyOffice JS Code": "oParagraph.SetJc(\"right\");"
+},
+{
+  "Description": "Push the new paragraph to the document content",
+  "VBA Code": "oDocContent.Push oParagraph",
+  "OnlyOffice JS Code": "oDocContent.Push(oParagraph);"
+},
+{
+  "Description": "Create another new paragraph",
+  "VBA Code": "Set oParagraph = Api.CreateParagraph()",
+  "OnlyOffice JS Code": "oParagraph = Api.CreateParagraph();"
+},
+{
+  "Description": "Add text to the new paragraph",
+  "VBA Code": "oParagraph.AddText \"This is a paragraph with the text in it aligned by the left side. \"\n" +
+              "oParagraph.AddText \"These sentences are used to add lines for demonstrative purposes. \"\n" +
+              "oParagraph.AddText \"These sentences are used to add lines for demonstrative purposes.\"",
+  "OnlyOffice JS Code": "oParagraph.AddText(\"This is a paragraph with the text in it aligned by the left side. \");\n" +
+                           "oParagraph.AddText(\"These sentences are used to add lines for demonstrative purposes. \");\n" +
+                           "oParagraph.AddText(\"These sentences are used to add lines for demonstrative purposes.\");"
+},
+{
+  "Description": "Set paragraph justification to left",
+  "VBA Code": "oParagraph.SetJc \"left\"",
+  "OnlyOffice JS Code": "oParagraph.SetJc(\"left\");"
+},
+{
+  "Description": "Push the new paragraph to the document content",
+  "VBA Code": "oDocContent.Push oParagraph",
+  "OnlyOffice JS Code": "oDocContent.Push(oParagraph);"
+}
+```

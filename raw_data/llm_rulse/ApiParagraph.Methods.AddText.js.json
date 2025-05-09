@@ -1,0 +1,47 @@
+```json
+{
+  "description": "This example adds some text to the paragraph.",
+  "methods": [
+    {
+      "OnlyOffice JS": "var oWorksheet = Api.GetActiveSheet();",
+      "Excel VBA": "Set oWorksheet = Api.GetActiveSheet()"
+    },
+    {
+      "OnlyOffice JS": "var oFill = Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61));",
+      "Excel VBA": "Set oFill = Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61))"
+    },
+    {
+      "OnlyOffice JS": "var oStroke = Api.CreateStroke(0, Api.CreateNoFill());",
+      "Excel VBA": "Set oStroke = Api.CreateStroke(0, Api.CreateNoFill())"
+    },
+    {
+      "OnlyOffice JS": "var oShape = oWorksheet.AddShape(\"flowChartOnlineStorage\", 120 * 36000, 70 * 36000, oFill, oStroke, 0, 2 * 36000, 0, 3 * 36000);",
+      "Excel VBA": "Set oShape = oWorksheet.AddShape(\"flowChartOnlineStorage\", 120 * 36000, 70 * 36000, oFill, oStroke, 0, 2 * 36000, 0, 3 * 36000)"
+    },
+    {
+      "OnlyOffice JS": "var oDocContent = oShape.GetContent();",
+      "Excel VBA": "Set oDocContent = oShape.GetContent()"
+    },
+    {
+      "OnlyOffice JS": "var oParagraph = oDocContent.GetElement(0);",
+      "Excel VBA": "Set oParagraph = oDocContent.GetElement(0)"
+    },
+    {
+      "OnlyOffice JS": "oParagraph.SetJc(\"left\");",
+      "Excel VBA": "oParagraph.SetJc \"left\""
+    },
+    {
+      "OnlyOffice JS": "oParagraph.AddText(\"This is a text inside the shape aligned left.\");",
+      "Excel VBA": "oParagraph.AddText \"This is a text inside the shape aligned left.\""
+    },
+    {
+      "OnlyOffice JS": "oParagraph.AddLineBreak();",
+      "Excel VBA": "oParagraph.AddLineBreak"
+    },
+    {
+      "OnlyOffice JS": "oParagraph.AddText(\"This is a text after the line break.\");",
+      "Excel VBA": "oParagraph.AddText \"This is a text after the line break.\""
+    }
+  ]
+}
+```

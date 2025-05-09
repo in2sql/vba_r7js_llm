@@ -1,0 +1,47 @@
+```json
+// This example adds a line break to the current position and starts the next element from a new line.
+{
+  "RAG_Table": [
+    {
+      "OnlyOffice_JS": "var oWorksheet = Api.GetActiveSheet();",
+      "Excel_VBA": "Set oWorksheet = Api.GetActiveSheet()"
+    },
+    {
+      "OnlyOffice_JS": "var oFill = Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61));",
+      "Excel_VBA": "Set oFill = Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61))"
+    },
+    {
+      "OnlyOffice_JS": "var oStroke = Api.CreateStroke(0, Api.CreateNoFill());",
+      "Excel_VBA": "Set oStroke = Api.CreateStroke(0, Api.CreateNoFill())"
+    },
+    {
+      "OnlyOffice_JS": "var oShape = oWorksheet.AddShape(\"flowChartOnlineStorage\", 120 * 36000, 70 * 36000, oFill, oStroke, 0, 2 * 36000, 0, 3 * 36000);",
+      "Excel_VBA": "Set oShape = oWorksheet.AddShape(\"flowChartOnlineStorage\", 120 * 36000, 70 * 36000, oFill, oStroke, 0, 2 * 36000, 0, 3 * 36000)"
+    },
+    {
+      "OnlyOffice_JS": "var oDocContent = oShape.GetContent();",
+      "Excel_VBA": "Set oDocContent = oShape.GetContent()"
+    },
+    {
+      "OnlyOffice_JS": "var oParagraph = oDocContent.GetElement(0);",
+      "Excel_VBA": "Set oParagraph = oDocContent.GetElement(0)"
+    },
+    {
+      "OnlyOffice_JS": "oParagraph.SetJc(\"left\");",
+      "Excel_VBA": "oParagraph.SetJc \"left\""
+    },
+    {
+      "OnlyOffice_JS": "oParagraph.AddText(\"This is a text inside the shape aligned left.\");",
+      "Excel_VBA": "oParagraph.AddText \"This is a text inside the shape aligned left.\""
+    },
+    {
+      "OnlyOffice_JS": "oParagraph.AddLineBreak();",
+      "Excel_VBA": "oParagraph.AddLineBreak"
+    },
+    {
+      "OnlyOffice_JS": "oParagraph.AddText(\"This is a text after the line break.\");",
+      "Excel_VBA": "oParagraph.AddText \"This is a text after the line break.\""
+    }
+  ]
+}
+```

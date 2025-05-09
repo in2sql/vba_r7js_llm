@@ -1,0 +1,11 @@
+```json
+{
+  "table": [
+    {
+      "Description": "This example adds a Run to the paragraph.",
+      "OnlyOffice_JS": "// This example adds a Run to the paragraph.\nvar oWorksheet = Api.GetActiveSheet();\nvar oFill = Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61));\nvar oStroke = Api.CreateStroke(0, Api.CreateNoFill());\nvar oShape = oWorksheet.AddShape(\"flowChartOnlineStorage\", 120 * 36000, 70 * 36000, oFill, oStroke, 0, 2 * 36000, 0, 3 * 36000);\nvar oDocContent = oShape.GetContent();\nvar oParagraph = oDocContent.GetElement(0);\nvar oRun = Api.CreateRun();\noRun.AddText(\"This is just a sample text run. Nothing special.\");\noParagraph.AddElement(oRun);",
+      "Excel_VBA": "' This example adds a Run to the paragraph.\nDim oWorksheet As Worksheet\nSet oWorksheet = ThisWorkbook.ActiveSheet\nDim oFill As Object\nSet oFill = CreateSolidFill(CreateRGBColor(255, 111, 61))\nDim oStroke As Object\nSet oStroke = CreateStroke(0, CreateNoFill())\nDim oShape As Shape\nSet oShape = oWorksheet.Shapes.AddShape(msoShapeFlowchartOnlineStorage, 120 * 36000, 70 * 36000)\n'oFill and oStroke would need to be applied to oShape using appropriate properties\nDim oDocContent As Object\nSet oDocContent = oShape.TextFrame2.TextRange\nDim oParagraph As Object\nSet oParagraph = oDocContent.Paragraphs(1)\nDim oRun As Object\nSet oRun = oParagraph.Runs.Add\noRun.Text = \"This is just a sample text run. Nothing special.\""
+    }
+  ]
+}
+```

@@ -1,0 +1,11 @@
+```json
+{
+  "description": "This example freezes the top row.",
+  "table": [
+    {
+      "OnlyOffice JS": "// This example freezes the top row.\nvar oWorksheet = Api.GetActiveSheet();\nvar oFreezePanes = oWorksheet.GetFreezePanes();\noFreezePanes.FreezeRows(1);",
+      "Excel VBA": "Sub FreezeTopRow()\n    With ActiveWindow\n        .FreezePanes = False\n        .SplitRow = 1\n        .FreezePanes = True\n    End With\nEnd Sub"
+    }
+  ]
+}
+```

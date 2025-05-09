@@ -1,0 +1,7 @@
+```json
+{
+  "Description": "Sets the value in cell A1, adds a comment with a reply, modifies the reply text, and writes the reply text to cells A3 and B3.",
+  "OnlyOffice_JS": "// This example sets the comment reply text.\nvar oWorksheet = Api.GetActiveSheet();\noWorksheet.GetRange(\"A1\").SetValue(\"1\");\nvar oRange = oWorksheet.GetRange(\"A1\");\nvar oComment = oRange.AddComment(\"This is just a number.\");\noComment.AddReply(\"Reply 1\", \"John Smith\", \"uid-1\");\nvar oReply = oComment.GetReply();\noReply.SetText(\"New reply text.\");\noWorksheet.GetRange(\"A3\").SetValue(\"Comment's reply text: \");\noWorksheet.GetRange(\"B3\").SetValue(oReply.GetText());",
+  "Excel_VBA": "Sub SetCommentReply()\n    ' Sets the value in cell A1\n    Dim oWorksheet As Worksheet\n    Set oWorksheet = ThisWorkbook.ActiveSheet\n    oWorksheet.Range(\"A1\").Value = \"1\"\n    \n    ' Adds a comment to cell A1\n    Dim oRange As Range\n    Set oRange = oWorksheet.Range(\"A1\")\n    Dim oComment As Comment\n    Set oComment = oRange.AddComment(\"This is just a number.\")\n    \n    ' Simulates adding a reply to the comment\n    ' VBA does not support threaded replies directly\n    ' Here we append the reply text to the existing comment\n    oComment.Text Text:=oComment.Text & vbCrLf & \"Reply 1 - John Smith: New reply text.\"\n    \n    ' Writes the reply text to cells A3 and B3\n    oWorksheet.Range(\"A3\").Value = \"Comment's reply text:\"\n    oWorksheet.Range(\"B3\").Value = \"New reply text.\"\nEnd Sub"
+}
+```

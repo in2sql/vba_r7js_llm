@@ -1,0 +1,51 @@
+```json
+[
+  {
+    "Description": "Get the active worksheet.",
+    "VBA": "Set oWorksheet = ActiveSheet",
+    "OnlyOfficeJS": "var oWorksheet = Api.GetActiveSheet();"
+  },
+  {
+    "Description": "Create a solid fill with RGB color (255, 111, 61).",
+    "VBA": "oFill = oWorksheet.Shapes.Fill.ForeColor.RGB = RGB(255, 111, 61)",
+    "OnlyOfficeJS": "var oFill = Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61));"
+  },
+  {
+    "Description": "Create a stroke with no fill.",
+    "VBA": "With oWorksheet.Shapes.Line\n    .Visible = msoFalse\nEnd With",
+    "OnlyOfficeJS": "var oStroke = Api.CreateStroke(0, Api.CreateNoFill());"
+  },
+  {
+    "Description": "Add a shape to the worksheet with specified properties.",
+    "VBA": "Set oShape = oWorksheet.Shapes.AddShape(msoShapeFlowchartOnlineStorage, 120, 70, 2, 3)\nWith oShape.Fill\n    .ForeColor.RGB = RGB(255, 111, 61)\nEnd With\nWith oShape.Line\n    .Visible = msoFalse\nEnd With",
+    "OnlyOfficeJS": "var oShape = oWorksheet.AddShape(\"flowChartOnlineStorage\", 120 * 36000, 70 * 36000, oFill, oStroke, 0, 2 * 36000, 0, 3 * 36000);"
+  },
+  {
+    "Description": "Get the content of the added shape.",
+    "VBA": "Set oDocContent = oShape.TextFrame",
+    "OnlyOfficeJS": "var oDocContent = oShape.GetContent();"
+  },
+  {
+    "Description": "Get the first paragraph of the shape's content.",
+    "VBA": "Set oParagraph = oDocContent.Paragraphs(1)",
+    "OnlyOfficeJS": "var oParagraph = oDocContent.GetElement(0);"
+  },
+  {
+    "Description": "Get paragraph properties.",
+    "VBA": "Set oParaPr = oParagraph.ParagraphFormat",
+    "OnlyOfficeJS": "var oParaPr = oParagraph.GetParaPr();"
+  },
+  {
+    "Description": "Set right indentation to 2 inches (2880 twips).",
+    "VBA": "oParaPr.RightIndent = InchesToPoints(2)",
+    "OnlyOfficeJS": "oParaPr.SetIndRight(2880);"
+  },
+  {
+    "Description": "Add text to the paragraph.",
+    "VBA": "oParagraph.Range.Text = \"This is the first paragraph with the right offset of 2 inches set to it. \" & _\n\"This offset is set by the paragraph style. No paragraph inline style is applied. \" & _\n\"These sentences are used to add lines for demonstrative purposes.\"",
+    "OnlyOfficeJS": "oParagraph.AddText(\"This is the first paragraph with the right offset of 2 inches set to it. \");\n" +
+                  "oParagraph.AddText(\"This offset is set by the paragraph style. No paragraph inline style is applied. \");\n" +
+                  "oParagraph.AddText(\"These sentences are used to add lines for demonstrative purposes. \");"
+  }
+]
+```

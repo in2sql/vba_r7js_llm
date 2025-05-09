@@ -1,0 +1,89 @@
+```json
+{
+  "Table": {
+    "headers": ["Description", "VBA Code", "OnlyOffice JS Code"],
+    "rows": [
+      {
+        "Description": "Get the active worksheet",
+        "VBA Code": "Set oWorksheet = ActiveSheet",
+        "OnlyOffice JS Code": "var oWorksheet = Api.GetActiveSheet();"
+      },
+      {
+        "Description": "Set header values in cells B1, C1, D1",
+        "VBA Code": "oWorksheet.Range(\"B1\").Value = \"Region\"\noWorksheet.Range(\"C1\").Value = \"Style\"\noWorksheet.Range(\"D1\").Value = \"Price\"",
+        "OnlyOffice JS Code": "oWorksheet.GetRange('B1').SetValue('Region');\noWorksheet.GetRange('C1').SetValue('Style');\noWorksheet.GetRange('D1').SetValue('Price');"
+      },
+      {
+        "Description": "Set values in column B (B2:B5)",
+        "VBA Code": "oWorksheet.Range(\"B2\").Value = \"East\"\noWorksheet.Range(\"B3\").Value = \"West\"\noWorksheet.Range(\"B4\").Value = \"East\"\noWorksheet.Range(\"B5\").Value = \"West\"",
+        "OnlyOffice JS Code": "oWorksheet.GetRange('B2').SetValue('East');\noWorksheet.GetRange('B3').SetValue('West');\noWorksheet.GetRange('B4').SetValue('East');\noWorksheet.GetRange('B5').SetValue('West');"
+      },
+      {
+        "Description": "Set values in column C (C2:C5)",
+        "VBA Code": "oWorksheet.Range(\"C2\").Value = \"Fancy\"\noWorksheet.Range(\"C3\").Value = \"Fancy\"\noWorksheet.Range(\"C4\").Value = \"Tee\"\noWorksheet.Range(\"C5\").Value = \"Tee\"",
+        "OnlyOffice JS Code": "oWorksheet.GetRange('C2').SetValue('Fancy');\noWorksheet.GetRange('C3').SetValue('Fancy');\noWorksheet.GetRange('C4').SetValue('Tee');\noWorksheet.GetRange('C5').SetValue('Tee');"
+      },
+      {
+        "Description": "Set values in column D (D2:D5)",
+        "VBA Code": "oWorksheet.Range(\"D2\").Value = 42.5\noWorksheet.Range(\"D3\").Value = 35.2\noWorksheet.Range(\"D4\").Value = 12.3\noWorksheet.Range(\"D5\").Value = 24.8",
+        "OnlyOffice JS Code": "oWorksheet.GetRange('D2').SetValue(42.5);\noWorksheet.GetRange('D3').SetValue(35.2);\noWorksheet.GetRange('D4').SetValue(12.3);\noWorksheet.GetRange('D5').SetValue(24.8);"
+      },
+      {
+        "Description": "Get the data range B1:D5 from Sheet1",
+        "VBA Code": "Set dataRef = Worksheets(\"Sheet1\").Range(\"B1:D5\")",
+        "OnlyOffice JS Code": "var dataRef = Api.GetRange(\"'Sheet1'!$B$1:$D$5\");"
+      },
+      {
+        "Description": "Insert a new pivot table in a new worksheet using the data range",
+        "VBA Code": "Set pivotTable = Worksheets.Add.PivotTables.Add(SourceData:=dataRef, TableDestination:=Worksheets(Worksheets.Count).Range(\"A1\"))",
+        "OnlyOffice JS Code": "var pivotTable = Api.InsertPivotNewWorksheet(dataRef);"
+      },
+      {
+        "Description": "Add 'Style' as columns and 'Region' as rows in the pivot table",
+        "VBA Code": "With pivotTable\n    .PivotFields(\"Style\").Orientation = xlColumnField\n    .PivotFields(\"Region\").Orientation = xlRowField\nEnd With",
+        "OnlyOffice JS Code": "pivotTable.AddFields({\n\tcolumns: ['Style'],\n\trows: 'Region',\n});"
+      },
+      {
+        "Description": "Add 'Price' as a data field in the pivot table",
+        "VBA Code": "With pivotTable\n    .AddDataField .PivotFields(\"Price\"), \"Sum of Price\", xlSum\nEnd With",
+        "OnlyOffice JS Code": "pivotTable.AddDataField('Price');"
+      },
+      {
+        "Description": "Get the active worksheet where the pivot table is inserted",
+        "VBA Code": "Set pivotWorksheet = ActiveSheet",
+        "OnlyOffice JS Code": "var pivotWorksheet = Api.GetActiveSheet();"
+      },
+      {
+        "Description": "Get the pivot field 'Region' from the pivot table",
+        "VBA Code": "Set pivotField = pivotTable.PivotFields(\"Region\")",
+        "OnlyOffice JS Code": "var pivotField = pivotTable.GetPivotFields('Region');"
+      },
+      {
+        "Description": "Set subtotals to count for the 'Region' pivot field",
+        "VBA Code": "With pivotField\n    .Subtotals(1) = True ' xlCount\nEnd With",
+        "OnlyOffice JS Code": "pivotField.SetSubtotals({\n\tCount: true,\n});"
+      },
+      {
+        "Description": "Retrieve the subtotals for the 'Region' pivot field",
+        "VBA Code": "Dim subtotals As Variant\nsubtotals = pivotField.Subtotals",
+        "OnlyOffice JS Code": "var subtotals = pivotField.GetSubtotals();"
+      },
+      {
+        "Description": "Set the value 'Region subtotals' in cell A11 of the pivot worksheet",
+        "VBA Code": "pivotWorksheet.Range(\"A11\").Value = \"Region subtotals\"",
+        "OnlyOffice JS Code": "pivotWorksheet.GetRange('A11').SetValue('Region subtotals');"
+      },
+      {
+        "Description": "Initialize counter k to 12",
+        "VBA Code": "Dim k As Integer\nk = 12",
+        "OnlyOffice JS Code": "let k = 12;"
+      },
+      {
+        "Description": "Loop through each subtotal and set values in the pivot worksheet starting from row 12",
+        "VBA Code": "Dim key As Variant\nFor Each key In subtotals\n    pivotWorksheet.Cells(k, 1).Value = key\n    pivotWorksheet.Cells(k, 2).Value = subtotals(key)\n    k = k + 1\nNext key",
+        "OnlyOffice JS Code": "for (var i in subtotals) {\n\tpivotWorksheet.GetRangeByNumber(k, 0).SetValue(i);\n\tpivotWorksheet.GetRangeByNumber(k++, 1).SetValue(subtotals[i]);\n}"
+      }
+    ]
+  }
+}
+```

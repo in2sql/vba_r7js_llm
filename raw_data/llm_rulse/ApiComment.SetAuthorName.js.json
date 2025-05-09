@@ -1,0 +1,9 @@
+```json
+{
+  "RAG_Table": {
+    "Description": "This example sets the comment author's name.",
+    "OnlyOffice_JS": "// This example sets the comment author's name.\nvar oWorksheet = Api.GetActiveSheet();\noWorksheet.GetRange(\"A1\").SetValue(\"1\");\nvar oRange = oWorksheet.GetRange(\"A1\");\nvar oComment = oRange.AddComment(\"This is just a number.\", \"John Smith\");\noWorksheet.GetRange(\"A3\").SetValue(\"Comment's author: \");\noComment.SetAuthorName(\"Mark Potato\");\noWorksheet.GetRange(\"B3\").SetValue(oComment.GetAuthorName());",
+    "Excel_VBA": "' This example sets the comment author's name.\nSub SetCommentAuthor()\n    Dim ws As Worksheet\n    Set ws = ThisWorkbook.ActiveSheet\n    \n    ws.Range(\"A1\").Value = \"1\"\n    \n    Dim cmt As Comment\n    Set cmt = ws.Range(\"A1\").AddComment(\"This is just a number.\")\n    cmt.Author = \"John Smith\"\n    \n    ws.Range(\"A3\").Value = \"Comment's author: \"\n    cmt.Author = \"Mark Potato\"\n    ws.Range(\"B3\").Value = cmt.Author\nEnd Sub"
+  }
+}
+```

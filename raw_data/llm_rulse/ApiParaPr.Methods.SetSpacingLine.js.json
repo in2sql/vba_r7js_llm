@@ -1,0 +1,11 @@
+```json
+{
+  "Description": "This example sets the paragraph line spacing.",
+  "CodeEquivalents": [
+    {
+      "OnlyOffice JS": "// This example sets the paragraph line spacing.\nvar oWorksheet = Api.GetActiveSheet();\nvar oFill = Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61));\nvar oStroke = Api.CreateStroke(0, Api.CreateNoFill());\nvar oShape = oWorksheet.AddShape(\"flowChartOnlineStorage\", 120 * 36000, 70 * 36000, oFill, oStroke, 0, 2 * 36000, 0, 3 * 36000);\nvar oDocContent = oShape.GetContent();\nvar oParagraph = oDocContent.GetElement(0);\nvar oParaPr = oParagraph.GetParaPr();\noParaPr.SetSpacingLine(3 * 240, \"auto\");\noParagraph.AddText(\"Paragraph 1. Spacing: 3 times of a common paragraph line spacing.\");\noParagraph.AddLineBreak();\noParagraph.AddText(\"These sentences are used to add lines for demonstrative purposes. \");\noParagraph.AddText(\"These sentences are used to add lines for demonstrative purposes. \");",
+      "VBA Code": "' This example sets the paragraph line spacing.\nDim oWorksheet As Object\nSet oWorksheet = Api.GetActiveSheet()\nDim oFill As Object\nSet oFill = Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61))\nDim oStroke As Object\nSet oStroke = Api.CreateStroke(0, Api.CreateNoFill())\nDim oShape As Object\nSet oShape = oWorksheet.AddShape(\"flowChartOnlineStorage\", 120 * 36000, 70 * 36000, oFill, oStroke, 0, 2 * 36000, 0, 3 * 36000)\nDim oDocContent As Object\nSet oDocContent = oShape.GetContent()\nDim oParagraph As Object\nSet oParagraph = oDocContent.GetElement(0)\nDim oParaPr As Object\nSet oParaPr = oParagraph.GetParaPr()\noParaPr.SetSpacingLine 3 * 240, \"auto\"\noParagraph.AddText \"Paragraph 1. Spacing: 3 times of a common paragraph line spacing.\"\noParagraph.AddLineBreak\noParagraph.AddText \"These sentences are used to add lines for demonstrative purposes. \"\noParagraph.AddText \"These sentences are used to add lines for demonstrative purposes. \""
+    }
+  ]
+}
+```

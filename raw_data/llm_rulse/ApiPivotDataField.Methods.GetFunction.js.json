@@ -1,0 +1,34 @@
+```json
+[
+  {
+    "Description": "Set headers in cells B1, C1, and D1",
+    "OnlyOffice_JS": "oWorksheet.GetRange('B1').SetValue('Region');\noWorksheet.GetRange('C1').SetValue('Style');\noWorksheet.GetRange('D1').SetValue('Price');",
+    "Excel_VBA": "With oWorksheet\n    .Range(\"B1\").Value = \"Region\"\n    .Range(\"C1\").Value = \"Style\"\n    .Range(\"D1\").Value = \"Price\"\nEnd With"
+  },
+  {
+    "Description": "Set data in range B2:B5, C2:C5, and D2:D5",
+    "OnlyOffice_JS": "oWorksheet.GetRange('B2').SetValue('East');\noWorksheet.GetRange('B3').SetValue('West');\noWorksheet.GetRange('B4').SetValue('East');\noWorksheet.GetRange('B5').SetValue('West');\noWorksheet.GetRange('C2').SetValue('Fancy');\noWorksheet.GetRange('C3').SetValue('Fancy');\noWorksheet.GetRange('C4').SetValue('Tee');\noWorksheet.GetRange('C5').SetValue('Tee');\noWorksheet.GetRange('D2').SetValue(42.5);\noWorksheet.GetRange('D3').SetValue(35.2);\noWorksheet.GetRange('D4').SetValue(12.3);\noWorksheet.GetRange('D5').SetValue(24.8);",
+    "Excel_VBA": "With oWorksheet\n    .Range(\"B2\").Value = \"East\"\n    .Range(\"B3\").Value = \"West\"\n    .Range(\"B4\").Value = \"East\"\n    .Range(\"B5\").Value = \"West\"\n    .Range(\"C2\").Value = \"Fancy\"\n    .Range(\"C3\").Value = \"Fancy\"\n    .Range(\"C4\").Value = \"Tee\"\n    .Range(\"C5\").Value = \"Tee\"\n    .Range(\"D2\").Value = 42.5\n    .Range(\"D3\").Value = 35.2\n    .Range(\"D4\").Value = 12.3\n    .Range(\"D5\").Value = 24.8\nEnd With"
+  },
+  {
+    "Description": "Create a pivot table from range B1:D5 in a new worksheet",
+    "OnlyOffice_JS": "var dataRef = Api.GetRange(\"'Sheet1'!$B$1:$D$5\");\nvar pivotTable = Api.InsertPivotNewWorksheet(dataRef);",
+    "Excel_VBA": "Dim dataRef As Range\nSet dataRef = Worksheets(\"Sheet1\").Range(\"B1:D5\")\nDim pivotSheet As Worksheet\nSet pivotSheet = Worksheets.Add\nDim pivotCache As PivotCache\nSet pivotCache = ThisWorkbook.PivotCaches.Create(SourceType:=xlDatabase, SourceData:=dataRef)\nDim pivotTable As PivotTable\nSet pivotTable = pivotCache.CreatePivotTable(TableDestination:=pivotSheet.Range(\"A1\"), TableName:=\"PivotTable1\")"
+  },
+  {
+    "Description": "Add 'Region' and 'Style' as row fields in the pivot table",
+    "OnlyOffice_JS": "pivotTable.AddFields({\n\trows: ['Region', 'Style'],\n});",
+    "Excel_VBA": "With pivotTable\n    .PivotFields(\"Region\").Orientation = xlRowField\n    .PivotFields(\"Style\").Orientation = xlRowField\nEnd With"
+  },
+  {
+    "Description": "Add 'Price' as data fields with sum and count functions",
+    "OnlyOffice_JS": "var sumDataField = pivotTable.AddDataField('Price');\nvar countDataField = pivotTable.AddDataField('Price');\ncountDataField.SetFunction('Count');",
+    "Excel_VBA": "With pivotTable\n    .AddDataField .PivotFields(\"Price\"), \"Sum of Price\", xlSum\n    .AddDataField .PivotFields(\"Price\"), \"Count of Price\", xlCount\nEnd With"
+  },
+  {
+    "Description": "Display pivot table functions in cells A15:B16",
+    "OnlyOffice_JS": "var pivotWorksheet = Api.GetActiveSheet();\n\npivotWorksheet.GetRange('A15').SetValue('Functions:');\npivotWorksheet.GetRange('B15').SetValue(sumDataField.GetFunction());\npivotWorksheet.GetRange('B16').SetValue(countDataField.GetFunction());",
+    "Excel_VBA": "With pivotSheet\n    .Range(\"A15\").Value = \"Functions:\"\n    .Range(\"B15\").Value = pivotTable.DataFields(1).Function\n    .Range(\"B16\").Value = pivotTable.DataFields(2).Function\nEnd With"
+  }
+]
+```

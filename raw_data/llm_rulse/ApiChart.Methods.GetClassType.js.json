@@ -1,0 +1,107 @@
+```json
+{
+  "headers": ["Description", "OnlyOffice JS", "Excel VBA"],
+  "rows": [
+    [
+      "Gets the active worksheet",
+      "var oWorksheet = Api.GetActiveSheet();",
+      "Set oWorksheet = ActiveSheet"
+    ],
+    [
+      "Sets value to cell B1",
+      "oWorksheet.GetRange(\"B1\").SetValue(2014);",
+      "Range(\"B1\").Value = 2014"
+    ],
+    [
+      "Sets value to cell C1",
+      "oWorksheet.GetRange(\"C1\").SetValue(2015);",
+      "Range(\"C1\").Value = 2015"
+    ],
+    [
+      "Sets value to cell D1",
+      "oWorksheet.GetRange(\"D1\").SetValue(2016);",
+      "Range(\"D1\").Value = 2016"
+    ],
+    [
+      "Sets value to cell A2",
+      "oWorksheet.GetRange(\"A2\").SetValue(\"Projected Revenue\");",
+      "Range(\"A2\").Value = \"Projected Revenue\""
+    ],
+    [
+      "Sets value to cell A3",
+      "oWorksheet.GetRange(\"A3\").SetValue(\"Estimated Costs\");",
+      "Range(\"A3\").Value = \"Estimated Costs\""
+    ],
+    [
+      "Sets value to cell B2",
+      "oWorksheet.GetRange(\"B2\").SetValue(200);",
+      "Range(\"B2\").Value = 200"
+    ],
+    [
+      "Sets value to cell B3",
+      "oWorksheet.GetRange(\"B3\").SetValue(250);",
+      "Range(\"B3\").Value = 250"
+    ],
+    [
+      "Sets value to cell C2",
+      "oWorksheet.GetRange(\"C2\").SetValue(240);",
+      "Range(\"C2\").Value = 240"
+    ],
+    [
+      "Sets value to cell C3",
+      "oWorksheet.GetRange(\"C3\").SetValue(260);",
+      "Range(\"C3\").Value = 260"
+    ],
+    [
+      "Sets value to cell D2",
+      "oWorksheet.GetRange(\"D2\").SetValue(280);",
+      "Range(\"D2\").Value = 280"
+    ],
+    [
+      "Sets value to cell D3",
+      "oWorksheet.GetRange(\"D3\").SetValue(280);",
+      "Range(\"D3\").Value = 280"
+    ],
+    [
+      "Adds a 3D bar chart to the worksheet",
+      "var oChart = oWorksheet.AddChart(\"'Sheet1'!$A$1:$D$3\", true, \"bar3D\", 2, 100 * 36000, 70 * 36000, 0, 2 * 36000, 5, 3 * 36000);",
+      "Dim oChart As Chart\nSet oChart = Charts.Add()\nWith oChart\n    .SetSourceData Source:=Sheets(\"Sheet1\").Range(\"A1:D3\")\n    .ChartType = xlBar3D\n    ' Additional positioning and sizing code may be required\nEnd With"
+    ],
+    [
+      "Sets the chart title",
+      "oChart.SetTitle(\"Financial Overview\", 13);",
+      "With oChart\n    .HasTitle = True\n    .ChartTitle.Text = \"Financial Overview\"\nEnd With"
+    ],
+    [
+      "Creates a solid fill with RGB color (51, 51, 51)",
+      "var oFill = Api.CreateSolidFill(Api.CreateRGBColor(51, 51, 51));",
+      "With oChart.SeriesCollection(1).Format.Fill\n    .ForeColor.RGB = RGB(51, 51, 51)\nEnd With"
+    ],
+    [
+      "Sets the series fill for the first series",
+      "oChart.SetSeriesFill(oFill, 0, false);",
+      "With oChart.SeriesCollection(1).Format.Fill\n    .ForeColor.RGB = RGB(51, 51, 51)\n    .Visible = msoTrue\nEnd With"
+    ],
+    [
+      "Creates a solid fill with RGB color (255, 111, 61)",
+      "oFill = Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61));",
+      "With oChart.SeriesCollection(2).Format.Fill\n    .ForeColor.RGB = RGB(255, 111, 61)\nEnd With"
+    ],
+    [
+      "Sets the series fill for the second series",
+      "oChart.SetSeriesFill(oFill, 1, false);",
+      "With oChart.SeriesCollection(2).Format.Fill\n    .ForeColor.RGB = RGB(255, 111, 61)\n    .Visible = msoTrue\nEnd With"
+    ],
+    [
+      "Gets the class type of the chart",
+      "var sClassType = oChart.GetClassType();",
+      "sClassType = TypeName(oChart)"
+    ],
+    [
+      "Sets value to cell F1 with the class type",
+      "oWorksheet.GetRange(\"F1\").SetValue(\"Class Type: \" + sClassType);",
+      "Range(\"F1\").Value = \"Class Type: \" & sClassType"
+    ]
+  ]
+}
+```

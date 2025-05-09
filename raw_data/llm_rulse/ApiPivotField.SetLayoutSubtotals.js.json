@@ -1,0 +1,74 @@
+```json
+[
+  {
+    "Description": "Retrieve the active sheet",
+    "OnlyOffice JS": "var oWorksheet = Api.GetActiveSheet();",
+    "Excel VBA": "Set oWorksheet = ActiveSheet"
+  },
+  {
+    "Description": "Set header values",
+    "OnlyOffice JS": "oWorksheet.GetRange('B1').SetValue('Region');\noWorksheet.GetRange('C1').SetValue('Style');\noWorksheet.GetRange('D1').SetValue('Price');",
+    "Excel VBA": "With oWorksheet\n    .Range(\"B1\").Value = \"Region\"\n    .Range(\"C1\").Value = \"Style\"\n    .Range(\"D1\").Value = \"Price\"\nEnd With"
+  },
+  {
+    "Description": "Set region data",
+    "OnlyOffice JS": "oWorksheet.GetRange('B2').SetValue('East');\noWorksheet.GetRange('B3').SetValue('West');\noWorksheet.GetRange('B4').SetValue('East');\noWorksheet.GetRange('B5').SetValue('West');",
+    "Excel VBA": "With oWorksheet\n    .Range(\"B2\").Value = \"East\"\n    .Range(\"B3\").Value = \"West\"\n    .Range(\"B4\").Value = \"East\"\n    .Range(\"B5\").Value = \"West\"\nEnd With"
+  },
+  {
+    "Description": "Set style data",
+    "OnlyOffice JS": "oWorksheet.GetRange('C2').SetValue('Fancy');\noWorksheet.GetRange('C3').SetValue('Fancy');\noWorksheet.GetRange('C4').SetValue('Tee');\noWorksheet.GetRange('C5').SetValue('Tee');",
+    "Excel VBA": "With oWorksheet\n    .Range(\"C2\").Value = \"Fancy\"\n    .Range(\"C3\").Value = \"Fancy\"\n    .Range(\"C4\").Value = \"Tee\"\n    .Range(\"C5\").Value = \"Tee\"\nEnd With"
+  },
+  {
+    "Description": "Set price data",
+    "OnlyOffice JS": "oWorksheet.GetRange('D2').SetValue(42.5);\noWorksheet.GetRange('D3').SetValue(35.2);\noWorksheet.GetRange('D4').SetValue(12.3);\noWorksheet.GetRange('D5').SetValue(24.8);",
+    "Excel VBA": "With oWorksheet\n    .Range(\"D2\").Value = 42.5\n    .Range(\"D3\").Value = 35.2\n    .Range(\"D4\").Value = 12.3\n    .Range(\"D5\").Value = 24.8\nEnd With"
+  },
+  {
+    "Description": "Get data range",
+    "OnlyOffice JS": "var dataRef = Api.GetRange(\"'Sheet1'!$B$1:$D$5\");",
+    "Excel VBA": "Set dataRef = oWorksheet.Range(\"$B$1:$D$5\")"
+  },
+  {
+    "Description": "Insert pivot table in a new worksheet",
+    "OnlyOffice JS": "var pivotTable = Api.InsertPivotNewWorksheet(dataRef);",
+    "Excel VBA": "Set pivotWorksheet = Worksheets.Add\nSet pivotTable = pivotWorksheet.PivotTableWizard(SourceType:=xlDatabase, SourceData:=dataRef)"
+  },
+  {
+    "Description": "Add row fields to pivot table",
+    "OnlyOffice JS": "pivotTable.AddFields({\n    rows: ['Region', 'Style'],\n});",
+    "Excel VBA": "With pivotTable\n    .PivotFields(\"Region\").Orientation = xlRowField\n    .PivotFields(\"Style\").Orientation = xlRowField\nEnd With"
+  },
+  {
+    "Description": "Add data field to pivot table",
+    "OnlyOffice JS": "pivotTable.AddDataField('Price');",
+    "Excel VBA": "With pivotTable\n    .PivotFields(\"Price\").Orientation = xlDataField\n    .PivotFields(\"Price\").Function = xlSum\nEnd With"
+  },
+  {
+    "Description": "Retrieve the active sheet for pivot table",
+    "OnlyOffice JS": "var pivotWorksheet = Api.GetActiveSheet();",
+    "Excel VBA": "Set pivotWorksheet = ActiveSheet"
+  },
+  {
+    "Description": "Get 'Region' pivot field",
+    "OnlyOffice JS": "var pivotField = pivotTable.GetPivotFields('Region');",
+    "Excel VBA": "Set pivotField = pivotTable.PivotFields(\"Region\")"
+  },
+  {
+    "Description": "Disable layout subtotals for 'Region' pivot field",
+    "OnlyOffice JS": "pivotField.SetLayoutSubtotals(false);",
+    "Excel VBA": "pivotField.Subtotals(1) = False"
+  },
+  {
+    "Description": "Set description in cell A14",
+    "OnlyOffice JS": "pivotWorksheet.GetRange('A14').SetValue('Region layout subtotals');",
+    "Excel VBA": "pivotWorksheet.Range(\"A14\").Value = \"Region layout subtotals\""
+  },
+  {
+    "Description": "Set subtotal status in cell B14",
+    "OnlyOffice JS": "pivotWorksheet.GetRange('B14').SetValue(pivotField.GetLayoutSubtotals());",
+    "Excel VBA": "pivotWorksheet.Range(\"B14\").Value = pivotField.Subtotals(1)"
+  }
+]
+```

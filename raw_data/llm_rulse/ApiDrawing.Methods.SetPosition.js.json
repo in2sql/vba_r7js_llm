@@ -1,0 +1,31 @@
+```json
+{
+  "Description": "This code changes the position for the drawing object.",
+  "CodeMappings": [
+    {
+      "OnlyOffice JS": "Api.GetActiveSheet();",
+      "Excel VBA": "Set oWorksheet = ActiveSheet"
+    },
+    {
+      "OnlyOffice JS": "Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61));",
+      "Excel VBA": "oFill = RGB(255, 111, 61)"
+    },
+    {
+      "OnlyOffice JS": "Api.CreateStroke(0, Api.CreateNoFill());",
+      "Excel VBA": "oStroke = Nothing"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.AddShape('flowChartOnlineStorage', 60 * 36000, 35 * 36000, oFill, oStroke, 0, 2 * 36000, 0, 3 * 36000);",
+      "Excel VBA": "Set oDrawing = oWorksheet.Shapes.AddShape(msoShapeFlowchartOnlineStorage, 60, 35, oFill, oStroke)"
+    },
+    {
+      "OnlyOffice JS": "oDrawing.SetSize(120 * 36000, 70 * 36000);",
+      "Excel VBA": "oDrawing.Width = 120\noDrawing.Height = 70"
+    },
+    {
+      "OnlyOffice JS": "oDrawing.SetPosition(0, 2 * 36000, 2, 3 * 36000);",
+      "Excel VBA": "oDrawing.Left = 2\noDrawing.Top = 3"
+    }
+  ]
+}
+```

@@ -1,0 +1,71 @@
+```json
+{
+  "description": "Conversion of OnlyOffice JavaScript API methods to their equivalent Excel VBA methods. The code demonstrates how to manipulate worksheet shapes and paragraph properties.",
+  "RAG_table": [
+    {
+      "OnlyOffice_JS": "Api.GetActiveSheet();",
+      "Excel_VBA": "Set oWorksheet = ThisWorkbook.ActiveSheet"
+    },
+    {
+      "OnlyOffice_JS": "Api.CreateRGBColor(255, 111, 61);",
+      "Excel_VBA": "color = RGB(255, 111, 61)"
+    },
+    {
+      "OnlyOffice_JS": "Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61));",
+      "Excel_VBA": "Set oFill = oWorksheet.Shapes.Fill.ForeColor.RGB = RGB(255, 111, 61)"
+    },
+    {
+      "OnlyOffice_JS": "Api.CreateStroke(0, Api.CreateNoFill());",
+      "Excel_VBA": "Set oStroke = oWorksheet.Shapes.Line"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.AddShape(\"flowChartOnlineStorage\", 120 * 36000, 70 * 36000, oFill, oStroke, 0, 2 * 36000, 0, 3 * 36000);",
+      "Excel_VBA": "Set oShape = oWorksheet.Shapes.AddShape(msoShapeFlowchartProcess, 120, 70, oFill.Width, oFill.Height)"
+    },
+    {
+      "OnlyOffice_JS": "oShape.GetContent();",
+      "Excel_VBA": "Set oDocContent = oShape.TextFrame"
+    },
+    {
+      "OnlyOffice_JS": "oDocContent.GetElement(0);",
+      "Excel_VBA": "Set oParagraph = oDocContent.Characters(1)"
+    },
+    {
+      "OnlyOffice_JS": "oParagraph.GetParaPr();",
+      "Excel_VBA": "Set oParaPr = oParagraph.ParagraphFormat"
+    },
+    {
+      "OnlyOffice_JS": "oParaPr.SetIndRight(2880);",
+      "Excel_VBA": "oParaPr.RightIndent = 2880"
+    },
+    {
+      "OnlyOffice_JS": "oParaPr.SetJc(\"right\");",
+      "Excel_VBA": "oParaPr.Alignment = xlAlignRight"
+    },
+    {
+      "OnlyOffice_JS": "oParagraph.AddText(\"This is the first paragraph with the right offset of 2 inches set to it. \");",
+      "Excel_VBA": "oParagraph.Text = \"This is the first paragraph with the right offset of 2 inches set to it. \""
+    },
+    {
+      "OnlyOffice_JS": "oParagraph.AddText(\"This indent is set by the paragraph style. No paragraph inline style is applied. \");",
+      "Excel_VBA": "oParagraph.Text = oParagraph.Text & \"This indent is set by the paragraph style. No paragraph inline style is applied. \""
+    },
+    {
+      "OnlyOffice_JS": "var nIndRight = oParaPr.GetIndRight();",
+      "Excel_VBA": "nIndRight = oParaPr.RightIndent"
+    },
+    {
+      "OnlyOffice_JS": "oParagraph = Api.CreateParagraph();",
+      "Excel_VBA": "Set oParagraph = oDocContent.Paragraphs.Add"
+    },
+    {
+      "OnlyOffice_JS": "oParagraph.AddText(\"Right indent: \" + nIndRight);",
+      "Excel_VBA": "oParagraph.Text = \"Right indent: \" & nIndRight"
+    },
+    {
+      "OnlyOffice_JS": "oDocContent.Push(oParagraph);",
+      "Excel_VBA": "oDocContent.Add oParagraph"
+    }
+  ]
+}
+```

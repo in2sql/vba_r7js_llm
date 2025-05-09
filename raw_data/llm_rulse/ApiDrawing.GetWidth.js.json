@@ -1,0 +1,39 @@
+```json
+{
+  "description": "This code adds a shape to the active worksheet with specified fill and stroke, sets its size and position, retrieves its width, and writes the width to cell A1.",
+  "RAG_Table": [
+    {
+      "OnlyOffice JS": "var oWorksheet = Api.GetActiveSheet();",
+      "Excel VBA": "Set oWorksheet = ActiveWorkbook.ActiveSheet"
+    },
+    {
+      "OnlyOffice JS": "var oFill = Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61));",
+      "Excel VBA": "Set oFill = RGB(255, 111, 61)"
+    },
+    {
+      "OnlyOffice JS": "var oStroke = Api.CreateStroke(0, Api.CreateNoFill());",
+      "Excel VBA": "Set oStroke = Nothing ' No stroke equivalent"
+    },
+    {
+      "OnlyOffice JS": "var oDrawing = oWorksheet.AddShape(\"flowChartOnlineStorage\", 60 * 36000, 35 * 36000, oFill, oStroke, 0, 2 * 36000, 0, 3 * 36000);",
+      "Excel VBA": "Set oDrawing = oWorksheet.Shapes.AddShape(msoShapeFlowchartOfflineStorage, 60, 35, oFill, oStroke)"
+    },
+    {
+      "OnlyOffice JS": "oDrawing.SetSize(120 * 36000, 70 * 36000);",
+      "Excel VBA": "With oDrawing\n    .Width = 120\n    .Height = 70\nEnd With"
+    },
+    {
+      "OnlyOffice JS": "oDrawing.SetPosition(0, 2 * 36000, 1, 3 * 36000);",
+      "Excel VBA": "With oDrawing\n    .Left = 0\n    .Top = 2\nEnd With"
+    },
+    {
+      "OnlyOffice JS": "var nWidth = oDrawing.GetWidth();",
+      "Excel VBA": "nWidth = oDrawing.Width"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"A1\").SetValue(\"Drawing width = \" + nWidth);",
+      "Excel VBA": "oWorksheet.Range(\"A1\").Value = \"Drawing width = \" & nWidth"
+    }
+  ]
+}
+```

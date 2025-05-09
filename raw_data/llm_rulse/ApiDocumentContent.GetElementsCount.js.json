@@ -1,0 +1,51 @@
+```json
+{
+  "description": "This code adds a shape to the active worksheet, inserts text into the shape, and counts the number of elements within the shape.",
+  "methods": [
+    {
+      "OnlyOffice JS": "var oWorksheet = Api.GetActiveSheet();",
+      "Excel VBA": "Set oWorksheet = ActiveSheet"
+    },
+    {
+      "OnlyOffice JS": "var oFill = Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61));",
+      "Excel VBA": "With oWorksheet.Shapes.AddShape(msoShapeRectangle, 200, 60, 100, 50)\n    .Fill.ForeColor.RGB = RGB(255, 111, 61)\nEnd With"
+    },
+    {
+      "OnlyOffice JS": "var oStroke = Api.CreateStroke(0, Api.CreateNoFill());",
+      "Excel VBA": "With oWorksheet.Shapes(1).Line\n    .Weight = 0\n    .Visible = msoFalse\nEnd With"
+    },
+    {
+      "OnlyOffice JS": "var oShape = oWorksheet.AddShape(\"flowChartOnlineStorage\", 200 * 36000, 60 * 36000, oFill, oStroke, 0, 2 * 36000, 0, 3 * 36000);",
+      "Excel VBA": "Set oShape = oWorksheet.Shapes.AddShape(msoShapeFlowchartOnlineStorage, 200, 60, 200, 150)"
+    },
+    {
+      "OnlyOffice JS": "var oDocContent = oShape.GetContent();",
+      "Excel VBA": "Set oDocContent = oShape.TextFrame.Characters"
+    },
+    {
+      "OnlyOffice JS": "var oParagraph = oDocContent.GetElement(0);",
+      "Excel VBA": "Dim oParagraph As TextRange\nSet oParagraph = oDocContent.Paragraphs(1)"
+    },
+    {
+      "OnlyOffice JS": "oParagraph.AddText(\"We got the first paragraph inside the shape.\");",
+      "Excel VBA": "oParagraph.Text = \"We got the first paragraph inside the shape.\""
+    },
+    {
+      "OnlyOffice JS": "oParagraph.AddLineBreak();",
+      "Excel VBA": "oParagraph.InsertAfter vbCrLf"
+    },
+    {
+      "OnlyOffice JS": "oParagraph.AddText(\"Number of elements inside the shape: \" + oDocContent.GetElementsCount());",
+      "Excel VBA": "oParagraph.InsertAfter \"Number of elements inside the shape: \" & oDocContent.Length"
+    },
+    {
+      "OnlyOffice JS": "oParagraph.AddLineBreak();",
+      "Excel VBA": "oParagraph.InsertAfter vbCrLf"
+    },
+    {
+      "OnlyOffice JS": "oParagraph.AddText(\"Line breaks are NOT counted into the number of elements.\");",
+      "Excel VBA": "oParagraph.InsertAfter \"Line breaks are NOT counted into the number of elements.\""
+    }
+  ]
+}
+```

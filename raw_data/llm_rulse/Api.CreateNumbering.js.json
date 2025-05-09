@@ -1,0 +1,69 @@
+```json
+[
+  {
+    "description": "Get the active worksheet",
+    "VBA": "Set oWorksheet = ActiveSheet",
+    "OnlyOffice_JS": "var oWorksheet = Api.GetActiveSheet();"
+  },
+  {
+    "description": "Create a solid fill with RGB color (255, 111, 61)",
+    "VBA": "Set oFill = oShape.Fill.ForeColor.RGB = RGB(255, 111, 61)",
+    "OnlyOffice_JS": "var oFill = Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61));"
+  },
+  {
+    "description": "Create a stroke with weight 0 and no fill",
+    "VBA": "With oShape.Line\n    .Weight = 0\n    .Visible = msoFalse\nEnd With",
+    "OnlyOffice_JS": "var oStroke = Api.CreateStroke(0, Api.CreateNoFill());"
+  },
+  {
+    "description": "Add a shape with specified parameters",
+    "VBA": "Set oShape = oWorksheet.Shapes.AddShape(msoShapeFlowchartOnlineStorage, 120, 35, 200, 150)\nWith oShape\n    .Fill.ForeColor.RGB = RGB(255, 111, 61)\n    .Line.Weight = 0\nEnd With",
+    "OnlyOffice_JS": "var oShape = oWorksheet.AddShape(\"flowChartOnlineStorage\", 120 * 36000, 35 * 36000, oFill, oStroke, 0, 2 * 36000, 0, 3 * 36000);"
+  },
+  {
+    "description": "Get the content of the shape",
+    "VBA": "Set oDocContent = oShape.TextFrame2.TextRange",
+    "OnlyOffice_JS": "var oDocContent = oShape.GetContent();"
+  },
+  {
+    "description": "Get the first paragraph in the document content",
+    "VBA": "Set oParagraph = oDocContent.Paragraphs(1)",
+    "OnlyOffice_JS": "var oParagraph = oDocContent.GetElement(0);"
+  },
+  {
+    "description": "Create a numbering style with type 'ArabicParenR' and start at 1",
+    "VBA": "With oDocContent.ParagraphFormat.ListFormat\n    .ApplyBulletDefault\n    .ListTemplate = ListGalleries(xlListGalleryNumbered).ListTemplates(1)\n    .ListValue = 1\nEnd With",
+    "OnlyOffice_JS": "var oBullet = Api.CreateNumbering(\"ArabicParenR\", 1);"
+  },
+  {
+    "description": "Set bullet style to the paragraph",
+    "VBA": "oParagraph.ParagraphFormat.ListFormat.ApplyBulletDefault",
+    "OnlyOffice_JS": "oParagraph.SetBullet(oBullet);"
+  },
+  {
+    "description": "Add text to the paragraph",
+    "VBA": "oParagraph.Text = \" This is an example of the numbered paragraph.\"",
+    "OnlyOffice_JS": "oParagraph.AddText(\" This is an example of the numbered paragraph.\");"
+  },
+  {
+    "description": "Create a new paragraph",
+    "VBA": "Set oParagraph = oDocContent.Paragraphs.Add()",
+    "OnlyOffice_JS": "oParagraph = Api.CreateParagraph();"
+  },
+  {
+    "description": "Set bullet style to the new paragraph",
+    "VBA": "oParagraph.ParagraphFormat.ListFormat.ApplyBulletDefault",
+    "OnlyOffice_JS": "oParagraph.SetBullet(oBullet);"
+  },
+  {
+    "description": "Add text to the new paragraph",
+    "VBA": "oParagraph.Text = \" This is an example of the numbered paragraph.\"",
+    "OnlyOffice_JS": "oParagraph.AddText(\" This is an example of the numbered paragraph.\");"
+  },
+  {
+    "description": "Push the new paragraph to the document content",
+    "VBA": "// In VBA, adding the paragraph directly incorporates it into the content.",
+    "OnlyOffice_JS": "oDocContent.Push(oParagraph);"
+  }
+]
+```

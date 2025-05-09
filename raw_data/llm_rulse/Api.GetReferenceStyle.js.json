@@ -1,0 +1,15 @@
+```json
+{
+  "description": "This code retrieves the current reference style and sets it to cell A1 in the active worksheet.",
+  "RAG_Table": [
+    {
+      "OnlyOffice_JS": "var oWorksheet = Api.GetActiveSheet();",
+      "Excel_VBA": "Set oWorksheet = ActiveSheet"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"A1\").SetValue(Api.GetReferenceStyle());",
+      "Excel_VBA": "oWorksheet.Range(\"A1\").Value = Application.ReferenceStyle"
+    }
+  ]
+}
+```

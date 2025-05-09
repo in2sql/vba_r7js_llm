@@ -1,0 +1,63 @@
+```json
+{
+  "Description": "This code retrieves the active worksheet, creates fill and stroke styles, adds shapes to the worksheet, groups the shapes, retrieves the class type of the group, and adds text to each shape indicating the class type.",
+  "CodeComparison": [
+    {
+      "OnlyOffice_JS": "let oWorksheet = Api.GetActiveSheet();",
+      "VBA": "Set oWorksheet = ActiveWorkbook.ActiveSheet"
+    },
+    {
+      "OnlyOffice_JS": "let oFill1 = Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61));",
+      "VBA": "Set oFill1 = oWorksheet.Shapes.Fill.ForeColor.RGB = RGB(255, 111, 61)"
+    },
+    {
+      "OnlyOffice_JS": "let oFill2 = Api.CreateSolidFill(Api.CreateRGBColor(51, 51, 51));",
+      "VBA": "Set oFill2 = oWorksheet.Shapes.Fill.ForeColor.RGB = RGB(51, 51, 51)"
+    },
+    {
+      "OnlyOffice_JS": "let oStroke = Api.CreateStroke(0, Api.CreateNoFill());",
+      "VBA": "With oWorksheet.Shapes.Line\n    .Weight = 0\n    .Visible = msoFalse\nEnd With"
+    },
+    {
+      "OnlyOffice_JS": "let oShape1 = oWorksheet.AddShape(\"flowChartOnlineStorage\", 60 * 36000, 35 * 36000, oFill1, oStroke, 0, 2 * 36000, 0, 3 * 36000);",
+      "VBA": "Set oShape1 = oWorksheet.Shapes.AddShape(msoShapeFlowchartOnlineStorage, 60, 35, oFill1, oStroke).Left = 2 * 36000: oShape1.Top = 3 * 36000"
+    },
+    {
+      "OnlyOffice_JS": "let oShape2 = oWorksheet.AddShape(\"flowChartOnlineStorage\", 60 * 36000, 35 * 36000, oFill2, oStroke, 0, 15 * 36000, 0, 30 * 36000);",
+      "VBA": "Set oShape2 = oWorksheet.Shapes.AddShape(msoShapeFlowchartOnlineStorage, 60, 35, oFill2, oStroke).Left = 15 * 36000: oShape2.Top = 30 * 36000"
+    },
+    {
+      "OnlyOffice_JS": "let oGroup = oWorksheet.GroupDrawings([oShape1, oShape2]);",
+      "VBA": "Set oGroup = oWorksheet.Shapes.Range(Array(oShape1.Name, oShape2.Name)).Group"
+    },
+    {
+      "OnlyOffice_JS": "let sClassType = oGroup.GetClassType();",
+      "VBA": "sClassType = oGroup.Name"
+    },
+    {
+      "OnlyOffice_JS": "let oDocContent1 = oShape1.GetDocContent();",
+      "VBA": "Set oDocContent1 = oShape1.TextFrame"
+    },
+    {
+      "OnlyOffice_JS": "let oParagraph1 = oDocContent1.GetElement(0);",
+      "VBA": "Set oParagraph1 = oDocContent1.TextRange.Paragraphs(1)"
+    },
+    {
+      "OnlyOffice_JS": "oParagraph1.AddText(\"Class Type = \" + sClassType);",
+      "VBA": "oParagraph1.Text = \"Class Type = \" & sClassType"
+    },
+    {
+      "OnlyOffice_JS": "let oDocContent2 = oShape2.GetDocContent();",
+      "VBA": "Set oDocContent2 = oShape2.TextFrame"
+    },
+    {
+      "OnlyOffice_JS": "let oParagraph2 = oDocContent2.GetElement(0);",
+      "VBA": "Set oParagraph2 = oDocContent2.TextRange.Paragraphs(1)"
+    },
+    {
+      "OnlyOffice_JS": "oParagraph2.AddText(\"Class Type = \" + sClassType);",
+      "VBA": "oParagraph2.Text = \"Class Type = \" & sClassType"
+    }
+  ]
+}
+```

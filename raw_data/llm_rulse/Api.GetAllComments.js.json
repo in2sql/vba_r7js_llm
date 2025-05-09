@@ -1,0 +1,7 @@
+```json
+{
+  "Description": "This code retrieves the active worksheet, adds comments with specified authors to cells, retrieves all comments, and sets values in specific cells based on the comment text and author.",
+  "OnlyOffice JS": "var oWorksheet = Api.GetActiveSheet();\nApi.AddComment(\"Comment 1\", \"John Smith\");\noWorksheet.GetRange(\"A4\").AddComment(\"Comment 2\", \"Mark Potato\");\nvar arrComments = Api.GetAllComments();\noWorksheet.GetRange(\"A1\").SetValue(\"Comment text: \" + arrComments[1].GetText());\noWorksheet.GetRange(\"A2\").SetValue(\"Comment author: \" + arrComments[1].GetAuthorName());",
+  "Excel VBA": "' Retrieve the active worksheet\nDim oWorksheet As Worksheet\nSet oWorksheet = ActiveSheet\n\n' Add comments with authors\nActiveSheet.Cells(1, 1).AddComment \"Comment 1\"\nActiveSheet.Cells(1, 1).Comment.Author = \"John Smith\"\noWorksheet.Range(\"A4\").AddComment \"Comment 2\"\noWorksheet.Range(\"A4\").Comment.Author = \"Mark Potato\"\n\n' Get all comments\nDim arrComments As Comments\nSet arrComments = ActiveSheet.Comments\n\n' Set cell values based on comment details\noWorksheet.Range(\"A1\").Value = \"Comment text: \" & arrComments(2).Text\noWorksheet.Range(\"A2\").Value = \"Comment author: \" & arrComments(2).Author"
+}
+```

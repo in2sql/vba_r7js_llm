@@ -1,0 +1,9 @@
+```json
+{
+  "Description": "This example adds a tab stop to the paragraph.",
+  "Code": {
+    "OnlyOffice_JS": "// This example adds a tab stop to the paragraph.\nvar oWorksheet = Api.GetActiveSheet();\nvar oFill = Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61));\nvar oStroke = Api.CreateStroke(0, Api.CreateNoFill());\nvar oShape = oWorksheet.AddShape(\"flowChartOnlineStorage\", 120 * 36000, 70 * 36000, oFill, oStroke, 0, 2 * 36000, 0, 3 * 36000);\nvar oDocContent = oShape.GetContent();\nvar oParagraph = oDocContent.GetElement(0);\noParagraph.AddText(\"This is just a sample text. After it three tab stops will be added.\");\noParagraph.AddTabStop();\noParagraph.AddTabStop();\noParagraph.AddTabStop();\noParagraph.AddText(\"This is the text which starts after the tab stops.\");",
+    "Excel_VBA": "' This example adds a tab stop to the paragraph.\nSub AddShapeWithTabStops()\n    Dim oSheet As Worksheet\n    Dim oShape As Shape\n\n    Set oSheet = ActiveSheet\n\n    ' Add a shape\n    Set oShape = oSheet.Shapes.AddShape(msoShapeFlowchartDatabase, 120, 70, 120, 70)\n\n    ' Set fill color to RGB(255,111,61)\n    oShape.Fill.ForeColor.RGB = RGB(255, 111, 61)\n\n    ' Set no line\n    oShape.Line.Visible = msoFalse\n\n    ' Add text with tabs\n    oShape.TextFrame2.TextRange.Text = \"This is just a sample text. After it three tab stops will be added.\" & vbTab & vbTab & vbTab & \"This is the text which starts after the tab stops.\"\nEnd Sub"
+  }
+}
+```

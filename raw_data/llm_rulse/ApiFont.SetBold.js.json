@@ -1,0 +1,31 @@
+```json
+{
+  "description": "This example sets the bold property to the specified font.",
+  "code_equivalents": [
+    {
+      "OnlyOffice_JS": "var oWorksheet = Api.GetActiveSheet();",
+      "Excel_VBA": "Dim oWorksheet As Worksheet\nSet oWorksheet = ActiveSheet"
+    },
+    {
+      "OnlyOffice_JS": "var oRange = oWorksheet.GetRange(\"B1\");",
+      "Excel_VBA": "Dim oRange As Range\nSet oRange = oWorksheet.Range(\"B1\")"
+    },
+    {
+      "OnlyOffice_JS": "oRange.SetValue(\"This is just a sample text.\");",
+      "Excel_VBA": "oRange.Value = \"This is just a sample text.\""
+    },
+    {
+      "OnlyOffice_JS": "var oCharacters = oRange.GetCharacters(9, 4);",
+      "Excel_VBA": "Dim oCharacters As Characters\nSet oCharacters = oRange.Characters(Start:=9, Length:=4)"
+    },
+    {
+      "OnlyOffice_JS": "var oFont = oCharacters.GetFont();",
+      "Excel_VBA": "Dim oFont As Font\nSet oFont = oCharacters.Font"
+    },
+    {
+      "OnlyOffice_JS": "oFont.SetBold(true);",
+      "Excel_VBA": "oFont.Bold = True"
+    }
+  ]
+}
+```

@@ -1,0 +1,76 @@
+```json
+{
+  "RAG_Table": [
+    {
+      "Description": "Get the active worksheet",
+      "OnlyOfficeJS": "var oWorksheet = Api.GetActiveSheet();",
+      "ExcelVBA": "Dim oWorksheet As Worksheet\nSet oWorksheet = ActiveSheet"
+    },
+    {
+      "Description": "Set header values in cells B1, C1, and D1",
+      "OnlyOfficeJS": "oWorksheet.GetRange('B1').SetValue('Region');\noWorksheet.GetRange('C1').SetValue('Style');\noWorksheet.GetRange('D1').SetValue('Price');",
+      "ExcelVBA": "oWorksheet.Range(\"B1\").Value = \"Region\"\noWorksheet.Range(\"C1\").Value = \"Style\"\noWorksheet.Range(\"D1\").Value = \"Price\""
+    },
+    {
+      "Description": "Set values in column B (B2 to B5)",
+      "OnlyOfficeJS": "oWorksheet.GetRange('B2').SetValue('East');\noWorksheet.GetRange('B3').SetValue('West');\noWorksheet.GetRange('B4').SetValue('East');\noWorksheet.GetRange('B5').SetValue('West');",
+      "ExcelVBA": "oWorksheet.Range(\"B2\").Value = \"East\"\noWorksheet.Range(\"B3\").Value = \"West\"\noWorksheet.Range(\"B4\").Value = \"East\"\noWorksheet.Range(\"B5\").Value = \"West\""
+    },
+    {
+      "Description": "Set values in column C (C2 to C5)",
+      "OnlyOfficeJS": "oWorksheet.GetRange('C2').SetValue('Fancy');\noWorksheet.GetRange('C3').SetValue('Tee');\noWorksheet.GetRange('C4').SetValue('Tee');\noWorksheet.GetRange('C5').SetValue('Tee');",
+      "ExcelVBA": "oWorksheet.Range(\"C2\").Value = \"Fancy\"\noWorksheet.Range(\"C3\").Value = \"Tee\"\noWorksheet.Range(\"C4\").Value = \"Tee\"\noWorksheet.Range(\"C5\").Value = \"Tee\""
+    },
+    {
+      "Description": "Set values in column D (D2 to D5)",
+      "OnlyOfficeJS": "oWorksheet.GetRange('D2').SetValue(42.5);\noWorksheet.GetRange('D3').SetValue(35.2);\noWorksheet.GetRange('D4').SetValue(12.3);\noWorksheet.GetRange('D5').SetValue(24.8);",
+      "ExcelVBA": "oWorksheet.Range(\"D2\").Value = 42.5\noWorksheet.Range(\"D3\").Value = 35.2\noWorksheet.Range(\"D4\").Value = 12.3\noWorksheet.Range(\"D5\").Value = 24.8"
+    },
+    {
+      "Description": "Get the data range B1:D5",
+      "OnlyOfficeJS": "var dataRef = Api.GetRange(\"'Sheet1'!$B$1:$D$5\");",
+      "ExcelVBA": "Dim dataRef As Range\nSet dataRef = oWorksheet.Range(\"B1:D5\")"
+    },
+    {
+      "Description": "Insert a new pivot table in a new worksheet based on dataRef",
+      "OnlyOfficeJS": "var pivotTable = Api.InsertPivotNewWorksheet(dataRef);",
+      "ExcelVBA": "Dim pivotTable As PivotTable\nDim pivotCache As PivotCache\nSet pivotCache = ThisWorkbook.PivotCaches.Create(SourceType:=xlDatabase, SourceData:=dataRef)\nSet pivotTable = pivotCache.CreatePivotTable(TableDestination:=Sheets.Add().Range(\"A3\"), TableName:=\"PivotTable1\")"
+    },
+    {
+      "Description": "Add rows fields 'Region' and 'Style' to the pivot table",
+      "OnlyOfficeJS": "pivotTable.AddFields({ rows: ['Region', 'Style'] });",
+      "ExcelVBA": "With pivotTable\n    .PivotFields(\"Region\").Orientation = xlRowField\n    .PivotFields(\"Style\").Orientation = xlRowField\nEnd With"
+    },
+    {
+      "Description": "Add 'Price' as a data field to the pivot table",
+      "OnlyOfficeJS": "pivotTable.AddDataField('Price');",
+      "ExcelVBA": "With pivotTable.PivotFields(\"Price\")\n    .Orientation = xlDataField\n    .Function = xlSum\n    .Name = \"Sum of Price\"\nEnd With"
+    },
+    {
+      "Description": "Get the pivot worksheet",
+      "OnlyOfficeJS": "var pivotWorksheet = Api.GetActiveSheet();",
+      "ExcelVBA": "Dim pivotWorksheet As Worksheet\nSet pivotWorksheet = ActiveSheet"
+    },
+    {
+      "Description": "Get the 'Style' pivot field",
+      "OnlyOfficeJS": "var pivotField = pivotTable.GetPivotFields('Style');",
+      "ExcelVBA": "Dim pivotField As PivotField\nSet pivotField = pivotTable.PivotFields(\"Style\")"
+    },
+    {
+      "Description": "Set 'ShowAllItems' to true for the 'Style' pivot field",
+      "OnlyOfficeJS": "pivotField.SetShowAllItems(true);",
+      "ExcelVBA": "pivotField.ShowAllItems = True"
+    },
+    {
+      "Description": "Set value 'Style get show all items' in cell A12",
+      "OnlyOfficeJS": "pivotWorksheet.GetRange('A12').SetValue('Style get show all items');",
+      "ExcelVBA": "pivotWorksheet.Range(\"A12\").Value = \"Style get show all items\""
+    },
+    {
+      "Description": "Set the value of 'ShowAllItems' status in cell B12",
+      "OnlyOfficeJS": "pivotWorksheet.GetRange('B12').SetValue(pivotField.GetShowAllItems());",
+      "ExcelVBA": "pivotWorksheet.Range(\"B12\").Value = pivotField.ShowAllItems"
+    }
+  ]
+}
+```

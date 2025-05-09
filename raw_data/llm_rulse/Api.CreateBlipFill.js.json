@@ -1,0 +1,9 @@
+```json
+{
+  "description": "Creates a blip fill to apply to the object using the selected image as the object background.",
+  "RAG": {
+    "OnlyOffice_JS": "// This example creates a blip fill to apply to the object using the selected image as the object background.\nvar oWorksheet = Api.GetActiveSheet();\nvar oFill = Api.CreateBlipFill(\"https://api.onlyoffice.com/content/img/docbuilder/examples/icon_DocumentEditors.png\", \"tile\");\nvar oStroke = Api.CreateStroke(0, Api.CreateNoFill());\noWorksheet.AddShape(\"flowChartOnlineStorage\", 60 * 36000, 35 * 36000, oFill, oStroke, 0, 2 * 36000, 1, 3 * 36000);",
+    "Excel_VBA": "' This example creates a blip fill to apply to the object using the selected image as the object background.\nDim oWorksheet As Worksheet\nDim oShape As Shape\n\nSet oWorksheet = ActiveSheet\nSet oShape = oWorksheet.Shapes.AddShape(msoShapeFlowchartOnlineStorage, 60, 35, 200, 100)\nWith oShape.Fill\n    .UserPicture \"https://api.onlyoffice.com/content/img/docbuilder/examples/icon_DocumentEditors.png\"\n    .Tile = msoTrue\nEnd With\nWith oShape.Line\n    .Weight = 0\n    .Visible = msoFalse\nEnd With"
+  }
+}
+```

@@ -1,0 +1,27 @@
+```json
+{
+  "description": "This example sets the comment text for cell A1.",
+  "table": [
+    {
+      "OnlyOffice JS": "var oWorksheet = Api.GetActiveSheet();",
+      "Excel VBA": "Set oWorksheet = ActiveWorkbook.ActiveSheet"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"A1\").SetValue(\"1\");",
+      "Excel VBA": "oWorksheet.Range(\"A1\").Value = \"1\""
+    },
+    {
+      "OnlyOffice JS": "var oRange = oWorksheet.GetRange(\"A1\");",
+      "Excel VBA": "Set oRange = oWorksheet.Range(\"A1\")"
+    },
+    {
+      "OnlyOffice JS": "var oComment = oRange.AddComment(\"This is just a number.\");",
+      "Excel VBA": "Set oComment = oRange.AddComment(\"This is just a number.\")"
+    },
+    {
+      "OnlyOffice JS": "oComment.SetText(\"New comment text\");",
+      "Excel VBA": "oComment.Text \"New comment text\""
+    }
+  ]
+}
+```

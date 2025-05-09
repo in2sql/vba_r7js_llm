@@ -1,0 +1,47 @@
+```json
+{
+  "Description": "This code demonstrates setting a value in a cell, modifying the font size of a substring, and then retrieving and displaying the font size of that substring in both OnlyOffice JavaScript API and Excel VBA.",
+  "CodeEquivalents": [
+    {
+      "Action": "Get Active Sheet",
+      "OnlyOffice_JS": "var oWorksheet = Api.GetActiveSheet();",
+      "Excel_VBA": "Dim oWorksheet As Worksheet\nSet oWorksheet = ActiveSheet"
+    },
+    {
+      "Action": "Get Range B1",
+      "OnlyOffice_JS": "var oRange = oWorksheet.GetRange(\"B1\");",
+      "Excel_VBA": "Dim oRange As Range\nSet oRange = oWorksheet.Range(\"B1\")"
+    },
+    {
+      "Action": "Set Value in B1",
+      "OnlyOffice_JS": "oRange.SetValue(\"This is just a sample text.\");",
+      "Excel_VBA": "oRange.Value = \"This is just a sample text.\""
+    },
+    {
+      "Action": "Get Characters 9-12",
+      "OnlyOffice_JS": "var oCharacters = oRange.GetCharacters(9, 4);",
+      "Excel_VBA": "Dim oCharacters As Characters\nSet oCharacters = oRange.Characters(Start:=9, Length:=4)"
+    },
+    {
+      "Action": "Get Font",
+      "OnlyOffice_JS": "var oFont = oCharacters.GetFont();",
+      "Excel_VBA": "Dim oFont As Font\nSet oFont = oCharacters.Font"
+    },
+    {
+      "Action": "Set Font Size",
+      "OnlyOffice_JS": "oFont.SetSize(18);",
+      "Excel_VBA": "oFont.Size = 18"
+    },
+    {
+      "Action": "Get Font Size",
+      "OnlyOffice_JS": "var nSize = oFont.GetSize();",
+      "Excel_VBA": "Dim nSize As Integer\nnSize = oFont.Size"
+    },
+    {
+      "Action": "Set Value in B3",
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"B3\").SetValue(\"Size property: \" + nSize);",
+      "Excel_VBA": "oWorksheet.Range(\"B3\").Value = \"Size property: \" & nSize"
+    }
+  ]
+}
+```

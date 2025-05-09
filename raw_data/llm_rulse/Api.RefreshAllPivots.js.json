@@ -1,0 +1,55 @@
+```json
+{
+  "Description": "The code populates specific cells in the active worksheet, retrieves a data range, creates a pivot table on a new worksheet, adds row and data fields to the pivot table, and refreshes all pivot tables.",
+  "Table": [
+    {
+      "OnlyOffice JS": "var oWorksheet = Api.GetActiveSheet();",
+      "Excel VBA": "Dim oWorksheet As Worksheet\nSet oWorksheet = ThisWorkbook.ActiveSheet"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange('B1').SetValue('Region');",
+      "Excel VBA": "oWorksheet.Range(\"B1\").Value = \"Region\""
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange('C1').SetValue('Price');",
+      "Excel VBA": "oWorksheet.Range(\"C1\").Value = \"Price\""
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange('B2').SetValue('East');",
+      "Excel VBA": "oWorksheet.Range(\"B2\").Value = \"East\""
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange('B3').SetValue('West');",
+      "Excel VBA": "oWorksheet.Range(\"B3\").Value = \"West\""
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange('C2').SetValue(42.5);",
+      "Excel VBA": "oWorksheet.Range(\"C2\").Value = 42.5"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange('C3').SetValue(35.2);",
+      "Excel VBA": "oWorksheet.Range(\"C3\").Value = 35.2"
+    },
+    {
+      "OnlyOffice JS": "var dataRef = Api.GetRange(\"'Sheet1'!$B$1:$C$3\");",
+      "Excel VBA": "Dim dataRef As Range\nSet dataRef = ThisWorkbook.Sheets(\"Sheet1\").Range(\"B1:C3\")"
+    },
+    {
+      "OnlyOffice JS": "var pivotTable = Api.InsertPivotNewWorksheet(dataRef);",
+      "Excel VBA": "Dim pivotTable As PivotTable\nDim pivotSheet As Worksheet\nSet pivotSheet = ThisWorkbook.Worksheets.Add\nSet pivotTable = pivotSheet.PivotTableWizard(SourceType:=xlDatabase, SourceData:=dataRef)"
+    },
+    {
+      "OnlyOffice JS": "Api.GetPivotByName(pivotTable.GetName()).AddFields({ rows: 'Region' });",
+      "Excel VBA": "With pivotTable\n    .PivotFields(\"Region\").Orientation = xlRowField\nEnd With"
+    },
+    {
+      "OnlyOffice JS": "Api.GetPivotByName(pivotTable.GetName()).AddDataField('Price');",
+      "Excel VBA": "With pivotTable\n    .AddDataField .PivotFields(\"Price\"), \"Sum of Price\", xlSum\nEnd With"
+    },
+    {
+      "OnlyOffice JS": "Api.RefreshAllPivots();",
+      "Excel VBA": "ThisWorkbook.RefreshAll"
+    }
+  ]
+}
+```

@@ -1,0 +1,11 @@
+```json
+{
+  "RAG_Table": [
+    {
+      "Description": "This example freezes the specified range in the top-and-left-most pane of the worksheet.",
+      "OnlyOffice_JS": "// This example freezes the specified range in top-and-left-most pane of the worksheet.\nvar oWorksheet = Api.GetActiveSheet();\nvar oFreezePanes = oWorksheet.GetFreezePanes();\nvar oRange = Api.GetRange('H2:K4');\noFreezePanes.FreezeAt(oRange);",
+      "Excel_VBA": "With ActiveWindow\n    .FreezePanes = False\n    Range(\"H2:K4\").Select\n    .FreezePanes = True\nEnd With"
+    }
+  ]
+}
+```

@@ -1,0 +1,34 @@
+```json
+[
+  {
+    "Description": "Gets the active worksheet",
+    "VBA": "Set oWorksheet = ActiveSheet",
+    "OnlyOfficeJS": "var oWorksheet = Api.GetActiveSheet();"
+  },
+  {
+    "Description": "Creates a color from RGB values (255, 111, 61)",
+    "VBA": "oColor = RGB(255, 111, 61)",
+    "OnlyOfficeJS": "var oColor = Api.CreateColorFromRGB(255, 111, 61);"
+  },
+  {
+    "Description": "Sets the value of cell A2 to 'Text with color'",
+    "VBA": "oWorksheet.Range(\"A2\").Value = \"Text with color\"",
+    "OnlyOfficeJS": "oWorksheet.GetRange(\"A2\").SetValue(\"Text with color\");"
+  },
+  {
+    "Description": "Sets the font color of cell A2",
+    "VBA": "oWorksheet.Range(\"A2\").Font.Color = oColor",
+    "OnlyOfficeJS": "oWorksheet.GetRange(\"A2\").SetFontColor(oColor);"
+  },
+  {
+    "Description": "Gets the RGB value of the color",
+    "VBA": "nColor = oColor",
+    "OnlyOfficeJS": "var nColor = oColor.GetRGB();"
+  },
+  {
+    "Description": "Sets the value of cell A4 to display the RGB color",
+    "VBA": "oWorksheet.Range(\"A4\").Value = \"Cell color in RGB format: \" & nColor",
+    "OnlyOfficeJS": "oWorksheet.GetRange(\"A4\").SetValue(\"Cell color in RGB format: \" + nColor);"
+  }
+]
+```

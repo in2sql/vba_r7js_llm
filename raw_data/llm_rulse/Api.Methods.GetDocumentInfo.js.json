@@ -1,0 +1,7 @@
+```json
+{
+  "description": "This example shows how to get the document info and paste the application name into the 'A1' cell.",
+  "OnlyOffice_JS": "// This example shows how to get the document info represented as an object and paste the application name into \"A1\" cell.\nconst oDocInfo = Api.GetDocumentInfo();\nconst oRange = Api.GetActiveSheet().GetRange('A1');\noRange.SetValue('This document has been created with: ' + oDocInfo.Application);",
+  "Excel_VBA": "' This example shows how to get the document info and paste the application name into A1 cell\nSub SetApplicationName()\n    Dim oDocInfo As DocumentInfo\n    Set oDocInfo = Application.Info\n    Range(\"A1\").Value = \"This document has been created with: \" & oDocInfo.Application\nEnd Sub"
+}
+```

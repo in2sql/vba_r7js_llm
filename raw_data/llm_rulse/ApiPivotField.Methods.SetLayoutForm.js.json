@@ -1,0 +1,69 @@
+```json
+[
+  {
+    "Description": "Get the active worksheet",
+    "OnlyOfficeJS": "var oWorksheet = Api.GetActiveSheet();",
+    "ExcelVBA": "Dim oWorksheet As Worksheet\nSet oWorksheet = ActiveSheet"
+  },
+  {
+    "Description": "Set headers in B1, C1, D1",
+    "OnlyOfficeJS": "\n oWorksheet.GetRange('B1').SetValue('Region');\n oWorksheet.GetRange('C1').SetValue('Style');\n oWorksheet.GetRange('D1').SetValue('Price');",
+    "ExcelVBA": "\n oWorksheet.Range(\"B1\").Value = \"Region\"\n oWorksheet.Range(\"C1\").Value = \"Style\"\n oWorksheet.Range(\"D1\").Value = \"Price\""
+  },
+  {
+    "Description": "Set values in B2 to B5",
+    "OnlyOfficeJS": "\n oWorksheet.GetRange('B2').SetValue('East');\n oWorksheet.GetRange('B3').SetValue('West');\n oWorksheet.GetRange('B4').SetValue('East');\n oWorksheet.GetRange('B5').SetValue('West');",
+    "ExcelVBA": "\n oWorksheet.Range(\"B2\").Value = \"East\"\n oWorksheet.Range(\"B3\").Value = \"West\"\n oWorksheet.Range(\"B4\").Value = \"East\"\n oWorksheet.Range(\"B5\").Value = \"West\""
+  },
+  {
+    "Description": "Set values in C2 to C5",
+    "OnlyOfficeJS": "\n oWorksheet.GetRange('C2').SetValue('Fancy');\n oWorksheet.GetRange('C3').SetValue('Fancy');\n oWorksheet.GetRange('C4').SetValue('Tee');\n oWorksheet.GetRange('C5').SetValue('Tee');",
+    "ExcelVBA": "\n oWorksheet.Range(\"C2\").Value = \"Fancy\"\n oWorksheet.Range(\"C3\").Value = \"Fancy\"\n oWorksheet.Range(\"C4\").Value = \"Tee\"\n oWorksheet.Range(\"C5\").Value = \"Tee\""
+  },
+  {
+    "Description": "Set values in D2 to D5",
+    "OnlyOfficeJS": "\n oWorksheet.GetRange('D2').SetValue(42.5);\n oWorksheet.GetRange('D3').SetValue(35.2);\n oWorksheet.GetRange('D4').SetValue(12.3);\n oWorksheet.GetRange('D5').SetValue(24.8);",
+    "ExcelVBA": "\n oWorksheet.Range(\"D2\").Value = 42.5\n oWorksheet.Range(\"D3\").Value = 35.2\n oWorksheet.Range(\"D4\").Value = 12.3\n oWorksheet.Range(\"D5\").Value = 24.8"
+  },
+  {
+    "Description": "Get the data range for the pivot table",
+    "OnlyOfficeJS": "var dataRef = Api.GetRange(\"'Sheet1'!$B$1:$D$5\");",
+    "ExcelVBA": "Dim dataRef As Range\nSet dataRef = oWorksheet.Range(\"B1:D5\")"
+  },
+  {
+    "Description": "Insert a new pivot table worksheet",
+    "OnlyOfficeJS": "var pivotTable = Api.InsertPivotNewWorksheet(dataRef);",
+    "ExcelVBA": "Dim pivotTable As PivotTable\nDim pivotSheet As Worksheet\nSet pivotSheet = Worksheets.Add\nSet pivotTable = pivotSheet.PivotTableWizard(SourceType:=xlDatabase, SourceData:=dataRef)"
+  },
+  {
+    "Description": "Add row fields 'Region' and 'Style' to the pivot table",
+    "OnlyOfficeJS": "\n pivotTable.AddFields({\n \trows: ['Region', 'Style'],\n });",
+    "ExcelVBA": "\n With pivotTable\n \t.PivotFields(\"Region\").Orientation = xlRowField\n \t.PivotFields(\"Style\").Orientation = xlRowField\n End With"
+  },
+  {
+    "Description": "Add 'Price' as a data field in the pivot table",
+    "OnlyOfficeJS": "pivotTable.AddDataField('Price');",
+    "ExcelVBA": "With pivotTable\n \t.PivotFields(\"Price\").Orientation = xlDataField\n \t.PivotFields(\"Price\").Function = xlSum\n End With"
+  },
+  {
+    "Description": "Get the active sheet containing the pivot table",
+    "OnlyOfficeJS": "var pivotWorksheet = Api.GetActiveSheet();",
+    "ExcelVBA": "Set pivotWorksheet = ActiveSheet"
+  },
+  {
+    "Description": "Get the 'Region' pivot field",
+    "OnlyOfficeJS": "var pivotField = pivotTable.GetPivotFields('Region');",
+    "ExcelVBA": "Dim pivotField As PivotField\nSet pivotField = pivotTable.PivotFields(\"Region\")"
+  },
+  {
+    "Description": "Set the layout form of 'Region' field to 'Tabular'",
+    "OnlyOfficeJS": "pivotField.SetLayoutForm(\"Tabular\");",
+    "ExcelVBA": "pivotField.LayoutForm = xlTabular"
+  },
+  {
+    "Description": "Set values in A12 and B12 in the pivot worksheet",
+    "OnlyOfficeJS": "\n pivotWorksheet.GetRange('A12').SetValue('Region layout form');\n pivotWorksheet.GetRange('B12').SetValue(pivotField.GetLayoutForm());",
+    "ExcelVBA": "\n pivotWorksheet.Range(\"A12\").Value = \"Region layout form\"\n pivotWorksheet.Range(\"B12\").Value = pivotField.LayoutForm"
+  }
+]
+```

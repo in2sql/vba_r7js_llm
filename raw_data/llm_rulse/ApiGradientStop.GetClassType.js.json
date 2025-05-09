@@ -1,0 +1,59 @@
+```json
+{
+  "table": {
+    "headers": ["Description", "OnlyOffice JS", "Excel VBA"],
+    "rows": [
+      {
+        "Description": "Gets the active worksheet",
+        "OnlyOffice JS": "var oWorksheet = Api.GetActiveSheet();",
+        "Excel VBA": "Set oWorksheet = ActiveWorkbook.ActiveSheet"
+      },
+      {
+        "Description": "Creates the first gradient stop with RGB color and position",
+        "OnlyOffice JS": "var oGs1 = Api.CreateGradientStop(Api.CreateRGBColor(255, 213, 191), 0);",
+        "Excel VBA": "Set oGs1 = oFill.GradientStops.Insert(0)\noGs1.Color = RGB(255, 213, 191)"
+      },
+      {
+        "Description": "Creates the second gradient stop with RGB color and position",
+        "OnlyOffice JS": "var oGs2 = Api.CreateGradientStop(Api.CreateRGBColor(255, 111, 61), 100000);",
+        "Excel VBA": "Set oGs2 = oFill.GradientStops.Insert(1)\noGs2.Color = RGB(255, 111, 61)"
+      },
+      {
+        "Description": "Creates a linear gradient fill with the gradient stops and angle",
+        "OnlyOffice JS": "var oFill = Api.CreateLinearGradientFill([oGs1, oGs2], 5400000);",
+        "Excel VBA": "Set oFill = oWorksheet.Shapes.AddShape(msoShapeRectangle, 0, 0, 100, 100).Fill\nWith oFill\n    .TwoColorGradient msoGradientHorizontal, 1\n    .GradientStops.Clear\n    .GradientStops.Insert RGB(255, 213, 191), 0\n    .GradientStops.Insert RGB(255, 111, 61), 1\nEnd With"
+      },
+      {
+        "Description": "Creates a stroke with no fill",
+        "OnlyOffice JS": "var oStroke = Api.CreateStroke(0, Api.CreateNoFill());",
+        "Excel VBA": "Set oStroke = oFill.Stroke\nWith oStroke\n    .DashStyle = msoLineSolid\n    .Visible = msoFalse\nEnd With"
+      },
+      {
+        "Description": "Adds a shape to the worksheet with specified parameters",
+        "OnlyOffice JS": "oWorksheet.AddShape(\"flowChartOnlineStorage\", 60 * 36000, 35 * 36000, oFill, oStroke, 0, 2 * 36000, 1, 3 * 36000);",
+        "Excel VBA": "oWorksheet.Shapes.AddShape(msoShapeFlowchartData, 60, 35, 200, 150).Select\nWith Selection.ShapeRange.Fill\n    .ForeColor.RGB = RGB(255, 213, 191)\nEnd With"
+      },
+      {
+        "Description": "Gets the class type of the first gradient stop",
+        "OnlyOffice JS": "var sClassType = oGs1.GetClassType();",
+        "Excel VBA": "sClassType = TypeName(oGs1)"
+      },
+      {
+        "Description": "Sets the width of the first column to 15",
+        "OnlyOffice JS": "oWorksheet.SetColumnWidth(0, 15);",
+        "Excel VBA": "oWorksheet.Columns(1).ColumnWidth = 15"
+      },
+      {
+        "Description": "Sets the width of the second column to 10",
+        "OnlyOffice JS": "oWorksheet.SetColumnWidth(1, 10);",
+        "Excel VBA": "oWorksheet.Columns(2).ColumnWidth = 10"
+      },
+      {
+        "Description": "Sets the value of cell A1 with the class type",
+        "OnlyOffice JS": "oWorksheet.GetRange(\"A1\").SetValue(\"Class Type = \" + sClassType);",
+        "Excel VBA": "oWorksheet.Range(\"A1\").Value = \"Class Type = \" & sClassType"
+      }
+    ]
+  }
+}
+```

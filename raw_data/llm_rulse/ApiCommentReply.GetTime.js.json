@@ -1,0 +1,40 @@
+```json
+{
+  "description": "This script sets a value in cell A1, adds a comment with a reply, and then retrieves the timestamp of the reply.",
+  "columns": ["OnlyOffice JS", "Excel VBA"],
+  "rows": [
+    {
+      "OnlyOffice JS": "var oWorksheet = Api.GetActiveSheet();",
+      "Excel VBA": "Dim oWorksheet As Worksheet\nSet oWorksheet = ActiveSheet"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"A1\").SetValue(\"1\");",
+      "Excel VBA": "oWorksheet.Range(\"A1\").Value = \"1\""
+    },
+    {
+      "OnlyOffice JS": "var oRange = oWorksheet.GetRange(\"A1\");",
+      "Excel VBA": "Dim oRange As Range\nSet oRange = oWorksheet.Range(\"A1\")"
+    },
+    {
+      "OnlyOffice JS": "var oComment = oRange.AddComment(\"This is just a number.\");",
+      "Excel VBA": "Dim oComment As Comment\nSet oComment = oRange.AddComment(\"This is just a number.\")"
+    },
+    {
+      "OnlyOffice JS": "oComment.AddReply(\"Reply 1\", \"John Smith\", \"uid-1\");",
+      "Excel VBA": "oComment.Reply \"Reply 1\", \"John Smith\""
+    },
+    {
+      "OnlyOffice JS": "var oReply = oComment.GetReply();",
+      "Excel VBA": "Dim oReply As Comment\nSet oReply = oComment.Replies(1)"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"A3\").SetValue(\"Comment's reply timestamp: \");",
+      "Excel VBA": "oWorksheet.Range(\"A3\").Value = \"Comment's reply timestamp: \""
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"B3\").SetValue(oReply.GetTime());",
+      "Excel VBA": "oWorksheet.Range(\"B3\").Value = oReply.Date"
+    }
+  ]
+}
+```

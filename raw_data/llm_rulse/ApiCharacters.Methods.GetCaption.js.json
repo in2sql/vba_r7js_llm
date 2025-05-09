@@ -1,0 +1,31 @@
+```json
+{
+  "description": "This example demonstrates how to set a value in cell B1, extract a substring from the text in B1, retrieve its caption, and display the caption in cell B3.",
+  "methods": [
+    {
+      "OnlyOffice JS": "var oWorksheet = Api.GetActiveSheet();",
+      "VBA": "Set oWorksheet = ActiveSheet"
+    },
+    {
+      "OnlyOffice JS": "var oRange = oWorksheet.GetRange(\"B1\");",
+      "VBA": "Set oRange = oWorksheet.Range(\"B1\")"
+    },
+    {
+      "OnlyOffice JS": "oRange.SetValue(\"This is just a sample text.\");",
+      "VBA": "oRange.Value = \"This is just a sample text.\""
+    },
+    {
+      "OnlyOffice JS": "var oCharacters = oRange.GetCharacters(23, 4);",
+      "VBA": "Set oCharacters = oRange.Characters(23, 4)"
+    },
+    {
+      "OnlyOffice JS": "var sCaption = oCharacters.GetCaption();",
+      "VBA": "sCaption = oCharacters.Caption"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"B3\").SetValue(\"Caption: \" + sCaption);",
+      "VBA": "oWorksheet.Range(\"B3\").Value = \"Caption: \" & sCaption"
+    }
+  ]
+}
+```

@@ -1,0 +1,7 @@
+```json
+{
+  "Description": "This example marks a comment as solved.",
+  "OnlyOfficeJS": "// This example marks a comment as solved.\nvar oWorksheet = Api.GetActiveSheet();\noWorksheet.GetRange(\"A1\").SetValue(\"1\");\nvar oRange = oWorksheet.GetRange(\"A1\");\nvar oComment = oRange.AddComment(\"This is just a number.\", \"John Smith\");\noWorksheet.GetRange(\"A3\").SetValue(\"Comment is solved: \");\noComment.SetSolved(true);\noWorksheet.GetRange(\"B3\").SetValue(oComment.IsSolved());",
+  "ExcelVBA": "' This example marks a comment as solved.\nDim oWorksheet As Worksheet\nSet oWorksheet = ActiveSheet\n\noWorksheet.Range(\"A1\").Value = \"1\"\nDim oRange As Range\nSet oRange = oWorksheet.Range(\"A1\")\nDim oComment As Comment\nSet oComment = oRange.AddComment(\"This is just a number.\")\noComment.Author = \"John Smith\"\n\noWorksheet.Range(\"A3\").Value = \"Comment is solved: \"\n' VBA does not have a native SetSolved method. You can simulate it by adding text or using a custom property.\noseSolved = True ' Custom flag to indicate the comment is solved\noWorksheet.Range(\"B3\").Value = osolved"
+}
+```

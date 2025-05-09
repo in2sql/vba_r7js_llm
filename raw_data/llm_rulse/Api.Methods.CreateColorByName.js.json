@@ -1,0 +1,29 @@
+```json
+{
+  "table": {
+    "headers": ["Description", "OnlyOffice JS", "Excel VBA"],
+    "rows": [
+      {
+        "Description": "Gets the active worksheet",
+        "OnlyOffice JS": "var oWorksheet = Api.GetActiveSheet();",
+        "Excel VBA": "Set oWorksheet = ActiveSheet"
+      },
+      {
+        "Description": "Creates a color by name 'peachPuff'",
+        "OnlyOffice JS": "var oColor = Api.CreateColorByName(\"peachPuff\");",
+        "Excel VBA": "Dim oColor As Long\noColor = RGB(255, 218, 185)"
+      },
+      {
+        "Description": "Sets the value of cell A2 to 'Text with color'",
+        "OnlyOffice JS": "oWorksheet.GetRange(\"A2\").SetValue(\"Text with color\");",
+        "Excel VBA": "oWorksheet.Range(\"A2\").Value = \"Text with color\""
+      },
+      {
+        "Description": "Sets the font color of cell A2",
+        "OnlyOffice JS": "oWorksheet.GetRange(\"A2\").SetFontColor(oColor);",
+        "Excel VBA": "oWorksheet.Range(\"A2\").Font.Color = oColor"
+      }
+    ]
+  }
+}
+```

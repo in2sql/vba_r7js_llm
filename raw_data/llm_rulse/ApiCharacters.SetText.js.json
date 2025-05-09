@@ -1,0 +1,27 @@
+```json
+{
+  "description": "Sets the text for the specified characters.",
+  "methods": [
+    {
+      "OnlyOfficeJS": "var oWorksheet = Api.GetActiveSheet();",
+      "ExcelVBA": "Set oWorksheet = ThisWorkbook.ActiveSheet"
+    },
+    {
+      "OnlyOfficeJS": "var oRange = oWorksheet.GetRange(\"B1\");",
+      "ExcelVBA": "Set oRange = oWorksheet.Range(\"B1\")"
+    },
+    {
+      "OnlyOfficeJS": "oRange.SetValue(\"This is just a sample text.\");",
+      "ExcelVBA": "oRange.Value = \"This is just a sample text.\""
+    },
+    {
+      "OnlyOfficeJS": "var oCharacters = oRange.GetCharacters(23, 4);",
+      "ExcelVBA": "Set oCharacters = oRange.Characters(Start:=23, Length:=4)"
+    },
+    {
+      "OnlyOfficeJS": "oCharacters.SetText(\"string\");",
+      "ExcelVBA": "oCharacters.Text = \"string\""
+    }
+  ]
+}
+```

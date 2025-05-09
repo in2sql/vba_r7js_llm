@@ -1,0 +1,11 @@
+```json
+{
+  "Description": "This example shows how to get the string data from the OLE object.",
+  "Code": [
+    {
+      "OnlyOffice JS": "// This example shows how to get the string data from the OLE object.\nvar oWorksheet = Api.GetActiveSheet();\nvar oOleObject = oWorksheet.AddOleObject(\"https://api.onlyoffice.com/content/img/docbuilder/examples/ole-object-image.png\", 130 * 36000, 90 * 36000, \"https://youtu.be/SKGz4pmnpgY\", \"asc.{38E022EA-AD92-45FC-B22B-49DF39746DB4}\", 0, 2 * 36000, 4, 3 * 36000);\nvar sData = oOleObject.GetData();\noWorksheet.GetRange(\"A1\").SetValue(\"The OLE object data: \" + sData);",
+      "Excel VBA": "' This example shows how to get the string data from the OLE object.\nDim oWorksheet As Worksheet\nSet oWorksheet = ThisWorkbook.ActiveSheet\nDim oOleObject As OLEObject\nSet oOleObject = oWorksheet.OLEObjects.Add(Filename:=\"https://api.onlyoffice.com/content/img/docbuilder/examples/ole-object-image.png\", Link:=False, DisplayAsIcon:=True, IconURL:=\"https://youtu.be/SKGz4pmnpgY\", IconLabel:=\"asc.{38E022EA-AD92-45FC-B22B-49DF39746DB4}\", Left:=130 * 36000, Top:=90 * 36000, Width:=2 * 36000, Height:=3 * 36000)\nDim sData As String\nsData = oOleObject.Object.GetData()\noWorksheet.Range(\"A1\").Value = \"The OLE object data: \" & sData"
+    }
+  ]
+}
+```

@@ -1,0 +1,51 @@
+```json
+{
+  "description": "This code adds a shape to the active worksheet, styles it, and appends a paragraph with text and tab stops.",
+  "code": [
+    {
+      "OnlyOffice JS": "var oWorksheet = Api.GetActiveSheet();",
+      "Excel VBA": "Set oWorksheet = Api.GetActiveSheet()"
+    },
+    {
+      "OnlyOffice JS": "var oFill = Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61));",
+      "Excel VBA": "Set oFill = Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61))"
+    },
+    {
+      "OnlyOffice JS": "var oStroke = Api.CreateStroke(0, Api.CreateNoFill());",
+      "Excel VBA": "Set oStroke = Api.CreateStroke(0, Api.CreateNoFill())"
+    },
+    {
+      "OnlyOffice JS": "var oShape = oWorksheet.AddShape(\"flowChartOnlineStorage\", 120 * 36000, 70 * 36000, oFill, oStroke, 0, 2 * 36000, 0, 3 * 36000);",
+      "Excel VBA": "Set oShape = oWorksheet.AddShape(\"flowChartOnlineStorage\", 120 * 36000, 70 * 36000, oFill, oStroke, 0, 2 * 36000, 0, 3 * 36000)"
+    },
+    {
+      "OnlyOffice JS": "var oDocContent = oShape.GetContent();",
+      "Excel VBA": "Set oDocContent = oShape.GetContent()"
+    },
+    {
+      "OnlyOffice JS": "var oParagraph = oDocContent.GetElement(0);",
+      "Excel VBA": "Set oParagraph = oDocContent.GetElement(0)"
+    },
+    {
+      "OnlyOffice JS": "oParagraph.AddText(\"This is just a sample text. After it three tab stops will be added.\");",
+      "Excel VBA": "oParagraph.AddText \"This is just a sample text. After it three tab stops will be added.\""
+    },
+    {
+      "OnlyOffice JS": "oParagraph.AddTabStop();",
+      "Excel VBA": "oParagraph.AddTabStop"
+    },
+    {
+      "OnlyOffice JS": "oParagraph.AddTabStop();",
+      "Excel VBA": "oParagraph.AddTabStop"
+    },
+    {
+      "OnlyOffice JS": "oParagraph.AddTabStop();",
+      "Excel VBA": "oParagraph.AddTabStop"
+    },
+    {
+      "OnlyOffice JS": "oParagraph.AddText(\"This is the text which starts after the tab stops.\");",
+      "Excel VBA": "oParagraph.AddText \"This is the text which starts after the tab stops.\""
+    }
+  ]
+}
+```

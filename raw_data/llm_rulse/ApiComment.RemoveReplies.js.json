@@ -1,0 +1,43 @@
+```json
+{
+  "description": "This example removes the specified comment replies.",
+  "methods": [
+    {
+      "OnlyOffice JS": "var oWorksheet = Api.GetActiveSheet();",
+      "VBA": "Set oWorksheet = ActiveSheet"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"A1\").SetValue(\"1\");",
+      "VBA": "Range(\"A1\").Value = \"1\""
+    },
+    {
+      "OnlyOffice JS": "var oRange = oWorksheet.GetRange(\"A1\");",
+      "VBA": "Set oRange = Range(\"A1\")"
+    },
+    {
+      "OnlyOffice JS": "var oComment = oRange.AddComment(\"This is just a number.\");",
+      "VBA": "Set oComment = oRange.AddComment(\"This is just a number.\")"
+    },
+    {
+      "OnlyOffice JS": "oComment.AddReply(\"Reply 1\", \"John Smith\", \"uid-1\");",
+      "VBA": "oComment.Replies.Add \"Reply 1\", \"John Smith\""
+    },
+    {
+      "OnlyOffice JS": "oComment.AddReply(\"Reply 2\", \"John Smith\", \"uid-1\");",
+      "VBA": "oComment.Replies.Add \"Reply 2\", \"John Smith\""
+    },
+    {
+      "OnlyOffice JS": "oComment.RemoveReplies(0, 1, false);",
+      "VBA": "oComment.Replies.Delete 1"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"A3\").SetValue(\"Comment replies count: \");",
+      "VBA": "Range(\"A3\").Value = \"Comment replies count: \""
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"B3\").SetValue(oComment.GetRepliesCount());",
+      "VBA": "Range(\"B3\").Value = oComment.Replies.Count"
+    }
+  ]
+}
+```

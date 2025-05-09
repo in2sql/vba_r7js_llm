@@ -1,0 +1,7 @@
+```json
+{
+  "Description": "This code sets the application ID of the current OLE object in the active worksheet.",
+  "OnlyOffice_JS": "// This example sets the application ID to the current OLE object.\nvar oWorksheet = Api.GetActiveSheet();\nvar oOleObject = oWorksheet.AddOleObject(\"https://api.onlyoffice.com/content/img/docbuilder/examples/ole-object-image.png\", 130 * 36000, 90 * 36000, \"https://youtu.be/SKGz4pmnpgY\", \"asc.{38E022EA-AD92-45FC-B22B-49DF39746DB4}\", 0, 2 * 36000, 4, 3 * 36000);\noOleObject.SetApplicationId(\"asc.{E5773A43-F9B3-4E81-81D9-CE0A132470E7}\");",
+  "Excel_VBA": "' This example sets the application ID to the current OLE object.\nSub SetApplicationID()\n    Dim oWorksheet As Worksheet\n    Dim oOleObject As OLEObject\n    Set oWorksheet = ThisWorkbook.ActiveSheet\n    Set oOleObject = oWorksheet.OLEObjects.Add(Filename:=\"https://api.onlyoffice.com/content/img/docbuilder/examples/ole-object-image.png\", _\n        Link:=False, _\n        DisplayAsIcon:=False, _\n        Left:=130 * 36000, Top:=90 * 36000, Width:=2 * 36000, Height:=3 * 36000)\n    oOleObject.Object.ApplicationID = \"asc.{E5773A43-F9B3-4E81-81D9-CE0A132470E7}\"\nEnd Sub"
+}
+```

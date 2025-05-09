@@ -1,0 +1,7 @@
+```json
+{
+  "description": "This code retrieves the intersection of two ranges and sets the fill color of the resulting range.",
+  "VBA": "Sub SetIntersectionFillColor()\n    Dim ws As Worksheet\n    Dim rng1 As Range, rng2 As Range, intersectRng As Range\n\n    Set ws = ActiveSheet\n    Set rng1 = ws.Range(\"A1:C5\")\n    Set rng2 = ws.Range(\"B2:B4\")\n    Set intersectRng = Application.Intersect(rng1, rng2)\n\n    If Not intersectRng Is Nothing Then\n        intersectRng.Interior.Color = RGB(255, 213, 191)\n    End If\nEnd Sub",
+  "OnlyOfficeJS": "// This example shows how to get the ApiRange object that represents the rectangular intersection of two or more ranges.\nvar oWorksheet = Api.GetActiveSheet();\nvar oRange1 = oWorksheet.GetRange(\"A1:C5\");\nvar oRange2 = oWorksheet.GetRange(\"B2:B4\");\nvar oRange = Api.Intersect(oRange1, oRange2);\noRange.SetFillColor(Api.CreateColorFromRGB(255, 213, 191));"
+}
+```

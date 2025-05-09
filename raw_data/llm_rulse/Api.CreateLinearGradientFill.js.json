@@ -1,0 +1,31 @@
+```json
+{
+  "Description": "This example creates a linear gradient fill to apply to the object using the selected linear gradient as the object background.",
+  "CodeEquivalents": [
+    {
+      "OnlyOffice_JS": "var oWorksheet = Api.GetActiveSheet();",
+      "Excel_VBA": "Dim oWorksheet As Worksheet\nSet oWorksheet = ThisWorkbook.ActiveSheet"
+    },
+    {
+      "OnlyOffice_JS": "var oGs1 = Api.CreateGradientStop(Api.CreateRGBColor(255, 213, 191), 0);",
+      "Excel_VBA": "Dim oGs1 As GradientStop\nSet oGs1 = oFill.GradientStops.Insert(0)\noGs1.Color = RGB(255, 213, 191)"
+    },
+    {
+      "OnlyOffice_JS": "var oGs2 = Api.CreateGradientStop(Api.CreateRGBColor(255, 111, 61), 100000);",
+      "Excel_VBA": "Dim oGs2 As GradientStop\nSet oGs2 = oFill.GradientStops.Insert(1)\noGs2.Color = RGB(255, 111, 61)"
+    },
+    {
+      "OnlyOffice_JS": "var oFill = Api.CreateLinearGradientFill([oGs1, oGs2], 5400000);",
+      "Excel_VBA": "With oShape.Fill\n    .Visible = msoTrue\n    .ForeColor.RGB = RGB(255, 213, 191)\n    .BackColor.RGB = RGB(255, 111, 61)\n    .TwoColorGradient Style:=msoGradientHorizontal, Variant:=1\nEnd With"
+    },
+    {
+      "OnlyOffice_JS": "var oStroke = Api.CreateStroke(0, Api.CreateNoFill());",
+      "Excel_VBA": "With oShape.Line\n    .Visible = msoFalse\nEnd With"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.AddShape(\"flowChartOnlineStorage\", 60 * 36000, 35 * 36000, oFill, oStroke, 0, 2 * 36000, 1, 3 * 36000);",
+      "Excel_VBA": "Dim oShape As Shape\nSet oShape = oWorksheet.Shapes.AddShape(msoShapeFlowchartAlternateProcess, 60 * 36000 / 72, 35 * 36000 / 72, oWidth, oHeight)\nWith oShape\n    .Fill = oFill\n    .Line = oStroke\n    ' Additional properties as needed\nEnd With"
+    }
+  ]
+}
+```

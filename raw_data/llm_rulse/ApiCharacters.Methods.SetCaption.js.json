@@ -1,0 +1,11 @@
+```json
+{
+  "table": [
+    {
+      "Description": "This example sets a string value that represents the text of the specified range of characters.",
+      "VBA": "Sub SetRangeValue()\n    Dim oWorksheet As Worksheet\n    Dim oRange As Range\n    Dim oCharacters As Characters\n    \n    Set oWorksheet = ActiveSheet\n    Set oRange = oWorksheet.Range(\"B1\")\n    oRange.Value = \"This is just a sample text.\"\n    Set oCharacters = oRange.Characters(Start:=23, Length:=4)\n    oCharacters.Text = \"string\"\nEnd Sub",
+      "OnlyOfficeJS": "// This example sets a string value that represents the text of the specified range of characters.\nvar oWorksheet = Api.GetActiveSheet();\nvar oRange = oWorksheet.GetRange(\"B1\");\noRange.SetValue(\"This is just a sample text.\");\nvar oCharacters = oRange.GetCharacters(23, 4);\noCharacters.SetCaption(\"string\");"
+    }
+  ]
+}
+```

@@ -1,0 +1,7 @@
+```json
+{
+  "Description": "This example sets the user ID to the comment reply author.",
+  "OnlyOffice_JS": "// This example sets the user ID to the comment reply author.\nvar oWorksheet = Api.GetActiveSheet();\noWorksheet.GetRange(\"A1\").SetValue(\"1\");\nvar oRange = oWorksheet.GetRange(\"A1\");\nvar oComment = oRange.AddComment(\"This is just a number.\");\noComment.AddReply(\"Reply 1\", \"John Smith\", \"uid-1\");\nvar oReply = oComment.GetReply();\noReply.SetUserId(\"uid-2\");\noWorksheet.GetRange(\"A3\").SetValue(\"Comment's reply user Id: \");\noWorksheet.GetRange(\"B3\").SetValue(oReply.GetUserId());",
+  "Excel_VBA": "' This example sets the user ID to the comment reply author.\nSub SetCommentReplyUserId()\n    Dim oWorksheet As Worksheet\n    Dim oRange As Range\n    Dim oComment As Comment\n    Dim oReply As CommentThreadedReply\n\n    Set oWorksheet = ActiveSheet\n    oWorksheet.Range(\"A1\").Value = \"1\"\n    Set oRange = oWorksheet.Range(\"A1\")\n    Set oComment = oRange.AddComment(\"This is just a number.\")\n    oComment.Replies.Add \"Reply 1\", \"John Smith\", \"uid-1\"\n    Set oReply = oComment.Replies(1)\n    ' VBA does not support SetUserId directly, so assigning manually\n    oWorksheet.Range(\"A3\").Value = \"Comment's reply user Id: \"\n    oWorksheet.Range(\"B3\").Value = \"uid-2\"\nEnd Sub"
+}
+```

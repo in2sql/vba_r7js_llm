@@ -1,0 +1,52 @@
+```json
+{
+  "description": "This example creates a bullet for a paragraph.",
+  "RAG_Table": [
+    {
+      "Status": "Green",
+      "OnlyOffice_JS": "var oWorksheet = Api.GetActiveSheet();",
+      "Excel_VBA": "Set oWorksheet = ActiveWorkbook.ActiveSheet"
+    },
+    {
+      "Status": "Green",
+      "OnlyOffice_JS": "var oFill = Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61));",
+      "Excel_VBA": "oFill = RGB(255, 111, 61)"
+    },
+    {
+      "Status": "Green",
+      "OnlyOffice_JS": "var oStroke = Api.CreateStroke(0, Api.CreateNoFill());",
+      "Excel_VBA": "With oShape.Line\n    .Visible = msoFalse\nEnd With"
+    },
+    {
+      "Status": "Green",
+      "OnlyOffice_JS": "var oShape = oWorksheet.AddShape(\"flowChartOnlineStorage\", 120 * 36000, 35 * 36000, oFill, oStroke, 0, 2 * 36000, 0, 3 * 36000);",
+      "Excel_VBA": "Set oShape = oWorksheet.Shapes.AddShape(msoShapeFlowchartOfflineStorage, 120, 35, 200, 300)\nWith oShape.Fill\n    .ForeColor.RGB = RGB(255, 111, 61)\nEnd With\nWith oShape.Line\n    .Visible = msoFalse\nEnd With"
+    },
+    {
+      "Status": "Green",
+      "OnlyOffice_JS": "var oDocContent = oShape.GetContent();",
+      "Excel_VBA": "Set oDocContent = oShape.TextFrame.Characters"
+    },
+    {
+      "Status": "Green",
+      "OnlyOffice_JS": "var oParagraph = oDocContent.GetElement(0);",
+      "Excel_VBA": "Set oParagraph = oDocContent.Paragraphs(1)"
+    },
+    {
+      "Status": "Green",
+      "OnlyOffice_JS": "var oBullet = Api.CreateBullet(\"-\");",
+      "Excel_VBA": "oParagraph.ParagraphFormat.Bullet.Visible = msoTrue\noParagraph.ParagraphFormat.Bullet.Character = 45"
+    },
+    {
+      "Status": "Green",
+      "OnlyOffice_JS": "oParagraph.SetBullet(oBullet);",
+      "Excel_VBA": "oParagraph.ParagraphFormat.Bullet.Visible = msoTrue"
+    },
+    {
+      "Status": "Green",
+      "OnlyOffice_JS": "oParagraph.AddText(\" This is an example of the bulleted paragraph.\");",
+      "Excel_VBA": "oParagraph.Text = \" This is an example of the bulleted paragraph.\""
+    }
+  ]
+}
+```

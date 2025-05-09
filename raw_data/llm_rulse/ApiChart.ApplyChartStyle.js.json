@@ -1,0 +1,59 @@
+```json
+[
+  {
+    "description": "Get the active worksheet",
+    "OnlyOffice JS": "var oWorksheet = Api.GetActiveSheet();",
+    "Excel VBA": "Dim oWorksheet As Worksheet\nSet oWorksheet = ActiveSheet"
+  },
+  {
+    "description": "Set values to specific ranges",
+    "OnlyOffice JS": "oWorksheet.GetRange(\"B1\").SetValue(2014);\noWorksheet.GetRange(\"C1\").SetValue(2015);\noWorksheet.GetRange(\"D1\").SetValue(2016);\noWorksheet.GetRange(\"A2\").SetValue(\"Projected Revenue\");\noWorksheet.GetRange(\"A3\").SetValue(\"Estimated Costs\");\noWorksheet.GetRange(\"B2\").SetValue(200);\noWorksheet.GetRange(\"B3\").SetValue(250);\noWorksheet.GetRange(\"C2\").SetValue(240);\noWorksheet.GetRange(\"C3\").SetValue(260);\noWorksheet.GetRange(\"D2\").SetValue(280);\noWorksheet.GetRange(\"D3\").SetValue(280);",
+    "Excel VBA": "oWorksheet.Range(\"B1\").Value = 2014\n" +
+                 "oWorksheet.Range(\"C1\").Value = 2015\n" +
+                 "oWorksheet.Range(\"D1\").Value = 2016\n" +
+                 "oWorksheet.Range(\"A2\").Value = \"Projected Revenue\"\n" +
+                 "oWorksheet.Range(\"A3\").Value = \"Estimated Costs\"\n" +
+                 "oWorksheet.Range(\"B2\").Value = 200\n" +
+                 "oWorksheet.Range(\"B3\").Value = 250\n" +
+                 "oWorksheet.Range(\"C2\").Value = 240\n" +
+                 "oWorksheet.Range(\"C3\").Value = 260\n" +
+                 "oWorksheet.Range(\"D2\").Value = 280\n" +
+                 "oWorksheet.Range(\"D3\").Value = 280"
+  },
+  {
+    "description": "Add a 3D bar chart to the worksheet",
+    "OnlyOffice JS": "var oChart = oWorksheet.AddChart(\"'Sheet1'!$A$1:$D$3\", true, \"bar3D\", 2, 100 * 36000, 70 * 36000, 0, 2 * 36000, 5, 3 * 36000);",
+    "Excel VBA": "Dim oChart As ChartObject\nSet oChart = oWorksheet.ChartObjects.Add(Left:=100, Top:=70, Width:=300, Height:=200)\nWith oChart.Chart\n    .SetSourceData Source:=oWorksheet.Range(\"A1:D3\")\n    .ChartType = xlBar3D\nEnd With"
+  },
+  {
+    "description": "Set chart title",
+    "OnlyOffice JS": "oChart.SetTitle(\"Financial Overview\", 13);",
+    "Excel VBA": "With oChart.Chart\n    .HasTitle = True\n    .ChartTitle.Text = \"Financial Overview\"\nEnd With"
+  },
+  {
+    "description": "Apply chart style",
+    "OnlyOffice JS": "oChart.ApplyChartStyle(2);",
+    "Excel VBA": "oChart.Chart.ChartStyle = 2"
+  },
+  {
+    "description": "Set series fill for first series",
+    "OnlyOffice JS": "var oFill = Api.CreateSolidFill(Api.CreateRGBColor(51, 51, 51));\noChart.SetSeriesFill(oFill, 0, false);",
+    "Excel VBA": "oChart.Chart.SeriesCollection(1).Format.Fill.ForeColor.RGB = RGB(51, 51, 51)"
+  },
+  {
+    "description": "Set series outline for first series",
+    "OnlyOffice JS": "var oStroke = Api.CreateStroke(0.5 * 36000, Api.CreateSolidFill(Api.CreateRGBColor(51, 51, 51)));\noChart.SetSeriesOutLine(oStroke, 0, false);",
+    "Excel VBA": "With oChart.Chart.SeriesCollection(1).Format.Line\n    .Weight = 0.5\n    .ForeColor.RGB = RGB(51, 51, 51)\n    .Visible = msoTrue\nEnd With"
+  },
+  {
+    "description": "Set series fill for second series",
+    "OnlyOffice JS": "var oFill = Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61));\noChart.SetSeriesFill(oFill, 1, false);",
+    "Excel VBA": "oChart.Chart.SeriesCollection(2).Format.Fill.ForeColor.RGB = RGB(255, 111, 61)"
+  },
+  {
+    "description": "Set series outline for second series",
+    "OnlyOffice JS": "var oStroke = Api.CreateStroke(0.5 * 36000, Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61)));\noChart.SetSeriesOutLine(oStroke, 1, false);",
+    "Excel VBA": "With oChart.Chart.SeriesCollection(2).Format.Line\n    .Weight = 0.5\n    .ForeColor.RGB = RGB(255, 111, 61)\n    .Visible = msoTrue\nEnd With"
+  }
+]
+```

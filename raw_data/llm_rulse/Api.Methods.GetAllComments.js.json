@@ -1,0 +1,36 @@
+```json
+{
+  "table": [
+    {
+      "Description": "Get the active worksheet.",
+      "VBA Code": "Set oWorksheet = ActiveSheet",
+      "OnlyOffice JS Code": "var oWorksheet = Api.GetActiveSheet();"
+    },
+    {
+      "Description": "Add a comment to the active sheet with text 'Comment 1' by author 'John Smith'.",
+      "VBA Code": "ActiveSheet.Comments.Add Range(\"A1\"), \"Comment 1\"\nActiveSheet.Comments(\"A1\").Author = \"John Smith\"",
+      "OnlyOffice JS Code": "Api.AddComment(\"Comment 1\", \"John Smith\");"
+    },
+    {
+      "Description": "Add a comment to cell A4 with text 'Comment 2' by author 'Mark Potato'.",
+      "VBA Code": "With ActiveSheet.Range(\"A4\").AddComment(\"Comment 2\")\n    .Author = \"Mark Potato\"\nEnd With",
+      "OnlyOffice JS Code": "oWorksheet.GetRange(\"A4\").AddComment(\"Comment 2\", \"Mark Potato\");"
+    },
+    {
+      "Description": "Get all comments in the worksheet.",
+      "VBA Code": "Set arrComments = ActiveSheet.Comments",
+      "OnlyOffice JS Code": "var arrComments = Api.GetAllComments();"
+    },
+    {
+      "Description": "Set the value of cell A1 to 'Comment text: ' followed by the text of the second comment.",
+      "VBA Code": "ActiveSheet.Range(\"A1\").Value = \"Comment text: \" & arrComments(2).Text",
+      "OnlyOffice JS Code": "oWorksheet.GetRange(\"A1\").SetValue(\"Comment text: \" + arrComments[1].GetText());"
+    },
+    {
+      "Description": "Set the value of cell A2 to 'Comment author: ' followed by the author of the second comment.",
+      "VBA Code": "ActiveSheet.Range(\"A2\").Value = \"Comment author: \" & arrComments(2).Author",
+      "OnlyOffice JS Code": "oWorksheet.GetRange(\"A2\").SetValue(\"Comment author: \" + arrComments[1].GetAuthorName());"
+    }
+  ]
+}
+```

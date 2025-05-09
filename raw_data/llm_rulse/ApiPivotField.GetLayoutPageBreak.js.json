@@ -1,0 +1,103 @@
+```json
+{
+  "Description": "This code sets values in specific cells, creates a pivot table from a data range, adds row and data fields to the pivot table, retrieves a pivot field, and sets a page break value based on the pivot field layout.",
+  "Mappings": [
+    {
+      "OnlyOffice JS": "var oWorksheet = Api.GetActiveSheet();",
+      "Excel VBA": "Dim oWorksheet As Worksheet\nSet oWorksheet = ActiveSheet"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange('B1').SetValue('Region');",
+      "Excel VBA": "oWorksheet.Range(\"B1\").Value = \"Region\""
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange('C1').SetValue('Style');",
+      "Excel VBA": "oWorksheet.Range(\"C1\").Value = \"Style\""
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange('D1').SetValue('Price');",
+      "Excel VBA": "oWorksheet.Range(\"D1\").Value = \"Price\""
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange('B2').SetValue('East');",
+      "Excel VBA": "oWorksheet.Range(\"B2\").Value = \"East\""
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange('B3').SetValue('West');",
+      "Excel VBA": "oWorksheet.Range(\"B3\").Value = \"West\""
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange('B4').SetValue('East');",
+      "Excel VBA": "oWorksheet.Range(\"B4\").Value = \"East\""
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange('B5').SetValue('West');",
+      "Excel VBA": "oWorksheet.Range(\"B5\").Value = \"West\""
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange('C2').SetValue('Fancy');",
+      "Excel VBA": "oWorksheet.Range(\"C2\").Value = \"Fancy\""
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange('C3').SetValue('Fancy');",
+      "Excel VBA": "oWorksheet.Range(\"C3\").Value = \"Fancy\""
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange('C4').SetValue('Tee');",
+      "Excel VBA": "oWorksheet.Range(\"C4\").Value = \"Tee\""
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange('C5').SetValue('Tee');",
+      "Excel VBA": "oWorksheet.Range(\"C5\").Value = \"Tee\""
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange('D2').SetValue(42.5);",
+      "Excel VBA": "oWorksheet.Range(\"D2\").Value = 42.5"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange('D3').SetValue(35.2);",
+      "Excel VBA": "oWorksheet.Range(\"D3\").Value = 35.2"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange('D4').SetValue(12.3);",
+      "Excel VBA": "oWorksheet.Range(\"D4\").Value = 12.3"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange('D5').SetValue(24.8);",
+      "Excel VBA": "oWorksheet.Range(\"D5\").Value = 24.8"
+    },
+    {
+      "OnlyOffice JS": "var dataRef = Api.GetRange(\"'Sheet1'!$B$1:$D$5\");",
+      "Excel VBA": "Dim dataRef As Range\nSet dataRef = Worksheets(\"Sheet1\").Range(\"B1:D5\")"
+    },
+    {
+      "OnlyOffice JS": "var pivotTable = Api.InsertPivotNewWorksheet(dataRef);",
+      "Excel VBA": "Dim pivotTable As PivotTable\nSet pivotTable = Worksheets.Add.PivotTableWizard(SourceType:=xlDatabase, SourceData:=dataRef)"
+    },
+    {
+      "OnlyOffice JS": "pivotTable.AddFields({ rows: ['Region', 'Style'] });",
+      "Excel VBA": "With pivotTable\n    .PivotFields(\"Region\").Orientation = xlRowField\n    .PivotFields(\"Style\").Orientation = xlRowField\nEnd With"
+    },
+    {
+      "OnlyOffice JS": "pivotTable.AddDataField('Price');",
+      "Excel VBA": "pivotTable.AddDataField pivotTable.PivotFields(\"Price\"), \"Sum of Price\", xlSum"
+    },
+    {
+      "OnlyOffice JS": "var pivotWorksheet = Api.GetActiveSheet();",
+      "Excel VBA": "Dim pivotWorksheet As Worksheet\nSet pivotWorksheet = ActiveSheet"
+    },
+    {
+      "OnlyOffice JS": "var pivotField = pivotTable.GetPivotFields('Region');",
+      "Excel VBA": "Dim pivotField As PivotField\nSet pivotField = pivotTable.PivotFields(\"Region\")"
+    },
+    {
+      "OnlyOffice JS": "pivotWorksheet.GetRange('A15').SetValue('Page break:');",
+      "Excel VBA": "pivotWorksheet.Range(\"A15\").Value = \"Page break:\""
+    },
+    {
+      "OnlyOffice JS": "pivotWorksheet.GetRange('B15').SetValue(pivotField.GetLayoutPageBreak());",
+      "Excel VBA": "pivotWorksheet.Range(\"B15\").Value = pivotField.LayoutPageBreak"
+    }
+  ]
+}
+```

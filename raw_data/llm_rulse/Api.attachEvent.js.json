@@ -1,0 +1,24 @@
+```json
+[
+  {
+    "description": "Get the active worksheet",
+    "OnlyOffice_JS": "var oWorksheet = Api.GetActiveSheet();",
+    "Excel_VBA": "Dim oWorksheet As Worksheet\nSet oWorksheet = ThisWorkbook.ActiveSheet"
+  },
+  {
+    "description": "Get the range A1",
+    "OnlyOffice_JS": "var oRange = oWorksheet.GetRange(\"A1\");",
+    "Excel_VBA": "Dim oRange As Range\nSet oRange = oWorksheet.Range(\"A1\")"
+  },
+  {
+    "description": "Set the value of range A1 to 1",
+    "OnlyOffice_JS": "oRange.SetValue(\"1\");",
+    "Excel_VBA": "oRange.Value = 1"
+  },
+  {
+    "description": "Attach to onWorksheetChange event",
+    "OnlyOffice_JS": "Api.attachEvent(\"onWorksheetChange\", function(oRange){\n\tconsole.log(\"onWorksheetChange\");\n\tconsole.log(oRange.GetAddress());\n});",
+    "Excel_VBA": "Private Sub Workbook_SheetChange(ByVal Sh As Object, ByVal Target As Range)\n    Debug.Print \"onWorksheetChange\"\n    Debug.Print Target.Address\nEnd Sub"
+  }
+]
+```

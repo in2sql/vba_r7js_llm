@@ -1,0 +1,49 @@
+**Description:**  
+This code sets a value in cell B1, retrieves specific characters from the text, applies underline formatting, retrieves the underline property, and displays it in cell B3.
+
+```json
+{
+  "RAGTable": [
+    {
+      "OnlyOfficeJS": "Api.GetActiveSheet()",
+      "ExcelVBA": "ActiveWorkbook.ActiveSheet",
+      "Status": "Green"
+    },
+    {
+      "OnlyOfficeJS": "oWorksheet.GetRange(\"B1\")",
+      "ExcelVBA": "oWorksheet.Range(\"B1\")",
+      "Status": "Green"
+    },
+    {
+      "OnlyOfficeJS": "oRange.SetValue(\"This is just a sample text.\")",
+      "ExcelVBA": "oRange.Value = \"This is just a sample text.\"",
+      "Status": "Green"
+    },
+    {
+      "OnlyOfficeJS": "oRange.GetCharacters(9, 4)",
+      "ExcelVBA": "oRange.Characters(Start:=9, Length:=4)",
+      "Status": "Green"
+    },
+    {
+      "OnlyOfficeJS": "oCharacters.GetFont()",
+      "ExcelVBA": "oCharacters.Font",
+      "Status": "Green"
+    },
+    {
+      "OnlyOfficeJS": "oFont.SetUnderline(\"xlUnderlineStyleSingle\")",
+      "ExcelVBA": "oFont.Underline = xlUnderlineStyleSingle",
+      "Status": "Green"
+    },
+    {
+      "OnlyOfficeJS": "oFont.GetUnderline()",
+      "ExcelVBA": "sUnderline = oFont.Underline",
+      "Status": "Green"
+    },
+    {
+      "OnlyOfficeJS": "oWorksheet.GetRange(\"B3\").SetValue(\"Underline property: \" + sUnderline)",
+      "ExcelVBA": "oWorksheet.Range(\"B3\").Value = \"Underline property: \" & sUnderline",
+      "Status": "Green"
+    }
+  ]
+}
+```

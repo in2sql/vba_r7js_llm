@@ -1,0 +1,67 @@
+```json
+{
+  "description": "This code demonstrates how to manipulate paragraph line spacing and content within a shape in OnlyOffice using JavaScript and its equivalent implementation in Excel VBA.",
+  "codeMapping": [
+    {
+      "OnlyOfficeJS": "var oWorksheet = Api.GetActiveSheet();",
+      "ExcelVBA": "Set oWorksheet = ActiveSheet"
+    },
+    {
+      "OnlyOfficeJS": "var oFill = Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61));",
+      "ExcelVBA": "Set oFill = oWorksheet.Shapes.AddShape(msoShapeRectangle, 120, 70, 200, 100).Fill\noFill.ForeColor.RGB = RGB(255, 111, 61)"
+    },
+    {
+      "OnlyOfficeJS": "var oStroke = Api.CreateStroke(0, Api.CreateNoFill());",
+      "ExcelVBA": "Set oStroke = oWorksheet.Shapes(1).Line\noStroke.Visible = msoFalse"
+    },
+    {
+      "OnlyOfficeJS": "var oShape = oWorksheet.AddShape(\"flowChartOnlineStorage\", 120 * 36000, 70 * 36000, oFill, oStroke, 0, 2 * 36000, 0, 3 * 36000);",
+      "ExcelVBA": "Set oShape = oWorksheet.Shapes.AddShape(msoShapeFlowchartStorage, 120, 70, 200, 100)\noShape.Fill.Solid\noShape.Fill.ForeColor.RGB = RGB(255, 111, 61)\noShape.Line.Visible = msoFalse"
+    },
+    {
+      "OnlyOfficeJS": "var oDocContent = oShape.GetContent();",
+      "ExcelVBA": "Set oDocContent = oShape.TextFrame.Characters"
+    },
+    {
+      "OnlyOfficeJS": "var oParagraph = oDocContent.GetElement(0);",
+      "ExcelVBA": "Set oParagraph = oShape.TextFrame.TextRange.Paragraphs(1)"
+    },
+    {
+      "OnlyOfficeJS": "var oParaPr = oParagraph.GetParaPr();",
+      "ExcelVBA": "Set oParaPr = oParagraph.ParagraphFormat"
+    },
+    {
+      "OnlyOfficeJS": "oParaPr.SetSpacingLine(3 * 240, \"auto\");",
+      "ExcelVBA": "oParaPr.LineSpacing = 3 * 12 ' Assuming 12 points per spacing unit"
+    },
+    {
+      "OnlyOfficeJS": "oParagraph.AddText(\"Paragraph 1. Spacing: 3 times of a common paragraph line spacing.\");",
+      "ExcelVBA": "oParagraph.Text = \"Paragraph 1. Spacing: 3 times of a common paragraph line spacing.\""
+    },
+    {
+      "OnlyOfficeJS": "oParagraph.AddLineBreak();",
+      "ExcelVBA": "oParagraph.Text = oParagraph.Text & vbCrLf"
+    },
+    {
+      "OnlyOfficeJS": "oParagraph.AddText(\"These sentences are used to add lines for demonstrative purposes.\");",
+      "ExcelVBA": "oParagraph.Text = oParagraph.Text & \"These sentences are used to add lines for demonstrative purposes.\""
+    },
+    {
+      "OnlyOfficeJS": "var nSpacingLineValue = oParaPr.GetSpacingLineValue();",
+      "ExcelVBA": "nSpacingLineValue = oParaPr.LineSpacing"
+    },
+    {
+      "OnlyOfficeJS": "oParagraph = Api.CreateParagraph();",
+      "ExcelVBA": "Set oParagraph = oShape.TextFrame.TextRange.Paragraphs.Add"
+    },
+    {
+      "OnlyOfficeJS": "oParagraph.AddText(\"Spacing line value : \" + nSpacingLineValue);",
+      "ExcelVBA": "oParagraph.Text = \"Spacing line value : \" & nSpacingLineValue"
+    },
+    {
+      "OnlyOfficeJS": "oDocContent.Push(oParagraph);",
+      "ExcelVBA": "oParagraph.InsertAfter \"Spacing line value : \" & nSpacingLineValue"
+    }
+  ]
+}
+```

@@ -1,0 +1,7 @@
+```json
+{
+  "description": "This example sets a locale to the document.",
+  "OnlyOffice_JS": "// This example sets a locale to the document.\nvar oWorksheet = Api.GetActiveSheet();\nApi.SetLocale(\"en-CA\");\noWorksheet.GetRange(\"A1\").SetValue(\"A sample spreadsheet with the language set to English (Canada).\");",
+  "Excel_VBA": "' This example sets a locale to the document.\nSub SetLocaleAndSetValue()\n    ' Set locale to English (Canada)\n    Application.LanguageSettings.LanguageID(msoLanguageIDUI) = 3084 ' en-CA Locale ID\n    ' Set value to cell A1\n    ActiveSheet.Range(\"A1\").Value = \"A sample spreadsheet with the language set to English (Canada).\"\nEnd Sub"
+}
+```

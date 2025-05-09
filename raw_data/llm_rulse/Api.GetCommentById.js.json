@@ -1,0 +1,14 @@
+```json
+{
+  "Table": {
+    "Headers": ["Description", "VBA", "OnlyOffice JS"],
+    "Rows": [
+      [
+        "This example shows how to get a comment from the current document by its ID.",
+        "Dim oComment As Comment\n\nSet oComment = ActiveSheet.Comments.Add(ActiveSheet.Range(\"A1\"), \"Comment\")\nDim sId As String\nsId = oComment.Index\nSet oComment = ActiveSheet.Comments(sId)\nActiveSheet.Range(\"A1\").Value = \"Comment Text: \" & oComment.Text\nActiveSheet.Range(\"B1\").Value = \"Comment Author: \" & oComment.Author",
+        "var oComment = Api.AddComment(\"Comment\", \"Bob\");\nvar sId = oComment.GetId();\noComment = Api.GetCommentById(sId);\nvar oWorksheet = Api.GetActiveSheet();\noWorksheet.GetRange(\"A1\").SetValue(\"Commet Text: \", oComment.GetText());\noWorksheet.GetRange(\"B1\").SetValue(\"Commet Author: \", oComment.GetAuthorName());"
+      ]
+    ]
+  }
+}
+```

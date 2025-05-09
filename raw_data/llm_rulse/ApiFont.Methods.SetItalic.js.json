@@ -1,0 +1,7 @@
+```json
+{
+  "Description": "This example sets the italic property to the specified font.",
+  "OnlyOffice_JS": "// This example sets the italic property to the specified font.\nvar oWorksheet = Api.GetActiveSheet();\nvar oRange = oWorksheet.GetRange(\"B1\");\noRange.SetValue(\"This is just a sample text.\");\nvar oCharacters = oRange.GetCharacters(9, 4);\nvar oFont = oCharacters.GetFont();\noFont.SetItalic(true);",
+  "Excel_VBA": "Sub SetItalic()\n    Dim oRange As Range\n    Set oRange = ThisWorkbook.ActiveSheet.Range(\"B1\")\n    oRange.Value = \"This is just a sample text.\"\n    With oRange.Characters(Start:=9, Length:=4).Font\n        .Italic = True\n    End With\nEnd Sub"
+}
+```

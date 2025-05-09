@@ -1,0 +1,48 @@
+**This code adds some text to a paragraph within a shape on the active worksheet, setting the fill color, stroke, and text alignment.**
+
+```json
+{
+  "RAGTable": [
+    {
+      "OnlyOfficeJS": "var oWorksheet = Api.GetActiveSheet();",
+      "VBA": "Set oWorksheet = ActiveSheet"
+    },
+    {
+      "OnlyOfficeJS": "var oFill = Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61));",
+      "VBA": "Set oFill = oWorksheet.Shapes.AddShape(msoShapeRectangle, 120, 70, 200, 100).Fill\noFill.ForeColor.RGB = RGB(255, 111, 61)"
+    },
+    {
+      "OnlyOfficeJS": "var oStroke = Api.CreateStroke(0, Api.CreateNoFill());",
+      "VBA": "With oWorksheet.Shapes(1).Line\n    .Weight = 0\n    .Visible = msoFalse\nEnd With"
+    },
+    {
+      "OnlyOfficeJS": "var oShape = oWorksheet.AddShape(\"flowChartOnlineStorage\", 120 * 36000, 70 * 36000, oFill, oStroke, 0, 2 * 36000, 0, 3 * 36000);",
+      "VBA": "Set oShape = oWorksheet.Shapes.AddShape(msoShapeFlowchartStorage, 120, 70, 200, 100)\nSet oShape.Fill = oFill\nSet oShape.Line = oStroke"
+    },
+    {
+      "OnlyOfficeJS": "var oDocContent = oShape.GetContent();",
+      "VBA": "Set oDocContent = oShape.TextFrame"
+    },
+    {
+      "OnlyOfficeJS": "var oParagraph = oDocContent.GetElement(0);",
+      "VBA": "With oDocContent.TextRange.Paragraphs(1)"
+    },
+    {
+      "OnlyOfficeJS": "oParagraph.SetJc(\"left\");",
+      "VBA": "    .ParagraphFormat.Alignment = xlLeft\nEnd With"
+    },
+    {
+      "OnlyOfficeJS": "oParagraph.AddText(\"This is a text inside the shape aligned left.\");",
+      "VBA": "oDocContent.TextRange.Text = \"This is a text inside the shape aligned left.\""
+    },
+    {
+      "OnlyOfficeJS": "oParagraph.AddLineBreak();",
+      "VBA": "oDocContent.TextRange.InsertAfter vbCrLf"
+    },
+    {
+      "OnlyOfficeJS": "oParagraph.AddText(\"This is a text after the line break.\");",
+      "VBA": "oDocContent.TextRange.InsertAfter \"This is a text after the line break.\""
+    }
+  ]
+}
+```

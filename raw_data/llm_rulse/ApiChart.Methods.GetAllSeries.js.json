@@ -1,0 +1,91 @@
+```json
+{
+  "RAG_table": {
+    "headers": ["Description", "VBA Code", "OnlyOffice_JS Code"],
+    "rows": [
+      {
+        "Description": "Get active worksheet",
+        "VBA Code": "Dim oWorksheet As Worksheet\nSet oWorksheet = ThisWorkbook.ActiveSheet",
+        "OnlyOffice_JS Code": "var oWorksheet = Api.GetActiveSheet();"
+      },
+      {
+        "Description": "Set year headers in B1, C1, D1",
+        "VBA Code": "oWorksheet.Range(\"B1\").Value = 2014\n" +
+                    "oWorksheet.Range(\"C1\").Value = 2015\n" +
+                    "oWorksheet.Range(\"D1\").Value = 2016",
+        "OnlyOffice_JS Code": "oWorksheet.GetRange(\"B1\").SetValue(2014);\n" +
+                              "oWorksheet.GetRange(\"C1\").SetValue(2015);\n" +
+                              "oWorksheet.GetRange(\"D1\").SetValue(2016);"
+      },
+      {
+        "Description": "Set labels in A2 and A3",
+        "VBA Code": "oWorksheet.Range(\"A2\").Value = \"Projected Revenue\"\n" +
+                    "oWorksheet.Range(\"A3\").Value = \"Estimated Costs\"",
+        "OnlyOffice_JS Code": "oWorksheet.GetRange(\"A2\").SetValue(\"Projected Revenue\");\n" +
+                              "oWorksheet.GetRange(\"A3\").SetValue(\"Estimated Costs\");"
+      },
+      {
+        "Description": "Set projected revenue values",
+        "VBA Code": "oWorksheet.Range(\"B2\").Value = 200\n" +
+                    "oWorksheet.Range(\"C2\").Value = 240\n" +
+                    "oWorksheet.Range(\"D2\").Value = 280",
+        "OnlyOffice_JS Code": "oWorksheet.GetRange(\"B2\").SetValue(200);\n" +
+                              "oWorksheet.GetRange(\"C2\").SetValue(240);\n" +
+                              "oWorksheet.GetRange(\"D2\").SetValue(280);"
+      },
+      {
+        "Description": "Set estimated costs values",
+        "VBA Code": "oWorksheet.Range(\"B3\").Value = 250\n" +
+                    "oWorksheet.Range(\"C3\").Value = 260\n" +
+                    "oWorksheet.Range(\"D3\").Value = 280",
+        "OnlyOffice_JS Code": "oWorksheet.GetRange(\"B3\").SetValue(250);\n" +
+                              "oWorksheet.GetRange(\"C3\").SetValue(260);\n" +
+                              "oWorksheet.GetRange(\"D3\").SetValue(280);"
+      },
+      {
+        "Description": "Add a combo bar-line chart",
+        "VBA Code": "Dim oChart As Chart\n" +
+                    "Set oChart = oWorksheet.Shapes.AddChart2(-1, xlColumnClustered, 200, 70, 36000, 36000).Chart\n" +
+                    "oChart.SetSourceData Source:=oWorksheet.Range(\"A1:D3\")\n" +
+                    "oChart.ChartType = xlCombo\n" +
+                    "oChart.HasTitle = True\n" +
+                    "oChart.ChartTitle.Text = \"Financial Overview\"",
+        "OnlyOffice_JS Code": "var oChart = oWorksheet.AddChart(\"'Sheet1'!$A$1:$D$3\", true, \"comboBarLine\", 2, 100 * 36000, 70 * 36000, 0, 2 * 36000, 5, 3 * 36000);\n" +
+                              "oChart.SetTitle(\"Financial Overview\", 13);"
+      },
+      {
+        "Description": "Set series fill colors",
+        "VBA Code": "Dim oFill As FillFormat\n" +
+                    "Set oFill = oChart.SeriesCollection(1).Format.Fill\n" +
+                    "oFill.ForeColor.RGB = RGB(51, 51, 51)\n" +
+                    "oFill.Visible = msoTrue\n" +
+                    "Set oFill = oChart.SeriesCollection(2).Format.Fill\n" +
+                    "oFill.ForeColor.RGB = RGB(255, 111, 61)\n" +
+                    "oFill.Visible = msoTrue",
+        "OnlyOffice_JS Code": "var oFill = Api.CreateSolidFill(Api.CreateRGBColor(51, 51, 51));\n" +
+                              "oChart.SetSeriesFill(oFill, 0, false);\n" +
+                              "oFill = Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61));\n" +
+                              "oChart.SetSeriesFill(oFill, 1, false);"
+      },
+      {
+        "Description": "Get all series and insert their types into column F",
+        "VBA Code": "Dim aAllSeries As SeriesCollection\nSet aAllSeries = oChart.SeriesCollection\n" +
+                    "Dim oSeries As Series\nDim sSeriesType As String\n" +
+                    "Dim nSeries As Integer\n" +
+                    "For nSeries = 1 To aAllSeries.Count\n" +
+                    "    Set oSeries = aAllSeries(nSeries)\n" +
+                    "    sSeriesType = oSeries.ChartType\n" +
+                    "    oWorksheet.Range(\"F\" & nSeries).Value = nSeries & \" Series Type = \" & sSeriesType\n" +
+                    "Next nSeries",
+        "OnlyOffice_JS Code": "var aAllSeries = oChart.GetAllSeries();\n" +
+                              "var oSeries, sSeriesType;\n" +
+                              "for(var nSeries = 0; nSeries < aAllSeries.length; ++nSeries) {\n" +
+                              "    oSeries = aAllSeries[nSeries];\n" +
+                              "    sSeriesType = oSeries.GetChartType();\n" +
+                              "    oWorksheet.GetRange(\"F\" + (nSeries + 1)).SetValue((nSeries + 1) + \" Series Type = \" + sSeriesType);\n" +
+                              "}"
+      }
+    ]
+  }
+}
+```

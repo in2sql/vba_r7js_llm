@@ -1,0 +1,43 @@
+```json
+{
+  "description": "This code retrieves the active worksheet, manipulates ranges by setting values, selecting ranges, obtaining the count of areas, autofitting a range, and displaying the count in specific cells.",
+  "methods": [
+    {
+      "OnlyOffice_JS": "Api.GetActiveSheet();",
+      "Excel_VBA": "Set oWorksheet = ActiveSheet"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"B1:D1\");",
+      "Excel_VBA": "Set oRange = oWorksheet.Range(\"B1:D1\")"
+    },
+    {
+      "OnlyOffice_JS": "oRange.SetValue(\"1\");",
+      "Excel_VBA": "oRange.Value = \"1\""
+    },
+    {
+      "OnlyOffice_JS": "oRange.Select();",
+      "Excel_VBA": "oRange.Select"
+    },
+    {
+      "OnlyOffice_JS": "oRange.GetAreas();",
+      "Excel_VBA": "Set oAreas = oRange.Areas"
+    },
+    {
+      "OnlyOffice_JS": "oAreas.GetCount();",
+      "Excel_VBA": "nCount = oAreas.Count"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange('A5').SetValue(\"The number of ranges in the areas: \");",
+      "Excel_VBA": "oWorksheet.Range(\"A5\").Value = \"The number of ranges in the areas: \""
+    },
+    {
+      "OnlyOffice_JS": "oRange.AutoFit(false, true);",
+      "Excel_VBA": "oRange.Columns.AutoFit"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange('B5').SetValue(nCount);",
+      "Excel_VBA": "oWorksheet.Range(\"B5\").Value = nCount"
+    }
+  ]
+}
+```

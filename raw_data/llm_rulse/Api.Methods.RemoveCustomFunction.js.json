@@ -1,0 +1,43 @@
+```json
+{
+  "table": {
+    "headers": [
+      "Description",
+      "VBA Code",
+      "OnlyOffice JS Code"
+    ],
+    "rows": [
+      {
+        "Description": "Add custom function library",
+        "VBA Code": "' VBA does not support adding custom function libraries in the same way.",
+        "OnlyOffice JS Code": "Api.AddCustomFunctionLibrary(\"LibraryName\", function(){\n    Api.AddCustomFunction(function ADD(first, second) {\n        return first + second;\n    });\n});"
+      },
+      {
+        "Description": "Define a custom function ADD",
+        "VBA Code": "Function ADD(first As Variant, second As Variant) As Variant\n    ADD = first + second\nEnd Function",
+        "OnlyOffice JS Code": "Api.AddCustomFunction(function ADD(first, second) {\n    return first + second;\n});"
+      },
+      {
+        "Description": "Get active worksheet",
+        "VBA Code": "Dim oWorksheet As Worksheet\nSet oWorksheet = ActiveSheet",
+        "OnlyOffice JS Code": "var oWorksheet = Api.GetActiveSheet();"
+      },
+      {
+        "Description": "Set cell A1 formula to ADD(1, 2)",
+        "VBA Code": "Range(\"A1\").Formula = \"=ADD(1, 2)\"",
+        "OnlyOffice JS Code": "oWorksheet.GetRange(\"A1\").SetValue(\"=ADD(1, 2)\");"
+      },
+      {
+        "Description": "Remove custom function ADD",
+        "VBA Code": "' VBA does not support removing custom functions dynamically.",
+        "OnlyOffice JS Code": "Api.RemoveCustomFunction(\"add\");"
+      },
+      {
+        "Description": "Set cell A3 value",
+        "VBA Code": "Range(\"A3\").Value = \"The ADD custom function was removed.\"",
+        "OnlyOffice JS Code": "oWorksheet.GetRange(\"A3\").SetValue(\"The ADD custom function was removed.\");"
+      }
+    ]
+  }
+}
+```

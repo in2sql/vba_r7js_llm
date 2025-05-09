@@ -1,0 +1,9 @@
+```json
+{
+  "Description": "Sets the timestamp of the comment reply creation in the current time zone format.",
+  "Code": {
+    "OnlyOffice_JS": "// This example sets the timestamp of the comment reply creation in the current time zone format.\nvar oWorksheet = Api.GetActiveSheet();\noWorksheet.GetRange(\"A1\").SetValue(\"1\");\nvar oRange = oWorksheet.GetRange(\"A1\");\nvar oComment = oRange.AddComment(\"This is just a number.\");\noComment.AddReply(\"Reply 1\", \"John Smith\", \"uid-1\");\nvar oReply = oComment.GetReply();\noReply.SetTime(Date.now());\noWorksheet.GetRange(\"A3\").SetValue(\"Comment's reply timestamp: \");\noWorksheet.GetRange(\"B3\").SetValue(oReply.GetTime());",
+    "Excel_VBA": "' This example sets the timestamp of the comment reply creation in the current time zone format.\nDim ws As Worksheet\nSet ws = ActiveSheet\n\nws.Range(\"A1\").Value = \"1\"\n\nDim rng As Range\nSet rng = ws.Range(\"A1\")\n\nDim cmt As Comment\nSet cmt = rng.AddComment(\"This is just a number.\")\n\n' VBA does not support reply comments directly. This feature may require custom implementation.\n\nws.Range(\"A3\").Value = \"Comment's reply timestamp: \"\nws.Range(\"B3\").Value = Format(Now, \"mm/dd/yyyy hh:mm:ss\")"
+  }
+}
+```

@@ -1,0 +1,42 @@
+```json
+{
+  "description": "This example shows how to get the subscript property of the specified font.",
+  "table": {
+    "columns": ["OnlyOffice_JS", "Excel_VBA"],
+    "rows": [
+      [
+        "var oWorksheet = Api.GetActiveSheet();",
+        "Set oWorksheet = ThisWorkbook.ActiveSheet"
+      ],
+      [
+        "var oRange = oWorksheet.GetRange(\"B1\");",
+        "Set oRange = oWorksheet.Range(\"B1\")"
+      ],
+      [
+        "oRange.SetValue(\"This is just a sample text.\");",
+        "oRange.Value = \"This is just a sample text.\""
+      ],
+      [
+        "var oCharacters = oRange.GetCharacters(9, 4);",
+        "Set oCharacters = oRange.Characters(Start:=9, Length:=4)"
+      ],
+      [
+        "var oFont = oCharacters.GetFont();",
+        "Set oFont = oCharacters.Font"
+      ],
+      [
+        "oFont.SetSubscript(true);",
+        "oFont.Subscript = True"
+      ],
+      [
+        "var bSubscript = oFont.GetSubscript();",
+        "bSubscript = oFont.Subscript"
+      ],
+      [
+        "oWorksheet.GetRange(\"B3\").SetValue(\"Subscript property: \" + bSubscript);",
+        "oWorksheet.Range(\"B3\").Value = \"Subscript property: \" & bSubscript"
+      ]
+    ]
+  }
+}
+```

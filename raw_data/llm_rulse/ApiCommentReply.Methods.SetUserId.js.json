@@ -1,0 +1,43 @@
+```json
+{
+  "Description": "This example sets the user ID to the comment reply author.",
+  "Code": [
+    {
+      "OnlyOfficeJS": "var oWorksheet = Api.GetActiveSheet();",
+      "VBA": "Set oWorksheet = ActiveWorkbook.ActiveSheet"
+    },
+    {
+      "OnlyOfficeJS": "oWorksheet.GetRange(\"A1\").SetValue(\"1\");",
+      "VBA": "oWorksheet.Range(\"A1\").Value = \"1\""
+    },
+    {
+      "OnlyOfficeJS": "var oRange = oWorksheet.GetRange(\"A1\");",
+      "VBA": "Set oRange = oWorksheet.Range(\"A1\")"
+    },
+    {
+      "OnlyOfficeJS": "var oComment = oRange.AddComment(\"This is just a number.\");",
+      "VBA": "Set oComment = oRange.AddComment(\"This is just a number.\")"
+    },
+    {
+      "OnlyOfficeJS": "oComment.AddReply(\"Reply 1\", \"John Smith\", \"uid-1\");",
+      "VBA": "oComment.Replies.Add \"Reply 1\", \"John Smith\", \"uid-1\""
+    },
+    {
+      "OnlyOfficeJS": "var oReply = oComment.GetReply();",
+      "VBA": "Set oReply = oComment.Replies(1)"
+    },
+    {
+      "OnlyOfficeJS": "oReply.SetUserId(\"uid-2\");",
+      "VBA": "oReply.Author = \"uid-2\""
+    },
+    {
+      "OnlyOfficeJS": "oWorksheet.GetRange(\"A3\").SetValue(\"Comment's reply user Id: \");",
+      "VBA": "oWorksheet.Range(\"A3\").Value = \"Comment's reply user Id: \""
+    },
+    {
+      "OnlyOfficeJS": "oWorksheet.GetRange(\"B3\").SetValue(oReply.GetUserId());",
+      "VBA": "oWorksheet.Range(\"B3\").Value = oReply.Author"
+    }
+  ]
+}
+```

@@ -1,0 +1,46 @@
+```json
+{
+  "table": [
+    {
+      "Description": "Get the active worksheet",
+      "OnlyOffice_JS": "var oWorksheet = Api.GetActiveSheet();",
+      "Excel_VBA": "Set oWorksheet = ThisWorkbook.ActiveSheet"
+    },
+    {
+      "Description": "Get range B1",
+      "OnlyOffice_JS": "var oRange = oWorksheet.GetRange(\"B1\");",
+      "Excel_VBA": "Set oRange = oWorksheet.Range(\"B1\")"
+    },
+    {
+      "Description": "Set value in B1",
+      "OnlyOffice_JS": "oRange.SetValue(\"This is just a sample text.\");",
+      "Excel_VBA": "oRange.Value = \"This is just a sample text.\""
+    },
+    {
+      "Description": "Get characters starting at position 9, length 4",
+      "OnlyOffice_JS": "var oCharacters = oRange.GetCharacters(9, 4);",
+      "Excel_VBA": "Set oCharacters = oRange.Characters(Start:=9, Length:=4)"
+    },
+    {
+      "Description": "Get font of the characters",
+      "OnlyOffice_JS": "var oFont = oCharacters.GetFont();",
+      "Excel_VBA": "Set oFont = oCharacters.Font"
+    },
+    {
+      "Description": "Set bold to true",
+      "OnlyOffice_JS": "oFont.SetBold(true);",
+      "Excel_VBA": "oFont.Bold = True"
+    },
+    {
+      "Description": "Get bold property",
+      "OnlyOffice_JS": "var bBold = oFont.GetBold();",
+      "Excel_VBA": "bBold = oFont.Bold"
+    },
+    {
+      "Description": "Set value in B3 with bold property",
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"B3\").SetValue(\"Bold property: \" + bBold);",
+      "Excel_VBA": "oWorksheet.Range(\"B3\").Value = \"Bold property: \" & bBold"
+    }
+  ]
+}
+```

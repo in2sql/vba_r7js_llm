@@ -1,0 +1,99 @@
+```json
+{
+  "Description": "This code populates specific cells with data, creates a scatter chart based on the data range A1:D3, sets the chart title to 'Financial Overview', configures the vertical axis major tick mark to 'cross', and customizes the marker fill and outline colors.",
+  "CodeMapping": [
+    {
+      "OnlyOfficeJS": "Api.GetActiveSheet()",
+      "VBAEquivalent": "Set oWorksheet = ActiveWorkbook.ActiveSheet"
+    },
+    {
+      "OnlyOfficeJS": "oWorksheet.GetRange(\"B1\").SetValue(2014)",
+      "VBAEquivalent": "Range(\"B1\").Value = 2014"
+    },
+    {
+      "OnlyOfficeJS": "oWorksheet.GetRange(\"C1\").SetValue(2015)",
+      "VBAEquivalent": "Range(\"C1\").Value = 2015"
+    },
+    {
+      "OnlyOfficeJS": "oWorksheet.GetRange(\"D1\").SetValue(2016)",
+      "VBAEquivalent": "Range(\"D1\").Value = 2016"
+    },
+    {
+      "OnlyOfficeJS": "oWorksheet.GetRange(\"A2\").SetValue(\"Projected Revenue\")",
+      "VBAEquivalent": "Range(\"A2\").Value = \"Projected Revenue\""
+    },
+    {
+      "OnlyOfficeJS": "oWorksheet.GetRange(\"A3\").SetValue(\"Estimated Costs\")",
+      "VBAEquivalent": "Range(\"A3\").Value = \"Estimated Costs\""
+    },
+    {
+      "OnlyOfficeJS": "oWorksheet.GetRange(\"B2\").SetValue(200)",
+      "VBAEquivalent": "Range(\"B2\").Value = 200"
+    },
+    {
+      "OnlyOfficeJS": "oWorksheet.GetRange(\"B3\").SetValue(250)",
+      "VBAEquivalent": "Range(\"B3\").Value = 250"
+    },
+    {
+      "OnlyOfficeJS": "oWorksheet.GetRange(\"C2\").SetValue(240)",
+      "VBAEquivalent": "Range(\"C2\").Value = 240"
+    },
+    {
+      "OnlyOfficeJS": "oWorksheet.GetRange(\"C3\").SetValue(260)",
+      "VBAEquivalent": "Range(\"C3\").Value = 260"
+    },
+    {
+      "OnlyOfficeJS": "oWorksheet.GetRange(\"D2\").SetValue(280)",
+      "VBAEquivalent": "Range(\"D2\").Value = 280"
+    },
+    {
+      "OnlyOfficeJS": "oWorksheet.GetRange(\"D3\").SetValue(280)",
+      "VBAEquivalent": "Range(\"D3\").Value = 280"
+    },
+    {
+      "OnlyOfficeJS": "oWorksheet.AddChart(\"'Sheet1'!$A$1:$D$3\", true, \"scatter\", 2, 100 * 36000, 70 * 36000, 0, 2 * 36000, 5, 3 * 36000)",
+      "VBAEquivalent": "Set oChart = oWorksheet.Shapes.AddChart2(201, xlXYScatter).Chart\noChart.SetSourceData Source:=oWorksheet.Range(\"A1:D3\")"
+    },
+    {
+      "OnlyOfficeJS": "oChart.SetTitle(\"Financial Overview\", 13)",
+      "VBAEquivalent": "oChart.HasTitle = True\noChart.ChartTitle.Text = \"Financial Overview\""
+    },
+    {
+      "OnlyOfficeJS": "oChart.SetVertAxisMajorTickMark(\"cross\")",
+      "VBAEquivalent": "oChart.Axes(xlValue).MajorTickMark = xlTickMarkCross"
+    },
+    {
+      "OnlyOfficeJS": "Api.CreateSolidFill(Api.CreateRGBColor(51, 51, 51))",
+      "VBAEquivalent": "Dim oFill As FillFormat\nSet oFill = oChart.SeriesCollection(1).Points(1).Format.Fill\noFill.ForeColor.RGB = RGB(51, 51, 51)"
+    },
+    {
+      "OnlyOfficeJS": "oChart.SetMarkerFill(oFill, 0, 0, true)",
+      "VBAEquivalent": "With oChart.SeriesCollection(1).Points(1).MarkerBackgroundColor.RGB = RGB(51, 51, 51)"
+    },
+    {
+      "OnlyOfficeJS": "Api.CreateStroke(0.5 * 36000, Api.CreateSolidFill(Api.CreateRGBColor(51, 51, 51)))",
+      "VBAEquivalent": "With oChart.SeriesCollection(1).Points(1).Format.Line\n    .Visible = msoTrue\n    .ForeColor.RGB = RGB(51, 51, 51)\n    .Weight = 0.5\nEnd With"
+    },
+    {
+      "OnlyOfficeJS": "oChart.SetMarkerOutLine(oStroke, 0, 0, true)",
+      "VBAEquivalent": "oChart.SeriesCollection(1).Points(1).Format.Line.Visible = msoTrue\noChart.SeriesCollection(1).Points(1).Format.Line.ForeColor.RGB = RGB(51, 51, 51)\n"
+    },
+    {
+      "OnlyOfficeJS": "Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61))",
+      "VBAEquivalent": "oChart.SeriesCollection(2).Points(1).Format.Fill.ForeColor.RGB = RGB(255, 111, 61)"
+    },
+    {
+      "OnlyOfficeJS": "oChart.SetMarkerFill(oFill, 1, 0, true)",
+      "VBAEquivalent": "With oChart.SeriesCollection(2).Points(1).MarkerBackgroundColor.RGB = RGB(255, 111, 61)"
+    },
+    {
+      "OnlyOfficeJS": "Api.CreateStroke(0.5 * 36000, Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61)))",
+      "VBAEquivalent": "With oChart.SeriesCollection(2).Points(1).Format.Line\n    .Visible = msoTrue\n    .ForeColor.RGB = RGB(255, 111, 61)\n    .Weight = 0.5\nEnd With"
+    },
+    {
+      "OnlyOfficeJS": "oChart.SetMarkerOutLine(oStroke, 1, 0, true)",
+      "VBAEquivalent": "oChart.SeriesCollection(2).Points(1).Format.Line.Visible = msoTrue\noChart.SeriesCollection(2).Points(1).Format.Line.ForeColor.RGB = RGB(255, 111, 61)"
+    }
+  ]
+}
+```

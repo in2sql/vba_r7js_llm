@@ -1,0 +1,37 @@
+```json
+{
+  "Description": "This example changes the user protected range.",
+  "Methods": [
+    {
+      "Description": "Get the active sheet.",
+      "OnlyOfficeJS": "var oWorksheet = Api.GetActiveSheet();",
+      "VBA": "Set oWorksheet = ThisWorkbook.ActiveSheet"
+    },
+    {
+      "Description": "Add a protected range and add a user with viewing permissions.",
+      "OnlyOfficeJS": "oWorksheet.AddProtectedRange(\"protectedRange\", \"$A$1:$B$1\").AddUser(\"userId\", \"name\", \"CanView\");",
+      "VBA": "' VBA does not support user-specific protected ranges directly.\n' Instead, you can lock the range and protect the sheet.\nWith oWorksheet.Range(\"A1:B1\")\n    .Locked = True\nEnd With\noWorksheet.Protect Password:=\"password\", UserInterfaceOnly:=True"
+    },
+    {
+      "Description": "Get the protected range by name.",
+      "OnlyOfficeJS": "var protectedRange = oWorksheet.GetProtectedRange(\"protectedRange\");",
+      "VBA": "' VBA does not support named protected ranges directly.\nSet protectedRange = oWorksheet.Range(\"A1:B1\")"
+    },
+    {
+      "Description": "Get user information from the protected range.",
+      "OnlyOfficeJS": "var userInfo = protectedRange.GetUser(\"userId\");",
+      "VBA": "' VBA does not support user-based permissions directly."
+    },
+    {
+      "Description": "Get the user's name.",
+      "OnlyOfficeJS": "var userName = userInfo.GetName();",
+      "VBA": "' VBA cannot retrieve user information in this context.\n' You might use the Environ function to get the current username.\nuserName = Environ(\"username\")"
+    },
+    {
+      "Description": "Set the value of cell A3 to display the user's name.",
+      "OnlyOfficeJS": "oWorksheet.GetRange(\"A3\").SetValue(\"User name: \" + userName);",
+      "VBA": "oWorksheet.Range(\"A3\").Value = \"User name: \" & Environ(\"username\")"
+    }
+  ]
+}
+```

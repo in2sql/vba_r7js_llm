@@ -1,0 +1,70 @@
+```json
+{
+  "description": "This example sets the paragraph right side indentation.",
+  "table": {
+    "headers": ["OnlyOffice JS", "Excel VBA"],
+    "rows": [
+      {
+        "OnlyOffice JS": "var oWorksheet = Api.GetActiveSheet();",
+        "Excel VBA": "Dim oWorksheet As Worksheet\nSet oWorksheet = ActiveSheet"
+      },
+      {
+        "OnlyOffice JS": "var oFill = Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61));",
+        "Excel VBA": "Dim oFill As Fill\nSet oFill = oShape.Fill\nWith oFill\n    .Visible = msoTrue\n    .ForeColor.RGB = RGB(255, 111, 61)\n    .Solid\nEnd With"
+      },
+      {
+        "OnlyOffice JS": "var oStroke = Api.CreateStroke(0, Api.CreateNoFill());",
+        "Excel VBA": "Dim oStroke As LineFormat\nSet oStroke = oShape.Line\nWith oStroke\n    .Weight = 0\n    .Visible = msoFalse\nEnd With"
+      },
+      {
+        "OnlyOffice JS": "var oShape = oWorksheet.AddShape(\"flowChartOnlineStorage\", 120 * 36000, 70 * 36000, oFill, oStroke, 0, 2 * 36000, 0, 3 * 36000);",
+        "Excel VBA": "Dim oShape As Shape\nSet oShape = oWorksheet.Shapes.AddShape(msoShapeFlowChartOnlineStorage, 120, 70, 2, 3)\nWith oShape\n    .Fill.ForeColor.RGB = RGB(255, 111, 61)\n    .Line.Visible = msoFalse\nEnd With"
+      },
+      {
+        "OnlyOffice JS": "var oDocContent = oShape.GetContent();",
+        "Excel VBA": "Dim oTextFrame As TextFrame\nSet oTextFrame = oShape.TextFrame"
+      },
+      {
+        "OnlyOffice JS": "var oParagraph = oDocContent.GetElement(0);",
+        "Excel VBA": "Dim oParagraph As TextRange\nSet oParagraph = oTextFrame.TextRange.Paragraphs(1)"
+      },
+      {
+        "OnlyOffice JS": "oParagraph.AddText(\"This is a paragraph with the right offset of 2 inches set to it. \");",
+        "Excel VBA": "oParagraph.Text = oParagraph.Text & \"This is a paragraph with the right offset of 2 inches set to it. \""
+      },
+      {
+        "OnlyOffice JS": "oParagraph.AddText(\"We also aligned the text in it by the right side. \");",
+        "Excel VBA": "oParagraph.Text = oParagraph.Text & \"We also aligned the text in it by the right side. \""
+      },
+      {
+        "OnlyOffice JS": "oParagraph.AddText(\"This sentence is used to add lines for demonstrative purposes.\");",
+        "Excel VBA": "oParagraph.Text = oParagraph.Text & \"This sentence is used to add lines for demonstrative purposes.\""
+      },
+      {
+        "OnlyOffice JS": "oParagraph.SetJc(\"right\");",
+        "Excel VBA": "oParagraph.ParagraphFormat.Alignment = xlRight"
+      },
+      {
+        "OnlyOffice JS": "oParagraph.SetIndRight(2880);",
+        "Excel VBA": "oParagraph.ParagraphFormat.RightIndent = InchesToPoints(2)"
+      },
+      {
+        "OnlyOffice JS": "oParagraph = Api.CreateParagraph();",
+        "Excel VBA": "Set oParagraph = oTextFrame.TextRange.Paragraphs.Add"
+      },
+      {
+        "OnlyOffice JS": "oParagraph.AddText(\"This is a paragraph without any offset set to it. \");",
+        "Excel VBA": "oParagraph.Text = \"This is a paragraph without any offset set to it. \""
+      },
+      {
+        "OnlyOffice JS": "oParagraph.AddText(\"These sentences are used to add lines for demonstrative purposes. \");",
+        "Excel VBA": "oParagraph.Text = oParagraph.Text & \"These sentences are used to add lines for demonstrative purposes. \""
+      },
+      {
+        "OnlyOffice JS": "oDocContent.Push(oParagraph);",
+        "Excel VBA": "' The paragraph has already been added via oTextFrame.TextRange.Paragraphs.Add"
+      }
+    ]
+  }
+}
+```

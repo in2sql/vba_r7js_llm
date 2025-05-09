@@ -1,0 +1,27 @@
+```json
+{
+  "Description": "This code example demonstrates adding a custom function 'ADD' to OnlyOffice, using it in a cell, removing the function, and indicating its removal.",
+  "CodeEquivalents": [
+    {
+      "OnlyOffice JS": "// Add a custom function library and define the ADD function\nApi.AddCustomFunctionLibrary(\"LibraryName\", function(){\n    Api.AddCustomFunction(function ADD(first, second) {\n        return first + second;\n    });\n});",
+      "Excel VBA": "' Define the ADD function in VBA\nFunction ADD(first As Variant, second As Variant) As Variant\n    ADD = first + second\nEnd Function"
+    },
+    {
+      "OnlyOffice JS": "// Get the active worksheet\nvar oWorksheet = Api.GetActiveSheet();",
+      "Excel VBA": "' Get the active worksheet\nDim oWorksheet As Worksheet\nSet oWorksheet = ActiveSheet"
+    },
+    {
+      "OnlyOffice JS": "// Set the value of cell A1 to use the ADD function\noWorksheet.GetRange(\"A1\").SetValue(\"=ADD(1, 2)\");",
+      "Excel VBA": "' Set the value of cell A1 to use the ADD function\noWorksheet.Range(\"A1\").Value = \"=ADD(1, 2)\""
+    },
+    {
+      "OnlyOffice JS": "// Remove the ADD custom function\nApi.RemoveCustomFunction(\"add\");",
+      "Excel VBA": "' VBA does not provide a direct method to remove a custom function once defined"
+    },
+    {
+      "OnlyOffice JS": "// Inform that the ADD function was removed by setting cell A3\noWorksheet.GetRange(\"A3\").SetValue(\"The ADD custom function was removed.\");",
+      "Excel VBA": "' Inform that the ADD function was removed by setting cell A3\noWorksheet.Range(\"A3\").Value = \"The ADD custom function was removed.\""
+    }
+  ]
+}
+```

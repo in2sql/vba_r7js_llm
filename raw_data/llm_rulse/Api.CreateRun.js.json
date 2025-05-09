@@ -1,0 +1,59 @@
+```json
+{
+  "description": "This code creates a new smaller text block to be inserted into the paragraph or table.",
+  "table": [
+    {
+      "OnlyOffice JS": "var oWorksheet = Api.GetActiveSheet();",
+      "VBA Equivalent": "Set oWorksheet = ThisWorkbook.ActiveSheet"
+    },
+    {
+      "OnlyOffice JS": "var oFill = Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61));",
+      "VBA Equivalent": "Set oFill = CreateSolidFill(CreateRGBColor(255, 111, 61))"
+    },
+    {
+      "OnlyOffice JS": "var oStroke = Api.CreateStroke(0, Api.CreateNoFill());",
+      "VBA Equivalent": "Set oStroke = CreateStroke(0, CreateNoFill())"
+    },
+    {
+      "OnlyOffice JS": "var oShape = oWorksheet.AddShape(\"flowChartOnlineStorage\", 120 * 36000, 70 * 36000, oFill, oStroke, 0, 2 * 36000, 0, 3 * 36000);",
+      "VBA Equivalent": "Set oShape = oWorksheet.Shapes.AddShape(msoShapeFlowchartOnlineStorage, 120 * 36000, 70 * 36000, oFill, oStroke, 0, 2 * 36000, 0, 3 * 36000)"
+    },
+    {
+      "OnlyOffice JS": "var oDocContent = oShape.GetContent();",
+      "VBA Equivalent": "Set oDocContent = oShape.TextFrame.TextRange"
+    },
+    {
+      "OnlyOffice JS": "var oParagraph = oDocContent.GetElement(0);",
+      "VBA Equivalent": "Set oParagraph = oDocContent.Paragraphs(1)"
+    },
+    {
+      "OnlyOffice JS": "var oRun = Api.CreateRun();",
+      "VBA Equivalent": "Set oRun = oDocContent.Characters"
+    },
+    {
+      "OnlyOffice JS": "oRun.AddText(\"This is just a sample text. \");",
+      "VBA Equivalent": "oRun.Text = \"This is just a sample text. \""
+    },
+    {
+      "OnlyOffice JS": "oParagraph.AddElement(oRun);",
+      "VBA Equivalent": "oParagraph.Range.InsertAfter oRun.Text"
+    },
+    {
+      "OnlyOffice JS": "oRun = Api.CreateRun();",
+      "VBA Equivalent": "Set oRun = oDocContent.Characters"
+    },
+    {
+      "OnlyOffice JS": "oRun.SetFontFamily(\"Comic Sans MS\");",
+      "VBA Equivalent": "oRun.Font.Name = \"Comic Sans MS\""
+    },
+    {
+      "OnlyOffice JS": "oRun.AddText(\"This is a text run with the font family set to 'Comic Sans MS'.\");",
+      "VBA Equivalent": "oRun.Text = \"This is a text run with the font family set to 'Comic Sans MS'.\""
+    },
+    {
+      "OnlyOffice JS": "oParagraph.AddElement(oRun);",
+      "VBA Equivalent": "oParagraph.Range.InsertAfter oRun.Text"
+    }
+  ]
+}
+```

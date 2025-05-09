@@ -1,0 +1,84 @@
+```json
+{
+  "table": {
+    "headers": ["Description", "OnlyOffice JS", "Excel VBA"],
+    "rows": [
+      {
+        "Description": "Get the active worksheet",
+        "OnlyOfficeJS": "var oWorksheet = Api.GetActiveSheet();",
+        "ExcelVBA": "Set oWorksheet = Api.GetActiveSheet()"
+      },
+      {
+        "Description": "Create a solid fill with RGB color (255, 111, 61)",
+        "OnlyOfficeJS": "var oFill = Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61));",
+        "ExcelVBA": "Set oFill = Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61))"
+      },
+      {
+        "Description": "Create a stroke with width 0 and no fill",
+        "OnlyOfficeJS": "var oStroke = Api.CreateStroke(0, Api.CreateNoFill());",
+        "ExcelVBA": "Set oStroke = Api.CreateStroke(0, Api.CreateNoFill())"
+      },
+      {
+        "Description": "Add a shape to the worksheet with specified parameters",
+        "OnlyOfficeJS": "var oShape = oWorksheet.AddShape(\"flowChartOnlineStorage\", 120 * 36000, 35 * 36000, oFill, oStroke, 0, 2 * 36000, 0, 3 * 36000);",
+        "ExcelVBA": "Set oShape = oWorksheet.AddShape(\"flowChartOnlineStorage\", 120 * 36000, 35 * 36000, oFill, oStroke, 0, 2 * 36000, 0, 3 * 36000)"
+      },
+      {
+        "Description": "Get the content of the shape",
+        "OnlyOfficeJS": "var oDocContent = oShape.GetContent();",
+        "ExcelVBA": "Set oDocContent = oShape.GetContent()"
+      },
+      {
+        "Description": "Get the first paragraph element from the content",
+        "OnlyOfficeJS": "var oParagraph = oDocContent.GetElement(0);",
+        "ExcelVBA": "Set oParagraph = oDocContent.GetElement(0)"
+      },
+      {
+        "Description": "Create a numbering style with Arabic parentheses starting at 1",
+        "OnlyOfficeJS": "var oBullet = Api.CreateNumbering(\"ArabicParenR\", 1);",
+        "ExcelVBA": "Set oBullet = Api.CreateNumbering(\"ArabicParenR\", 1)"
+      },
+      {
+        "Description": "Set bullet style for the paragraph",
+        "OnlyOfficeJS": "oParagraph.SetBullet(oBullet);",
+        "ExcelVBA": "oParagraph.SetBullet oBullet"
+      },
+      {
+        "Description": "Add text to the paragraph",
+        "OnlyOfficeJS": "oParagraph.AddText(\" This is an example of the bulleted paragraph.\");",
+        "ExcelVBA": "oParagraph.AddText \" This is an example of the bulleted paragraph.\""
+      },
+      {
+        "Description": "Create a new paragraph and set bullet style",
+        "OnlyOfficeJS": "oParagraph = Api.CreateParagraph();\n oParagraph.SetBullet(oBullet);",
+        "ExcelVBA": "Set oParagraph = Api.CreateParagraph()\n oParagraph.SetBullet oBullet"
+      },
+      {
+        "Description": "Add text to the new paragraph",
+        "OnlyOfficeJS": "oParagraph.AddText(\" This is an example of the bulleted paragraph.\");",
+        "ExcelVBA": "oParagraph.AddText \" This is an example of the bulleted paragraph.\""
+      },
+      {
+        "Description": "Push the new paragraph to the document content",
+        "OnlyOfficeJS": "oDocContent.Push(oParagraph);",
+        "ExcelVBA": "oDocContent.Push oParagraph"
+      },
+      {
+        "Description": "Get the class type of the bullet",
+        "OnlyOfficeJS": "var sClassType = oBullet.GetClassType();",
+        "ExcelVBA": "sClassType = oBullet.GetClassType()"
+      },
+      {
+        "Description": "Create another paragraph with left justification and add text with class type",
+        "OnlyOfficeJS": "oParagraph = Api.CreateParagraph();\n oParagraph.SetJc(\"left\");\n oParagraph.AddText(\"Class Type = \" + sClassType);",
+        "ExcelVBA": "Set oParagraph = Api.CreateParagraph()\n oParagraph.SetJc \"left\"\n oParagraph.AddText \"Class Type = \" & sClassType"
+      },
+      {
+        "Description": "Push the final paragraph to the document content",
+        "OnlyOfficeJS": "oDocContent.Push(oParagraph);",
+        "ExcelVBA": "oDocContent.Push oParagraph"
+      }
+    ]
+  }
+}
+```

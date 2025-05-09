@@ -1,0 +1,73 @@
+**This code creates a shape with a paragraph having a 2-inch left indentation and displays the indent value.**
+
+```json
+{
+  "RAGTable": [
+    {
+      "OnlyOfficeJSMethod": "Api.GetActiveSheet()",
+      "ExcelVBAEquivalent": "Set oWorksheet = ActiveSheet",
+      "Status": "Green"
+    },
+    {
+      "OnlyOfficeJSMethod": "Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61))",
+      "ExcelVBAEquivalent": "oFill.Color = RGB(255, 111, 61)",
+      "Status": "Green"
+    },
+    {
+      "OnlyOfficeJSMethod": "Api.CreateStroke(0, Api.CreateNoFill())",
+      "ExcelVBAEquivalent": "With oStroke\n    .Weight = 0\n    .Visible = msoFalse\nEnd With",
+      "Status": "Green"
+    },
+    {
+      "OnlyOfficeJSMethod": "oWorksheet.AddShape(\"flowChartOnlineStorage\", 120 * 36000, 70 * 36000, oFill, oStroke, 0, 2 * 36000, 0, 3 * 36000)",
+      "ExcelVBAEquivalent": "Set oShape = oWorksheet.Shapes.AddShape(msoShapeFlowchartOnlineStorage, 120, 70, oFill, oStroke)",
+      "Status": "Yellow"
+    },
+    {
+      "OnlyOfficeJSMethod": "oShape.GetContent()",
+      "ExcelVBAEquivalent": "Set oDocContent = oShape.TextFrame.Characters",
+      "Status": "Green"
+    },
+    {
+      "OnlyOfficeJSMethod": "oDocContent.GetElement(0)",
+      "ExcelVBAEquivalent": "Set oParagraph = oDocContent.Paragraphs(1)",
+      "Status": "Green"
+    },
+    {
+      "OnlyOfficeJSMethod": "oParagraph.AddText(\"This is a paragraph with the indent of 2 inches set to it. \")",
+      "ExcelVBAEquivalent": "oParagraph.Text = oParagraph.Text & \"This is a paragraph with the indent of 2 inches set to it. \"",
+      "Status": "Green"
+    },
+    {
+      "OnlyOfficeJSMethod": "oParagraph.AddText(\"These sentences are used to add lines for demonstrative purposes. \")",
+      "ExcelVBAEquivalent": "oParagraph.Text = oParagraph.Text & \"These sentences are used to add lines for demonstrative purposes. \"",
+      "Status": "Green"
+    },
+    {
+      "OnlyOfficeJSMethod": "oParagraph.SetIndLeft(2880)",
+      "ExcelVBAEquivalent": "oParagraph.ParagraphFormat.LeftIndent = InchesToPoints(2)",
+      "Status": "Green"
+    },
+    {
+      "OnlyOfficeJSMethod": "oParagraph.GetIndLeft()",
+      "ExcelVBAEquivalent": "nIndLeft = oParagraph.ParagraphFormat.LeftIndent",
+      "Status": "Green"
+    },
+    {
+      "OnlyOfficeJSMethod": "Api.CreateParagraph()",
+      "ExcelVBAEquivalent": "Set oParagraph = oDocContent.Paragraphs.Add",
+      "Status": "Yellow"
+    },
+    {
+      "OnlyOfficeJSMethod": "oParagraph.AddText(\"Left indent: \" + nIndLeft)",
+      "ExcelVBAEquivalent": "oParagraph.Text = \"Left indent: \" & nIndLeft",
+      "Status": "Green"
+    },
+    {
+      "OnlyOfficeJSMethod": "oDocContent.Push(oParagraph)",
+      "ExcelVBAEquivalent": "oDocContent.InsertAfter oParagraph",
+      "Status": "Yellow"
+    }
+  ]
+}
+```

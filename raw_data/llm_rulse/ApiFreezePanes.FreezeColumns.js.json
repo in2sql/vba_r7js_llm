@@ -1,0 +1,7 @@
+```json
+{
+  "Description": "This example freezes the first column.",
+  "VBA": "Sub FreezeFirstColumn()\n    ActiveWindow.SplitColumn = 1\n    ActiveWindow.FreezePanes = True\nEnd Sub",
+  "OnlyOfficeJS": "// This example freezes the the first column.\nvar oWorksheet = Api.GetActiveSheet();\nvar oFreezePanes = oWorksheet.GetFreezePanes();\noFreezePanes.FreezeColumns(1);"
+}
+```

@@ -1,0 +1,40 @@
+**Description:** This code sets the value of cell B1, modifies the italic property of a substring, and displays the italic property in cell B3.
+
+```json
+{
+  "Methods": [
+    {
+      "OnlyOffice_JS": "Api.GetActiveSheet()",
+      "Excel_VBA": "Set oWorksheet = ActiveSheet"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"B1\")",
+      "Excel_VBA": "Set oRange = oWorksheet.Range(\"B1\")"
+    },
+    {
+      "OnlyOffice_JS": "oRange.SetValue(\"This is just a sample text.\")",
+      "Excel_VBA": "oRange.Value = \"This is just a sample text.\""
+    },
+    {
+      "OnlyOffice_JS": "oRange.GetCharacters(9, 4)",
+      "Excel_VBA": "Set oCharacters = oRange.Characters(Start:=9, Length:=4)"
+    },
+    {
+      "OnlyOffice_JS": "oCharacters.GetFont()",
+      "Excel_VBA": "Set oFont = oCharacters.Font"
+    },
+    {
+      "OnlyOffice_JS": "oFont.SetItalic(true)",
+      "Excel_VBA": "oFont.Italic = True"
+    },
+    {
+      "OnlyOffice_JS": "oFont.GetItalic()",
+      "Excel_VBA": "bItalic = oFont.Italic"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"B3\").SetValue(\"Italic property: \" + bItalic)",
+      "Excel_VBA": "oWorksheet.Range(\"B3\").Value = \"Italic property: \" & bItalic"
+    }
+  ]
+}
+```

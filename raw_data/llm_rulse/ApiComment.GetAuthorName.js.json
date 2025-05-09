@@ -1,0 +1,31 @@
+```json
+{
+  "description": "This example shows how to get the comment author's name.",
+  "RAGTable": [
+    {
+      "OnlyOffice JS": "Api.GetActiveSheet()",
+      "Excel VBA": "Set oWorksheet = ThisWorkbook.ActiveSheet"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"A1\").SetValue(\"1\")",
+      "Excel VBA": "Range(\"A1\").Value = \"1\""
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"A1\")",
+      "Excel VBA": "Set oRange = Range(\"A1\")"
+    },
+    {
+      "OnlyOffice JS": "oRange.AddComment(\"This is just a number.\")",
+      "Excel VBA": "Set oComment = oRange.AddComment(\"This is just a number.\")"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"A3\").SetValue(\"Comment's author: \")",
+      "Excel VBA": "Range(\"A3\").Value = \"Comment's author: \""
+    },
+    {
+      "OnlyOffice JS": "oComment.GetAuthorName()",
+      "Excel VBA": "oComment.Author"
+    }
+  ]
+}
+```

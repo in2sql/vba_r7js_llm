@@ -1,0 +1,73 @@
+**Description:**  
+This code sets the first line indentation of a paragraph, creates a shape with a specific fill color and no stroke, adds text to the shape's content, and manages paragraph formatting within the active worksheet.
+
+```json
+{
+  "CodeMappings": [
+    {
+      "OnlyOffice JS": "var oWorksheet = Api.GetActiveSheet();",
+      "VBA": "Set oWorksheet = ActiveSheet"
+    },
+    {
+      "OnlyOffice JS": "var oFill = Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61));",
+      "VBA": "oFillColor = RGB(255, 111, 61)"
+    },
+    {
+      "OnlyOffice JS": "var oStroke = Api.CreateStroke(0, Api.CreateNoFill());",
+      "VBA": "Set oStroke = Nothing ' VBA does not have a direct equivalent for stroke"
+    },
+    {
+      "OnlyOffice JS": "var oShape = oWorksheet.AddShape(\"flowChartOnlineStorage\", 120 * 36000, 70 * 36000, oFill, oStroke, 0, 2 * 36000, 0, 3 * 36000);",
+      "VBA": "Set oShape = oWorksheet.Shapes.AddShape(msoShapeFlowchartOnlineStorage, 120, 70, 200, 150)\nWith oShape.Fill\n    .ForeColor.RGB = RGB(255, 111, 61)\n    .Solid\nEnd With\nWith oShape.Line\n    .Visible = msoFalse\nEnd With"
+    },
+    {
+      "OnlyOffice JS": "var oDocContent = oShape.GetContent();",
+      "VBA": "Set oDocContent = oShape.TextFrame"
+    },
+    {
+      "OnlyOffice JS": "var oParagraph = oDocContent.GetElement(0);",
+      "VBA": "Set oParagraph = oDocContent.Characters"
+    },
+    {
+      "OnlyOffice JS": "oParagraph.AddText(\"This is a paragraph with the indent of 1 inch set to the first line. \");",
+      "VBA": "oParagraph.Text = oParagraph.Text & \"This is a paragraph with the indent of 1 inch set to the first line. \""
+    },
+    {
+      "OnlyOffice JS": "oParagraph.AddText(\"These sentences are used to add lines for demonstrative purposes. \");",
+      "VBA": "oParagraph.Text = oParagraph.Text & \"These sentences are used to add lines for demonstrative purposes. \""
+    },
+    {
+      "OnlyOffice JS": "oParagraph.AddText(\"These sentences are used to add lines for demonstrative purposes. \");",
+      "VBA": "oParagraph.Text = oParagraph.Text & \"These sentences are used to add lines for demonstrative purposes. \""
+    },
+    {
+      "OnlyOffice JS": "oParagraph.AddText(\"These sentences are used to add lines for demonstrative purposes.\");",
+      "VBA": "oParagraph.Text = oParagraph.Text & \"These sentences are used to add lines for demonstrative purposes.\""
+    },
+    {
+      "OnlyOffice JS": "oParagraph.SetIndFirstLine(1440);",
+      "VBA": "With oParagraph.ParagraphFormat\n    .FirstLineIndent = 72 ' Points equivalent to 1 inch\nEnd With"
+    },
+    {
+      "OnlyOffice JS": "oParagraph = Api.CreateParagraph();",
+      "VBA": "Set oParagraph = oDocContent.Paragraphs.Add"
+    },
+    {
+      "OnlyOffice JS": "oParagraph.AddText(\"This is a paragraph without any indent set to the first line. \");",
+      "VBA": "oParagraph.Text = \"This is a paragraph without any indent set to the first line. \""
+    },
+    {
+      "OnlyOffice JS": "oParagraph.AddText(\"These sentences are used to add lines for demonstrative purposes. \");",
+      "VBA": "oParagraph.Text = oParagraph.Text & \"These sentences are used to add lines for demonstrative purposes. \""
+    },
+    {
+      "OnlyOffice JS": "oParagraph.AddText(\"These sentences are used to add lines for demonstrative purposes.\");",
+      "VBA": "oParagraph.Text = oParagraph.Text & \"These sentences are used to add lines for demonstrative purposes.\""
+    },
+    {
+      "OnlyOffice JS": "oDocContent.Push(oParagraph);",
+      "VBA": "' VBA automatically handles adding the paragraph to the text frame."
+    }
+  ]
+}
+```

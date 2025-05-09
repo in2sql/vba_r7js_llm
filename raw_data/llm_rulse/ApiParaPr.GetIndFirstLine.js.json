@@ -1,0 +1,59 @@
+```json
+{
+  "description": "This table provides the Excel VBA equivalents for each method used in the provided OnlyOffice JavaScript code. The code adds a flowchart shape to the active worksheet, sets its fill and stroke properties, adjusts paragraph indentation, adds multiple text lines, retrieves the indentation value, creates a new paragraph displaying this value, and appends it to the shape's document content.",
+  "RAG_table": [
+    {
+      "OnlyOffice_JS_Method": "Api.GetActiveSheet()",
+      "Excel_VBA_Equivalent": "Set oWorksheet = ThisWorkbook.ActiveSheet"
+    },
+    {
+      "OnlyOffice_JS_Method": "Api.CreateRGBColor(255, 111, 61)",
+      "Excel_VBA_Equivalent": "RGB(255, 111, 61)"
+    },
+    {
+      "OnlyOffice_JS_Method": "Api.CreateSolidFill(color)",
+      "Excel_VBA_Equivalent": "oFill.ForeColor.RGB = RGB(255, 111, 61)\noFill.Visible = msoTrue"
+    },
+    {
+      "OnlyOffice_JS_Method": "Api.CreateStroke(0, Api.CreateNoFill())",
+      "Excel_VBA_Equivalent": "With oStroke\n    .Weight = 0\n    .Visible = msoFalse\nEnd With"
+    },
+    {
+      "OnlyOffice_JS_Method": "oWorksheet.AddShape(\"flowChartOnlineStorage\", 120 * 36000, 70 * 36000, oFill, oStroke, 0, 2 * 36000, 0, 3 * 36000)",
+      "Excel_VBA_Equivalent": "Set oShape = oWorksheet.Shapes.AddShape(msoShapeFlowchartOnlineStorage, 120, 70, 200, 150)\n' Adjust size as needed"
+    },
+    {
+      "OnlyOffice_JS_Method": "oShape.GetContent()",
+      "Excel_VBA_Equivalent": "Set oDocContent = oShape.TextFrame2.TextRange"
+    },
+    {
+      "OnlyOffice_JS_Method": "oDocContent.GetElement(0)",
+      "Excel_VBA_Equivalent": "Set oParagraph = oDocContent.Paragraphs(1)"
+    },
+    {
+      "OnlyOffice_JS_Method": "oParagraph.GetParaPr()",
+      "Excel_VBA_Equivalent": "Set oParaPr = oParagraph.ParagraphFormat"
+    },
+    {
+      "OnlyOffice_JS_Method": "oParaPr.SetIndFirstLine(1440)",
+      "Excel_VBA_Equivalent": "oParaPr.FirstLineIndent = 720 ' Points (1 inch)"
+    },
+    {
+      "OnlyOffice_JS_Method": "oParagraph.AddText(\"Sample text.\")",
+      "Excel_VBA_Equivalent": "oDocContent.Text = oDocContent.Text & \"Sample text.\""
+    },
+    {
+      "OnlyOffice_JS_Method": "oParaPr.GetIndFirstLine()",
+      "Excel_VBA_Equivalent": "nIndFirstLine = oParaPr.FirstLineIndent"
+    },
+    {
+      "OnlyOffice_JS_Method": "Api.CreateParagraph()",
+      "Excel_VBA_Equivalent": "' VBA does not require explicit paragraph creation; append text directly."
+    },
+    {
+      "OnlyOffice_JS_Method": "oDocContent.Push(oParagraph)",
+      "Excel_VBA_Equivalent": "' Text is already appended using oDocContent.Text"
+    }
+  ]
+}
+```

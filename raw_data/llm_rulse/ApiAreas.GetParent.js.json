@@ -1,0 +1,67 @@
+```json
+{
+  "description": "This script retrieves the active worksheet, manipulates specific ranges by setting values and selecting them, obtains the parent object of a range, retrieves its class type, and writes this information into designated cells with appropriate formatting.",
+  "methods": [
+    {
+      "OnlyOfficeJS": "var oWorksheet = Api.GetActiveSheet();",
+      "VBA": "Set oWorksheet = ThisWorkbook.ActiveSheet"
+    },
+    {
+      "OnlyOfficeJS": "var oRange = oWorksheet.GetRange(\"B1:D1\");",
+      "VBA": "Set oRange = oWorksheet.Range(\"B1:D1\")"
+    },
+    {
+      "OnlyOfficeJS": "oRange.SetValue(\"1\");",
+      "VBA": "oRange.Value = \"1\""
+    },
+    {
+      "OnlyOfficeJS": "oRange.Select();",
+      "VBA": "oRange.Select"
+    },
+    {
+      "OnlyOfficeJS": "var oAreas = oRange.GetAreas();",
+      "VBA": "Set oAreas = oRange.Areas"
+    },
+    {
+      "OnlyOfficeJS": "var oParent = oAreas.GetParent();",
+      "VBA": "Set oParent = oAreas.Parent"
+    },
+    {
+      "OnlyOfficeJS": "var sType = oParent.GetClassType();",
+      "VBA": "sType = TypeName(oParent)"
+    },
+    {
+      "OnlyOfficeJS": "oRange = oWorksheet.GetRange('A4');",
+      "VBA": "Set oRange = oWorksheet.Range(\"A4\")"
+    },
+    {
+      "OnlyOfficeJS": "oRange.SetValue(\"The areas parent: \");",
+      "VBA": "oRange.Value = \"The areas parent: \""
+    },
+    {
+      "OnlyOfficeJS": "oRange.AutoFit(false, true);",
+      "VBA": "oRange.EntireColumn.AutoFit"
+    },
+    {
+      "OnlyOfficeJS": "oWorksheet.GetRange('B4').Paste(oParent);",
+      "VBA": "oParent.Copy Destination:=oWorksheet.Range(\"B4\")"
+    },
+    {
+      "OnlyOfficeJS": "oRange = oWorksheet.GetRange('A5');",
+      "VBA": "Set oRange = oWorksheet.Range(\"A5\")"
+    },
+    {
+      "OnlyOfficeJS": "oRange.SetValue(\"The type of the areas parent: \");",
+      "VBA": "oRange.Value = \"The type of the areas parent: \""
+    },
+    {
+      "OnlyOfficeJS": "oRange.AutoFit(false, true);",
+      "VBA": "oRange.EntireColumn.AutoFit"
+    },
+    {
+      "OnlyOfficeJS": "oWorksheet.GetRange('B5').SetValue(sType);",
+      "VBA": "oWorksheet.Range(\"B5\").Value = sType"
+    }
+  ]
+}
+```

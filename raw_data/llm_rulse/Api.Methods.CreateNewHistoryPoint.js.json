@@ -1,0 +1,23 @@
+```json
+{
+  "Description": "This example creates a new history point.",
+  "CodeEquivalents": [
+    {
+      "OnlyOffice JS": "var oWorksheet = Api.GetActiveSheet();",
+      "Excel VBA": "Dim oWorksheet As Worksheet\nSet oWorksheet = ActiveWorkbook.ActiveSheet"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"A1\").SetValue(\"This is just a sample text.\");",
+      "Excel VBA": "oWorksheet.Range(\"A1\").Value = \"This is just a sample text.\""
+    },
+    {
+      "OnlyOffice JS": "Api.CreateNewHistoryPoint();",
+      "Excel VBA": "' VBA does not have a direct equivalent for creating a history point."
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"A3\").SetValue(\"New history point was just created.\");",
+      "Excel VBA": "oWorksheet.Range(\"A3\").Value = \"New history point was just created.\""
+    }
+  ]
+}
+```

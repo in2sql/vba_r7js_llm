@@ -1,0 +1,44 @@
+**Description:** This example removes the specified comment replies.
+
+```json
+{
+  "RAGTable": [
+    {
+      "OnlyOffice JS": "var oWorksheet = Api.GetActiveSheet();",
+      "Excel VBA": "Dim oWorksheet As Worksheet\nSet oWorksheet = ThisWorkbook.ActiveSheet"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"A1\").SetValue(\"1\");",
+      "Excel VBA": "oWorksheet.Range(\"A1\").Value = \"1\""
+    },
+    {
+      "OnlyOffice JS": "var oRange = oWorksheet.GetRange(\"A1\");",
+      "Excel VBA": "Dim oRange As Range\nSet oRange = oWorksheet.Range(\"A1\")"
+    },
+    {
+      "OnlyOffice JS": "var oComment = oRange.AddComment(\"This is just a number.\");",
+      "Excel VBA": "Dim oComment As Comment\nSet oComment = oRange.AddComment(\"This is just a number.\")"
+    },
+    {
+      "OnlyOffice JS": "oComment.AddReply(\"Reply 1\", \"John Smith\", \"uid-1\");",
+      "Excel VBA": "oComment.Replies.Add \"Reply 1\", \"John Smith\", \"uid-1\""
+    },
+    {
+      "OnlyOffice JS": "oComment.AddReply(\"Reply 2\", \"John Smith\", \"uid-1\");",
+      "Excel VBA": "oComment.Replies.Add \"Reply 2\", \"John Smith\", \"uid-1\""
+    },
+    {
+      "OnlyOffice JS": "oComment.RemoveReplies(0, 1, false);",
+      "Excel VBA": "oComment.Replies.Remove 1"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"A3\").SetValue(\"Comment replies count: \");",
+      "Excel VBA": "oWorksheet.Range(\"A3\").Value = \"Comment replies count: \""
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"B3\").SetValue(oComment.GetRepliesCount());",
+      "Excel VBA": "oWorksheet.Range(\"B3\").Value = oComment.Replies.Count"
+    }
+  ]
+}
+```

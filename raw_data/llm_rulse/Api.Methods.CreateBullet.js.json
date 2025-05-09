@@ -1,0 +1,51 @@
+```json
+{
+  "RAGTable": [
+    {
+      "Description": "Get the active worksheet.",
+      "VBA Code": "Set oWorksheet = ThisWorkbook.ActiveSheet",
+      "OnlyOffice JS Code": "var oWorksheet = Api.GetActiveSheet();"
+    },
+    {
+      "Description": "Create a solid fill with specific RGB color.",
+      "VBA Code": "Set oFill = oWorksheet.Shapes.AddShape(msoShapeRectangle, 0, 0, 100, 100).Fill\noFill.Solid\noFill.ForeColor.RGB = RGB(255, 111, 61)",
+      "OnlyOffice JS Code": "var oFill = Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61));"
+    },
+    {
+      "Description": "Create a stroke with 0 width and no fill.",
+      "VBA Code": "With oShape.Line\n    .Weight = 0\n    .Visible = msoFalse\nEnd With",
+      "OnlyOffice JS Code": "var oStroke = Api.CreateStroke(0, Api.CreateNoFill());"
+    },
+    {
+      "Description": "Add a shape to the worksheet with specific parameters.",
+      "VBA Code": "Set oShape = oWorksheet.Shapes.AddShape(msoShapeFlowchartOnlineStorage, 120, 35, 2, 3)",
+      "OnlyOffice JS Code": "var oShape = oWorksheet.AddShape(\"flowChartOnlineStorage\", 120 * 36000, 35 * 36000, oFill, oStroke, 0, 2 * 36000, 0, 3 * 36000);"
+    },
+    {
+      "Description": "Get the content of the shape.",
+      "VBA Code": "Set oTextFrame = oShape.TextFrame",
+      "OnlyOffice JS Code": "var oDocContent = oShape.GetContent();"
+    },
+    {
+      "Description": "Get the first paragraph element from the document content.",
+      "VBA Code": "Set oParagraph = oTextFrame.TextRange.Paragraphs(1)",
+      "OnlyOffice JS Code": "var oParagraph = oDocContent.GetElement(0);"
+    },
+    {
+      "Description": "Create a bullet with dash.",
+      "VBA Code": "With oParagraph.ParagraphFormat.Bullet\n    .Visible = msoTrue\n    .Character = 45 ' ASCII for '-' \nEnd With",
+      "OnlyOffice JS Code": "var oBullet = Api.CreateBullet(\"-\");"
+    },
+    {
+      "Description": "Set the bullet for the paragraph.",
+      "VBA Code": "oParagraph.ParagraphFormat.Bullet.Visible = msoTrue\noParagraph.ParagraphFormat.Bullet.Character = 45",
+      "OnlyOffice JS Code": "oParagraph.SetBullet(oBullet);"
+    },
+    {
+      "Description": "Add text to the paragraph.",
+      "VBA Code": "oParagraph.Text = \" This is an example of the bulleted paragraph.\"",
+      "OnlyOffice JS Code": "oParagraph.AddText(\" This is an example of the bulleted paragraph.\");"
+    }
+  ]
+}
+```

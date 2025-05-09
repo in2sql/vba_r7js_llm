@@ -1,0 +1,37 @@
+```json
+{
+  "description": "This example shows how to get the timestamp of the comment creation in the current time zone format.",
+  "RAG_Table": [
+    {
+      "Action": "Get active sheet",
+      "OnlyOffice_JS": "var oWorksheet = Api.GetActiveSheet();",
+      "VBA": "Set oWorksheet = ActiveWorkbook.ActiveSheet"
+    },
+    {
+      "Action": "Set value to A1",
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"A1\").SetValue(\"1\");",
+      "VBA": "oWorksheet.Range(\"A1\").Value = \"1\""
+    },
+    {
+      "Action": "Get range A1",
+      "OnlyOffice_JS": "var oRange = oWorksheet.GetRange(\"A1\");",
+      "VBA": "Set oRange = oWorksheet.Range(\"A1\")"
+    },
+    {
+      "Action": "Add comment to range",
+      "OnlyOffice_JS": "var oComment = oRange.AddComment(\"This is just a number.\");",
+      "VBA": "Set oComment = oRange.AddComment(\"This is just a number.\")"
+    },
+    {
+      "Action": "Set value to A3",
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"A3\").SetValue(\"Timestamp: \");",
+      "VBA": "oWorksheet.Range(\"A3\").Value = \"Timestamp: \""
+    },
+    {
+      "Action": "Set value to B3 with comment timestamp",
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"B3\").SetValue(oComment.GetTime());",
+      "VBA": "oWorksheet.Range(\"B3\").Value = oComment.Time"
+    }
+  ]
+}
+```

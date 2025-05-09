@@ -1,0 +1,79 @@
+```json
+{
+  "Description": "This code sets up data in a worksheet, creates a 3D bar chart, modifies the chart by setting the title, removing a series, changing the series fill color, and adds a note indicating the removal.",
+  "CodeComparison": [
+    {
+      "OnlyOffice_JS": "var oWorksheet = Api.GetActiveSheet();",
+      "VBA": "Set oWorksheet = ThisWorkbook.ActiveSheet"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"B1\").SetValue(2014);",
+      "VBA": "oWorksheet.Range(\"B1\").Value = 2014"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"C1\").SetValue(2015);",
+      "VBA": "oWorksheet.Range(\"C1\").Value = 2015"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"D1\").SetValue(2016);",
+      "VBA": "oWorksheet.Range(\"D1\").Value = 2016"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"A2\").SetValue(\"Projected Revenue\");",
+      "VBA": "oWorksheet.Range(\"A2\").Value = \"Projected Revenue\""
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"A3\").SetValue(\"Estimated Costs\");",
+      "VBA": "oWorksheet.Range(\"A3\").Value = \"Estimated Costs\""
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"B2\").SetValue(200);",
+      "VBA": "oWorksheet.Range(\"B2\").Value = 200"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"B3\").SetValue(250);",
+      "VBA": "oWorksheet.Range(\"B3\").Value = 250"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"C2\").SetValue(240);",
+      "VBA": "oWorksheet.Range(\"C2\").Value = 240"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"C3\").SetValue(260);",
+      "VBA": "oWorksheet.Range(\"C3\").Value = 260"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"D2\").SetValue(280);",
+      "VBA": "oWorksheet.Range(\"D2\").Value = 280"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"D3\").SetValue(280);",
+      "VBA": "oWorksheet.Range(\"D3\").Value = 280"
+    },
+    {
+      "OnlyOffice_JS": "var oChart = oWorksheet.AddChart(\"'Sheet1'!$A$1:$D$3\", true, \"bar3D\", 2, 100 * 36000, 70 * 36000, 0, 2 * 36000, 7, 3 * 36000);",
+      "VBA": "Set oChart = oWorksheet.Shapes.AddChart2(-1, xlBarClustered, 100, 70, 200, 200).Chart"
+    },
+    {
+      "OnlyOffice_JS": "oChart.SetTitle(\"Financial Overview\", 13);",
+      "VBA": "With oChart\n    .HasTitle = True\n    .ChartTitle.Text = \"Financial Overview\"\n    .ChartTitle.Format.TextFrame2.TextRange.Font.Size = 13\nEnd With"
+    },
+    {
+      "OnlyOffice_JS": "oChart.RemoveSeria(1);",
+      "VBA": "oChart.SeriesCollection(1).Delete"
+    },
+    {
+      "OnlyOffice_JS": "var oFill = Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61));",
+      "VBA": "fillColor = RGB(255, 111, 61)"
+    },
+    {
+      "OnlyOffice_JS": "oChart.SetSeriesFill(oFill, 0, false);",
+      "VBA": "oChart.SeriesCollection(1).Format.Fill.ForeColor.RGB = RGB(255, 111, 61)"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"A5\").SetValue(\"The Estimated Costs series was removed from the current chart.\");",
+      "VBA": "oWorksheet.Range(\"A5\").Value = \"The Estimated Costs series was removed from the current chart.\""
+    }
+  ]
+}
+```

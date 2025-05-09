@@ -1,0 +1,15 @@
+```json
+{
+  "Description": "This example shows how to get the height of the drawing.",
+  "Codes": [
+    {
+      "Language": "VBA",
+      "Code": "Sub GetDrawingHeight()\n    Dim oWorksheet As Worksheet\n    Set oWorksheet = ActiveSheet\n    \n    Dim oDrawing As Shape\n    Set oDrawing = oWorksheet.Shapes.AddShape(msoShapeFlowchartOnlineStorage, 60, 35, 120, 70)\n    \n    ' Set fill color\n    oDrawing.Fill.ForeColor.RGB = RGB(255, 111, 61)\n    \n    ' Set line (stroke) to no line\n    oDrawing.Line.Visible = msoFalse\n    \n    ' Set position\n    oDrawing.Left = 0\n    oDrawing.Top = 2\n    \n    ' Get height\n    Dim nHeight As Double\n    nHeight = oDrawing.Height\n    \n    ' Set cell value\n    oWorksheet.Range(\"A1\").Value = \"Drawing height = \" & nHeight\nEnd Sub"
+    },
+    {
+      "Language": "OnlyOffice JS",
+      "Code": "// This example shows how to get the height of the drawing.\nvar oWorksheet = Api.GetActiveSheet();\nvar oFill = Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61));\nvar oStroke = Api.CreateStroke(0, Api.CreateNoFill());\nvar oDrawing = oWorksheet.AddShape(\"flowChartOnlineStorage\", 60 * 36000, 35 * 36000, oFill, oStroke, 0, 2 * 36000, 0, 3 * 36000);\noDrawing.SetSize(120 * 36000, 70 * 36000);\noDrawing.SetPosition(0, 2 * 36000, 1, 3 * 36000);\nvar nHeight = oDrawing.GetHeight();\noWorksheet.GetRange(\"A1\").SetValue(\"Drawing height = \" + nHeight);"
+    }
+  ]
+}
+```

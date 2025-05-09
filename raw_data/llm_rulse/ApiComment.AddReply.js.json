@@ -1,0 +1,44 @@
+**This code adds a reply to a comment in a cell, sets values, and retrieves the reply text.**
+
+```json
+{
+  "Methods": [
+    {
+      "OnlyOffice JS": "Api.GetActiveSheet()",
+      "Excel VBA": "ActiveSheet"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"A1\").SetValue(\"1\")",
+      "Excel VBA": "Range(\"A1\").Value = \"1\""
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"A1\")",
+      "Excel VBA": "Range(\"A1\")"
+    },
+    {
+      "OnlyOffice JS": "oRange.AddComment(\"This is just a number.\")",
+      "Excel VBA": "Range(\"A1\").AddComment(\"This is just a number.\")"
+    },
+    {
+      "OnlyOffice JS": "oComment.AddReply(\"Reply 1\", \"John Smith\", \"uid-1\")",
+      "Excel VBA": "Range(\"A1\").Comment.Replies.Add(\"Reply 1\", \"John Smith\")"
+    },
+    {
+      "OnlyOffice JS": "oComment.GetReply()",
+      "Excel VBA": "Set oReply = Range(\"A1\").Comment.Replies(1)"
+    },
+    {
+      "OnlyOffice JS": "oReply.GetText()",
+      "Excel VBA": "oReply.Text"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"A3\").SetValue(\"Comment's reply text: \")",
+      "Excel VBA": "Range(\"A3\").Value = \"Comment's reply text: \""
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"B3\").SetValue(oReply.GetText())",
+      "Excel VBA": "Range(\"B3\").Value = oReply.Text"
+    }
+  ]
+}
+```

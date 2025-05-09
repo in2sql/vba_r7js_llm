@@ -1,0 +1,75 @@
+```json
+{
+  "description": "This table provides the Excel VBA equivalents for each OnlyOffice API method used in the provided JavaScript code example.",
+  "codeMappings": [
+    {
+      "OnlyOffice_JS": "var oWorksheet = Api.GetActiveSheet();",
+      "Excel_VBA": "Set oWorksheet = ActiveSheet"
+    },
+    {
+      "OnlyOffice_JS": "var oFill = Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61));",
+      "Excel_VBA": "Dim oFill As Long\noFill = RGB(255, 111, 61)"
+    },
+    {
+      "OnlyOffice_JS": "var oStroke = Api.CreateStroke(0, Api.CreateNoFill());",
+      "Excel_VBA": "With oShape.Line\n    .Weight = 0\n    .Visible = msoFalse\nEnd With"
+    },
+    {
+      "OnlyOffice_JS": "var oShape = oWorksheet.AddShape(\"flowChartOnlineStorage\", 120 * 36000, 70 * 36000, oFill, oStroke, 0, 2 * 36000, 0, 3 * 36000);",
+      "Excel_VBA": "Set oShape = oWorksheet.Shapes.AddShape(msoShapeFlowchartPredefinedProcess, 120, 70, 200, 300)\nWith oShape.Fill\n    .ForeColor.RGB = oFill\nEnd With\nWith oShape.Line\n    .Visible = msoFalse\nEnd With"
+    },
+    {
+      "OnlyOffice_JS": "var oDocContent = oShape.GetContent();",
+      "Excel_VBA": "Dim oDocContent As TextRange\nSet oDocContent = oShape.TextFrame2.TextRange"
+    },
+    {
+      "OnlyOffice_JS": "var oParagraph = oDocContent.GetElement(0);",
+      "Excel_VBA": "Dim oParagraph As TextRange\nSet oParagraph = oDocContent.Paragraphs(1)"
+    },
+    {
+      "OnlyOffice_JS": "var oParaPr = oParagraph.GetParaPr();",
+      "Excel_VBA": "With oParagraph.ParagraphFormat\n    .Alignment = xlCenter\nEnd With"
+    },
+    {
+      "OnlyOffice_JS": "oParaPr.SetJc(\"center\");",
+      "Excel_VBA": "oParagraph.ParagraphFormat.Alignment = xlCenter"
+    },
+    {
+      "OnlyOffice_JS": "oParagraph.AddText(\"This is a paragraph with the text in it aligned by the center. \");",
+      "Excel_VBA": "oParagraph.Text = oParagraph.Text & \"This is a paragraph with the text in it aligned by the center. \""
+    },
+    {
+      "OnlyOffice_JS": "oParagraph.AddText(\"The justification is specified in the paragraph style. \");",
+      "Excel_VBA": "oParagraph.Text = oParagraph.Text & \"The justification is specified in the paragraph style. \""
+    },
+    {
+      "OnlyOffice_JS": "oParagraph.AddText(\"These sentences are used to add lines for demonstrative purposes. \");",
+      "Excel_VBA": "oParagraph.Text = oParagraph.Text & \"These sentences are used to add lines for demonstrative purposes. \""
+    },
+    {
+      "OnlyOffice_JS": "oParagraph.AddText(\"These sentences are used to add lines for demonstrative purposes. \");",
+      "Excel_VBA": "oParagraph.Text = oParagraph.Text & \"These sentences are used to add lines for demonstrative purposes. \""
+    },
+    {
+      "OnlyOffice_JS": "oParagraph.AddText(\"These sentences are used to add lines for demonstrative purposes.\");",
+      "Excel_VBA": "oParagraph.Text = oParagraph.Text & \"These sentences are used to add lines for demonstrative purposes.\""
+    },
+    {
+      "OnlyOffice_JS": "var sJc = oParaPr.GetJc();",
+      "Excel_VBA": "Dim sJc As XlVAlign\nsJc = oParagraph.ParagraphFormat.Alignment"
+    },
+    {
+      "OnlyOffice_JS": "oParagraph = Api.CreateParagraph();",
+      "Excel_VBA": "Set oParagraph = oDocContent.Paragraphs.Add"
+    },
+    {
+      "OnlyOffice_JS": "oParagraph.AddText(\"Justification: \" + sJc);",
+      "Excel_VBA": "oParagraph.Text = \"Justification: \" & sJc"
+    },
+    {
+      "OnlyOffice_JS": "oDocContent.Push(oParagraph);",
+      "Excel_VBA": "oDocContent.InsertAfter oParagraph.Text"
+    }
+  ]
+}
+```

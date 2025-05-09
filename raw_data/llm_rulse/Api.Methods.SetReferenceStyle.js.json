@@ -1,0 +1,9 @@
+```json
+{
+  "description": "This example sets reference style.",
+  "code": {
+    "OnlyOffice JS": "// This example sets reference style.\nvar oWorksheet = Api.GetActiveSheet();\nApi.SetReferenceStyle(\"xlR1C1\");\noWorksheet.GetRange(\"A1\").SetValue(Api.GetReferenceStyle());",
+    "Excel VBA": "' This example sets reference style.\nDim oWorksheet As Worksheet\nSet oWorksheet = ActiveSheet\nApplication.ReferenceStyle = xlR1C1\noWorksheet.Range(\"A1\").Value = Application.ReferenceStyle"
+  }
+}
+```

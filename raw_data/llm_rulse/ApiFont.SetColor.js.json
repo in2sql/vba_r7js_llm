@@ -1,0 +1,35 @@
+```json
+{
+  "description": "This code sets the font color property to the specified font in cell B1.",
+  "codeComparison": [
+    {
+      "OnlyOffice JS": "var oWorksheet = Api.GetActiveSheet();",
+      "Excel VBA": "Dim oWorksheet As Worksheet\nSet oWorksheet = ActiveSheet"
+    },
+    {
+      "OnlyOffice JS": "var oRange = oWorksheet.GetRange(\"B1\");",
+      "Excel VBA": "Dim oRange As Range\nSet oRange = oWorksheet.Range(\"B1\")"
+    },
+    {
+      "OnlyOffice JS": "oRange.SetValue(\"This is just a sample text.\");",
+      "Excel VBA": "oRange.Value = \"This is just a sample text.\""
+    },
+    {
+      "OnlyOffice JS": "var oCharacters = oRange.GetCharacters(9, 4);",
+      "Excel VBA": "Dim oCharacters As Characters\nSet oCharacters = oRange.Characters(Start:=9, Length:=4)"
+    },
+    {
+      "OnlyOffice JS": "var oFont = oCharacters.GetFont();",
+      "Excel VBA": "Dim oFont As Font\nSet oFont = oCharacters.Font"
+    },
+    {
+      "OnlyOffice JS": "var oColor = Api.CreateColorFromRGB(255, 111, 61);",
+      "Excel VBA": "Dim oColor As Long\noColor = RGB(255, 111, 61)"
+    },
+    {
+      "OnlyOffice JS": "oFont.SetColor(oColor);",
+      "Excel VBA": "oFont.Color = oColor"
+    }
+  ]
+}
+```

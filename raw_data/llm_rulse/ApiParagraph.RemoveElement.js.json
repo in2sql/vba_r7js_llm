@@ -1,0 +1,67 @@
+```json
+{
+  "description": "This table maps OnlyOffice API methods used in the example to their equivalent Excel VBA methods.",
+  "mapping": [
+    {
+      "OnlyOffice JS": "var oWorksheet = Api.GetActiveSheet();",
+      "Excel VBA": "Set oWorksheet = ThisWorkbook.ActiveSheet"
+    },
+    {
+      "OnlyOffice JS": "var oFill = Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61));",
+      "Excel VBA": "oShape.Fill.ForeColor.RGB = RGB(255, 111, 61)"
+    },
+    {
+      "OnlyOffice JS": "var oStroke = Api.CreateStroke(0, Api.CreateNoFill());",
+      "Excel VBA": "With oShape.Line\r\n    .Visible = msoFalse\r\nEnd With"
+    },
+    {
+      "OnlyOffice JS": "var oShape = oWorksheet.AddShape(\"flowChartOnlineStorage\", 120 * 36000, 70 * 36000, oFill, oStroke, 0, 2 * 36000, 0, 3 * 36000);",
+      "Excel VBA": "Set oShape = oWorksheet.Shapes.AddShape(msoShapeFlowchartOnlineStorage, 120, 70, 200, 100)"
+    },
+    {
+      "OnlyOffice JS": "var oDocContent = oShape.GetContent();",
+      "Excel VBA": "Set oTextFrame = oShape.TextFrame2"
+    },
+    {
+      "OnlyOffice JS": "var oParagraph = oDocContent.GetElement(0);",
+      "Excel VBA": "Set oParagraph = oTextFrame.TextRange.Paragraphs(1)"
+    },
+    {
+      "OnlyOffice JS": "oParagraph.RemoveAllElements();",
+      "Excel VBA": "oParagraph.Text = \"\""
+    },
+    {
+      "OnlyOffice JS": "var oRun = Api.CreateRun();\noRun.AddText(\"This is the first paragraph element. \");\noParagraph.AddElement(oRun);",
+      "Excel VBA": "oParagraph.Text = oParagraph.Text & \"This is the first paragraph element. \""
+    },
+    {
+      "OnlyOffice JS": "oRun = Api.CreateRun();\noRun.AddText(\"This is the second paragraph element. \");\noParagraph.AddElement(oRun);",
+      "Excel VBA": "oParagraph.Text = oParagraph.Text & \"This is the second paragraph element. \""
+    },
+    {
+      "OnlyOffice JS": "oRun = Api.CreateRun();\noRun.AddText(\"This is the third paragraph element (it will be removed from the paragraph and we will not see it). \");\noParagraph.AddElement(oRun);",
+      "Excel VBA": "oParagraph.Text = oParagraph.Text & \"This is the third paragraph element (it will be removed from the paragraph and we will not see it). \""
+    },
+    {
+      "OnlyOffice JS": "oParagraph.AddLineBreak();",
+      "Excel VBA": "oParagraph.Text = oParagraph.Text & vbLf"
+    },
+    {
+      "OnlyOffice JS": "oRun = Api.CreateRun();\noRun.AddText(\"This is the fourth paragraph element - it became the third, because we removed the previous run from the paragraph. \");\noParagraph.AddElement(oRun);",
+      "Excel VBA": "oParagraph.Text = oParagraph.Text & \"This is the fourth paragraph element - it became the third, because we removed the previous run from the paragraph. \""
+    },
+    {
+      "OnlyOffice JS": "oParagraph.AddLineBreak();",
+      "Excel VBA": "oParagraph.Text = oParagraph.Text & vbLf"
+    },
+    {
+      "OnlyOffice JS": "oRun = Api.CreateRun();\noRun.AddText(\"Please note that line breaks are not counted into paragraph elements!\");\noParagraph.AddElement(oRun);",
+      "Excel VBA": "oParagraph.Text = oParagraph.Text & \"Please note that line breaks are not counted into paragraph elements!\""
+    },
+    {
+      "OnlyOffice JS": "oParagraph.RemoveElement(3);",
+      "Excel VBA": "Dim arr() As String\r\narr = Split(oParagraph.Text, vbLf)\r\nIf UBound(arr) >= 2 Then\r\n    arr(2) = \"\"\r\n    oParagraph.Text = Join(arr, vbLf)\r\nEnd If"
+    }
+  ]
+}
+```

@@ -1,0 +1,54 @@
+```json
+[
+  {
+    "description": "Get the active worksheet",
+    "OnlyOfficeJS": "var oWorksheet = Api.GetActiveSheet();",
+    "ExcelVBA": "Set oWorksheet = ActiveSheet"
+  },
+  {
+    "description": "Get the range B1:D1 from the active worksheet",
+    "OnlyOfficeJS": "var oRange = oWorksheet.GetRange(\"B1:D1\");",
+    "ExcelVBA": "Set oRange = oWorksheet.Range(\"B1:D1\")"
+  },
+  {
+    "description": "Set the value of the range to \"1\"",
+    "OnlyOfficeJS": "oRange.SetValue(\"1\");",
+    "ExcelVBA": "oRange.Value = \"1\""
+  },
+  {
+    "description": "Select the range",
+    "OnlyOfficeJS": "oRange.Select();",
+    "ExcelVBA": "oRange.Select"
+  },
+  {
+    "description": "Get the areas of the selected range",
+    "OnlyOfficeJS": "var oAreas = oRange.GetAreas();",
+    "ExcelVBA": "Set oAreas = oRange.Areas"
+  },
+  {
+    "description": "Get the count of areas",
+    "OnlyOfficeJS": "var nCount = oAreas.GetCount();",
+    "ExcelVBA": "nCount = oAreas.Count"
+  },
+  {
+    "description": "Get the range A5",
+    "OnlyOfficeJS": "oRange = oWorksheet.GetRange('A5');",
+    "ExcelVBA": "Set oRange = oWorksheet.Range(\"A5\")"
+  },
+  {
+    "description": "Set the value of A5 to a descriptive text",
+    "OnlyOfficeJS": "oRange.SetValue(\"The number of ranges in the areas: \");",
+    "ExcelVBA": "oRange.Value = \"The number of ranges in the areas: \""
+  },
+  {
+    "description": "Auto-fit the range A5",
+    "OnlyOfficeJS": "oRange.AutoFit(false, true);",
+    "ExcelVBA": "oRange.Columns.AutoFit"
+  },
+  {
+    "description": "Set the value of B5 to the count of areas",
+    "OnlyOfficeJS": "oWorksheet.GetRange('B5').SetValue(nCount);",
+    "ExcelVBA": "oWorksheet.Range(\"B5\").Value = nCount"
+  }
+]
+```

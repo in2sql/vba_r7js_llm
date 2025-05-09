@@ -1,0 +1,94 @@
+```json
+[
+  {
+    "Get the active worksheet.": {
+      "VBA": "Set oWorksheet = ActiveSheet",
+      "OnlyOffice JS": "var oWorksheet = Api.GetActiveSheet();"
+    }
+  },
+  {
+    "Create a solid fill with specified RGB color.": {
+      "VBA": "Set oFill = oWorksheet.Shapes.Fill.ForeColor.RGB = RGB(255, 111, 61)",
+      "OnlyOffice JS": "var oFill = Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61));"
+    }
+  },
+  {
+    "Create a stroke with no fill.": {
+      "VBA": "With oWorksheet.Shapes.Line\n    .Visible = msoTrue\n    .ForeColor.RGB = RGB(0, 0, 0)\n    .Weight = 1\nEnd With",
+      "OnlyOffice JS": "var oStroke = Api.CreateStroke(0, Api.CreateNoFill());"
+    }
+  },
+  {
+    "Add a shape to the worksheet with specific parameters.": {
+      "VBA": "Set oShape = oWorksheet.Shapes.AddShape(msoShapeFlowchartStorage, 120, 70, 2, 3)",
+      "OnlyOffice JS": "var oShape = oWorksheet.AddShape(\"flowChartOnlineStorage\", 120 * 36000, 70 * 36000, oFill, oStroke, 0, 2 * 36000, 0, 3 * 36000);"
+    }
+  },
+  {
+    "Get content of the shape.": {
+      "VBA": "Set oDocContent = oShape.TextFrame",
+      "OnlyOffice JS": "var oDocContent = oShape.GetContent();"
+    }
+  },
+  {
+    "Get the first paragraph element.": {
+      "VBA": "Set oParagraph = oDocContent.TextRange.Paragraphs(1)",
+      "OnlyOffice JS": "var oParagraph = oDocContent.GetElement(0);"
+    }
+  },
+  {
+    "Remove all elements from the paragraph.": {
+      "VBA": "oParagraph.TextRange.Text = \"\"",
+      "OnlyOffice JS": "oParagraph.RemoveAllElements();"
+    }
+  },
+  {
+    "Create a run and add text to the paragraph.": {
+      "VBA": "oParagraph.TextRange.Text = oParagraph.TextRange.Text & \"This is the first paragraph element. \"",
+      "OnlyOffice JS": "var oRun = Api.CreateRun();\noRun.AddText(\"This is the first paragraph element. \");\noParagraph.AddElement(oRun);"
+    }
+  },
+  {
+    "Add additional runs with text.": {
+      "VBA": "oParagraph.TextRange.Text = oParagraph.TextRange.Text & \"This is the second paragraph element. \"",
+      "OnlyOffice JS": "oRun = Api.CreateRun();\noRun.AddText(\"This is the second paragraph element. \");\noParagraph.AddElement(oRun);"
+    }
+  },
+  {
+    "Add a third run which will be removed later.": {
+      "VBA": "oParagraph.TextRange.Text = oParagraph.TextRange.Text & \"This is the third paragraph element (it will be removed from the paragraph and we will not see it). \"",
+      "OnlyOffice JS": "oRun = Api.CreateRun();\noRun.AddText(\"This is the third paragraph element (it will be removed from the paragraph and we will not see it). \");\noParagraph.AddElement(oRun);"
+    }
+  },
+  {
+    "Add a line break to the paragraph.": {
+      "VBA": "oParagraph.TextRange.InsertAfter vbCrLf",
+      "OnlyOffice JS": "oParagraph.AddLineBreak();"
+    }
+  },
+  {
+    "Add a fourth run after the line break.": {
+      "VBA": "oParagraph.TextRange.InsertAfter \"This is the fourth paragraph element - it became the third, because we removed the previous run from the paragraph. \"",
+      "OnlyOffice JS": "oRun = Api.CreateRun();\noRun.AddText(\"This is the fourth paragraph element - it became the third, because we removed the previous run from the paragraph. \");\noParagraph.AddElement(oRun);"
+    }
+  },
+  {
+    "Add another line break.": {
+      "VBA": "oParagraph.TextRange.InsertAfter vbCrLf",
+      "OnlyOffice JS": "oParagraph.AddLineBreak();"
+    }
+  },
+  {
+    "Add a final run with note about line breaks.": {
+      "VBA": "oParagraph.TextRange.InsertAfter \"Please note that line breaks are not counted into paragraph elements!\"",
+      "OnlyOffice JS": "oRun = Api.CreateRun();\noRun.AddText(\"Please note that line breaks are not counted into paragraph elements!\");\noParagraph.AddElement(oRun);"
+    }
+  },
+  {
+    "Remove the third element from the paragraph.": {
+      "VBA": "oParagraph.TextRange.Characters(Start:=..., Length:=...).Delete",
+      "OnlyOffice JS": "oParagraph.RemoveElement(3);"
+    }
+  }
+]
+```

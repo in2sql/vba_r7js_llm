@@ -1,0 +1,31 @@
+```json
+{
+  "Description": "This code retrieves the active worksheet, sets a value in cell B1, extracts specific characters from that cell, retrieves the text from those characters, and sets a concatenated value in cell B3.",
+  "Methods": [
+    {
+      "OnlyOffice_JS": "Api.GetActiveSheet()",
+      "Excel_VBA": "Set oWorksheet = ThisWorkbook.ActiveSheet"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"B1\")",
+      "Excel_VBA": "Set oRange = oWorksheet.Range(\"B1\")"
+    },
+    {
+      "OnlyOffice_JS": "oRange.SetValue(\"This is just a sample text.\")",
+      "Excel_VBA": "oRange.Value = \"This is just a sample text.\""
+    },
+    {
+      "OnlyOffice_JS": "oRange.GetCharacters(23, 4)",
+      "Excel_VBA": "Set oCharacters = oRange.Characters(23, 4)"
+    },
+    {
+      "OnlyOffice_JS": "oCharacters.GetText()",
+      "Excel_VBA": "sText = oCharacters.Text"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"B3\").SetValue(\"Text: \" + sText)",
+      "Excel_VBA": "oWorksheet.Range(\"B3\").Value = \"Text: \" & sText"
+    }
+  ]
+}
+```

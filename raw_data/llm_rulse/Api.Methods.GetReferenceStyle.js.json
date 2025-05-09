@@ -1,0 +1,13 @@
+```json
+{
+  "Description": "This example retrieves the active worksheet, accesses cell A1, and sets its value to the current reference style.",
+  "CodeEquivalents": [
+    {
+      "OnlyOffice JS": "// This example gets reference style.\nvar oWorksheet = Api.GetActiveSheet();\noWorksheet.GetRange(\"A1\").SetValue(Api.GetReferenceStyle());"
+    },
+    {
+      "VBA": "Sub GetReferenceStyle()\n    Range(\"A1\").Value = Application.ReferenceStyle\nEnd Sub"
+    }
+  ]
+}
+```

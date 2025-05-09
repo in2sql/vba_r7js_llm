@@ -1,0 +1,112 @@
+```json
+{
+  "header": "This code writes data to cells, adds a chart, sets chart title and series fills, and writes class type to a cell.",
+  "table": [
+    {
+      "OnlyOffice JS": "var oWorksheet = Api.GetActiveSheet();",
+      "Excel VBA": "Dim oWorksheet As Worksheet\nSet oWorksheet = ActiveWorkbook.ActiveSheet",
+      "Status": "Green"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"B1\").SetValue(2014);",
+      "Excel VBA": "oWorksheet.Range(\"B1\").Value = 2014",
+      "Status": "Green"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"C1\").SetValue(2015);",
+      "Excel VBA": "oWorksheet.Range(\"C1\").Value = 2015",
+      "Status": "Green"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"D1\").SetValue(2016);",
+      "Excel VBA": "oWorksheet.Range(\"D1\").Value = 2016",
+      "Status": "Green"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"A2\").SetValue(\"Projected Revenue\");",
+      "Excel VBA": "oWorksheet.Range(\"A2\").Value = \"Projected Revenue\"",
+      "Status": "Green"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"A3\").SetValue(\"Estimated Costs\");",
+      "Excel VBA": "oWorksheet.Range(\"A3\").Value = \"Estimated Costs\"",
+      "Status": "Green"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"B2\").SetValue(200);",
+      "Excel VBA": "oWorksheet.Range(\"B2\").Value = 200",
+      "Status": "Green"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"B3\").SetValue(250);",
+      "Excel VBA": "oWorksheet.Range(\"B3\").Value = 250",
+      "Status": "Green"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"C2\").SetValue(240);",
+      "Excel VBA": "oWorksheet.Range(\"C2\").Value = 240",
+      "Status": "Green"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"C3\").SetValue(260);",
+      "Excel VBA": "oWorksheet.Range(\"C3\").Value = 260",
+      "Status": "Green"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"D2\").SetValue(280);",
+      "Excel VBA": "oWorksheet.Range(\"D2\").Value = 280",
+      "Status": "Green"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"D3\").SetValue(280);",
+      "Excel VBA": "oWorksheet.Range(\"D3\").Value = 280",
+      "Status": "Green"
+    },
+    {
+      "OnlyOffice JS": "var oChart = oWorksheet.AddChart(\"'Sheet1'!$A$1:$D$3\", true, \"comboBarLine\", 2, 100 * 36000, 70 * 36000, 0, 2 * 36000, 5, 3 * 36000);",
+      "Excel VBA": "Dim oChart As Chart\nSet oChart = Charts.Add\nWith oChart\n    .SetSourceData Source:=oWorksheet.Range(\"A1:D3\")\n    .ChartType = xlColumnClustered ' Adjust chart type as needed\n    .Parent.Left = 100\n    .Parent.Top = 70\n    .Parent.Width = 200 ' Example width\n    .Parent.Height = 150 ' Example height\nEnd With",
+      "Status": "Amber"
+    },
+    {
+      "OnlyOffice JS": "oChart.SetTitle(\"Financial Overview\", 13);",
+      "Excel VBA": "With oChart\n    .HasTitle = True\n    .ChartTitle.Text = \"Financial Overview\"\n    .ChartTitle.Font.Size = 13\nEnd With",
+      "Status": "Green"
+    },
+    {
+      "OnlyOffice JS": "var oFill = Api.CreateSolidFill(Api.CreateRGBColor(51, 51, 51));",
+      "Excel VBA": "Dim oFill As Long\noFill = RGB(51, 51, 51)",
+      "Status": "Amber"
+    },
+    {
+      "OnlyOffice JS": "oChart.SetSeriesFill(oFill, 0, false);",
+      "Excel VBA": "oChart.SeriesCollection(1).Format.Fill.ForeColor.RGB = RGB(51, 51, 51)",
+      "Status": "Green"
+    },
+    {
+      "OnlyOffice JS": "oFill = Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61));",
+      "Excel VBA": "oFill = RGB(255, 111, 61)",
+      "Status": "Amber"
+    },
+    {
+      "OnlyOffice JS": "oChart.SetSeriesFill(oFill, 1, false);",
+      "Excel VBA": "oChart.SeriesCollection(2).Format.Fill.ForeColor.RGB = RGB(255, 111, 61)",
+      "Status": "Green"
+    },
+    {
+      "OnlyOffice JS": "var oSeries = oChart.GetSeries(0);",
+      "Excel VBA": "Dim oSeries As Series\nSet oSeries = oChart.SeriesCollection(1)",
+      "Status": "Green"
+    },
+    {
+      "OnlyOffice JS": "var sClassType = oSeries.GetClassType();",
+      "Excel VBA": "Dim sClassType As String\nsClassType = TypeName(oSeries)",
+      "Status": "Green"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"F1\").SetValue(\"Class Type = \" + sClassType);",
+      "Excel VBA": "oWorksheet.Range(\"F1\").Value = \"Class Type = \" & sClassType",
+      "Status": "Green"
+    }
+  ]
+}
+```

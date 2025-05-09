@@ -1,0 +1,31 @@
+```json
+{
+  "Description": "This code creates gradient stops, a linear gradient fill, a stroke, and adds a shape to the active worksheet.",
+  "CodeEquivalents": [
+    {
+      "OnlyOffice_JS": "var oWorksheet = Api.GetActiveSheet();",
+      "Excel_VBA": "Set oWorksheet = Api.GetActiveSheet()"
+    },
+    {
+      "OnlyOffice_JS": "var oGs1 = Api.CreateGradientStop(Api.CreateRGBColor(255, 213, 191), 0);",
+      "Excel_VBA": "Set oGs1 = Api.CreateGradientStop(CreateRGBColor(255, 213, 191), 0)"
+    },
+    {
+      "OnlyOffice_JS": "var oGs2 = Api.CreateGradientStop(Api.CreateRGBColor(255, 111, 61), 100000);",
+      "Excel_VBA": "Set oGs2 = Api.CreateGradientStop(CreateRGBColor(255, 111, 61), 100000)"
+    },
+    {
+      "OnlyOffice_JS": "var oFill = Api.CreateLinearGradientFill([oGs1, oGs2], 5400000);",
+      "Excel_VBA": "Set oFill = Api.CreateLinearGradientFill(Array(oGs1, oGs2), 5400000)"
+    },
+    {
+      "OnlyOffice_JS": "var oStroke = Api.CreateStroke(0, Api.CreateNoFill());",
+      "Excel_VBA": "Set oStroke = Api.CreateStroke(0, CreateNoFill())"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.AddShape(\"flowChartOnlineStorage\", 60 * 36000, 35 * 36000, oFill, oStroke, 0, 2 * 36000, 1, 3 * 36000);",
+      "Excel_VBA": "oWorksheet.AddShape \"flowChartOnlineStorage\", 60 * 36000, 35 * 36000, oFill, oStroke, 0, 2 * 36000, 1, 3 * 36000"
+    }
+  ]
+}
+```

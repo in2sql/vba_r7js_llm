@@ -1,0 +1,31 @@
+```json
+{
+  "description": "This code example freezes the first column in the active worksheet and inserts the address of the frozen range into cells A1 and B1.",
+  "RAG_Table": [
+    {
+      "OnlyOffice_JS": "Api.SetFreezePanesType('column');",
+      "Excel_VBA": "ActiveWindow.SplitColumn = 1\nActiveWindow.FreezePanes = True"
+    },
+    {
+      "OnlyOffice_JS": "var oWorksheet = Api.GetActiveSheet();",
+      "Excel_VBA": "Set oWorksheet = ActiveSheet"
+    },
+    {
+      "OnlyOffice_JS": "var oFreezePanes = oWorksheet.GetFreezePanes();",
+      "Excel_VBA": "Set oFreezePanes = ActiveWindow.FreezePanesRange"
+    },
+    {
+      "OnlyOffice_JS": "var oRange = oFreezePanes.GetLocation();",
+      "Excel_VBA": "Set oRange = oFreezePanes.Address"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"A1\").SetValue(\"Location: \");",
+      "Excel_VBA": "Range(\"A1\").Value = \"Location:\""
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"B1\").SetValue(oRange.GetAddress());",
+      "Excel_VBA": "Range(\"B1\").Value = oRange.Address"
+    }
+  ]
+}
+```

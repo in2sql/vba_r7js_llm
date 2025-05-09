@@ -1,0 +1,63 @@
+```json
+{
+  "description": "This code creates a shape with specific fill and stroke, adds text with custom line spacing, and retrieves the paragraph's line spacing rule.",
+  "methods": [
+    {
+      "OnlyOffice_JS": "Api.GetActiveSheet();",
+      "Excel_VBA": "Set oWorksheet = ThisWorkbook.ActiveSheet"
+    },
+    {
+      "OnlyOffice_JS": "Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61));",
+      "Excel_VBA": "oFill = RGB(255, 111, 61)"
+    },
+    {
+      "OnlyOffice_JS": "Api.CreateStroke(0, Api.CreateNoFill());",
+      "Excel_VBA": "With oShape.Line\n    .Visible = msoFalse\nEnd With"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.AddShape(\"flowChartOnlineStorage\", 120 * 36000, 80 * 36000, oFill, oStroke, 0, 2 * 36000, 0, 3 * 36000);",
+      "Excel_VBA": "Set oShape = oWorksheet.Shapes.AddShape(msoShapeFlowchartOnlineStorage, 120, 80, 2, 3)\nWith oShape.Fill\n    .ForeColor.RGB = oFill\nEnd With\nWith oShape.Line\n    .Visible = msoFalse\nEnd With"
+    },
+    {
+      "OnlyOffice_JS": "oShape.GetContent();",
+      "Excel_VBA": "Set oDocContent = oShape.TextFrame"
+    },
+    {
+      "OnlyOffice_JS": "oDocContent.GetElement(0);",
+      "Excel_VBA": "Set oParagraph = oDocContent.Paragraphs(1)"
+    },
+    {
+      "OnlyOffice_JS": "oParagraph.SetSpacingLine(3 * 240, \"auto\");",
+      "Excel_VBA": "With oParagraph\n    .LineSpacing = 3 * 240\n    .Alignment = xlHAlignCenter ' Assuming \"auto\" aligns center\nEnd With"
+    },
+    {
+      "OnlyOffice_JS": "oParagraph.AddText(\"Paragraph 1. Spacing: 3 times of a common paragraph line spacing.\");",
+      "Excel_VBA": "oParagraph.Text = \"Paragraph 1. Spacing: 3 times of a common paragraph line spacing.\""
+    },
+    {
+      "OnlyOffice_JS": "oParagraph.AddLineBreak();",
+      "Excel_VBA": "oParagraph.Text = oParagraph.Text & vbCrLf"
+    },
+    {
+      "OnlyOffice_JS": "oParagraph.AddText(\"These sentences are used to add lines for demonstrative purposes. \");",
+      "Excel_VBA": "oParagraph.Text = oParagraph.Text & \"These sentences are used to add lines for demonstrative purposes. \""
+    },
+    {
+      "OnlyOffice_JS": "oParagraph.AddText(\"These sentences are used to add lines for demonstrative purposes. \");",
+      "Excel_VBA": "oParagraph.Text = oParagraph.Text & \"These sentences are used to add lines for demonstrative purposes. \""
+    },
+    {
+      "OnlyOffice_JS": "oParagraph.AddLineBreak();",
+      "Excel_VBA": "oParagraph.Text = oParagraph.Text & vbCrLf"
+    },
+    {
+      "OnlyOffice_JS": "oParagraph.GetSpacingLineRule();",
+      "Excel_VBA": "sSpacingLineRule = oParagraph.LineSpacingRule"
+    },
+    {
+      "OnlyOffice_JS": "oParagraph.AddText(\"Spacing line rule: \" + sSpacingLineRule);",
+      "Excel_VBA": "oParagraph.Text = oParagraph.Text & \"Spacing line rule: \" & sSpacingLineRule"
+    }
+  ]
+}
+```

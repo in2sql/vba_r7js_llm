@@ -1,0 +1,14 @@
+```json
+{
+  "table": {
+    "headers": ["Description", "OnlyOffice JS", "Excel VBA"],
+    "rows": [
+      [
+        "This code sets the value of cell A1, adds a comment to it, adds a reply to the comment, retrieves the reply, and writes the reply text to cells A3 and B3.",
+        "// OnlyOffice JS code\nvar oWorksheet = Api.GetActiveSheet();\noWorksheet.GetRange(\"A1\").SetValue(\"1\");\nvar oRange = oWorksheet.GetRange(\"A1\");\nvar oComment = oRange.AddComment(\"This is just a number.\");\noComment.AddReply(\"Reply 1\", \"John Smith\", \"uid-1\");\nvar oReply = oComment.GetReply();\noWorksheet.GetRange(\"A3\").SetValue(\"Comment's reply text: \");\noWorksheet.GetRange(\"B3\").SetValue(oReply.GetText());",
+        "' Excel VBA equivalent\nSub Example()\n    Dim oWorksheet As Worksheet\n    Dim oRange As Range\n    Dim oComment As CommentThreaded\n    Dim oReply As CommentThreaded\n\n    Set oWorksheet = ActiveSheet\n    oWorksheet.Range(\"A1\").Value = \"1\"\n    Set oRange = oWorksheet.Range(\"A1\")\n    Set oComment = oRange.AddCommentThreaded(\"This is just a number.\")\n    oComment.Replies.Add \"Reply 1\", \"John Smith\", \"uid-1\"\n    \n    If oComment.Replies.Count > 0 Then\n        Set oReply = oComment.Replies(1)\n    End If\n    \n    oWorksheet.Range(\"A3\").Value = \"Comment's reply text: \"\n    If Not oReply Is Nothing Then\n        oWorksheet.Range(\"B3\").Value = oReply.Text\n    End If\nEnd Sub"
+      ]
+    ]
+  }
+}
+```

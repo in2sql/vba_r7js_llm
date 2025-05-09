@@ -1,0 +1,23 @@
+```json
+{
+  "description": "This code retrieves all available theme colors from the active spreadsheet and populates them into column A, starting from A1 downward.",
+  "codeMappings": [
+    {
+      "OnlyOffice_JS": "var oWorksheet = Api.GetActiveSheet();",
+      "Excel_VBA": "Set oWorksheet = ThisWorkbook.ActiveSheet"
+    },
+    {
+      "OnlyOffice_JS": "var themes = Api.GetThemesColors();",
+      "Excel_VBA": "themes = ThisWorkbook.Theme.ThemeColorScheme.Colors"
+    },
+    {
+      "OnlyOffice_JS": "for (let i = 0; i < themes.length; ++i) {",
+      "Excel_VBA": "For i = LBound(themes) To UBound(themes)"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"A\" + (i + 1)).SetValue(themes[i]);",
+      "Excel_VBA": "oWorksheet.Range(\"A\" & (i + 1)).Value = themes(i)"
+    }
+  ]
+}
+```

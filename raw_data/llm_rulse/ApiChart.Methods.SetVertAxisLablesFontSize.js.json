@@ -1,0 +1,92 @@
+```json
+{
+  "Description": "This code sets cell values, adds a 3D bar chart, sets the chart title and axis label font size, and applies series fill colors.",
+  "Methods": [
+    {
+      "Action": "Get Active Sheet",
+      "VBA": "Set oWorksheet = ActiveSheet",
+      "OnlyOfficeJS": "var oWorksheet = Api.GetActiveSheet();"
+    },
+    {
+      "Action": "Set Cell B1 to 2014",
+      "VBA": "oWorksheet.Range(\"B1\").Value = 2014",
+      "OnlyOfficeJS": "oWorksheet.GetRange(\"B1\").SetValue(2014);"
+    },
+    {
+      "Action": "Set Cell C1 to 2015",
+      "VBA": "oWorksheet.Range(\"C1\").Value = 2015",
+      "OnlyOfficeJS": "oWorksheet.GetRange(\"C1\").SetValue(2015);"
+    },
+    {
+      "Action": "Set Cell D1 to 2016",
+      "VBA": "oWorksheet.Range(\"D1\").Value = 2016",
+      "OnlyOfficeJS": "oWorksheet.GetRange(\"D1\").SetValue(2016);"
+    },
+    {
+      "Action": "Set Cell A2 to 'Projected Revenue'",
+      "VBA": "oWorksheet.Range(\"A2\").Value = \"Projected Revenue\"",
+      "OnlyOfficeJS": "oWorksheet.GetRange(\"A2\").SetValue(\"Projected Revenue\");"
+    },
+    {
+      "Action": "Set Cell A3 to 'Estimated Costs'",
+      "VBA": "oWorksheet.Range(\"A3\").Value = \"Estimated Costs\"",
+      "OnlyOfficeJS": "oWorksheet.GetRange(\"A3\").SetValue(\"Estimated Costs\");"
+    },
+    {
+      "Action": "Set Cell B2 to 200",
+      "VBA": "oWorksheet.Range(\"B2\").Value = 200",
+      "OnlyOfficeJS": "oWorksheet.GetRange(\"B2\").SetValue(200);"
+    },
+    {
+      "Action": "Set Cell B3 to 250",
+      "VBA": "oWorksheet.Range(\"B3\").Value = 250",
+      "OnlyOfficeJS": "oWorksheet.GetRange(\"B3\").SetValue(250);"
+    },
+    {
+      "Action": "Set Cell C2 to 240",
+      "VBA": "oWorksheet.Range(\"C2\").Value = 240",
+      "OnlyOfficeJS": "oWorksheet.GetRange(\"C2\").SetValue(240);"
+    },
+    {
+      "Action": "Set Cell C3 to 260",
+      "VBA": "oWorksheet.Range(\"C3\").Value = 260",
+      "OnlyOfficeJS": "oWorksheet.GetRange(\"C3\").SetValue(260);"
+    },
+    {
+      "Action": "Set Cell D2 to 280",
+      "VBA": "oWorksheet.Range(\"D2\").Value = 280",
+      "OnlyOfficeJS": "oWorksheet.GetRange(\"D2\").SetValue(280);"
+    },
+    {
+      "Action": "Set Cell D3 to 280",
+      "VBA": "oWorksheet.Range(\"D3\").Value = 280",
+      "OnlyOfficeJS": "oWorksheet.GetRange(\"D3\").SetValue(280);"
+    },
+    {
+      "Action": "Add 3D Bar Chart",
+      "VBA": "Set oChart = oWorksheet.Shapes.AddChart2(201, xlBarClustered, 100, 70, 200, 100).Chart\noChart.SetSourceData Source:=oWorksheet.Range(\"A1:D3\")",
+      "OnlyOfficeJS": "var oChart = oWorksheet.AddChart(\"'Sheet1'!$A$1:$D$3\", true, \"bar3D\", 2, 100 * 36000, 70 * 36000, 0, 2 * 36000, 5, 3 * 36000);"
+    },
+    {
+      "Action": "Set Chart Title to 'Financial Overview'",
+      "VBA": "oChart.HasTitle = True\noChart.ChartTitle.Text = \"Financial Overview\"\n oChart.ChartTitle.Font.Size = 13",
+      "OnlyOfficeJS": "oChart.SetTitle(\"Financial Overview\", 13);"
+    },
+    {
+      "Action": "Set Vertical Axis Labels Font Size to 10",
+      "VBA": "oChart.Axes(xlValue).TickLabels.Font.Size = 10",
+      "OnlyOfficeJS": "oChart.SetVertAxisLablesFontSize(10);"
+    },
+    {
+      "Action": "Set Series 0 Fill Color to RGB(51, 51, 51)",
+      "VBA": "oChart.SeriesCollection(1).Format.Fill.ForeColor.RGB = RGB(51, 51, 51)\noChart.SeriesCollection(1).Format.Fill.Visible = msoTrue",
+      "OnlyOfficeJS": "var oFill = Api.CreateSolidFill(Api.CreateRGBColor(51, 51, 51));\noChart.SetSeriesFill(oFill, 0, false);"
+    },
+    {
+      "Action": "Set Series 1 Fill Color to RGB(255, 111, 61)",
+      "VBA": "oChart.SeriesCollection(2).Format.Fill.ForeColor.RGB = RGB(255, 111, 61)\noChart.SeriesCollection(2).Format.Fill.Visible = msoTrue",
+      "OnlyOfficeJS": "oFill = Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61));\noChart.SetSeriesFill(oFill, 1, false);"
+    }
+  ]
+}
+```

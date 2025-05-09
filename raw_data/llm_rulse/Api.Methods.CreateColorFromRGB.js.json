@@ -1,0 +1,23 @@
+```json
+{
+  "description": "This example creates an RGB color setting the appropriate values for the red, green and blue color components.",
+  "methods": [
+    {
+      "OnlyOffice JS": "var oWorksheet = Api.GetActiveSheet();",
+      "Excel VBA": "Set oWorksheet = ThisWorkbook.ActiveSheet"
+    },
+    {
+      "OnlyOffice JS": "var oColor = Api.CreateColorFromRGB(255, 111, 61);",
+      "Excel VBA": "oColor = RGB(255, 111, 61)"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"A2\").SetValue(\"Text with color\");",
+      "Excel VBA": "oWorksheet.Range(\"A2\").Value = \"Text with color\""
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"A2\").SetFontColor(oColor);",
+      "Excel VBA": "oWorksheet.Range(\"A2\").Font.Color = oColor"
+    }
+  ]
+}
+```

@@ -1,0 +1,52 @@
+**This code creates a shape on the active worksheet with specific formatting, adds text with paragraph spacing, and inserts a second paragraph with an offset.**
+
+```json
+{
+  "Methods": [
+    {
+      "OnlyOffice JS": "Api.GetActiveSheet()",
+      "Excel VBA": "Set oWorksheet = ActiveSheet"
+    },
+    {
+      "OnlyOffice JS": "Api.CreateRGBColor(255, 111, 61)",
+      "Excel VBA": "RGB(255, 111, 61)"
+    },
+    {
+      "OnlyOffice JS": "Api.CreateSolidFill(color)",
+      "Excel VBA": "With oShape.Fill\n    .ForeColor.RGB = RGB(255, 111, 61)\n    .Solid\nEnd With"
+    },
+    {
+      "OnlyOffice JS": "Api.CreateStroke(0, Api.CreateNoFill())",
+      "Excel VBA": "With oShape.Line\n    .Visible = msoFalse\nEnd With"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.AddShape(\"flowChartOnlineStorage\", left, top, fill, stroke, rotation, width, height)",
+      "Excel VBA": "Set oShape = oWorksheet.Shapes.AddShape(msoShapeFlowchartArchive, Left:=120, Top:=70, Width:=120, Height:=70)"
+    },
+    {
+      "OnlyOffice JS": "oShape.GetContent()",
+      "Excel VBA": "Set oTextFrame = oShape.TextFrame"
+    },
+    {
+      "OnlyOffice JS": "oDocContent.GetElement(0)",
+      "Excel VBA": "Set oParagraph = oTextFrame.Characters"
+    },
+    {
+      "OnlyOffice JS": "oParagraph.AddText(\"text\")",
+      "Excel VBA": "oParagraph.Text = oParagraph.Text & \"text\""
+    },
+    {
+      "OnlyOffice JS": "oParagraph.SetSpacingAfter(1440)",
+      "Excel VBA": "oTextFrame.MarginBottom = 72 ' Points equivalent to spacing"
+    },
+    {
+      "OnlyOffice JS": "Api.CreateParagraph()",
+      "Excel VBA": "oShape.TextFrame.Characters.InsertAfter \"This is the second paragraph and it is one inch away from the first paragraph.\""
+    },
+    {
+      "OnlyOffice JS": "oDocContent.Push(oParagraph)",
+      "Excel VBA": "oTextFrame.Characters.InsertAfter \"This is the second paragraph and it is one inch away from the first paragraph.\""
+    }
+  ]
+}
+```

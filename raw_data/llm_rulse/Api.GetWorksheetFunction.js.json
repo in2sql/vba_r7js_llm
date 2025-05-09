@@ -1,0 +1,19 @@
+```json
+{
+  "Description": "Equivalent OnlyOffice JS and Excel VBA Methods",
+  "Table": [
+    {
+      "OnlyOffice JS": "var oWorksheet = Api.GetActiveSheet();",
+      "Excel VBA": "Set oWorksheet = ActiveSheet"
+    },
+    {
+      "OnlyOffice JS": "var oFunction = Api.GetWorksheetFunction();",
+      "Excel VBA": "Set oFunction = Application.WorksheetFunction"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"A1\").SetValue(oFunction.ASC(\"text\"));",
+      "Excel VBA": "Range(\"A1\").Value = Asc(\"text\")"
+    }
+  ]
+}
+```

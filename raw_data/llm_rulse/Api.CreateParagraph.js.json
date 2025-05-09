@@ -1,0 +1,57 @@
+**Description:**  
+This code creates a new shape in the active worksheet, applies specific fill and stroke properties, clears any existing content within the shape, and adds a new left-aligned paragraph with custom text inside the shape.
+
+```json
+{
+  "MethodMappings": [
+    {
+      "OnlyOffice JS": "Api.GetActiveSheet()",
+      "Excel VBA": "Set oWorksheet = ActiveSheet"
+    },
+    {
+      "OnlyOffice JS": "Api.CreateRGBColor(255, 111, 61)",
+      "Excel VBA": "RGB(255, 111, 61)"
+    },
+    {
+      "OnlyOffice JS": "Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61))",
+      "Excel VBA": "With oShape.Fill\n    .Visible = msoTrue\n    .ForeColor.RGB = RGB(255, 111, 61)\n    .Solid\nEnd With"
+    },
+    {
+      "OnlyOffice JS": "Api.CreateNoFill()",
+      "Excel VBA": "msoFalse"
+    },
+    {
+      "OnlyOffice JS": "Api.CreateStroke(0, Api.CreateNoFill())",
+      "Excel VBA": "With oShape.Line\n    .Weight = 0\n    .Visible = msoFalse\nEnd With"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.AddShape(\"flowChartOnlineStorage\", 60 * 36000, 35 * 36000, oFill, oStroke, 0, 2 * 36000, 0, 3 * 36000)",
+      "Excel VBA": "Set oShape = oWorksheet.Shapes.AddShape(msoShapeFlowchartPredefined, 60 * 36000, 35 * 36000, 2 * 36000, 3 * 36000)"
+    },
+    {
+      "OnlyOffice JS": "oShape.GetContent()",
+      "Excel VBA": "Set oContent = oShape.TextFrame.TextRange"
+    },
+    {
+      "OnlyOffice JS": "oDocContent.RemoveAllElements()",
+      "Excel VBA": "oContent.Text = \"\""
+    },
+    {
+      "OnlyOffice JS": "Api.CreateParagraph()",
+      "Excel VBA": "Set oParagraph = oContent.Paragraphs.Add"
+    },
+    {
+      "OnlyOffice JS": "oParagraph.SetJc(\"left\")",
+      "Excel VBA": "oParagraph.Alignment = xlLeft"
+    },
+    {
+      "OnlyOffice JS": "oParagraph.AddText(\"We removed all elements from the shape and added a new paragraph inside it.\")",
+      "Excel VBA": "oParagraph.Text = \"We removed all elements from the shape and added a new paragraph inside it.\""
+    },
+    {
+      "OnlyOffice JS": "oDocContent.Push(oParagraph)",
+      "Excel VBA": "// Not directly applicable in VBA as adding the paragraph already includes it in the content"
+    }
+  ]
+}
+```

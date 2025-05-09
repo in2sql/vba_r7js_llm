@@ -1,0 +1,47 @@
+```json
+{
+  "Description": "This example creates a stroke adding shadows to the element.",
+  "Mappings": [
+    {
+      "OnlyOffice_JS": "var oWorksheet = Api.GetActiveSheet();",
+      "VBA": "Set oWorksheet = ActiveSheet",
+      "Status": "Green"
+    },
+    {
+      "OnlyOffice_JS": "Api.CreateRGBColor(255, 213, 191)",
+      "VBA": "RGB(255, 213, 191)",
+      "Status": "Green"
+    },
+    {
+      "OnlyOffice_JS": "Api.CreateGradientStop(Api.CreateRGBColor(255, 213, 191), 0)",
+      "VBA": "With oFill.Gradient.GradientStops\n    .Insert RGB(255, 213, 191), 0\nEnd With",
+      "Status": "Amber"
+    },
+    {
+      "OnlyOffice_JS": "Api.CreateGradientStop(Api.CreateRGBColor(255, 111, 61), 100000)",
+      "VBA": "With oFill.Gradient.GradientStops\n    .Insert RGB(255, 111, 61), 1\nEnd With",
+      "Status": "Amber"
+    },
+    {
+      "OnlyOffice_JS": "Api.CreateLinearGradientFill([oGs1, oGs2], 5400000)",
+      "VBA": "With oFill.Gradient\n    .Style = msoGradientStyleLinear\n    .Angle = 5400000 ' Adjust as needed\nEnd With",
+      "Status": "Amber"
+    },
+    {
+      "OnlyOffice_JS": "Api.CreateSolidFill(Api.CreateRGBColor(51, 51, 51))",
+      "VBA": "With oFill1\n    .Visible = msoTrue\n    .ForeColor.RGB = RGB(51, 51, 51)\n    .Solid\nEnd With",
+      "Status": "Green"
+    },
+    {
+      "OnlyOffice_JS": "Api.CreateStroke(3 * 36000, oFill1)",
+      "VBA": "With oStroke\n    .Weight = 3\n    .ForeColor.RGB = oFill1.ForeColor.RGB\nEnd With",
+      "Status": "Amber"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.AddShape(\"flowChartOnlineStorage\", 60 * 36000, 35 * 36000, oFill, oStroke, 0, 2 * 36000, 1, 3 * 36000)",
+      "VBA": "Set oShape = oWorksheet.Shapes.AddShape(msoShapeFlowchartProcess, 60, 35, 200, 100)\nWith oShape.Fill\n    .ForeColor.RGB = RGB(255, 213, 191) ' Example for gradient fill\nEnd With\nWith oShape.Line\n    .Weight = 3\n    .ForeColor.RGB = RGB(51, 51, 51)\nEnd With",
+      "Status": "Amber"
+    }
+  ]
+}
+```

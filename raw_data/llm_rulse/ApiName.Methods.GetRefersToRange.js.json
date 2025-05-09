@@ -1,0 +1,35 @@
+```json
+{
+  "Description": "This example demonstrates how to retrieve an ApiRange object by its name using OnlyOffice API and its Excel VBA equivalent.",
+  "CodeEquivalents": [
+    {
+      "OnlyOffice JS": "var oWorksheet = Api.GetActiveSheet();",
+      "VBA": "Set oWorksheet = ActiveSheet"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"A1\").SetValue(\"1\");",
+      "VBA": "Range(\"A1\").Value = \"1\""
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"B1\").SetValue(\"2\");",
+      "VBA": "Range(\"B1\").Value = \"2\""
+    },
+    {
+      "OnlyOffice JS": "Api.AddDefName(\"numbers\", \"Sheet1!$A$1:$B$1\");",
+      "VBA": "ThisWorkbook.Names.Add Name:=\"numbers\", RefersTo:=\"=Sheet1!$A$1:$B$1\""
+    },
+    {
+      "OnlyOffice JS": "var oDefName = Api.GetDefName(\"numbers\");",
+      "VBA": "Set oDefName = ThisWorkbook.Names(\"numbers\")"
+    },
+    {
+      "OnlyOffice JS": "var oRange = oDefName.GetRefersToRange();",
+      "VBA": "Set oRange = oDefName.RefersToRange"
+    },
+    {
+      "OnlyOffice JS": "oRange.SetBold(true);",
+      "VBA": "oRange.Font.Bold = True"
+    }
+  ]
+}
+```

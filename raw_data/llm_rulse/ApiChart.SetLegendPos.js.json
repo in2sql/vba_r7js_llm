@@ -1,0 +1,91 @@
+```json
+{
+  "RAGTable": [
+    {
+      "Description": "Get the active worksheet",
+      "OnlyOfficeJS": "var oWorksheet = Api.GetActiveSheet();",
+      "ExcelVBA": "Set oWorksheet = ThisWorkbook.ActiveSheet"
+    },
+    {
+      "Description": "Set value 2014 in cell B1",
+      "OnlyOfficeJS": "oWorksheet.GetRange(\"B1\").SetValue(2014);",
+      "ExcelVBA": "oWorksheet.Range(\"B1\").Value = 2014"
+    },
+    {
+      "Description": "Set value 2015 in cell C1",
+      "OnlyOfficeJS": "oWorksheet.GetRange(\"C1\").SetValue(2015);",
+      "ExcelVBA": "oWorksheet.Range(\"C1\").Value = 2015"
+    },
+    {
+      "Description": "Set value 2016 in cell D1",
+      "OnlyOfficeJS": "oWorksheet.GetRange(\"D1\").SetValue(2016);",
+      "ExcelVBA": "oWorksheet.Range(\"D1\").Value = 2016"
+    },
+    {
+      "Description": "Set label 'Projected Revenue' in cell A2",
+      "OnlyOfficeJS": "oWorksheet.GetRange(\"A2\").SetValue(\"Projected Revenue\");",
+      "ExcelVBA": "oWorksheet.Range(\"A2\").Value = \"Projected Revenue\""
+    },
+    {
+      "Description": "Set label 'Estimated Costs' in cell A3",
+      "OnlyOfficeJS": "oWorksheet.GetRange(\"A3\").SetValue(\"Estimated Costs\");",
+      "ExcelVBA": "oWorksheet.Range(\"A3\").Value = \"Estimated Costs\""
+    },
+    {
+      "Description": "Set value 200 in cell B2",
+      "OnlyOfficeJS": "oWorksheet.GetRange(\"B2\").SetValue(200);",
+      "ExcelVBA": "oWorksheet.Range(\"B2\").Value = 200"
+    },
+    {
+      "Description": "Set value 250 in cell B3",
+      "OnlyOfficeJS": "oWorksheet.GetRange(\"B3\").SetValue(250);",
+      "ExcelVBA": "oWorksheet.Range(\"B3\").Value = 250"
+    },
+    {
+      "Description": "Set value 240 in cell C2",
+      "OnlyOfficeJS": "oWorksheet.GetRange(\"C2\").SetValue(240);",
+      "ExcelVBA": "oWorksheet.Range(\"C2\").Value = 240"
+    },
+    {
+      "Description": "Set value 260 in cell C3",
+      "OnlyOfficeJS": "oWorksheet.GetRange(\"C3\").SetValue(260);",
+      "ExcelVBA": "oWorksheet.Range(\"C3\").Value = 260"
+    },
+    {
+      "Description": "Set value 280 in cell D2",
+      "OnlyOfficeJS": "oWorksheet.GetRange(\"D2\").SetValue(280);",
+      "ExcelVBA": "oWorksheet.Range(\"D2\").Value = 280"
+    },
+    {
+      "Description": "Set value 280 in cell D3",
+      "OnlyOfficeJS": "oWorksheet.GetRange(\"D3\").SetValue(280);",
+      "ExcelVBA": "oWorksheet.Range(\"D3\").Value = 280"
+    },
+    {
+      "Description": "Add a 3D bar chart",
+      "OnlyOfficeJS": "var oChart = oWorksheet.AddChart(\"'Sheet1'!$A$1:$D$3\", true, \"bar3D\", 2, 100 * 36000, 70 * 36000, 0, 2 * 36000, 5, 3 * 36000);",
+      "ExcelVBA": "Set oChart = oWorksheet.Shapes.AddChart2(201, xlBar3D).Chart\nWith oChart\n    .SetSourceData Source:=oWorksheet.Range(\"A1:D3\")\n    .Parent.Left = 100\n    .Parent.Top = 70\n    .Parent.Width = 200\n    .Parent.Height = 150\nEnd With"
+    },
+    {
+      "Description": "Set chart title to 'Financial Overview' with font size 13",
+      "OnlyOfficeJS": "oChart.SetTitle(\"Financial Overview\", 13);",
+      "ExcelVBA": "With oChart\n    .HasTitle = True\n    .ChartTitle.Text = \"Financial Overview\"\n    .ChartTitle.Format.TextFrame2.TextRange.Font.Size = 13\nEnd With"
+    },
+    {
+      "Description": "Set chart legend position to right",
+      "OnlyOfficeJS": "oChart.SetLegendPos(\"right\");",
+      "ExcelVBA": "With oChart.Legend\n    .Position = xlLegendPositionRight\nEnd With"
+    },
+    {
+      "Description": "Create and set solid fill color RGB(51,51,51) for series 0",
+      "OnlyOfficeJS": "var oFill = Api.CreateSolidFill(Api.CreateRGBColor(51, 51, 51));\noChart.SetSeriesFill(oFill, 0, false);",
+      "ExcelVBA": "With oChart.SeriesCollection(1).Format.Fill\n    .Visible = msoTrue\n    .ForeColor.RGB = RGB(51, 51, 51)\n    .Solid\nEnd With"
+    },
+    {
+      "Description": "Create and set solid fill color RGB(255,111,61) for series 1",
+      "OnlyOfficeJS": "oFill = Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61));\noChart.SetSeriesFill(oFill, 1, false);",
+      "ExcelVBA": "With oChart.SeriesCollection(2).Format.Fill\n    .Visible = msoTrue\n    .ForeColor.RGB = RGB(255, 111, 61)\n    .Solid\nEnd With"
+    }
+  ]
+}
+```

@@ -1,0 +1,36 @@
+```json
+{
+  "description": "This example calculates custom function result.",
+  "table": {
+    "headers": ["VBA", "OnlyOffice JS"],
+    "rows": [
+      [
+        "' Define the custom function
+Function ADD(first As Variant, second As Variant) As Variant
+    ADD = first + second
+End Function",
+        "// Add custom function library
+Api.AddCustomFunctionLibrary(\"LibraryName\", function(){
+    /**
+     * Function that returns the argument
+     * @customfunction
+     * @param {any} first First argument.
+     * @returns {any} second Second argument.
+     */
+    Api.AddCustomFunction(function ADD(first, second) {
+        return first + second;
+    });
+});"
+      ],
+      [
+        "' Assign formula to cell A1
+Sub SetFormula()
+    Range(\"A1\").Formula = \"=ADD(1,2)\"
+End Sub",
+        "var oWorksheet = Api.GetActiveSheet();
+oWorksheet.GetRange('A1').SetValue('=ADD(1,2)');"
+      ]
+    ]
+  }
+}
+```

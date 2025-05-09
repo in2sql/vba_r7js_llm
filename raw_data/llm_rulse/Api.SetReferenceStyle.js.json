@@ -1,0 +1,7 @@
+```json
+{
+  "Description": "This example sets the reference style of the active worksheet to R1C1 and assigns the current reference style value to cell A1.",
+  "OnlyOffice_JS": "// This example sets reference style.\nvar oWorksheet = Api.GetActiveSheet();\nApi.SetReferenceStyle(\"xlR1C1\");\noWorksheet.GetRange(\"A1\").SetValue(Api.GetReferenceStyle());",
+  "Excel_VBA": "Sub SetReferenceStyle()\n    Dim oWorksheet As Worksheet\n    Set oWorksheet = ActiveSheet\n    Application.ReferenceStyle = xlR1C1\n    oWorksheet.Range(\"A1\").Value = Application.ReferenceStyle\nEnd Sub"
+}
+```

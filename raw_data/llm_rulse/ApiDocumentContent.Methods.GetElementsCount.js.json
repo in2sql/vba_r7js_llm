@@ -1,0 +1,51 @@
+```json
+{
+  "description": "This code demonstrates how to manipulate shapes and document content in OnlyOffice using the API by creating shapes, setting their fill and stroke, and adding text with line breaks.",
+  "RAGTable": [
+    {
+      "OnlyOffice_JS_Method": "Api.GetActiveSheet()",
+      "VBA_Equivalent": "Set oWorksheet = ActiveSheet"
+    },
+    {
+      "OnlyOffice_JS_Method": "Api.CreateRGBColor(255, 111, 61)",
+      "VBA_Equivalent": "RGB(255, 111, 61)"
+    },
+    {
+      "OnlyOffice_JS_Method": "Api.CreateSolidFill(color)",
+      "VBA_Equivalent": "oFill.ForeColor.RGB = color"
+    },
+    {
+      "OnlyOffice_JS_Method": "Api.CreateNoFill()",
+      "VBA_Equivalent": "oFill.Visible = msoFalse"
+    },
+    {
+      "OnlyOffice_JS_Method": "Api.CreateStroke(width, fill)",
+      "VBA_Equivalent": "With oShape.Line\n    .Weight = width\n    .ForeColor.RGB = RGB(255, 255, 255)\nEnd With"
+    },
+    {
+      "OnlyOffice_JS_Method": "oWorksheet.AddShape(type, left, top, fill, stroke, ...)",
+      "VBA_Equivalent": "Set oShape = oWorksheet.Shapes.AddShape(msoShapeFlowchartOnlineStorage, left, top, width, height)"
+    },
+    {
+      "OnlyOffice_JS_Method": "oShape.GetContent()",
+      "VBA_Equivalent": "Set oDocContent = oShape.TextFrame"
+    },
+    {
+      "OnlyOffice_JS_Method": "oDocContent.GetElement(0)",
+      "VBA_Equivalent": "Set oParagraph = oDocContent.Characters"
+    },
+    {
+      "OnlyOffice_JS_Method": "oParagraph.AddText(text)",
+      "VBA_Equivalent": "oDocContent.Text = oDocContent.Text & text"
+    },
+    {
+      "OnlyOffice_JS_Method": "oParagraph.AddLineBreak()",
+      "VBA_Equivalent": "oDocContent.Text = oDocContent.Text & vbCrLf"
+    },
+    {
+      "OnlyOffice_JS_Method": "oDocContent.GetElementsCount()",
+      "VBA_Equivalent": "ElementCount = UBound(Split(oDocContent.Text, vbCrLf)) + 1"
+    }
+  ]
+}
+```

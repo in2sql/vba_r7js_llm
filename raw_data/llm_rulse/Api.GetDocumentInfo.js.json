@@ -1,0 +1,19 @@
+```json
+{
+  "Description": "This code retrieves the document information and sets the application name in cell A1.",
+  "Methods": [
+    {
+      "OnlyOfficeJS": "const oDocInfo = Api.GetDocumentInfo();",
+      "VBA": "Dim oDocInfo As DocumentInfo\nSet oDocInfo = Api.GetDocumentInfo()"
+    },
+    {
+      "OnlyOfficeJS": "const oRange = Api.GetActiveSheet().GetRange('A1');",
+      "VBA": "Dim oRange As Range\nSet oRange = Api.GetActiveSheet().Range(\"A1\")"
+    },
+    {
+      "OnlyOfficeJS": "oRange.SetValue('This document has been created with: ' + oDocInfo.Application)",
+      "VBA": "oRange.Value = \"This document has been created with: \" & oDocInfo.Application"
+    }
+  ]
+}
+```

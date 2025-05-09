@@ -1,0 +1,7 @@
+```json
+{
+  "Description": "This example shows how to get the strikethrough property of the specified font.",
+  "OnlyOffice JS": "// This example shows how to get the strikethrough property of the specified font.\nvar oWorksheet = Api.GetActiveSheet();\nvar oRange = oWorksheet.GetRange(\"B1\");\noRange.SetValue(\"This is just a sample text.\");\nvar oCharacters = oRange.GetCharacters(9, 4);\nvar oFont = oCharacters.GetFont();\noFont.SetStrikethrough(true);\nvar bStrikethrough = oFont.GetStrikethrough();\noWorksheet.GetRange(\"B3\").SetValue(\"Strikethrough property: \" + bStrikethrough);",
+  "Excel VBA": "' This example shows how to get the strikethrough property of the specified font.\nSub Example()\n    Dim oWorksheet As Worksheet\n    Dim oRange As Range\n    Dim oCharacters As Characters\n    Dim oFont As Font\n    Dim bStrikethrough As Boolean\n\n    Set oWorksheet = ActiveSheet\n    Set oRange = oWorksheet.Range(\"B1\")\n    oRange.Value = \"This is just a sample text.\"\n    Set oCharacters = oRange.Characters(Start:=9, Length:=4)\n    Set oFont = oCharacters.Font\n    oFont.Strikethrough = True\n    bStrikethrough = oFont.Strikethrough\n    oWorksheet.Range(\"B3\").Value = \"Strikethrough property: \" & bStrikethrough\nEnd Sub"
+}
+```

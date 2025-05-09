@@ -1,0 +1,39 @@
+```json
+{
+  "description": "This example recalculates all formulas in the active workbook.",
+  "code": [
+    {
+      "OnlyOffice_JS": "var oWorksheet = Api.GetActiveSheet();",
+      "VBA": "Set oWorksheet = ActiveWorkbook.ActiveSheet"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"B1\").SetValue(1);",
+      "VBA": "Range(\"B1\").Value = 1"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"C1\").SetValue(2);",
+      "VBA": "Range(\"C1\").Value = 2"
+    },
+    {
+      "OnlyOffice_JS": "var oRange = oWorksheet.GetRange(\"A1\");\noRange.SetValue(\"=SUM(B1:C1)\");",
+      "VBA": "Set oRange = Range(\"A1\")\noRange.Formula = \"=SUM(B1:C1)\""
+    },
+    {
+      "OnlyOffice_JS": "oRange = oWorksheet.GetRange(\"E1\");\noRange.SetValue(\"=A1+1\");",
+      "VBA": "Set oRange = Range(\"E1\")\noRange.Formula = \"=A1+1\""
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"B1\").SetValue(3);",
+      "VBA": "Range(\"B1\").Value = 3"
+    },
+    {
+      "OnlyOffice_JS": "Api.RecalculateAllFormulas();",
+      "VBA": "Application.Calculate"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"A3\").SetValue(\"Formulas from cells A1 and E1 were recalculated with a new value from cell C1.\");",
+      "VBA": "Range(\"A3\").Value = \"Formulas from cells A1 and E1 were recalculated with a new value from cell C1.\""
+    }
+  ]
+}
+```

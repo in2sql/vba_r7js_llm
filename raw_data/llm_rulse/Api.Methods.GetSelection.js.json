@@ -1,0 +1,19 @@
+```json
+{
+  "table": {
+    "headers": ["Description", "OnlyOffice_JS", "Excel_VBA"],
+    "rows": [
+      {
+        "Description": "Get the active worksheet.",
+        "OnlyOffice_JS": "var oWorksheet = Api.GetActiveSheet();",
+        "Excel_VBA": "Dim oWorksheet As Worksheet\nSet oWorksheet = ActiveSheet"
+      },
+      {
+        "Description": "Set the value of the selected range.",
+        "OnlyOffice_JS": "Api.GetSelection().SetValue(\"selected\");",
+        "Excel_VBA": "Selection.Value = \"selected\""
+      }
+    ]
+  }
+}
+```

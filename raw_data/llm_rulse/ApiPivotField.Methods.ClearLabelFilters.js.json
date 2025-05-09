@@ -1,0 +1,136 @@
+```json
+[
+  {
+    "Get Active Sheet": {
+      "OnlyOffice JS": "var oWorksheet = Api.GetActiveSheet();",
+      "VBA": "Dim oWorksheet As Worksheet\nSet oWorksheet = ThisWorkbook.ActiveSheet"
+    }
+  },
+  {
+    "Set Value in Cell B1": {
+      "OnlyOffice JS": "oWorksheet.GetRange('B1').SetValue('Region');",
+      "VBA": "oWorksheet.Range(\"B1\").Value = \"Region\""
+    }
+  },
+  {
+    "Set Value in Cell C1": {
+      "OnlyOffice JS": "oWorksheet.GetRange('C1').SetValue('Style');",
+      "VBA": "oWorksheet.Range(\"C1\").Value = \"Style\""
+    }
+  },
+  {
+    "Set Value in Cell D1": {
+      "OnlyOffice JS": "oWorksheet.GetRange('D1').SetValue('Price');",
+      "VBA": "oWorksheet.Range(\"D1\").Value = \"Price\""
+    }
+  },
+  {
+    "Set Value in Cell B2": {
+      "OnlyOffice JS": "oWorksheet.GetRange('B2').SetValue('East');",
+      "VBA": "oWorksheet.Range(\"B2\").Value = \"East\""
+    }
+  },
+  {
+    "Set Value in Cell B3": {
+      "OnlyOffice JS": "oWorksheet.GetRange('B3').SetValue('West');",
+      "VBA": "oWorksheet.Range(\"B3\").Value = \"West\""
+    }
+  },
+  {
+    "Set Value in Cell B4": {
+      "OnlyOffice JS": "oWorksheet.GetRange('B4').SetValue('East');",
+      "VBA": "oWorksheet.Range(\"B4\").Value = \"East\""
+    }
+  },
+  {
+    "Set Value in Cell B5": {
+      "OnlyOffice JS": "oWorksheet.GetRange('B5').SetValue('West');",
+      "VBA": "oWorksheet.Range(\"B5\").Value = \"West\""
+    }
+  },
+  {
+    "Set Value in Cell C2": {
+      "OnlyOffice JS": "oWorksheet.GetRange('C2').SetValue('Fancy');",
+      "VBA": "oWorksheet.Range(\"C2\").Value = \"Fancy\""
+    }
+  },
+  {
+    "Set Value in Cell C3": {
+      "OnlyOffice JS": "oWorksheet.GetRange('C3').SetValue('Fancy');",
+      "VBA": "oWorksheet.Range(\"C3\").Value = \"Fancy\""
+    }
+  },
+  {
+    "Set Value in Cell C4": {
+      "OnlyOffice JS": "oWorksheet.GetRange('C4').SetValue('Tee');",
+      "VBA": "oWorksheet.Range(\"C4\").Value = \"Tee\""
+    }
+  },
+  {
+    "Set Value in Cell C5": {
+      "OnlyOffice JS": "oWorksheet.GetRange('C5').SetValue('Tee');",
+      "VBA": "oWorksheet.Range(\"C5\").Value = \"Tee\""
+    }
+  },
+  {
+    "Set Value in Cell D2": {
+      "OnlyOffice JS": "oWorksheet.GetRange('D2').SetValue(42.5);",
+      "VBA": "oWorksheet.Range(\"D2\").Value = 42.5"
+    }
+  },
+  {
+    "Set Value in Cell D3": {
+      "OnlyOffice JS": "oWorksheet.GetRange('D3').SetValue(35.2);",
+      "VBA": "oWorksheet.Range(\"D3\").Value = 35.2"
+    }
+  },
+  {
+    "Set Value in Cell D4": {
+      "OnlyOffice JS": "oWorksheet.GetRange('D4').SetValue(12.3);",
+      "VBA": "oWorksheet.Range(\"D4\").Value = 12.3"
+    }
+  },
+  {
+    "Set Value in Cell D5": {
+      "OnlyOffice JS": "oWorksheet.GetRange('D5').SetValue(24.8);",
+      "VBA": "oWorksheet.Range(\"D5\").Value = 24.8"
+    }
+  },
+  {
+    "Get Data Range": {
+      "OnlyOffice JS": "var dataRef = Api.GetRange(\"'Sheet1'!$B$1:$D$5\");",
+      "VBA": "Dim dataRef As Range\nSet dataRef = ThisWorkbook.Sheets(\"Sheet1\").Range(\"B1:D5\")"
+    }
+  },
+  {
+    "Insert Pivot Table": {
+      "OnlyOffice JS": "var pivotTable = Api.InsertPivotNewWorksheet(dataRef);",
+      "VBA": "Dim pivotCache As PivotCache\nDim pivotTable As PivotTable\nDim pivotSheet As Worksheet\nSet pivotCache = ThisWorkbook.PivotCaches.Create(SourceType:=xlDatabase, SourceData:=dataRef)\nSet pivotSheet = ThisWorkbook.Worksheets.Add\nSet pivotTable = pivotCache.CreatePivotTable(TableDestination:=pivotSheet.Range(\"A1\"), TableName:=\"PivotTable1\")"
+    }
+  },
+  {
+    "Add Fields to Pivot Table": {
+      "OnlyOffice JS": "pivotTable.AddFields({\n\trows: 'Region',\n\tcolumns: 'Style',\n});",
+      "VBA": "With pivotTable\n\t.PivotFields(\"Region\").Orientation = xlRowField\n\t.PivotFields(\"Style\").Orientation = xlColumnField\nEnd With"
+    }
+  },
+  {
+    "Add Data Field to Pivot Table": {
+      "OnlyOffice JS": "pivotTable.AddDataField('Price');",
+      "VBA": "With pivotTable\n\t.PivotFields(\"Price\").Orientation = xlDataField\n\t.PivotFields(\"Price\").Function = xlSum\nEnd With"
+    }
+  },
+  {
+    "Get Active Sheet (Pivot Worksheet)": {
+      "OnlyOffice JS": "var pivotWorksheet = Api.GetActiveSheet();",
+      "VBA": "Dim pivotWorksheet As Worksheet\nSet pivotWorksheet = ThisWorkbook.ActiveSheet"
+    }
+  },
+  {
+    "Clear Label Filters on Pivot Field 'Region'": {
+      "OnlyOffice JS": "var pivotField = pivotTable.GetPivotFields('Region');\npivotField.ClearLabelFilters();",
+      "VBA": "pivotTable.PivotFields(\"Region\").ClearAllFilters"
+    }
+  }
+]
+```

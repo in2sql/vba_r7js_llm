@@ -1,0 +1,9 @@
+```json
+{
+  "Description": "This code retrieves the active sheet and sets specific values and a formula in cells B1, B2, A3, and B3.",
+  "Code": {
+    "OnlyOffice_JS": "// This example shows how to get an object that represents the active sheet.\nvar oWorksheet = Api.GetActiveSheet();\noWorksheet.GetRange(\"B1\").SetValue(\"2\");\noWorksheet.GetRange(\"B2\").SetValue(\"2\");\noWorksheet.GetRange(\"A3\").SetValue(\"2x2=\");\noWorksheet.GetRange(\"B3\").SetValue(\"=B1*B2\");",
+    "VBA": "Dim oWorksheet As Worksheet\nSet oWorksheet = ActiveSheet\noWorksheet.Range(\"B1\").Value = \"2\"\noWorksheet.Range(\"B2\").Value = \"2\"\noWorksheet.Range(\"A3\").Value = \"2x2=\"\noWorksheet.Range(\"B3\").Formula = \"=B1*B2\""
+  }
+}
+```

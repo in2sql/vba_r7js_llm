@@ -1,0 +1,49 @@
+```json
+[
+  {
+    "Description": "Get the active worksheet.",
+    "OnlyOffice JS": "var oWorksheet = Api.GetActiveSheet();",
+    "VBA": "Dim oWorksheet As Worksheet\nSet oWorksheet = ActiveSheet"
+  },
+  {
+    "Description": "Set the value \"1\" to cell A1.",
+    "OnlyOffice JS": "oWorksheet.GetRange(\"A1\").SetValue(\"1\");",
+    "VBA": "oWorksheet.Range(\"A1\").Value = \"1\""
+  },
+  {
+    "Description": "Get range A1.",
+    "OnlyOffice JS": "var oRange = oWorksheet.GetRange(\"A1\");",
+    "VBA": "Dim oRange As Range\nSet oRange = oWorksheet.Range(\"A1\")"
+  },
+  {
+    "Description": "Add a comment to the range.",
+    "OnlyOffice JS": "var oComment = oRange.AddComment(\"This is just a number.\");",
+    "VBA": "oRange.AddComment \"This is just a number.\""
+  },
+  {
+    "Description": "Add a reply to the comment.",
+    "OnlyOffice JS": "oComment.AddReply(\"Reply 1\", \"John Smith\", \"uid-1\");",
+    "VBA": "oComment.Replies.Add \"Reply 1\", \"John Smith\", \"uid-1\""
+  },
+  {
+    "Description": "Get the reply.",
+    "OnlyOffice JS": "var oReply = oComment.GetReply();",
+    "VBA": "Dim oReply As Reply\nSet oReply = oComment.Replies(1)"
+  },
+  {
+    "Description": "Set the timestamp of the reply to current UTC time.",
+    "OnlyOffice JS": "oReply.SetTimeUTC(Date.now());",
+    "VBA": "oReply.TimeUTC = Now()"
+  },
+  {
+    "Description": "Set text to cell A3.",
+    "OnlyOffice JS": "oWorksheet.GetRange(\"A3\").SetValue(\"Comment's reply timestamp UTC: \");",
+    "VBA": "oWorksheet.Range(\"A3\").Value = \"Comment's reply timestamp UTC: \""
+  },
+  {
+    "Description": "Set the UTC timestamp in cell B3.",
+    "OnlyOffice JS": "oWorksheet.GetRange(\"B3\").SetValue(oReply.GetTimeUTC());",
+    "VBA": "oWorksheet.Range(\"B3\").Value = oReply.TimeUTC"
+  }
+]
+```

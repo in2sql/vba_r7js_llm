@@ -1,0 +1,51 @@
+```json
+{
+  "description": "This code sets the value of cell B1 and applies font color changes to specific character ranges within the text.",
+  "methods": [
+    {
+      "OnlyOffice_JS": "Api.GetActiveSheet();",
+      "VBA": "Set oWorksheet = ActiveSheet"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"B1\");",
+      "VBA": "Set oRange = oWorksheet.Range(\"B1\")"
+    },
+    {
+      "OnlyOffice_JS": "oRange.SetValue(\"This is just a sample text.\");",
+      "VBA": "oRange.Value = \"This is just a sample text.\""
+    },
+    {
+      "OnlyOffice_JS": "oRange.GetCharacters(9, 4);",
+      "VBA": "Set oCharacters = oRange.Characters(Start:=9, Length:=4)"
+    },
+    {
+      "OnlyOffice_JS": "oCharacters.GetFont();",
+      "VBA": "Set oFont = oCharacters.Font"
+    },
+    {
+      "OnlyOffice_JS": "Api.CreateColorFromRGB(255, 111, 61);",
+      "VBA": "oColor = RGB(255, 111, 61)"
+    },
+    {
+      "OnlyOffice_JS": "oFont.SetColor(oColor);",
+      "VBA": "oFont.Color = oColor"
+    },
+    {
+      "OnlyOffice_JS": "oFont.GetColor();",
+      "VBA": "oColor = oFont.Color"
+    },
+    {
+      "OnlyOffice_JS": "oRange.GetCharacters(16, 6);",
+      "VBA": "Set oCharacters = oRange.Characters(Start:=16, Length:=6)"
+    },
+    {
+      "OnlyOffice_JS": "oCharacters.GetFont();",
+      "VBA": "Set oFont = oCharacters.Font"
+    },
+    {
+      "OnlyOffice_JS": "oFont.SetColor(oColor);",
+      "VBA": "oFont.Color = oColor"
+    }
+  ]
+}
+```

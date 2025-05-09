@@ -1,0 +1,85 @@
+**Description:**  
+This code creates a financial overview chart by setting specific cell values, adding a 3D bar chart, setting the chart title and legend position, and applying custom colors to the chart series.
+
+```json
+{
+  "Methods": [
+    {
+      "OnlyOffice JS": "var oWorksheet = Api.GetActiveSheet();",
+      "Excel VBA": "Dim ws As Worksheet\nSet ws = ThisWorkbook.ActiveSheet"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"B1\").SetValue(2014);",
+      "Excel VBA": "ws.Range(\"B1\").Value = 2014"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"C1\").SetValue(2015);",
+      "Excel VBA": "ws.Range(\"C1\").Value = 2015"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"D1\").SetValue(2016);",
+      "Excel VBA": "ws.Range(\"D1\").Value = 2016"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"A2\").SetValue(\"Projected Revenue\");",
+      "Excel VBA": "ws.Range(\"A2\").Value = \"Projected Revenue\""
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"A3\").SetValue(\"Estimated Costs\");",
+      "Excel VBA": "ws.Range(\"A3\").Value = \"Estimated Costs\""
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"B2\").SetValue(200);",
+      "Excel VBA": "ws.Range(\"B2\").Value = 200"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"B3\").SetValue(250);",
+      "Excel VBA": "ws.Range(\"B3\").Value = 250"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"C2\").SetValue(240);",
+      "Excel VBA": "ws.Range(\"C2\").Value = 240"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"C3\").SetValue(260);",
+      "Excel VBA": "ws.Range(\"C3\").Value = 260"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"D2\").SetValue(280);",
+      "Excel VBA": "ws.Range(\"D2\").Value = 280"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"D3\").SetValue(280);",
+      "Excel VBA": "ws.Range(\"D3\").Value = 280"
+    },
+    {
+      "OnlyOffice JS": "var oChart = oWorksheet.AddChart(\"'Sheet1'!$A$1:$D$3\", true, \"bar3D\", 2, 100 * 36000, 70 * 36000, 0, 2 * 36000, 5, 3 * 36000);",
+      "Excel VBA": "Dim oChart As ChartObject\nSet oChart = ws.ChartObjects.Add(100, 70, 200, 150)\noChart.Chart.SetSourceData Source:=ws.Range(\"A1:D3\")\noChart.Chart.ChartType = xlBar3D"
+    },
+    {
+      "OnlyOffice JS": "oChart.SetTitle(\"Financial Overview\", 13);",
+      "Excel VBA": "With oChart.Chart\n    .HasTitle = True\n    .ChartTitle.Text = \"Financial Overview\"\n    .ChartTitle.Font.Size = 13\nEnd With"
+    },
+    {
+      "OnlyOffice JS": "oChart.SetLegendPos(\"right\");",
+      "Excel VBA": "oChart.Chart.Legend.Position = xlLegendPositionRight"
+    },
+    {
+      "OnlyOffice JS": "var oFill = Api.CreateSolidFill(Api.CreateRGBColor(51, 51, 51));",
+      "Excel VBA": "Dim oFill As Long\noFill = RGB(51, 51, 51)"
+    },
+    {
+      "OnlyOffice JS": "oChart.SetSeriesFill(oFill, 0, false);",
+      "Excel VBA": "oChart.Chart.SeriesCollection(1).Format.Fill.ForeColor.RGB = RGB(51, 51, 51)"
+    },
+    {
+      "OnlyOffice JS": "oFill = Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61));",
+      "Excel VBA": "oFill = RGB(255, 111, 61)"
+    },
+    {
+      "OnlyOffice JS": "oChart.SetSeriesFill(oFill, 1, false);",
+      "Excel VBA": "oChart.Chart.SeriesCollection(2).Format.Fill.ForeColor.RGB = RGB(255, 111, 61)"
+    }
+  ]
+}
+```

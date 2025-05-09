@@ -1,0 +1,37 @@
+```json
+{
+  "description": "This example demonstrates how to manage sheets and set values in the active workbook.",
+  "code_mapping": [
+    {
+      "action": "Add a new sheet named \"new_sheet_name\"",
+      "OnlyOffice_JS": "Api.AddSheet(\"new_sheet_name\");",
+      "Excel_VBA": "Sheets.Add(After:=Sheets(Sheets.Count)).Name = \"new_sheet_name\""
+    },
+    {
+      "action": "Get all sheets in the active workbook",
+      "OnlyOffice_JS": "var sheets = Api.GetSheets();",
+      "Excel_VBA": "Dim sheets As Sheets\nSet sheets = ThisWorkbook.Sheets"
+    },
+    {
+      "action": "Get the name of the first sheet",
+      "OnlyOffice_JS": "var sheet_name1 = sheets[0].GetName();",
+      "Excel_VBA": "Dim sheet_name1 As String\nsheet_name1 = sheets(1).Name"
+    },
+    {
+      "action": "Get the name of the second sheet",
+      "OnlyOffice_JS": "var sheet_name2 = sheets[1].GetName();",
+      "Excel_VBA": "Dim sheet_name2 As String\nsheet_name2 = sheets(2).Name"
+    },
+    {
+      "action": "Set the value of cell A1 in the second sheet to the first sheet's name",
+      "OnlyOffice_JS": "sheets[1].GetRange(\"A1\").SetValue(sheet_name1);",
+      "Excel_VBA": "Sheets(2).Range(\"A1\").Value = sheet_name1"
+    },
+    {
+      "action": "Set the value of cell A2 in the second sheet to the second sheet's name",
+      "OnlyOffice_JS": "sheets[1].GetRange(\"A2\").SetValue(sheet_name2);",
+      "Excel_VBA": "Sheets(2).Range(\"A2\").Value = sheet_name2"
+    }
+  ]
+}
+```

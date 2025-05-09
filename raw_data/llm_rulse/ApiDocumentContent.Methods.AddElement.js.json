@@ -1,0 +1,59 @@
+```json
+{
+  "Table": {
+    "headers": ["Description", "OnlyOffice JS Code", "Excel VBA Code"],
+    "rows": [
+      {
+        "Description": "Get the active worksheet",
+        "OnlyOffice JS Code": "var oWorksheet = Api.GetActiveSheet();",
+        "Excel VBA Code": "Dim oWorksheet As Worksheet\nSet oWorksheet = ActiveWorkbook.ActiveSheet"
+      },
+      {
+        "Description": "Create a solid fill with RGB color (255, 111, 61)",
+        "OnlyOffice JS Code": "var oFill = Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61));",
+        "Excel VBA Code": "Dim oFill As FillFormat\nSet oFill = oWorksheet.Shapes.AddShape(msoShapeRectangle, 0, 0, 100, 50).Fill\noFill.ForeColor.RGB = RGB(255, 111, 61)"
+      },
+      {
+        "Description": "Create a stroke with no fill",
+        "OnlyOffice JS Code": "var oStroke = Api.CreateStroke(0, Api.CreateNoFill());",
+        "Excel VBA Code": "Dim oStroke As LineFormat\nSet oStroke = oWorksheet.Shapes(1).Line\nWith oStroke\n    .Weight = 0\n    .Visible = msoFalse\nEnd With"
+      },
+      {
+        "Description": "Add a shape to the worksheet with specified parameters",
+        "OnlyOffice JS Code": "var oShape = oWorksheet.AddShape(\"flowChartOnlineStorage\", 200 * 36000, 60 * 36000, oFill, oStroke, 0, 2 * 36000, 0, 3 * 36000);",
+        "Excel VBA Code": "Dim oShape As Shape\nSet oShape = oWorksheet.Shapes.AddShape(msoShapeFlowchartTerminator, 200, 60, 2, 3)\nWith oShape.Fill\n    .ForeColor.RGB = RGB(255, 111, 61)\nEnd With\nWith oShape.Line\n    .Weight = 0\n    .Visible = msoFalse\nEnd With"
+      },
+      {
+        "Description": "Get the content of the shape",
+        "OnlyOffice JS Code": "var oDocContent = oShape.GetContent();",
+        "Excel VBA Code": "' Excel VBA does not have a direct equivalent for GetContent. Text can be managed via the TextFrame property."
+      },
+      {
+        "Description": "Remove all elements from the shape's content",
+        "OnlyOffice JS Code": "oDocContent.RemoveAllElements();",
+        "Excel VBA Code": "oShape.TextFrame.Characters.Text = \"\""
+      },
+      {
+        "Description": "Create a new paragraph",
+        "OnlyOffice JS Code": "var oParagraph = Api.CreateParagraph();",
+        "Excel VBA Code": "' Excel VBA handles text as a single string. Creating a new paragraph can be done by adding a newline character."
+      },
+      {
+        "Description": "Add text to the paragraph",
+        "OnlyOffice JS Code": "oParagraph.AddText(\"We removed all elements from the shape and added a new paragraph inside it.\");",
+        "Excel VBA Code": "oShape.TextFrame.Characters.Text = \"We removed all elements from the shape and added a new paragraph inside it.\""
+      },
+      {
+        "Description": "Add the paragraph to the shape's content",
+        "OnlyOffice JS Code": "oDocContent.AddElement(oParagraph);",
+        "Excel VBA Code": "' Text is already set in the previous step."
+      },
+      {
+        "Description": "Push the paragraph to update the content",
+        "OnlyOffice JS Code": "oDocContent.Push(oParagraph);",
+        "Excel VBA Code": "' Changes are automatically applied in VBA after setting the Text property."
+      }
+    ]
+  }
+}
+```

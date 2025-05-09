@@ -1,0 +1,27 @@
+```json
+{
+  "Description": "This example creates a complex color scheme by selecting one of the available schemes and adds a curved up arrow shape to the active worksheet with specified fill and stroke properties.",
+  "Code": [
+    {
+      "OnlyOffice JS": "var oWorksheet = Api.GetActiveSheet();",
+      "VBA": "Dim oWorksheet As Worksheet\nSet oWorksheet = ActiveWorkbook.ActiveSheet"
+    },
+    {
+      "OnlyOffice JS": "var oSchemeColor = Api.CreateSchemeColor(\"dk1\");",
+      "VBA": "Dim oSchemeColor As Long\n' Assuming 'dk1' corresponds to a specific RGB color\noSchemeColor = RGB(0, 0, 139) ' Dark Blue as an example"
+    },
+    {
+      "OnlyOffice JS": "var oFill = Api.CreateSolidFill(oSchemeColor);",
+      "VBA": "With oWorksheet.Shapes.AddShape(msoShapeRectangle, 0, 0, 100, 100).Fill\n    .Solid\n    .ForeColor.RGB = oSchemeColor\nEnd With"
+    },
+    {
+      "OnlyOffice JS": "var oStroke = Api.CreateStroke(0, Api.CreateNoFill());",
+      "VBA": "With oWorksheet.Shapes.AddShape(msoShapeRectangle, 0, 0, 100, 100).Line\n    .Visible = msoFalse\nEnd With"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.AddShape(\"curvedUpArrow\", 60 * 36000, 35 * 36000, oFill, oStroke, 0, 2 * 36000, 1, 3 * 36000);",
+      "VBA": "Dim shp As Shape\nSet shp = oWorksheet.Shapes.AddShape(msoShapeCurvedUpArrow, 60, 35, 2, 3)\nWith shp.Fill\n    .ForeColor.RGB = oSchemeColor\n    .Solid\nEnd With\nWith shp.Line\n    .Visible = msoFalse\nEnd With"
+    }
+  ]
+}
+```

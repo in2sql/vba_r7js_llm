@@ -1,0 +1,43 @@
+```json
+{
+  "description": "This code adds a flowchart shape to the active sheet, sets its fill and stroke, adds two paragraphs of text, and makes the second paragraph bold.",
+  "codeMappings": [
+    {
+      "OnlyOffice_JS": "var oWorksheet = Api.GetActiveSheet();",
+      "VBA": "Set oWorksheet = ThisWorkbook.ActiveSheet"
+    },
+    {
+      "OnlyOffice_JS": "var oFill = Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61));",
+      "VBA": "Set oFill = oWorksheet.Shapes.Fill.ForeColor.RGB = RGB(255, 111, 61)"
+    },
+    {
+      "OnlyOffice_JS": "var oStroke = Api.CreateStroke(0, Api.CreateNoFill());",
+      "VBA": "With oWorksheet.Shapes.Line\n    .Weight = 0\n    .Visible = msoFalse\nEnd With"
+    },
+    {
+      "OnlyOffice_JS": "var oShape = oWorksheet.AddShape(\"flowChartOnlineStorage\", 60 * 36000, 35 * 36000, oFill, oStroke, 0, 2 * 36000, 0, 3 * 36000);",
+      "VBA": "Set oShape = oWorksheet.Shapes.AddShape(msoShapeFlowchartOnlineStorage, 60, 35, 200, 150)\nWith oShape\n    .Fill.ForeColor.RGB = RGB(255, 111, 61)\n    .Line.Visible = msoFalse\nEnd With"
+    },
+    {
+      "OnlyOffice_JS": "var oDocContent = oShape.GetContent();",
+      "VBA": "Set oDocContent = oShape.TextFrame2.TextRange"
+    },
+    {
+      "OnlyOffice_JS": "oDocContent.RemoveAllElements();",
+      "VBA": "oDocContent.Text = \"\""
+    },
+    {
+      "OnlyOffice_JS": "var oParagraph1 = Api.CreateParagraph();\noParagraph1.AddText(\"This is the first paragraph.\");\noDocContent.Push(oParagraph1);",
+      "VBA": "With oDocContent\n    .Text = .Text & vbCrLf & \"This is the first paragraph.\"\nEnd With"
+    },
+    {
+      "OnlyOffice_JS": "var oParagraph2 = Api.CreateParagraph();\noParagraph2.AddText(\"This is the second paragraph.\");\noDocContent.Push(oParagraph2);",
+      "VBA": "With oDocContent\n    .Text = .Text & vbCrLf & \"This is the second paragraph.\"\nEnd With"
+    },
+    {
+      "OnlyOffice_JS": "var oNextParagraph = oParagraph1.GetNext();\noNextParagraph.SetBold(true);",
+      "VBA": "With oShape.TextFrame2.TextRange.Paragraphs(2).Font\n    .Bold = msoTrue\nEnd With"
+    }
+  ]
+}
+```

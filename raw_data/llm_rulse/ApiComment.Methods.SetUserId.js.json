@@ -1,0 +1,35 @@
+```json
+{
+  "description": "This example sets the user ID to the comment author, assigns values to specific cells, and demonstrates how to manipulate comments and cell values in both OnlyOffice JS and Excel VBA.",
+  "table": [
+    {
+      "OnlyOffice JS": "var oWorksheet = Api.GetActiveSheet();",
+      "Excel VBA": "Set oWorksheet = ActiveSheet"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"A1\").SetValue(\"1\");",
+      "Excel VBA": "Range(\"A1\").Value = \"1\""
+    },
+    {
+      "OnlyOffice JS": "var oRange = oWorksheet.GetRange(\"A1\");",
+      "Excel VBA": "Set oRange = Range(\"A1\")"
+    },
+    {
+      "OnlyOffice JS": "var oComment = oRange.AddComment(\"This is just a number.\", \"John Smith\");",
+      "Excel VBA": "Set oComment = oRange.AddComment(\"This is just a number.\")\n oComment.Author = \"John Smith\""
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"A3\").SetValue(\"Comment's user Id: \");",
+      "Excel VBA": "Range(\"A3\").Value = \"Comment's user Id: \""
+    },
+    {
+      "OnlyOffice JS": "oComment.SetUserId(\"uid-2\");",
+      "Excel VBA": "' VBA does not have a direct equivalent for SetUserId"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"B3\").SetValue(oComment.GetUserId());",
+      "Excel VBA": "Range(\"B3\").Value = oComment.UserId ' VBA does not have a direct equivalent for GetUserId"
+    }
+  ]
+}
+```

@@ -1,0 +1,59 @@
+```json
+{
+  "table": {
+    "headers": ["Operation", "OnlyOffice JS", "Excel VBA"],
+    "rows": [
+      {
+        "Operation": "Get the active worksheet",
+        "OnlyOffice JS": "var oWorksheet = Api.GetActiveSheet();",
+        "Excel VBA": "Set oWorksheet = ActiveSheet"
+      },
+      {
+        "Operation": "Create a solid fill with RGB color (255, 111, 61)",
+        "OnlyOffice JS": "var oFill = Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61));",
+        "Excel VBA": "Set oFill = ActiveSheet.Shapes.AddShape(msoShapeRectangle, 0, 0, 100, 100).Fill\noFill.ForeColor.RGB = RGB(255, 111, 61)"
+      },
+      {
+        "Operation": "Create a stroke with no fill",
+        "OnlyOffice JS": "var oStroke = Api.CreateStroke(0, Api.CreateNoFill());",
+        "Excel VBA": "With ActiveSheet.Shapes.AddShape(msoShapeRectangle, 0, 0, 100, 100).Line\n    .Visible = msoFalse\nEnd With"
+      },
+      {
+        "Operation": "Add a shape to the worksheet",
+        "OnlyOffice JS": "var oShape = oWorksheet.AddShape(\"flowChartOnlineStorage\", 120 * 36000, 35 * 36000, oFill, oStroke, 0, 2 * 36000, 0, 3 * 36000);",
+        "Excel VBA": "Set oShape = ActiveSheet.Shapes.AddShape(msoShapeFlowchartOfflineStorage, 120, 35, 200, 150)\nWith oShape.Fill\n    .ForeColor.RGB = RGB(255, 111, 61)\nEnd With\nWith oShape.Line\n    .Visible = msoFalse\nEnd With"
+      },
+      {
+        "Operation": "Get the content of the shape's document",
+        "OnlyOffice JS": "var oDocContent = oShape.GetContent();",
+        "Excel VBA": "' VBA does not have a direct equivalent for getting shape document content. Use TextFrame instead."
+      },
+      {
+        "Operation": "Get the first paragraph element",
+        "OnlyOffice JS": "var oParagraph = oDocContent.GetElement(0);",
+        "Excel VBA": "Set oParagraph = oShape.TextFrame.Characters.Text"
+      },
+      {
+        "Operation": "Get paragraph properties",
+        "OnlyOffice JS": "var oParaPr = oParagraph.GetParaPr();",
+        "Excel VBA": "With oShape.TextFrame2.TextRange.ParagraphFormat\n    ' Set properties here\nEnd With"
+      },
+      {
+        "Operation": "Create a bullet with '-' as the symbol",
+        "OnlyOffice JS": "var oBullet = Api.CreateBullet(\"-\");",
+        "Excel VBA": "With oShape.TextFrame2.TextRange.ParagraphFormat.Bullet\n    .Visible = msoTrue\n    .Character = 45 ' ASCII for '-' \nEnd With"
+      },
+      {
+        "Operation": "Set the bullet to the paragraph",
+        "OnlyOffice JS": "oParaPr.SetBullet(oBullet);",
+        "Excel VBA": "' Bullet already set in the previous step"
+      },
+      {
+        "Operation": "Add text to the paragraph",
+        "OnlyOffice JS": "oParagraph.AddText(\" This is an example of the bulleted paragraph.\");",
+        "Excel VBA": "oShape.TextFrame2.TextRange.Text = \"This is an example of the bulleted paragraph.\""
+      }
+    ]
+  }
+}
+```

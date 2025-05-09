@@ -1,0 +1,14 @@
+```json
+{
+  "table": {
+    "headers": ["Description", "OnlyOffice JS", "Excel VBA"],
+    "rows": [
+      {
+        "Description": "This example shows how to get the font color property of the specified font.",
+        "OnlyOffice JS": "// This example shows how to get the font color property of the specified font.\nvar oWorksheet = Api.GetActiveSheet();\nvar oRange = oWorksheet.GetRange(\"B1\");\noRange.SetValue(\"This is just a sample text.\");\nvar oCharacters = oRange.GetCharacters(9, 4);\nvar oFont = oCharacters.GetFont();\nvar oColor = Api.CreateColorFromRGB(255, 111, 61);\noFont.SetColor(oColor);\noColor = oFont.GetColor();\noCharacters = oRange.GetCharacters(16, 6);\nvar oFont = oCharacters.GetFont();\noFont.SetColor(oColor);",
+        "Excel VBA": "' This example shows how to get the font color property of the specified font.\nSub Example()\n    ' Get the active sheet\n    Dim oWorksheet As Worksheet\n    Set oWorksheet = ActiveSheet\n    \n    ' Get range B1\n    Dim oRange As Range\n    Set oRange = oWorksheet.Range(\"B1\")\n    \n    ' Set value\n    oRange.Value = \"This is just a sample text.\"\n    \n    ' Get characters 9 to 12\n    Dim oCharacters As Characters\n    Set oCharacters = oRange.Characters(Start:=9, Length:=4)\n    \n    ' Get font\n    Dim oFont As Font\n    Set oFont = oCharacters.Font\n    \n    ' Create color from RGB\n    Dim oColor As Long\n    oColor = RGB(255, 111, 61)\n    \n    ' Set color\n    oFont.Color = oColor\n    \n    ' Get color\n    oColor = oFont.Color\n    \n    ' Get characters 16 to 21\n    Set oCharacters = oRange.Characters(Start:=16, Length:=6)\n    \n    ' Get font\n    Set oFont = oCharacters.Font\n    \n    ' Set color\n    oFont.Color = oColor\nEnd Sub"
+      }
+    ]
+  }
+}
+```

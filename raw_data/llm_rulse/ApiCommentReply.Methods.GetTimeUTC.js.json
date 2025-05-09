@@ -1,0 +1,47 @@
+```javascript
+// This example shows how to get the timestamp of the comment reply creation in UTC format.
+{
+  "RAGTable": [
+    {
+      "OnlyOfficeJS": "var oWorksheet = Api.GetActiveSheet();",
+      "VBA": "Set oWorksheet = ThisWorkbook.ActiveSheet",
+      "Status": "Green"
+    },
+    {
+      "OnlyOfficeJS": "oWorksheet.GetRange(\"A1\").SetValue(\"1\");",
+      "VBA": "oWorksheet.Range(\"A1\").Value = \"1\"",
+      "Status": "Green"
+    },
+    {
+      "OnlyOfficeJS": "var oRange = oWorksheet.GetRange(\"A1\");",
+      "VBA": "Set oRange = oWorksheet.Range(\"A1\")",
+      "Status": "Green"
+    },
+    {
+      "OnlyOfficeJS": "var oComment = oRange.AddComment(\"This is just a number.\");",
+      "VBA": "Set oComment = oRange.AddComment(\"This is just a number.\")",
+      "Status": "Green"
+    },
+    {
+      "OnlyOfficeJS": "oComment.AddReply(\"Reply 1\", \"John Smith\", \"uid-1\");",
+      "VBA": "oComment.AddReply \"Reply 1\", \"John Smith\", \"uid-1\"",
+      "Status": "Green"
+    },
+    {
+      "OnlyOfficeJS": "var oReply = oComment.GetReply();",
+      "VBA": "Set oReply = oComment.GetReply()",
+      "Status": "Green"
+    },
+    {
+      "OnlyOfficeJS": "oWorksheet.GetRange(\"A3\").SetValue(\"Comment's reply timestamp UTC: \");",
+      "VBA": "oWorksheet.Range(\"A3\").Value = \"Comment's reply timestamp UTC: \"",
+      "Status": "Green"
+    },
+    {
+      "OnlyOfficeJS": "oWorksheet.GetRange(\"B3\").SetValue(oReply.GetTimeUTC());",
+      "VBA": "oWorksheet.Range(\"B3\").Value = oReply.GetTimeUTC()",
+      "Status": "Green"
+    }
+  ]
+}
+```

@@ -1,0 +1,63 @@
+```json
+{
+  "description": "Sets the spacing before the current paragraph and adds a shape to the active worksheet with specified fill and stroke.",
+  "methods": [
+    {
+      "OnlyOffice_JS": "var oWorksheet = Api.GetActiveSheet();",
+      "VBA": "Dim oWorksheet As Worksheet\nSet oWorksheet = ThisWorkbook.ActiveSheet"
+    },
+    {
+      "OnlyOffice_JS": "var oFill = Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61));",
+      "VBA": "Dim oFill As Fill\nSet oFill = oWorksheet.Shapes.Fill.ForeColor.RGB = RGB(255, 111, 61)"
+    },
+    {
+      "OnlyOffice_JS": "var oStroke = Api.CreateStroke(0, Api.CreateNoFill());",
+      "VBA": "With oWorksheet.Shapes.Line\n    .Visible = msoFalse\nEnd With"
+    },
+    {
+      "OnlyOffice_JS": "var oShape = oWorksheet.AddShape(\"flowChartOnlineStorage\", 120 * 36000, 70 * 36000, oFill, oStroke, 0, 2 * 36000, 0, 3 * 36000);",
+      "VBA": "Dim oShape As Shape\nSet oShape = oWorksheet.Shapes.AddShape(msoShapeFlowchartOnlineStorage, 120, 70, oFill, oStroke)\n' Adjust position and size as needed"
+    },
+    {
+      "OnlyOffice_JS": "var oDocContent = oShape.GetContent();",
+      "VBA": "Dim oDocContent As TextFrame\nSet oDocContent = oShape.TextFrame"
+    },
+    {
+      "OnlyOffice_JS": "var oParagraph = oDocContent.GetElement(0);",
+      "VBA": "Dim oParagraph As TextRange\nSet oParagraph = oDocContent.Characters(1, oDocContent.Characters.Count)"
+    },
+    {
+      "OnlyOffice_JS": "oParagraph.AddText(\"This is an example of setting a space before a paragraph. \");",
+      "VBA": "oParagraph.Text = oParagraph.Text & \"This is an example of setting a space before a paragraph. \""
+    },
+    {
+      "OnlyOffice_JS": "oParagraph.AddText(\"The second paragraph will have an offset of one inch from the top. \");",
+      "VBA": "oParagraph.Text = oParagraph.Text & \"The second paragraph will have an offset of one inch from the top. \""
+    },
+    {
+      "OnlyOffice_JS": "oParagraph.AddText(\"This is due to the fact that the second paragraph has this offset enabled.\");",
+      "VBA": "oParagraph.Text = oParagraph.Text & \"This is due to the fact that the second paragraph has this offset enabled.\""
+    },
+    {
+      "OnlyOffice_JS": "oParagraph = Api.CreateParagraph();",
+      "VBA": "Set oParagraph = oDocContent.Paragraphs.Add"
+    },
+    {
+      "OnlyOffice_JS": "var oParaPr = oParagraph.GetParaPr();",
+      "VBA": "With oParagraph.ParagraphFormat"
+    },
+    {
+      "OnlyOffice_JS": "oParaPr.SetSpacingBefore(1440);",
+      "VBA": "    .SpaceBefore = 144 ' Points (1 inch)"
+    },
+    {
+      "OnlyOffice_JS": "oParagraph.AddText(\"This is the second paragraph and it is one inch away from the first paragraph.\");",
+      "VBA": "oParagraph.Text = \"This is the second paragraph and it is one inch away from the first paragraph.\""
+    },
+    {
+      "OnlyOffice_JS": "oDocContent.Push(oParagraph);",
+      "VBA": "' Already added the paragraph to the TextFrame"
+    }
+  ]
+}
+```

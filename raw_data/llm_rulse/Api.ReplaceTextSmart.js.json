@@ -1,0 +1,7 @@
+```json
+{
+  "Description": "This example replaces each paragraph (or text in cell) in the selected range with the corresponding text from an array of strings.",
+  "OnlyOffice JS": "// This example replaces each paragraph (or text in cell) in the select with the corresponding text from an array of strings.\nvar oWorksheet = Api.GetActiveSheet();\noWorksheet.GetRange(\"A1\").SetValue(\"1\");\noWorksheet.GetRange(\"A2\").SetValue(\"2\");\nvar oRange = oWorksheet.GetRange(\"A1:A2\");\noRange.Select();\nApi.ReplaceTextSmart([\"Cell 1\", \"Cell 2\"]);",
+  "Excel VBA": "Sub ReplaceTextSmartExample()\n    Dim oRange As Range\n    ActiveSheet.Range(\"A1\").Value = \"1\"\n    ActiveSheet.Range(\"A2\").Value = \"2\"\n    Set oRange = ActiveSheet.Range(\"A1:A2\")\n    oRange.Select\n    oRange.Cells(1, 1).Value = \"Cell 1\"\n    oRange.Cells(2, 1).Value = \"Cell 2\"\nEnd Sub"
+}
+```

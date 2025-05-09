@@ -1,0 +1,44 @@
+**Description:** This example demonstrates how to retrieve the active sheet, create a solid fill and stroke, add a shape to the sheet, obtain the shape's parent sheet, and add text indicating the parent sheet's name to the shape's content.
+
+```json
+{
+  "ComparisonTable": [
+    {
+      "OnlyOffice JS Method": "Api.GetActiveSheet()",
+      "Excel VBA Equivalent": "Set oWorksheet = ActiveSheet"
+    },
+    {
+      "OnlyOffice JS Method": "Api.CreateRGBColor(255, 111, 61)",
+      "Excel VBA Equivalent": "RGB(255, 111, 61)"
+    },
+    {
+      "OnlyOffice JS Method": "Api.CreateSolidFill(color)",
+      "Excel VBA Equivalent": "Set oFill = oShape.Fill.ForeColor.RGB = RGB(255, 111, 61)"
+    },
+    {
+      "OnlyOffice JS Method": "Api.CreateStroke(0, Api.CreateNoFill())",
+      "Excel VBA Equivalent": "With oShape.Line\n .Visible = msoFalse\nEnd With"
+    },
+    {
+      "OnlyOffice JS Method": "oWorksheet.AddShape(\"flowChartOnlineStorage\", 60 * 36000, 35 * 36000, oFill, oStroke, 0, 2 * 36000, 0, 3 * 36000)",
+      "Excel VBA Equivalent": "Set oShape = oWorksheet.Shapes.AddShape(msoShapeFlowchartStorage, 60, 35, 2, 3)\nWith oShape.Fill\n .ForeColor.RGB = RGB(255, 111, 61)\nEnd With\nWith oShape.Line\n .Visible = msoFalse\nEnd With"
+    },
+    {
+      "OnlyOffice JS Method": "oShape.GetParentSheet()",
+      "Excel VBA Equivalent": "Set oParentSheet = oShape.Parent"
+    },
+    {
+      "OnlyOffice JS Method": "oShape.GetDocContent()",
+      "Excel VBA Equivalent": "Set oDocContent = oShape.TextFrame.Characters"
+    },
+    {
+      "OnlyOffice JS Method": "oDocContent.GetElement(0)",
+      "Excel VBA Equivalent": "Set oParagraph = oShape.TextFrame.Characters(1, 1)"
+    },
+    {
+      "OnlyOffice JS Method": "oParagraph.AddText(\"Parent sheet name is \" + oParentSheet.GetName())",
+      "Excel VBA Equivalent": "oShape.TextFrame.Characters.Text = \"Parent sheet name is \" & oParentSheet.Name"
+    }
+  ]
+}
+```

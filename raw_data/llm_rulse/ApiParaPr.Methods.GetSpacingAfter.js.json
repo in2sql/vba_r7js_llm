@@ -1,0 +1,75 @@
+```json
+{
+  "description": "Equivalent Excel VBA code for the provided OnlyOffice JavaScript example, demonstrating worksheet manipulation, shape creation, and paragraph formatting.",
+  "code": [
+    {
+      "OnlyOffice JS": "var oWorksheet = Api.GetActiveSheet();",
+      "VBA": "Dim oWorksheet As Worksheet\nSet oWorksheet = ThisWorkbook.ActiveSheet"
+    },
+    {
+      "OnlyOffice JS": "var oFill = Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61));",
+      "VBA": "Dim oFill As Object\nSet oFill = CreateSolidFill(CreateRGBColor(255, 111, 61))"
+    },
+    {
+      "OnlyOffice JS": "var oStroke = Api.CreateStroke(0, Api.CreateNoFill());",
+      "VBA": "Dim oStroke As Object\nSet oStroke = CreateStroke(0, CreateNoFill())"
+    },
+    {
+      "OnlyOffice JS": "var oShape = oWorksheet.AddShape(\"flowChartOnlineStorage\", 120 * 36000, 70 * 36000, oFill, oStroke, 0, 2 * 36000, 0, 3 * 36000);",
+      "VBA": "Dim oShape As Shape\nSet oShape = oWorksheet.Shapes.AddShape(msoShapeFlowchartStorage, 120 * 36000, 70 * 36000, oFill, oStroke, 0, 2 * 36000, 0, 3 * 36000)"
+    },
+    {
+      "OnlyOffice JS": "var oDocContent = oShape.GetContent();",
+      "VBA": "Dim oDocContent As Object\nSet oDocContent = oShape.Content"
+    },
+    {
+      "OnlyOffice JS": "var oParagraph = oDocContent.GetElement(0);",
+      "VBA": "Dim oParagraph As Object\nSet oParagraph = oDocContent.Elements(1)"
+    },
+    {
+      "OnlyOffice JS": "var oParaPr = oParagraph.GetParaPr();",
+      "VBA": "Dim oParaPr As Object\nSet oParaPr = oParagraph.ParagraphFormat"
+    },
+    {
+      "OnlyOffice JS": "oParaPr.SetSpacingAfter(1440);",
+      "VBA": "oParaPr.SpaceAfter = 1440"
+    },
+    {
+      "OnlyOffice JS": "oParagraph.AddText(\"This is an example of setting a space after a paragraph. \");",
+      "VBA": "oParagraph.Range.Text = \"This is an example of setting a space after a paragraph. \""
+    },
+    {
+      "OnlyOffice JS": "oParagraph.AddText(\"The second paragraph will have an offset of one inch from the top. \");",
+      "VBA": "oParagraph.Range.Text = oParagraph.Range.Text & \"The second paragraph will have an offset of one inch from the top. \""
+    },
+    {
+      "OnlyOffice JS": "oParagraph.AddText(\"These sentences are used to add lines for demonstrative purposes. \");",
+      "VBA": "oParagraph.Range.Text = oParagraph.Range.Text & \"These sentences are used to add lines for demonstrative purposes. \""
+    },
+    {
+      "OnlyOffice JS": "oParagraph.AddText(\"These sentences are used to add lines for demonstrative purposes. \");",
+      "VBA": "oParagraph.Range.Text = oParagraph.Range.Text & \"These sentences are used to add lines for demonstrative purposes. \""
+    },
+    {
+      "OnlyOffice JS": "oParagraph.AddText(\"These sentences are used to add lines for demonstrative purposes.\");",
+      "VBA": "oParagraph.Range.Text = oParagraph.Range.Text & \"These sentences are used to add lines for demonstrative purposes.\""
+    },
+    {
+      "OnlyOffice JS": "var nSpacingAfter = oParaPr.GetSpacingAfter();",
+      "VBA": "Dim nSpacingAfter As Long\nnSpacingAfter = oParaPr.SpaceAfter"
+    },
+    {
+      "OnlyOffice JS": "oParagraph = Api.CreateParagraph();",
+      "VBA": "Set oParagraph = oDocContent.Paragraphs.Add"
+    },
+    {
+      "OnlyOffice JS": "oParagraph.AddText(\"Spacing after : \" + nSpacingAfter);",
+      "VBA": "oParagraph.Range.Text = \"Spacing after : \" & nSpacingAfter"
+    },
+    {
+      "OnlyOffice JS": "oDocContent.Push(oParagraph);",
+      "VBA": "oDocContent.Paragraphs.Add oParagraph"
+    }
+  ]
+}
+```

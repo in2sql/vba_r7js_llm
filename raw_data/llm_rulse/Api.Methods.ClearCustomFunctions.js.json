@@ -1,0 +1,37 @@
+```json
+{
+  "description": "This table provides Excel VBA equivalents for each OnlyOffice JS method used to add custom functions, manipulate worksheet ranges, and clear custom functions.",
+  "table": [
+    {
+      "Functionality": "Add Custom Function Library",
+      "OnlyOffice JS": "Api.AddCustomFunctionLibrary(\"LibraryName\", function() { /* ... */ });",
+      "VBA Equivalent": "' VBA does not have a direct equivalent to adding a custom function library dynamically."
+    },
+    {
+      "Functionality": "Add Custom Function",
+      "OnlyOffice JS": "Api.AddCustomFunction(function ADD(first, second) { return first + second; });",
+      "VBA Equivalent": "Function ADD(first As Variant, second As Variant) As Variant\n    ADD = first + second\nEnd Function"
+    },
+    {
+      "Functionality": "Get Active Sheet",
+      "OnlyOffice JS": "var oWorksheet = Api.GetActiveSheet();",
+      "VBA Equivalent": "Dim oWorksheet As Worksheet\nSet oWorksheet = ThisWorkbook.ActiveSheet"
+    },
+    {
+      "Functionality": "Set Value in Range",
+      "OnlyOffice JS": "oWorksheet.GetRange(\"A1\").SetValue(\"=ADD(1, 2)\");",
+      "VBA Equivalent": "oWorksheet.Range(\"A1\").Formula = \"=ADD(1, 2)\""
+    },
+    {
+      "Functionality": "Clear Custom Functions",
+      "OnlyOffice JS": "Api.ClearCustomFunctions();",
+      "VBA Equivalent": "' VBA does not support clearing custom functions dynamically. Functions must be removed manually from modules."
+    },
+    {
+      "Functionality": "Set Value in Another Range",
+      "OnlyOffice JS": "oWorksheet.GetRange(\"A3\").SetValue(\"All the custom functions were removed.\");",
+      "VBA Equivalent": "oWorksheet.Range(\"A3\").Value = \"All the custom functions were removed.\""
+    }
+  ]
+}
+```

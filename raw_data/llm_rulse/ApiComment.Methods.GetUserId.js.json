@@ -1,0 +1,33 @@
+**Description:** This example sets a value in a cell, adds a comment, and retrieves the user ID of the comment author.
+
+```json
+{
+  "RAGTable": [
+    {
+      "Method": "GetActiveSheet",
+      "OnlyOffice JS": "var oWorksheet = Api.GetActiveSheet();",
+      "Excel VBA": "Set oWorksheet = ThisWorkbook.ActiveSheet"
+    },
+    {
+      "Method": "GetRange",
+      "OnlyOffice JS": "oWorksheet.GetRange(\"A1\")",
+      "Excel VBA": "oWorksheet.Range(\"A1\")"
+    },
+    {
+      "Method": "SetValue",
+      "OnlyOffice JS": "oWorksheet.GetRange(\"A1\").SetValue(\"1\");",
+      "Excel VBA": "oWorksheet.Range(\"A1\").Value = \"1\""
+    },
+    {
+      "Method": "AddComment",
+      "OnlyOffice JS": "var oComment = oRange.AddComment(\"This is just a number.\");",
+      "Excel VBA": "Set oComment = oRange.AddComment(\"This is just a number.\")"
+    },
+    {
+      "Method": "GetUserId",
+      "OnlyOffice JS": "oWorksheet.GetRange(\"B3\").SetValue(oComment.GetUserId());",
+      "Excel VBA": "oWorksheet.Range(\"B3\").Value = oComment.Author"
+    }
+  ]
+}
+```

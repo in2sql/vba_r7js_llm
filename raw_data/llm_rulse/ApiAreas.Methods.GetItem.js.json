@@ -1,0 +1,47 @@
+```json
+{
+  "description": "This code demonstrates how to manipulate worksheet ranges, set values, select ranges, retrieve areas, and paste values in an Excel worksheet using OnlyOffice API and the corresponding Excel VBA equivalents.",
+  "RAG_table": [
+    {
+      "OnlyOffice_JS": "Api.GetActiveSheet()",
+      "Excel_VBA": "Set oWorksheet = ThisWorkbook.ActiveSheet"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"B1:D1\")",
+      "Excel_VBA": "Set oRange = oWorksheet.Range(\"B1:D1\")"
+    },
+    {
+      "OnlyOffice_JS": "oRange.SetValue(\"1\")",
+      "Excel_VBA": "oRange.Value = \"1\""
+    },
+    {
+      "OnlyOffice_JS": "oRange.Select()",
+      "Excel_VBA": "oRange.Select"
+    },
+    {
+      "OnlyOffice_JS": "oRange.GetAreas()",
+      "Excel_VBA": "Set oAreas = oRange.Areas"
+    },
+    {
+      "OnlyOffice_JS": "oAreas.GetItem(1)",
+      "Excel_VBA": "Set oItem = oAreas.Item(1)"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange('A5')",
+      "Excel_VBA": "Set oRange = oWorksheet.Range(\"A5\")"
+    },
+    {
+      "OnlyOffice_JS": "oRange.SetValue(\"The first item from the areas: \")",
+      "Excel_VBA": "oRange.Value = \"The first item from the areas: \""
+    },
+    {
+      "OnlyOffice_JS": "oRange.AutoFit(false, true)",
+      "Excel_VBA": "oRange.Columns.AutoFit"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange('B5').Paste(oItem)",
+      "Excel_VBA": "oWorksheet.Range(\"B5\").Paste Destination:=oItem"
+    }
+  ]
+}
+```

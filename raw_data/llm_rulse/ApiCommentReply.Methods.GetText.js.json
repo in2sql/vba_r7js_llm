@@ -1,0 +1,39 @@
+```json
+{
+  "description": "This code sets a value in cell A1, adds a comment with a reply to A1, retrieves the reply text, and displays it in cells A3 and B3.",
+  "methods": [
+    {
+      "OnlyOffice JS": "var oWorksheet = Api.GetActiveSheet();",
+      "Excel VBA": "Set oWorksheet = ActiveSheet"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"A1\").SetValue(\"1\");",
+      "Excel VBA": "oWorksheet.Range(\"A1\").Value = \"1\""
+    },
+    {
+      "OnlyOffice JS": "var oRange = oWorksheet.GetRange(\"A1\");",
+      "Excel VBA": "Set oRange = oWorksheet.Range(\"A1\")"
+    },
+    {
+      "OnlyOffice JS": "var oComment = oRange.AddComment(\"This is just a number.\");",
+      "Excel VBA": "Set oComment = oRange.AddComment(\"This is just a number.\")"
+    },
+    {
+      "OnlyOffice JS": "oComment.AddReply(\"Reply 1\", \"John Smith\", \"uid-1\");",
+      "Excel VBA": "oComment.Replies.Add \"Reply 1\", \"John Smith\""
+    },
+    {
+      "OnlyOffice JS": "var oReply = oComment.GetReply();",
+      "Excel VBA": "Set oReply = oComment.Replies(1)"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"A3\").SetValue(\"Comment's reply text: \");",
+      "Excel VBA": "oWorksheet.Range(\"A3\").Value = \"Comment's reply text:\""
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"B3\").SetValue(oReply.GetText());",
+      "Excel VBA": "oWorksheet.Range(\"B3\").Value = oReply.Text"
+    }
+  ]
+}
+```

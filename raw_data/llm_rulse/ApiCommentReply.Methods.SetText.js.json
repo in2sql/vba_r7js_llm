@@ -1,0 +1,52 @@
+```json
+{
+  "Description": "This example sets the comment reply text.",
+  "Methods": [
+    {
+      "Description": "Get the active worksheet",
+      "OnlyOffice_JS": "var oWorksheet = Api.GetActiveSheet();",
+      "Excel_VBA": "Set oWorksheet = ActiveWorkbook.ActiveSheet"
+    },
+    {
+      "Description": "Set the value of cell A1 to '1'",
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"A1\").SetValue(\"1\");",
+      "Excel_VBA": "oWorksheet.Range(\"A1\").Value = \"1\""
+    },
+    {
+      "Description": "Get the range object for cell A1",
+      "OnlyOffice_JS": "var oRange = oWorksheet.GetRange(\"A1\");",
+      "Excel_VBA": "Set oRange = oWorksheet.Range(\"A1\")"
+    },
+    {
+      "Description": "Add a comment to the range with specified text",
+      "OnlyOffice_JS": "var oComment = oRange.AddComment(\"This is just a number.\");",
+      "Excel_VBA": "Set oComment = oRange.AddComment(\"This is just a number.\")"
+    },
+    {
+      "Description": "Add a reply to the comment",
+      "OnlyOffice_JS": "oComment.AddReply(\"Reply 1\", \"John Smith\", \"uid-1\");",
+      "Excel_VBA": "oComment.Replies.Add \"Reply 1\", \"John Smith\", \"uid-1\""
+    },
+    {
+      "Description": "Get the last reply added to the comment",
+      "OnlyOffice_JS": "var oReply = oComment.GetReply();",
+      "Excel_VBA": "Set oReply = oComment.Replies(oComment.Replies.Count)"
+    },
+    {
+      "Description": "Set the text of the reply",
+      "OnlyOffice_JS": "oReply.SetText(\"New reply text.\");",
+      "Excel_VBA": "oReply.Text = \"New reply text.\""
+    },
+    {
+      "Description": "Set the value of cell A3 to display a label",
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"A3\").SetValue(\"Comment's reply text: \");",
+      "Excel_VBA": "oWorksheet.Range(\"A3\").Value = \"Comment's reply text: \""
+    },
+    {
+      "Description": "Set the value of cell B3 to the text of the reply",
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"B3\").SetValue(oReply.GetText());",
+      "Excel_VBA": "oWorksheet.Range(\"B3\").Value = oReply.Text"
+    }
+  ]
+}
+```

@@ -1,0 +1,66 @@
+```json
+{
+  "Table": [
+    {
+      "Description": "Get the active worksheet",
+      "OnlyOffice_JS": "var oWorksheet = Api.GetActiveSheet();",
+      "Excel_VBA": "Set oWorksheet = ActiveSheet"
+    },
+    {
+      "Description": "Create a solid fill with RGB color",
+      "OnlyOffice_JS": "var oFill = Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61));",
+      "Excel_VBA": "Dim oFill As Object\nSet oFill = ActiveWorkbook.Styles.Add(\"CustomFill\")\nWith oFill\n    .Interior.Color = RGB(255, 111, 61)\nEnd With"
+    },
+    {
+      "Description": "Create a stroke with no fill",
+      "OnlyOffice_JS": "var oStroke = Api.CreateStroke(0, Api.CreateNoFill());",
+      "Excel_VBA": "' Excel VBA does not have a direct equivalent for stroke creation."
+    },
+    {
+      "Description": "Add a shape to the worksheet",
+      "OnlyOffice_JS": "var oShape = oWorksheet.AddShape(\"flowChartOnlineStorage\", 120 * 36000, 70 * 36000, oFill, oStroke, 0, 2 * 36000, 0, 3 * 36000);",
+      "Excel_VBA": "Dim oShape As Shape\nSet oShape = oWorksheet.Shapes.AddShape(msoShapeFlowchartOnlineStorage, 120, 70, 200, 100)\n'oFill and oStroke can be applied separately if needed"
+    },
+    {
+      "Description": "Get content of the shape",
+      "OnlyOffice_JS": "var oDocContent = oShape.GetContent();",
+      "Excel_VBA": "Dim oDocContent As TextRange\nSet oDocContent = oShape.TextFrame.Characters"
+    },
+    {
+      "Description": "Get the first paragraph element",
+      "OnlyOffice_JS": "var oParagraph = oDocContent.GetElement(0);",
+      "Excel_VBA": "Dim oParagraph As TextRange\nSet oParagraph = oDocContent.Paragraphs(1)"
+    },
+    {
+      "Description": "Add text to the paragraph",
+      "OnlyOffice_JS": "oParagraph.AddText(\"This is a paragraph with the indent of 1 inch set to the first line. \");",
+      "Excel_VBA": "oParagraph.Text = oParagraph.Text & \"This is a paragraph with the indent of 1 inch set to the first line. \""
+    },
+    {
+      "Description": "Set first line indentation",
+      "OnlyOffice_JS": "oParagraph.SetIndFirstLine(1440);",
+      "Excel_VBA": "With oParagraph.ParagraphFormat\n    .FirstLineIndent = InchesToPoints(1)\nEnd With"
+    },
+    {
+      "Description": "Get first line indentation",
+      "OnlyOffice_JS": "var nIndFirstLine = oParagraph.GetIndFirstLine();",
+      "Excel_VBA": "Dim nIndFirstLine As Single\nnIndFirstLine = oParagraph.ParagraphFormat.FirstLineIndent"
+    },
+    {
+      "Description": "Create a new paragraph",
+      "OnlyOffice_JS": "oParagraph = Api.CreateParagraph();",
+      "Excel_VBA": "Set oParagraph = oDocContent.Paragraphs.Add"
+    },
+    {
+      "Description": "Add text with indentation value",
+      "OnlyOffice_JS": "oParagraph.AddText(\"First line indent: \" + nIndFirstLine);",
+      "Excel_VBA": "oParagraph.Text = \"First line indent: \" & nIndFirstLine"
+    },
+    {
+      "Description": "Push paragraph to document content",
+      "OnlyOffice_JS": "oDocContent.Push(oParagraph);",
+      "Excel_VBA": "' In Excel VBA, the paragraph is already part of oDocContent after adding."
+    }
+  ]
+}
+```

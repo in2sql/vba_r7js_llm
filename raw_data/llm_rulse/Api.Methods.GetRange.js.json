@@ -1,0 +1,27 @@
+```json
+{
+  "description": "This example shows how to get the ApiRange object by the range reference.",
+  "codeComparison": [
+    {
+      "operation": "Get the active worksheet",
+      "OnlyOffice_JS": "var oWorksheet = Api.GetActiveSheet();",
+      "VBA": "Set oWorksheet = ActiveSheet"
+    },
+    {
+      "operation": "Get the range A1:C1",
+      "OnlyOffice_JS": "var oRange = Api.GetRange(\"A1:C1\");",
+      "VBA": "Set oRange = oWorksheet.Range(\"A1:C1\")"
+    },
+    {
+      "operation": "Set the fill color of the range",
+      "OnlyOffice_JS": "oRange.SetFillColor(Api.CreateColorFromRGB(255, 213, 191));",
+      "VBA": "oRange.Interior.Color = RGB(255, 213, 191)"
+    },
+    {
+      "operation": "Set value in cell A3",
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"A3\").SetValue(\"The color was set to the background of cells A1:C1.\");",
+      "VBA": "oWorksheet.Range(\"A3\").Value = \"The color was set to the background of cells A1:C1.\""
+    }
+  ]
+}
+```

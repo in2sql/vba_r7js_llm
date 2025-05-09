@@ -1,0 +1,66 @@
+```json
+{
+  "Table": [
+    {
+      "Description": "Gets the active worksheet",
+      "OnlyOffice JS": "var oWorksheet = Api.GetActiveSheet();",
+      "VBA": "Set oWorksheet = ActiveWorkbook.ActiveSheet"
+    },
+    {
+      "Description": "Creates a solid fill with RGB color (255, 111, 61)",
+      "OnlyOffice JS": "var oFill = Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61));",
+      "VBA": "Set oFill = CreateSolidFill(RGB(255, 111, 61))"
+    },
+    {
+      "Description": "Creates a stroke with no fill",
+      "OnlyOffice JS": "var oStroke = Api.CreateStroke(0, Api.CreateNoFill());",
+      "VBA": "Set oStroke = CreateStroke(0, CreateNoFill())"
+    },
+    {
+      "Description": "Adds a shape to the worksheet with specific parameters",
+      "OnlyOffice JS": "var oShape = oWorksheet.AddShape(\"flowChartOnlineStorage\", 120 * 36000, 70 * 36000, oFill, oStroke, 0, 2 * 36000, 0, 3 * 36000);",
+      "VBA": "Set oShape = oWorksheet.Shapes.AddShape(msoShapeFlowchartOnlineStorage, 120 * 36000, 70 * 36000, oFill, oStroke, 0, 2 * 36000, 0, 3 * 36000)"
+    },
+    {
+      "Description": "Gets the content of the shape",
+      "OnlyOffice JS": "var oDocContent = oShape.GetContent();",
+      "VBA": "Set oDocContent = oShape.Content"
+    },
+    {
+      "Description": "Retrieves the first paragraph element",
+      "OnlyOffice JS": "var oParagraph = oDocContent.GetElement(0);",
+      "VBA": "Set oParagraph = oDocContent.Elements(1)" // VBA collections are 1-based
+    },
+    {
+      "Description": "Sets paragraph alignment to left",
+      "OnlyOffice JS": "oParagraph.SetJc(\"left\");",
+      "VBA": "oParagraph.Alignment = xlLeft" // Assuming xlLeft is the appropriate constant
+    },
+    {
+      "Description": "Adds text to the paragraph",
+      "OnlyOffice JS": "oParagraph.AddText(\"This is a text inside the shape aligned left.\");",
+      "VBA": "oParagraph.Text = \"This is a text inside the shape aligned left.\""
+    },
+    {
+      "Description": "Adds a line break to the paragraph",
+      "OnlyOffice JS": "oParagraph.AddLineBreak();",
+      "VBA": "oParagraph.Text = oParagraph.Text & vbCrLf"
+    },
+    {
+      "Description": "Adds additional text after the line break",
+      "OnlyOffice JS": "oParagraph.AddText(\"This is a text after the line break.\");",
+      "VBA": "oParagraph.Text = oParagraph.Text & \"This is a text after the line break.\""
+    },
+    {
+      "Description": "Copies the paragraph",
+      "OnlyOffice JS": "var oParagraph2 = oParagraph.Copy();",
+      "VBA": "Set oParagraph2 = oParagraph.Duplicate"
+    },
+    {
+      "Description": "Pushes the copied paragraph to the content",
+      "OnlyOffice JS": "oDocContent.Push(oParagraph2);",
+      "VBA": "oDocContent.Append oParagraph2"
+    }
+  ]
+}
+```

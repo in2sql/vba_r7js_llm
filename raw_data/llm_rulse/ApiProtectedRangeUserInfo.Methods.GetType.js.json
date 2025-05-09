@@ -1,0 +1,31 @@
+```json
+{
+  "description": "This example changes the user protected range.",
+  "RAG_table": [
+    {
+      "OnlyOffice_JS": "var oWorksheet = Api.GetActiveSheet();",
+      "Excel_VBA": "Dim oWorksheet As Worksheet\nSet oWorksheet = ThisWorkbook.ActiveSheet"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.AddProtectedRange(\"protectedRange\", \"$A$1:$B$1\").AddUser(\"userId\", \"name\", \"CanView\");",
+      "Excel_VBA": "' Excel VBA does not have a direct equivalent for AddProtectedRange and AddUser.\n' Instead, you can protect the worksheet and lock specific ranges.\nWith oWorksheet\n    .Protect Password:=\"\", UserInterfaceOnly:=True\n    .Range(\"A1:B1\").Locked = True\nEnd With"
+    },
+    {
+      "OnlyOffice_JS": "var protectedRange = oWorksheet.GetProtectedRange(\"protectedRange\");",
+      "Excel_VBA": "' Excel VBA does not have a direct equivalent for GetProtectedRange.\n' You can reference the range directly if needed."
+    },
+    {
+      "OnlyOffice_JS": "var userInfo = protectedRange.GetUser(\"userId\");",
+      "Excel_VBA": "' Excel VBA does not provide direct access to users in protection.\n' User management is limited in Excel VBA."
+    },
+    {
+      "OnlyOffice_JS": "var userType = userInfo.GetType();",
+      "Excel_VBA": "' Excel VBA does not have a direct equivalent for GetType in this context."
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"A3\").SetValue(\"Type: \" + userType);",
+      "Excel_VBA": "oWorksheet.Range(\"A3\").Value = \"Type: \" & userType"
+    }
+  ]
+}
+```

@@ -1,0 +1,31 @@
+```json
+{
+  "description": "This code adds two comments authored by Bob, retrieves all comments, and writes the text and author of the first comment to cells A1 and B1 of the active worksheet.",
+  "table": [
+    {
+      "OnlyOffice JS": "Api.AddComment(\"Comment 1\", \"Bob\");",
+      "Excel VBA": "Api.AddComment \"Comment 1\", \"Bob\""
+    },
+    {
+      "OnlyOffice JS": "Api.AddComment(\"Comment 2\", \"Bob\");",
+      "Excel VBA": "Api.AddComment \"Comment 2\", \"Bob\""
+    },
+    {
+      "OnlyOffice JS": "var arrComments = Api.GetComments();",
+      "Excel VBA": "Dim arrComments As Object\nSet arrComments = Api.GetComments()"
+    },
+    {
+      "OnlyOffice JS": "var oWorksheet = Api.GetActiveSheet();",
+      "Excel VBA": "Dim oWorksheet As Object\nSet oWorksheet = Api.GetActiveSheet()"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"A1\").SetValue(\"Comment Text: \", arrComments[0].GetText());",
+      "Excel VBA": "oWorksheet.Range(\"A1\").Value = \"Comment Text: \" & arrComments(0).GetText()"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"B1\").SetValue(\"Comment Author: \", arrComments[0].GetAuthorName());",
+      "Excel VBA": "oWorksheet.Range(\"B1\").Value = \"Comment Author: \" & arrComments(0).GetAuthorName()"
+    }
+  ]
+}
+```

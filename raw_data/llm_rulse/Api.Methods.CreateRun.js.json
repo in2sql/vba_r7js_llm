@@ -1,0 +1,59 @@
+```json
+{
+  "Description": "This example creates a new smaller text block to be inserted into the paragraph or table.",
+  "CodeEquivalents": [
+    {
+      "OnlyOffice JS": "var oWorksheet = Api.GetActiveSheet();",
+      "Excel VBA": "Set oWorksheet = Api.GetActiveSheet()"
+    },
+    {
+      "OnlyOffice JS": "var oFill = Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61));",
+      "Excel VBA": "Set oFill = Api.CreateSolidFill(CreateRGBColor(255, 111, 61))"
+    },
+    {
+      "OnlyOffice JS": "var oStroke = Api.CreateStroke(0, Api.CreateNoFill());",
+      "Excel VBA": "Set oStroke = Api.CreateStroke(0, CreateNoFill())"
+    },
+    {
+      "OnlyOffice JS": "var oShape = oWorksheet.AddShape(\"flowChartOnlineStorage\", 120 * 36000, 70 * 36000, oFill, oStroke, 0, 2 * 36000, 0, 3 * 36000);",
+      "Excel VBA": "Set oShape = oWorksheet.AddShape(\"flowChartOnlineStorage\", 120 * 36000, 70 * 36000, oFill, oStroke, 0, 2 * 36000, 0, 3 * 36000)"
+    },
+    {
+      "OnlyOffice JS": "var oDocContent = oShape.GetContent();",
+      "Excel VBA": "Set oDocContent = oShape.GetContent()"
+    },
+    {
+      "OnlyOffice JS": "var oParagraph = oDocContent.GetElement(0);",
+      "Excel VBA": "Set oParagraph = oDocContent.GetElement(0)"
+    },
+    {
+      "OnlyOffice JS": "var oRun = Api.CreateRun();",
+      "Excel VBA": "Set oRun = Api.CreateRun()"
+    },
+    {
+      "OnlyOffice JS": "oRun.AddText(\"This is just a sample text. \");",
+      "Excel VBA": "oRun.AddText \"This is just a sample text. \""
+    },
+    {
+      "OnlyOffice JS": "oParagraph.AddElement(oRun);",
+      "Excel VBA": "oParagraph.AddElement oRun"
+    },
+    {
+      "OnlyOffice JS": "oRun = Api.CreateRun();",
+      "Excel VBA": "Set oRun = Api.CreateRun()"
+    },
+    {
+      "OnlyOffice JS": "oRun.SetFontFamily(\"Comic Sans MS\");",
+      "Excel VBA": "oRun.SetFontFamily \"Comic Sans MS\""
+    },
+    {
+      "OnlyOffice JS": "oRun.AddText(\"This is a text run with the font family set to 'Comic Sans MS'.\");",
+      "Excel VBA": "oRun.AddText \"This is a text run with the font family set to 'Comic Sans MS'.\""
+    },
+    {
+      "OnlyOffice JS": "oParagraph.AddElement(oRun);",
+      "Excel VBA": "oParagraph.AddElement oRun"
+    }
+  ]
+}
+```

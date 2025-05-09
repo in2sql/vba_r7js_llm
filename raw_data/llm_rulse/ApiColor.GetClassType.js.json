@@ -1,0 +1,31 @@
+```json
+{
+  "description": "This example gets a class type and inserts it into the table.",
+  "codeComparison": [
+    {
+      "OnlyOffice JS": "var oWorksheet = Api.GetActiveSheet();",
+      "Excel VBA": "Set oWorksheet = ActiveWorkbook.ActiveSheet"
+    },
+    {
+      "OnlyOffice JS": "var oColor = Api.CreateColorFromRGB(255, 111, 61);",
+      "Excel VBA": "Dim oColor As Long\noColor = RGB(255, 111, 61)"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"A2\").SetValue(\"Text with color\");",
+      "Excel VBA": "oWorksheet.Range(\"A2\").Value = \"Text with color\""
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"A2\").SetFontColor(oColor);",
+      "Excel VBA": "oWorksheet.Range(\"A2\").Font.Color = oColor"
+    },
+    {
+      "OnlyOffice JS": "var sColorClassType = oColor.GetClassType();",
+      "Excel VBA": "Dim sColorClassType As String\nsColorClassType = TypeName(oColor)"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"A4\").SetValue(\"Class type = \" + sColorClassType);",
+      "Excel VBA": "oWorksheet.Range(\"A4\").Value = \"Class type = \" & sColorClassType"
+    }
+  ]
+}
+```

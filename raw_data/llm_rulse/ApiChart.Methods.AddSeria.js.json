@@ -1,0 +1,91 @@
+```json
+{
+  "description": "This example adds a new series to the chart.",
+  "codeEquivalents": [
+    {
+      "OnlyOffice_JS": "var oWorksheet = Api.GetActiveSheet();",
+      "Excel_VBA": "Set oWorksheet = ThisWorkbook.ActiveSheet"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"B1\").SetValue(2014);",
+      "Excel_VBA": "oWorksheet.Range(\"B1\").Value = 2014"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"C1\").SetValue(2015);",
+      "Excel_VBA": "oWorksheet.Range(\"C1\").Value = 2015"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"D1\").SetValue(2016);",
+      "Excel_VBA": "oWorksheet.Range(\"D1\").Value = 2016"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"A2\").SetValue(\"Projected Revenue\");",
+      "Excel_VBA": "oWorksheet.Range(\"A2\").Value = \"Projected Revenue\""
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"A3\").SetValue(\"Estimated Costs\");",
+      "Excel_VBA": "oWorksheet.Range(\"A3\").Value = \"Estimated Costs\""
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"A4\").SetValue(\"Cost price\");",
+      "Excel_VBA": "oWorksheet.Range(\"A4\").Value = \"Cost price\""
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"B2\").SetValue(200);",
+      "Excel_VBA": "oWorksheet.Range(\"B2\").Value = 200"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"B3\").SetValue(250);",
+      "Excel_VBA": "oWorksheet.Range(\"B3\").Value = 250"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"B4\").SetValue(50);",
+      "Excel_VBA": "oWorksheet.Range(\"B4\").Value = 50"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"C2\").SetValue(240);",
+      "Excel_VBA": "oWorksheet.Range(\"C2\").Value = 240"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"C3\").SetValue(260);",
+      "Excel_VBA": "oWorksheet.Range(\"C3\").Value = 260"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"C4\").SetValue(120);",
+      "Excel_VBA": "oWorksheet.Range(\"C4\").Value = 120"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"D2\").SetValue(280);",
+      "Excel_VBA": "oWorksheet.Range(\"D2\").Value = 280"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"D3\").SetValue(280);",
+      "Excel_VBA": "oWorksheet.Range(\"D3\").Value = 280"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"D4\").SetValue(160);",
+      "Excel_VBA": "oWorksheet.Range(\"D4\").Value = 160"
+    },
+    {
+      "OnlyOffice_JS": "var oChart = oWorksheet.AddChart(\"'Sheet1'!$A$1:$D$3\", true, \"bar3D\", 2, 100 * 36000, 70 * 36000, 0, 2 * 36000, 7, 3 * 36000);",
+      "Excel_VBA": "Set oChart = oWorksheet.ChartObjects.Add(Left:=100, Top:=70, Width:=200, Height:=150).Chart\nWith oChart\n    .ChartType = xlBarClustered\n    .SetSourceData Source:=oWorksheet.Range(\"A1:D3\")\nEnd With"
+    },
+    {
+      "OnlyOffice_JS": "oChart.SetTitle(\"Financial Overview\", 13);",
+      "Excel_VBA": "With oChart\n    .HasTitle = True\n    .ChartTitle.Text = \"Financial Overview\"\n    .ChartTitle.Font.Size = 13\nEnd With"
+    },
+    {
+      "OnlyOffice_JS": "oChart.AddSeria(\"Cost price\", \"'Sheet1'!$B$4:$D$4\");",
+      "Excel_VBA": "oChart.SeriesCollection.NewSeries\nWith oChart.SeriesCollection(1)\n    .Name = \"Cost price\"\n    .Values = oWorksheet.Range(\"B4:D4\")\nEnd With"
+    },
+    {
+      "OnlyOffice_JS": "var oFill = Api.CreateSolidFill(Api.CreateRGBColor(51, 51, 51));\noChart.SetSeriesFill(oFill, 0, false);",
+      "Excel_VBA": "With oChart.SeriesCollection(1).\n    .Format.Fill.ForeColor.RGB = RGB(51, 51, 51)\n    .Format.Fill.Visible = msoTrue\nEnd With"
+    },
+    {
+      "OnlyOffice_JS": "oFill = Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61));\noChart.SetSeriesFill(oFill, 1, false);",
+      "Excel_VBA": "With oChart.SeriesCollection(2).\n    .Format.Fill.ForeColor.RGB = RGB(255, 111, 61)\n    .Format.Fill.Visible = msoTrue\nEnd With"
+    }
+  ]
+}
+```

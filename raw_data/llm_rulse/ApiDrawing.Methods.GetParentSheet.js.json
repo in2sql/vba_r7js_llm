@@ -1,0 +1,9 @@
+```json
+{
+  "description": "This example demonstrates how to get the drawing's parent sheet, create fill and stroke objects, add a shape to the worksheet, retrieve the parent sheet of the shape, and add text to the shape's document content.",
+  "code": {
+    "OnlyOfficeJS": "// This example shows how to get the drawing's parent sheet.\nlet oWorksheet = Api.GetActiveSheet();\nlet oFill = Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61));\nlet oStroke = Api.CreateStroke(0, Api.CreateNoFill());\nlet oShape = oWorksheet.AddShape(\"flowChartOnlineStorage\", 60 * 36000, 35 * 36000, oFill, oStroke, 0, 2 * 36000, 0, 3 * 36000);\nlet oParentSheet = oShape.GetParentSheet();\n\nlet oDocContent = oShape.GetDocContent();\nlet oParagraph = oDocContent.GetElement(0);\noParagraph.AddText(\"Parent sheet name is \" + oParentSheet.GetName());",
+    "VBA": "' This example shows how to get the drawing's parent sheet.\nDim oWorksheet As Worksheet\nSet oWorksheet = ActiveSheet\n\nDim oFill As Object\nSet oFill = CreateSolidFill(CreateRGBColor(255, 111, 61))\n\nDim oStroke As Object\nSet oStroke = CreateStroke(0, CreateNoFill())\n\nDim oShape As Shape\nSet oShape = oWorksheet.Shapes.AddShape(msoShapeFlowchartOnlineStorage, 60 * 36000, 35 * 36000, oFill, oStroke, 0, 2 * 36000, 0, 3 * 36000)\n\nDim oParentSheet As Worksheet\nSet oParentSheet = oShape.Parent\n\nDim oDocContent As Object\nSet oDocContent = oShape.TextFrame.TextRange\n\nDim oParagraph As Object\nSet oParagraph = oDocContent.Paragraphs(1)\noParagraph.Text = \"Parent sheet name is \" & oParentSheet.Name"
+  }
+}
+```

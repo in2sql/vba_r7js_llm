@@ -1,0 +1,27 @@
+```json
+{
+  "description": "This example sets the theme colors to the current spreadsheet.",
+  "methods": [
+    {
+      "OnlyOffice_JS": "var oWorksheet = Api.GetActiveSheet();",
+      "Excel_VBA": "Dim oWorksheet As Worksheet\nSet oWorksheet = ActiveSheet"
+    },
+    {
+      "OnlyOffice_JS": "var themes = Api.GetThemesColors();",
+      "Excel_VBA": "Dim themes As Variant\nthemes = ThisWorkbook.Theme.ThemeColorScheme.Colors"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"A\" + (i + 1)).SetValue(themes[i]);",
+      "Excel_VBA": "oWorksheet.Cells(i + 1, \"A\").Value = themes(i)"
+    },
+    {
+      "OnlyOffice_JS": "Api.SetThemeColors(themes[3]);",
+      "Excel_VBA": "ThisWorkbook.Theme.ThemeColorScheme.SetCustomColor Index:=4, RGB:=themes(3)"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"C3\").SetValue(\"The 'Apex' theme colors were set to the current spreadsheet.\");",
+      "Excel_VBA": "oWorksheet.Range(\"C3\").Value = \"The 'Apex' theme colors were set to the current spreadsheet.\""
+    }
+  ]
+}
+```

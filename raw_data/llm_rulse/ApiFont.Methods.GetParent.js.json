@@ -1,0 +1,42 @@
+```json
+{
+  "Description": "Equivalent VBA and OnlyOffice JS code for OnlyOffice API methods",
+  "Rows": [
+    {
+      "Description": "Get the active worksheet",
+      "VBA": "Set oWorksheet = ActiveSheet",
+      "OnlyOffice JS": "var oWorksheet = Api.GetActiveSheet();"
+    },
+    {
+      "Description": "Get range B1",
+      "VBA": "Set oRange = oWorksheet.Range(\"B1\")",
+      "OnlyOffice JS": "var oRange = oWorksheet.GetRange(\"B1\");"
+    },
+    {
+      "Description": "Set value to the range",
+      "VBA": "oRange.Value = \"This is just a sample text.\"",
+      "OnlyOffice JS": "oRange.SetValue(\"This is just a sample text.\");"
+    },
+    {
+      "Description": "Get characters from the range (starting at position 23, length 4)",
+      "VBA": "Set oCharacters = oRange.Characters(Start:=23, Length:=4)",
+      "OnlyOffice JS": "var oCharacters = oRange.GetCharacters(23, 4);"
+    },
+    {
+      "Description": "Get font of the specified characters",
+      "VBA": "Set oFont = oCharacters.Font",
+      "OnlyOffice JS": "var oFont = oCharacters.GetFont();"
+    },
+    {
+      "Description": "Get parent object of the font",
+      "VBA": "Set oParent = oFont.Parent",
+      "OnlyOffice JS": "var oParent = oFont.GetParent();"
+    },
+    {
+      "Description": "Set text of the parent object",
+      "VBA": "oParent.Text = \"string\"",
+      "OnlyOffice JS": "oParent.SetText(\"string\");"
+    }
+  ]
+}
+```

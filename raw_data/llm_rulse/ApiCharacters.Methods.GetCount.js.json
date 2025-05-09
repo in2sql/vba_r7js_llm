@@ -1,0 +1,39 @@
+```json
+{
+  "table": {
+    "headers": ["Description", "OnlyOffice JS", "Excel VBA"],
+    "rows": [
+      {
+        "Description": "Get the active worksheet.",
+        "OnlyOffice JS": "var oWorksheet = Api.GetActiveSheet();",
+        "Excel VBA": "Set oWorksheet = Api.GetActiveSheet()"
+      },
+      {
+        "Description": "Get the range 'B1'.",
+        "OnlyOffice JS": "var oRange = oWorksheet.GetRange(\"B1\");",
+        "Excel VBA": "Set oRange = oWorksheet.Range(\"B1\")"
+      },
+      {
+        "Description": "Set value of the range 'B1'.",
+        "OnlyOffice JS": "oRange.SetValue(\"This is just a sample text.\");",
+        "Excel VBA": "oRange.Value = \"This is just a sample text.\""
+      },
+      {
+        "Description": "Get characters from position 23 with length 4 in range 'B1'.",
+        "OnlyOffice JS": "var oCharacters = oRange.GetCharacters(23, 4);",
+        "Excel VBA": "Set oCharacters = oRange.Characters(Start:=23, Length:=4)"
+      },
+      {
+        "Description": "Get the count of characters.",
+        "OnlyOffice JS": "var nCount = oCharacters.GetCount();",
+        "Excel VBA": "nCount = Len(oCharacters.Text)"
+      },
+      {
+        "Description": "Set value of range 'B3' to display number of characters.",
+        "OnlyOffice JS": "oWorksheet.GetRange(\"B3\").SetValue(\"Number of characters: \" + nCount);",
+        "Excel VBA": "oWorksheet.Range(\"B3\").Value = \"Number of characters: \" & nCount"
+      }
+    ]
+  }
+}
+```

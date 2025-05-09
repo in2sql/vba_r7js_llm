@@ -1,0 +1,29 @@
+```json
+{
+  "table": {
+    "headers": ["Description", "OnlyOffice JS", "VBA"],
+    "rows": [
+      {
+        "Description": "Get the active worksheet",
+        "OnlyOffice JS": "var oWorksheet = Api.GetActiveSheet();",
+        "VBA": "Set oWorksheet = ActiveSheet"
+      },
+      {
+        "Description": "Set the locale to en-CA",
+        "OnlyOffice JS": "Api.SetLocale(\"en-CA\");",
+        "VBA": "Application.LanguageSettings.LanguageID(msoLanguageIDUI) = msoLanguageIDEnglishCanadian"
+      },
+      {
+        "Description": "Get the current locale",
+        "OnlyOffice JS": "var nLocale = Api.GetLocale();",
+        "VBA": "nLocale = Application.LanguageSettings.LanguageID(msoLanguageIDUI)"
+      },
+      {
+        "Description": "Set the value of cell A1 with the locale",
+        "OnlyOffice JS": "oWorksheet.GetRange(\"A1\").SetValue(\"Locale: \" + nLocale);",
+        "VBA": "oWorksheet.Range(\"A1\").Value = \"Locale: \" & nLocale"
+      }
+    ]
+  }
+}
+```

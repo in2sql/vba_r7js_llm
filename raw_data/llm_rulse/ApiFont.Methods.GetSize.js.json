@@ -1,0 +1,39 @@
+```json
+{
+  "description": "This example shows how to get the font size property of the specified font.",
+  "methods": [
+    {
+      "OnlyOffice_JS": "Api.GetActiveSheet()",
+      "VBA": "ActiveSheet"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"B1\")",
+      "VBA": "Range(\"B1\")"
+    },
+    {
+      "OnlyOffice_JS": "oRange.SetValue(\"This is just a sample text.\")",
+      "VBA": "oRange.Value = \"This is just a sample text.\""
+    },
+    {
+      "OnlyOffice_JS": "oRange.GetCharacters(9, 4)",
+      "VBA": "oRange.Characters(Start:=9, Length:=4)"
+    },
+    {
+      "OnlyOffice_JS": "oCharacters.GetFont()",
+      "VBA": "oRange.Characters(Start:=9, Length:=4).Font"
+    },
+    {
+      "OnlyOffice_JS": "oFont.SetSize(18)",
+      "VBA": "oFont.Size = 18"
+    },
+    {
+      "OnlyOffice_JS": "oFont.GetSize()",
+      "VBA": "oFont.Size"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"B3\").SetValue(\"Size property: \" + nSize)",
+      "VBA": "oWorksheet.Range(\"B3\").Value = \"Size property: \" & nSize"
+    }
+  ]
+}
+```

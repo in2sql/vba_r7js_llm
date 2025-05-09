@@ -1,0 +1,68 @@
+**This code creates a shape with specified properties and adds formatted text to it.**
+
+```json
+{
+  "CodeMapping": [
+    {
+      "OnlyOffice_JS": "Api.GetActiveSheet();",
+      "Excel_VBA": "Set oWorksheet = ActiveSheet"
+    },
+    {
+      "OnlyOffice_JS": "Api.CreateRGBColor(255, 111, 61)",
+      "Excel_VBA": "RGB(255, 111, 61)"
+    },
+    {
+      "OnlyOffice_JS": "Api.CreateSolidFill(color)",
+      "Excel_VBA": "With oShape.Fill\n    .ForeColor.RGB = color\n    .Visible = msoTrue\n    .Solid\nEnd With"
+    },
+    {
+      "OnlyOffice_JS": "Api.CreateStroke(0, Api.CreateNoFill())",
+      "Excel_VBA": "With oShape.Line\n    .Visible = msoFalse\nEnd With"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.AddShape(\"flowChartOnlineStorage\", 80 * 36000, 50 * 36000, oFill, oStroke, 0, 2 * 36000, 0, 3 * 36000);",
+      "Excel_VBA": "Set oShape = oWorksheet.Shapes.AddShape(msoShapeFlowchartProcess, 80, 50, 200, 150)"
+    },
+    {
+      "OnlyOffice_JS": "oShape.GetContent();",
+      "Excel_VBA": "Set oTextFrame = oShape.TextFrame"
+    },
+    {
+      "OnlyOffice_JS": "oDocContent.RemoveAllElements();",
+      "Excel_VBA": "oTextFrame.Characters.Text = \"\""
+    },
+    {
+      "OnlyOffice_JS": "Api.CreateTextPr();",
+      "Excel_VBA": "" 
+    },
+    {
+      "OnlyOffice_JS": "oTextPr.SetFontSize(30);",
+      "Excel_VBA": "With oTextFrame.Characters.Font\n    .Size = 30\nEnd With"
+    },
+    {
+      "OnlyOffice_JS": "oTextPr.SetBold(true);",
+      "Excel_VBA": "With oTextFrame.Characters.Font\n    .Bold = msoTrue\nEnd With"
+    },
+    {
+      "OnlyOffice_JS": "Api.CreateParagraph();",
+      "Excel_VBA": "" 
+    },
+    {
+      "OnlyOffice_JS": "oParagraph.SetJc(\"left\");",
+      "Excel_VBA": "oTextFrame.HorizontalAlignment = xlHAlignLeft"
+    },
+    {
+      "OnlyOffice_JS": "oParagraph.AddText(\"This is a sample text with the font size set to 30 and the font weight set to bold.\");",
+      "Excel_VBA": "oTextFrame.Characters.Text = \"This is a sample text with the font size set to 30 and the font weight set to bold.\""
+    },
+    {
+      "OnlyOffice_JS": "oParagraph.SetTextPr(oTextPr);",
+      "Excel_VBA": "" 
+    },
+    {
+      "OnlyOffice_JS": "oDocContent.Push(oParagraph);",
+      "Excel_VBA": "" 
+    }
+  ]
+}
+```

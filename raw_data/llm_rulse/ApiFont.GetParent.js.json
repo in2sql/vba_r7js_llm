@@ -1,0 +1,35 @@
+```json
+{
+  "description": "This example shows how to get the parent ApiCharacters object of the specified font.",
+  "RAGTable": [
+    {
+      "OnlyOfficeJS": "var oWorksheet = Api.GetActiveSheet();",
+      "ExcelVBA": "Set oWorksheet = ThisWorkbook.ActiveSheet"
+    },
+    {
+      "OnlyOfficeJS": "var oRange = oWorksheet.GetRange(\"B1\");",
+      "ExcelVBA": "Set oRange = oWorksheet.Range(\"B1\")"
+    },
+    {
+      "OnlyOfficeJS": "oRange.SetValue(\"This is just a sample text.\");",
+      "ExcelVBA": "oRange.Value = \"This is just a sample text.\""
+    },
+    {
+      "OnlyOfficeJS": "var oCharacters = oRange.GetCharacters(23, 4);",
+      "ExcelVBA": "Set oCharacters = oRange.Characters(Start:=23, Length:=4)"
+    },
+    {
+      "OnlyOfficeJS": "var oFont = oCharacters.GetFont();",
+      "ExcelVBA": "Set oFont = oCharacters.Font"
+    },
+    {
+      "OnlyOfficeJS": "var oParent = oFont.GetParent();",
+      "ExcelVBA": "Set oParent = oFont.Parent"
+    },
+    {
+      "OnlyOfficeJS": "oParent.SetText(\"string\");",
+      "ExcelVBA": "oParent.Text = \"string\""
+    }
+  ]
+}
+```

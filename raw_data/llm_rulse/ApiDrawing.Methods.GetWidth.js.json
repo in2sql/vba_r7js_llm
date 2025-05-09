@@ -1,0 +1,39 @@
+```json
+{
+  "Description": "This example shows how to get the width of the drawing.",
+  "CodeMapping": [
+    {
+      "OnlyOfficeJS": "var oWorksheet = Api.GetActiveSheet();",
+      "ExcelVBA": "Set oWorksheet = ThisWorkbook.ActiveSheet"
+    },
+    {
+      "OnlyOfficeJS": "var oFill = Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61));",
+      "ExcelVBA": "Set oFill = oWorksheet.Shapes.AddShape(msoShapeRectangle, 0, 0, 100, 100).Fill\noFill.ForeColor.RGB = RGB(255, 111, 61)"
+    },
+    {
+      "OnlyOfficeJS": "var oStroke = Api.CreateStroke(0, Api.CreateNoFill());",
+      "ExcelVBA": "Set oStroke = oWorksheet.Shapes.AddShape(msoShapeRectangle, 0, 0, 100, 100).Line\noStroke.Visible = msoFalse"
+    },
+    {
+      "OnlyOfficeJS": "var oDrawing = oWorksheet.AddShape(\"flowChartOnlineStorage\", 60 * 36000, 35 * 36000, oFill, oStroke, 0, 2 * 36000, 0, 3 * 36000);",
+      "ExcelVBA": "Set oDrawing = oWorksheet.Shapes.AddShape(msoShapeFlowChartStorage, 60, 35, oFill, oStroke).Left = 2 * 36000\noDrawing.Top = 3 * 36000"
+    },
+    {
+      "OnlyOfficeJS": "oDrawing.SetSize(120 * 36000, 70 * 36000);",
+      "ExcelVBA": "With oDrawing\n    .Width = 120 * 36000\n    .Height = 70 * 36000\nEnd With"
+    },
+    {
+      "OnlyOfficeJS": "oDrawing.SetPosition(0, 2 * 36000, 1, 3 * 36000);",
+      "ExcelVBA": "With oDrawing\n    .Left = 2 * 36000\n    .Top = 3 * 36000\nEnd With"
+    },
+    {
+      "OnlyOfficeJS": "var nWidth = oDrawing.GetWidth();",
+      "ExcelVBA": "nWidth = oDrawing.Width"
+    },
+    {
+      "OnlyOfficeJS": "oWorksheet.GetRange(\"A1\").SetValue(\"Drawing width = \" + nWidth);",
+      "ExcelVBA": "oWorksheet.Range(\"A1\").Value = \"Drawing width = \" & nWidth"
+    }
+  ]
+}
+```

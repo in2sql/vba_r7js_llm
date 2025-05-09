@@ -1,0 +1,41 @@
+```json
+{
+  "Table": [
+    {
+      "Description": "Get the active sheet",
+      "OnlyOffice_JS": "var oWorksheet = Api.GetActiveSheet();",
+      "Excel_VBA": "Set oWorksheet = ActiveWorkbook.ActiveSheet"
+    },
+    {
+      "Description": "Set value to cell A1",
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"A1\").SetValue(\"1\");",
+      "Excel_VBA": "oWorksheet.Range(\"A1\").Value = \"1\""
+    },
+    {
+      "Description": "Get range A1",
+      "OnlyOffice_JS": "var oRange = oWorksheet.GetRange(\"A1\");",
+      "Excel_VBA": "Set oRange = oWorksheet.Range(\"A1\")"
+    },
+    {
+      "Description": "Add comment to range",
+      "OnlyOffice_JS": "oRange.AddComment(\"This is just a number.\");",
+      "Excel_VBA": "oRange.AddComment \"This is just a number.\""
+    },
+    {
+      "Description": "Get comment from range",
+      "OnlyOffice_JS": "var oComment = oRange.GetComment();",
+      "Excel_VBA": "Set oComment = oRange.Comment"
+    },
+    {
+      "Description": "Delete the comment",
+      "OnlyOffice_JS": "oComment.Delete();",
+      "Excel_VBA": "oComment.Delete"
+    },
+    {
+      "Description": "Set value to cell A3",
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"A3\").SetValue(\"The comment was just deleted from A1.\");",
+      "Excel_VBA": "oWorksheet.Range(\"A3\").Value = \"The comment was just deleted from A1.\""
+    }
+  ]
+}
+```

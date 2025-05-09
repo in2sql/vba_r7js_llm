@@ -1,0 +1,100 @@
+```json
+{
+  "Set Active Worksheet": {
+    "VBA": "Set oWorksheet = ActiveSheet",
+    "OnlyOffice JS": "var oWorksheet = Api.GetActiveSheet();"
+  },
+  "Set Range B1 Value to 'Region'": {
+    "VBA": "oWorksheet.Range(\"B1\").Value = \"Region\"",
+    "OnlyOffice JS": "oWorksheet.GetRange('B1').SetValue('Region');"
+  },
+  "Set Range C1 Value to 'Style'": {
+    "VBA": "oWorksheet.Range(\"C1\").Value = \"Style\"",
+    "OnlyOffice JS": "oWorksheet.GetRange('C1').SetValue('Style');"
+  },
+  "Set Range D1 Value to 'Price'": {
+    "VBA": "oWorksheet.Range(\"D1\").Value = \"Price\"",
+    "OnlyOffice JS": "oWorksheet.GetRange('D1').SetValue('Price');"
+  },
+  "Set Range B2 Value to 'East'": {
+    "VBA": "oWorksheet.Range(\"B2\").Value = \"East\"",
+    "OnlyOffice JS": "oWorksheet.GetRange('B2').SetValue('East');"
+  },
+  "Set Range B3 Value to 'West'": {
+    "VBA": "oWorksheet.Range(\"B3\").Value = \"West\"",
+    "OnlyOffice JS": "oWorksheet.GetRange('B3').SetValue('West');"
+  },
+  "Set Range B4 Value to 'East'": {
+    "VBA": "oWorksheet.Range(\"B4\").Value = \"East\"",
+    "OnlyOffice JS": "oWorksheet.GetRange('B4').SetValue('East');"
+  },
+  "Set Range B5 Value to 'West'": {
+    "VBA": "oWorksheet.Range(\"B5\").Value = \"West\"",
+    "OnlyOffice JS": "oWorksheet.GetRange('B5').SetValue('West');"
+  },
+  "Set Range C2 Value to 'Fancy'": {
+    "VBA": "oWorksheet.Range(\"C2\").Value = \"Fancy\"",
+    "OnlyOffice JS": "oWorksheet.GetRange('C2').SetValue('Fancy');"
+  },
+  "Set Range C3 Value to 'Fancy'": {
+    "VBA": "oWorksheet.Range(\"C3\").Value = \"Fancy\"",
+    "OnlyOffice JS": "oWorksheet.GetRange('C3').SetValue('Fancy');"
+  },
+  "Set Range C4 Value to 'Tee'": {
+    "VBA": "oWorksheet.Range(\"C4\").Value = \"Tee\"",
+    "OnlyOffice JS": "oWorksheet.GetRange('C4').SetValue('Tee');"
+  },
+  "Set Range C5 Value to 'Tee'": {
+    "VBA": "oWorksheet.Range(\"C5\").Value = \"Tee\"",
+    "OnlyOffice JS": "oWorksheet.GetRange('C5').SetValue('Tee');"
+  },
+  "Set Range D2 Value to 42.5": {
+    "VBA": "oWorksheet.Range(\"D2\").Value = 42.5",
+    "OnlyOffice JS": "oWorksheet.GetRange('D2').SetValue(42.5);"
+  },
+  "Set Range D3 Value to 35.2": {
+    "VBA": "oWorksheet.Range(\"D3\").Value = 35.2",
+    "OnlyOffice JS": "oWorksheet.GetRange('D3').SetValue(35.2);"
+  },
+  "Set Range D4 Value to 12.3": {
+    "VBA": "oWorksheet.Range(\"D4\").Value = 12.3",
+    "OnlyOffice JS": "oWorksheet.GetRange('D4').SetValue(12.3);"
+  },
+  "Set Range D5 Value to 24.8": {
+    "VBA": "oWorksheet.Range(\"D5\").Value = 24.8",
+    "OnlyOffice JS": "oWorksheet.GetRange('D5').SetValue(24.8);"
+  },
+  "Get Data Range $B$1:$D$5": {
+    "VBA": "Set dataRef = oWorksheet.Range(\"$B$1:$D$5\")",
+    "OnlyOffice JS": "var dataRef = Api.GetRange(\"'Sheet1'!$B$1:$D$5\");"
+  },
+  "Insert Pivot Table in New Worksheet": {
+    "VBA": "Set pivotTable = Worksheets.Add.PivotTable(dataRef)",
+    "OnlyOffice JS": "var pivotTable = Api.InsertPivotNewWorksheet(dataRef);"
+  },
+  "Add Row Fields 'Region' and 'Style' to Pivot Table": {
+    "VBA": "pivotTable.AddFields RowFields:=Array(\"Region\", \"Style\")",
+    "OnlyOffice JS": "pivotTable.AddFields({ rows: ['Region', 'Style'] });"
+  },
+  "Add Data Field 'Price' to Pivot Table": {
+    "VBA": "pivotTable.AddDataField pivotTable.PivotFields(\"Price\"), \"Sum of Price\", xlSum",
+    "OnlyOffice JS": "pivotTable.AddDataField('Price');"
+  },
+  "Get Active Worksheet After Pivot Table Creation": {
+    "VBA": "Set pivotWorksheet = ActiveSheet",
+    "OnlyOffice JS": "var pivotWorksheet = Api.GetActiveSheet();"
+  },
+  "Get Data Field 'Sum of Price' from Pivot Table": {
+    "VBA": "Set dataField = pivotTable.DataFields(\"Sum of Price\")",
+    "OnlyOffice JS": "var dataField = pivotTable.GetDataFields('Sum of Price');"
+  },
+  "Set Cell A15 Value to 'Number format:'": {
+    "VBA": "pivotWorksheet.Range(\"A15\").Value = \"Number format:\"",
+    "OnlyOffice JS": "pivotWorksheet.GetRange('A15').SetValue('Number format:');"
+  },
+  "Set Cell B15 Value to Data Field Number Format": {
+    "VBA": "pivotWorksheet.Range(\"B15\").Value = dataField.NumberFormat",
+    "OnlyOffice JS": "pivotWorksheet.GetRange('B15').SetValue(dataField.GetNumberFormat());"
+  }
+}
+```

@@ -1,0 +1,36 @@
+```json
+{
+  "RAG_Table": [
+    {
+      "Description": "Add the first comment by Bob",
+      "OnlyOffice JS": "Api.AddComment(\"Comment 1\", \"Bob\");",
+      "Excel VBA": "Api.AddComment \"Comment 1\", \"Bob\""
+    },
+    {
+      "Description": "Add the second comment by Bob",
+      "OnlyOffice JS": "Api.AddComment(\"Comment 2\", \"Bob\");",
+      "Excel VBA": "Api.AddComment \"Comment 2\", \"Bob\""
+    },
+    {
+      "Description": "Retrieve all comments",
+      "OnlyOffice JS": "var arrComments = Api.GetComments();",
+      "Excel VBA": "Dim arrComments As Variant\nSet arrComments = Api.GetComments()"
+    },
+    {
+      "Description": "Get the active worksheet",
+      "OnlyOffice JS": "var oWorksheet = Api.GetActiveSheet();",
+      "Excel VBA": "Dim oWorksheet As Worksheet\nSet oWorksheet = Api.GetActiveSheet()"
+    },
+    {
+      "Description": "Set value in cell A1 with comment text",
+      "OnlyOffice JS": "oWorksheet.GetRange(\"A1\").SetValue(\"Commet Text: \", arrComments(0).GetText());",
+      "Excel VBA": "oWorksheet.Range(\"A1\").Value = \"Commet Text: \" & arrComments(0).GetText()"
+    },
+    {
+      "Description": "Set value in cell B1 with comment author name",
+      "OnlyOffice JS": "oWorksheet.GetRange(\"B1\").SetValue(\"Commet Author: \", arrComments(0).GetAuthorName());",
+      "Excel VBA": "oWorksheet.Range(\"B1\").Value = \"Commet Author: \" & arrComments(0).GetAuthorName()"
+    }
+  ]
+}
+```

@@ -1,0 +1,7 @@
+```json
+{
+  "Description": "This example shows how to get the timestamp of the comment creation in the current time zone format.",
+  "Excel VBA": "Sub AddCommentWithTimestamp()\n    Dim ws As Worksheet\n    Dim rng As Range\n    Dim cmt As Comment\n\n    Set ws = ActiveSheet\n    ws.Range(\"A1\").Value = \"1\"\n    Set rng = ws.Range(\"A1\")\n    Set cmt = rng.AddComment(\"This is just a number.\")\n    ws.Range(\"A3\").Value = \"Timestamp: \"\n    ws.Range(\"B3\").Value = Now\nEnd Sub",
+  "OnlyOffice JS": "// This example shows how to get the timestamp of the comment creation in the current time zone format.\nvar oWorksheet = Api.GetActiveSheet();\noWorksheet.GetRange(\"A1\").SetValue(\"1\");\nvar oRange = oWorksheet.GetRange(\"A1\");\nvar oComment = oRange.AddComment(\"This is just a number.\");\noWorksheet.GetRange(\"A3\").SetValue(\"Timestamp: \");\noWorksheet.GetRange(\"B3\").SetValue(oComment.GetTime());"
+}
+```

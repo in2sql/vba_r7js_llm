@@ -1,0 +1,28 @@
+```json
+{
+  "table": {
+    "headers": [
+      "Description",
+      "OnlyOffice JS",
+      "Excel VBA"
+    ],
+    "rows": [
+      {
+        "Description": "Get the active worksheet",
+        "OnlyOffice JS": "var oWorksheet = Api.GetActiveSheet();",
+        "Excel VBA": "Set oWorksheet = ActiveWorkbook.ActiveSheet"
+      },
+      {
+        "Description": "Add OLE Object to the worksheet",
+        "OnlyOffice JS": "var oOleObject = oWorksheet.AddOleObject(\"https://api.onlyoffice.com/content/img/docbuilder/examples/ole-object-image.png\", 130 * 36000, 90 * 36000, \"https://youtu.be/SKGz4pmnpgY\", \"asc.{38E022EA-AD92-45FC-B22B-49DF39746DB4}\", 0, 2 * 36000, 4, 3 * 36000);",
+        "Excel VBA": "Set oOleObject = oWorksheet.OLEObjects.Add(Filename:= \"https://api.onlyoffice.com/content/img/docbuilder/examples/ole-object-image.png\", Link:=False, DisplayAsIcon:=False, Left:=130 * 360, Top:=90 * 360, Width:=2 * 360, Height:=3 * 360)"
+      },
+      {
+        "Description": "Set Application ID for the OLE object",
+        "OnlyOffice JS": "oOleObject.SetApplicationId(\"asc.{E5773A43-F9B3-4E81-81D9-CE0A132470E7}\");",
+        "Excel VBA": "oOleObject.Object.ApplicationID = \"asc.{E5773A43-F9B3-4E81-81D9-CE0A132470E7}\""
+      }
+    ]
+  }
+}
+```

@@ -1,0 +1,31 @@
+```json
+{
+  "description": "This example sets the size of the shape bounding box.",
+  "RAG_Table": [
+    {
+      "OnlyOffice JS": "var oWorksheet = Api.GetActiveSheet();",
+      "Excel VBA": "Set oWorksheet = ActiveSheet"
+    },
+    {
+      "OnlyOffice JS": "var oFill = Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61));",
+      "Excel VBA": "Set oFill = ActiveWorkbook.Colors.RGB(255, 111, 61)"
+    },
+    {
+      "OnlyOffice JS": "var oStroke = Api.CreateStroke(0, Api.CreateNoFill());",
+      "Excel VBA": "Set oStroke = Application.CreateStroke(0, Nothing)"
+    },
+    {
+      "OnlyOffice JS": "var oDrawing = oWorksheet.AddShape(\"flowChartOnlineStorage\", 60 * 36000, 35 * 36000, oFill, oStroke, 0, 2 * 36000, 0, 3 * 36000);",
+      "Excel VBA": "Set oDrawing = oWorksheet.Shapes.AddShape(msoShapeFlowchartOnlineStorage, 60 * 36000, 35 * 36000, oFill, oStroke, 0, 2 * 36000, 0, 3 * 36000)"
+    },
+    {
+      "OnlyOffice JS": "oDrawing.SetSize(120 * 36000, 70 * 36000);",
+      "Excel VBA": "With oDrawing\n    .Width = 120 * 36000\n    .Height = 70 * 36000\nEnd With"
+    },
+    {
+      "OnlyOffice JS": "oDrawing.SetPosition(0, 2 * 36000, 2, 3 * 36000);",
+      "Excel VBA": "With oDrawing\n    .Left = 0 + 2 * 36000\n    .Top = 2 + 3 * 36000\nEnd With"
+    }
+  ]
+}
+```

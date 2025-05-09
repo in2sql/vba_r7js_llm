@@ -1,0 +1,7 @@
+```json
+{
+  "Description": "This example creates a new worksheet.",
+  "OnlyOffice JS": "var oSheet = Api.AddSheet(\"New sheet\");",
+  "VBA": "Sub AddSheet()\n    Sheets.Add(After:=Sheets(Sheets.Count)).Name = \"New sheet\"\nEnd Sub"
+}
+```

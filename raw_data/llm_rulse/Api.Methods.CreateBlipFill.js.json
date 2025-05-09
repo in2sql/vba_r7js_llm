@@ -1,0 +1,31 @@
+```json
+{
+  "description": "This code creates a shape with a background image, applies fill and stroke settings, and adds it to the active worksheet.",
+  "RAGTable": [
+    {
+      "Method": "GetActiveSheet",
+      "Status": "Green",
+      "OnlyOfficeJS": "var oWorksheet = Api.GetActiveSheet();",
+      "VBA": "Set oWorksheet = ActiveSheet"
+    },
+    {
+      "Method": "CreateBlipFill",
+      "Status": "Green",
+      "OnlyOfficeJS": "var oFill = Api.CreateBlipFill(\"https://api.onlyoffice.com/content/img/docbuilder/examples/icon_DocumentEditors.png\", \"tile\");",
+      "VBA": "With oWorksheet.Shapes.AddShape(msoShapeRectangle, Left, Top, Width, Height).Fill\n    .UserPicture \"https://api.onlyoffice.com/content/img/docbuilder/examples/icon_DocumentEditors.png\"\n    .TextureTile = msoTrue\nEnd With"
+    },
+    {
+      "Method": "CreateStroke",
+      "Status": "Green",
+      "OnlyOfficeJS": "var oStroke = Api.CreateStroke(0, Api.CreateNoFill());",
+      "VBA": "With oWorksheet.Shapes(1).Line\n    .Visible = msoFalse\nEnd With"
+    },
+    {
+      "Method": "AddShape",
+      "Status": "Green",
+      "OnlyOfficeJS": "oWorksheet.AddShape(\"flowChartOnlineStorage\", 60 * 36000, 35 * 36000, oFill, oStroke, 0, 2 * 36000, 1, 3 * 36000);",
+      "VBA": "oWorksheet.Shapes.AddShape(msoShapeFlowchartOfflineStorage, 60 * 36000, 35 * 36000, 2 * 36000, 3 * 36000).Fill = oFill\noWorksheet.Shapes(2).Line = oStroke"
+    }
+  ]
+}
+```

@@ -1,0 +1,9 @@
+```json
+{
+  "RAGTable": {
+    "Description": "This example shows how to get the full name of the currently opened file.",
+    "OnlyOfficeJS": "// This example shows how to get the full name of the currently opened file.\nvar oWorksheet = Api.GetActiveSheet();\nvar sName = Api.GetFullName();\noWorksheet.GetRange(\"B1\").SetValue(\"File name: \" + sName);",
+    "VBA": "' This example shows how to get the full name of the currently opened file.\nDim oWorksheet As Worksheet\nDim sName As String\nSet oWorksheet = ActiveSheet\nsName = ThisWorkbook.FullName\noWorksheet.Range(\"B1\").Value = \"File name: \" & sName"
+  }
+}
+```

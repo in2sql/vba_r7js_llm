@@ -1,0 +1,34 @@
+```json
+[
+  {
+    "Description": "Get the active worksheet",
+    "OnlyOffice JS": "var oWorksheet = Api.GetActiveSheet();",
+    "Excel VBA": "Set oWorksheet = ActiveWorkbook.ActiveSheet"
+  },
+  {
+    "Description": "Get range B1",
+    "OnlyOffice JS": "var oRange = oWorksheet.GetRange(\"B1\");",
+    "Excel VBA": "Set oRange = oWorksheet.Range(\"B1\")"
+  },
+  {
+    "Description": "Set value in B1",
+    "OnlyOffice JS": "oRange.SetValue(\"This is just a sample text.\");",
+    "Excel VBA": "oRange.Value = \"This is just a sample text.\""
+  },
+  {
+    "Description": "Get characters from position 23 with length 4",
+    "OnlyOffice JS": "var oCharacters = oRange.GetCharacters(23, 4);",
+    "Excel VBA": "Set oCharacters = oRange.Characters(Start:=23, Length:=4)"
+  },
+  {
+    "Description": "Get count of characters",
+    "OnlyOffice JS": "var nCount = oCharacters.GetCount();",
+    "Excel VBA": "nCount = oCharacters.Count"
+  },
+  {
+    "Description": "Set value in B3 with character count",
+    "OnlyOffice JS": "oWorksheet.GetRange(\"B3\").SetValue(\"Number of characters: \" + nCount);",
+    "Excel VBA": "oWorksheet.Range(\"B3\").Value = \"Number of characters: \" & nCount"
+  }
+]
+```

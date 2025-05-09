@@ -1,0 +1,64 @@
+```json
+[
+  {
+    "Get the active worksheet.": {
+      "OnlyOffice_JS": "var oWorksheet = Api.GetActiveSheet();",
+      "VBA": "Set oWorksheet = ActiveWorkbook.ActiveSheet"
+    }
+  },
+  {
+    "Set value 'Region' to cell B1.": {
+      "OnlyOffice_JS": "oWorksheet.GetRange('B1').SetValue('Region');",
+      "VBA": "oWorksheet.Range(\"B1\").Value = \"Region\""
+    }
+  },
+  {
+    "Set value 'Price' to cell C1.": {
+      "OnlyOffice_JS": "oWorksheet.GetRange('C1').SetValue('Price');",
+      "VBA": "oWorksheet.Range(\"C1\").Value = \"Price\""
+    }
+  },
+  {
+    "Set value 'East' to cell B2.": {
+      "OnlyOffice_JS": "oWorksheet.GetRange('B2').SetValue('East');",
+      "VBA": "oWorksheet.Range(\"B2\").Value = \"East\""
+    }
+  },
+  {
+    "Set value 'West' to cell B3.": {
+      "OnlyOffice_JS": "oWorksheet.GetRange('B3').SetValue('West');",
+      "VBA": "oWorksheet.Range(\"B3\").Value = \"West\""
+    }
+  },
+  {
+    "Set value 42.5 to cell C2.": {
+      "OnlyOffice_JS": "oWorksheet.GetRange('C2').SetValue(42.5);",
+      "VBA": "oWorksheet.Range(\"C2\").Value = 42.5"
+    }
+  },
+  {
+    "Set value 35.2 to cell C3.": {
+      "OnlyOffice_JS": "oWorksheet.GetRange('C3').SetValue(35.2);",
+      "VBA": "oWorksheet.Range(\"C3\").Value = 35.2"
+    }
+  },
+  {
+    "Get range B1:C3 from Sheet1.": {
+      "OnlyOffice_JS": "var dataRef = Api.GetRange(\"'Sheet1'!$B$1:$C$3\");",
+      "VBA": "Set dataRef = Worksheets(\"Sheet1\").Range(\"$B$1:$C$3\")"
+    }
+  },
+  {
+    "Get range A7 from the active worksheet.": {
+      "OnlyOffice_JS": "var pivotRef = oWorksheet.GetRange('A7');",
+      "VBA": "Set pivotRef = oWorksheet.Range(\"A7\")"
+    }
+  },
+  {
+    "Insert a pivot table using dataRef and pivotRef.": {
+      "OnlyOffice_JS": "var pivotTable = Api.InsertPivotExistingWorksheet(dataRef, pivotRef);",
+      "VBA": "Set pivotTable = oWorksheet.PivotTables.Add(SourceData:=dataRef, TableDestination:=pivotRef)"
+    }
+  }
+]
+```

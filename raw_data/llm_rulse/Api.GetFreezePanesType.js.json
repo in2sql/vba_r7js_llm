@@ -1,0 +1,25 @@
+```json
+{
+  "Description": "This example freezes the first column and pastes the freeze type into the table.",
+  "Code": {
+    "OnlyOffice JS": "// OnlyOffice JS code
+Api.SetFreezePanesType('column');
+var oWorksheet = Api.GetActiveSheet();
+oWorksheet.GetRange(\"A1\").SetValue(\"Type: \");
+oWorksheet.GetRange(\"B1\").SetValue(Api.GetFreezePanesType());",
+    "Excel VBA": "' Excel VBA equivalent code
+Sub FreezeFirstColumn()
+    ' Freeze the first column
+    ActiveWindow.SplitColumn = 1
+    ActiveWindow.FreezePanes = True
+    
+    ' Set values in cells A1 and B1
+    With ActiveSheet
+        .Range(\"A1\").Value = \"Type: \"
+        ' VBA does not have a direct equivalent for GetFreezePanesType
+        .Range(\"B1\").Value = \"Column\"
+    End With
+End Sub"
+  }
+}
+```

@@ -1,0 +1,23 @@
+```json
+{
+  "description": "This code changes the user protected range.",
+  "RAG_Table": [
+    {
+      "OnlyOffice_JS": "var oWorksheet = Api.GetActiveSheet();",
+      "Excel_VBA": "Dim oWorksheet As Worksheet\nSet oWorksheet = ThisWorkbook.ActiveSheet"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.AddProtectedRange(\"protectedRange\", \"Sheet1!$A$1:$B$1\");",
+      "Excel_VBA": "With oWorksheet\n    .Range(\"A1:B1\").Locked = True\n    .Protect Password:=\"password\", UserInterfaceOnly:=True\nEnd With"
+    },
+    {
+      "OnlyOffice_JS": "var protectedRange = oWorksheet.GetProtectedRange(\"protectedRange\");",
+      "Excel_VBA": "Dim protectedRange As Range\nSet protectedRange = oWorksheet.Range(\"A1:B1\")"
+    },
+    {
+      "OnlyOffice_JS": "protectedRange.SetAnyoneType(\"CanView\");",
+      "Excel_VBA": "' VBA does not have a direct equivalent. Setting the range to Locked and protecting the sheet restricts editing."
+    }
+  ]
+}
+```

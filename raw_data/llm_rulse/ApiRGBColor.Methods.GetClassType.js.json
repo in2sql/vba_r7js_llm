@@ -1,0 +1,55 @@
+```json
+{
+  "description": "This code retrieves the active worksheet, creates colors and gradient fills, adds a shape with specific styles, sets column widths, and assigns values to cells A1 and B1.",
+  "table": [
+    {
+      "OnlyOffice JS": "Api.GetActiveSheet();",
+      "Excel VBA": "Set oWorksheet = ActiveSheet"
+    },
+    {
+      "OnlyOffice JS": "Api.CreateRGBColor(255, 213, 191);",
+      "Excel VBA": "oRGBColor = RGB(255, 213, 191)"
+    },
+    {
+      "OnlyOffice JS": "Api.CreateGradientStop(oRGBColor, 0);",
+      "Excel VBA": "Set oGs1 = oFill.GradientStops.Add(RGB(255, 213, 191), 0)"
+    },
+    {
+      "OnlyOffice JS": "Api.CreateGradientStop(Api.CreateRGBColor(255, 111, 61), 100000);",
+      "Excel VBA": "Set oGs2 = oFill.GradientStops.Add(RGB(255, 111, 61), 1)"
+    },
+    {
+      "OnlyOffice JS": "Api.CreateLinearGradientFill([oGs1, oGs2], 5400000);",
+      "Excel VBA": "Set oFill = oWorksheet.Shapes.AddShape(msoShapeRectangle, 60, 35, 200, 100).Fill"
+    },
+    {
+      "OnlyOffice JS": "Api.CreateStroke(0, Api.CreateNoFill());",
+      "Excel VBA": "With oStroke\n    .Weight = 0\n    .Visible = msoFalse\nEnd With"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.AddShape(\"flowChartOnlineStorage\", 60 * 36000, 35 * 36000, oFill, oStroke, 0, 2 * 36000, 1, 3 * 36000);",
+      "Excel VBA": "oWorksheet.Shapes.AddShape(msoShapeFlowchartStorage, 60, 35, 200, 100).Fill = oFill\noWorksheet.Shapes.AddShape(msoShapeFlowchartStorage, 60, 35, 200, 100).Line = oStroke"
+    },
+    {
+      "OnlyOffice JS": "oRGBColor.GetClassType();",
+      "Excel VBA": "sClassType = TypeName(oRGBColor)"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.SetColumnWidth(0, 15);",
+      "Excel VBA": "oWorksheet.Columns(1).ColumnWidth = 15"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.SetColumnWidth(1, 10);",
+      "Excel VBA": "oWorksheet.Columns(2).ColumnWidth = 10"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"A1\").SetValue(\"Class Type = \");",
+      "Excel VBA": "oWorksheet.Range(\"A1\").Value = \"Class Type = \""
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"B1\").SetValue(sClassType);",
+      "Excel VBA": "oWorksheet.Range(\"B1\").Value = sClassType"
+    }
+  ]
+}
+```

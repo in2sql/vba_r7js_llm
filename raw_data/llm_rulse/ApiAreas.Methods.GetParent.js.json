@@ -1,0 +1,67 @@
+```json
+{
+  "description": "Equivalent Excel VBA code for OnlyOffice JS methods.",
+  "RAG_table": [
+    {
+      "OnlyOffice_JS": "Api.GetActiveSheet()",
+      "Excel_VBA": "Set oWorksheet = ActiveSheet"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"B1:D1\")",
+      "Excel_VBA": "Set oRange = oWorksheet.Range(\"B1:D1\")"
+    },
+    {
+      "OnlyOffice_JS": "oRange.SetValue(\"1\")",
+      "Excel_VBA": "oRange.Value = \"1\""
+    },
+    {
+      "OnlyOffice_JS": "oRange.Select()",
+      "Excel_VBA": "oRange.Select"
+    },
+    {
+      "OnlyOffice_JS": "oRange.GetAreas()",
+      "Excel_VBA": "Set oAreas = oRange.Areas"
+    },
+    {
+      "OnlyOffice_JS": "oAreas.GetParent()",
+      "Excel_VBA": "Set oParent = oAreas.Parent"
+    },
+    {
+      "OnlyOffice_JS": "oParent.GetClassType()",
+      "Excel_VBA": "sType = TypeName(oParent)"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange('A4')",
+      "Excel_VBA": "Set oRange = oWorksheet.Range(\"A4\")"
+    },
+    {
+      "OnlyOffice_JS": "oRange.SetValue(\"The areas parent: \")",
+      "Excel_VBA": "oRange.Value = \"The areas parent: \""
+    },
+    {
+      "OnlyOffice_JS": "oRange.AutoFit(false, true)",
+      "Excel_VBA": "oRange.Columns.AutoFit"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange('B4').Paste(oParent)",
+      "Excel_VBA": "oParent.Copy Destination:=oWorksheet.Range(\"B4\")"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange('A5')",
+      "Excel_VBA": "Set oRange = oWorksheet.Range(\"A5\")"
+    },
+    {
+      "OnlyOffice_JS": "oRange.SetValue(\"The type of the areas parent: \")",
+      "Excel_VBA": "oRange.Value = \"The type of the areas parent: \""
+    },
+    {
+      "OnlyOffice_JS": "oRange.AutoFit(false, true)",
+      "Excel_VBA": "oRange.Columns.AutoFit"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange('B5').SetValue(sType)",
+      "Excel_VBA": "oWorksheet.Range(\"B5\").Value = sType"
+    }
+  ]
+}
+```

@@ -1,0 +1,9 @@
+```json
+{
+  "Description": "This example changes the position for the drawing object.",
+  "Code": {
+    "VBA": "Sub ChangeDrawingPosition()\n    Dim oWorksheet As Worksheet\n    Set oWorksheet = ThisWorkbook.ActiveSheet\n\n    ' Create a solid fill with RGB color (255, 111, 61)\n    Dim fillColor As Long\n    fillColor = RGB(255, 111, 61)\n\n    ' Add a flowchart internal storage shape\n    Dim oShape As Shape\n    Set oShape = oWorksheet.Shapes.AddShape(msoShapeFlowchartInternalStorage, 60, 35, 120, 70)\n\n    ' Apply fill color\n    oShape.Fill.ForeColor.RGB = fillColor\n    oShape.Fill.Solid\n\n    ' Remove stroke\n    oShape.Line.Visible = msoFalse\n\n    ' Set position\n    oShape.Left = 2 * 36000\n    oShape.Top = 3 * 36000\nEnd Sub",
+    "OnlyOffice_JS": "// This example changes the position for the drawing object.\nvar oWorksheet = Api.GetActiveSheet();\nvar oFill = Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61));\nvar oStroke = Api.CreateStroke(0, Api.CreateNoFill());\nvar oDrawing = oWorksheet.AddShape(\"flowChartOnlineStorage\", 60 * 36000, 35 * 36000, oFill, oStroke, 0, 2 * 36000, 0, 3 * 36000);\noDrawing.SetSize(120 * 36000, 70 * 36000);\noDrawing.SetPosition(0, 2 * 36000, 2, 3 * 36000);"
+  }
+}
+```

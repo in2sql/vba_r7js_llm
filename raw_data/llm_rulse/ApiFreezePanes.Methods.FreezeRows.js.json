@@ -1,0 +1,14 @@
+```json
+{
+  "Table": {
+    "Headers": ["Description: This code freezes the top row.", "VBA Code", "OnlyOffice JS Code"],
+    "Rows": [
+      [
+        "This code freezes the top row.",
+        "Sub FreezeTopRow()\n    With ActiveWindow\n        .SplitRow = 1\n        .FreezePanes = True\n    End With\nEnd Sub",
+        "// This example freezes the top row.\nvar oWorksheet = Api.GetActiveSheet();\nvar oFreezePanes = oWorksheet.GetFreezePanes();\noFreezePanes.FreezeRows(1);"
+      ]
+    ]
+  }
+}
+```

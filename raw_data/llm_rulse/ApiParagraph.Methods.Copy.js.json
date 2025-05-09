@@ -1,0 +1,55 @@
+```json
+{
+  "description": "This example creates a paragraph copy.",
+  "table": [
+    {
+      "OnlyOfficeJS": "var oWorksheet = Api.GetActiveSheet();",
+      "ExcelVBA": "Dim oWorksheet As Worksheet\nSet oWorksheet = ThisWorkbook.ActiveSheet"
+    },
+    {
+      "OnlyOfficeJS": "var oFill = Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61));",
+      "ExcelVBA": "With oWorksheet.Shapes.AddShape(msoShapeRectangle, 120, 70, 200, 150).Fill\n    .ForeColor.RGB = RGB(255, 111, 61)\n    .Solid\nEnd With"
+    },
+    {
+      "OnlyOfficeJS": "var oStroke = Api.CreateStroke(0, Api.CreateNoFill());",
+      "ExcelVBA": "With oWorksheet.Shapes(oWorksheet.Shapes.Count).Line\n    .Weight = 0\n    .Visible = msoFalse\nEnd With"
+    },
+    {
+      "OnlyOfficeJS": "var oShape = oWorksheet.AddShape(\"flowChartOnlineStorage\", 120 * 36000, 70 * 36000, oFill, oStroke, 0, 2 * 36000, 0, 3 * 36000);",
+      "ExcelVBA": "Dim oShape As Shape\nSet oShape = oWorksheet.Shapes.AddShape(msoShapeFlowchartDataStorage, 120, 70, 200, 300)"
+    },
+    {
+      "OnlyOfficeJS": "var oDocContent = oShape.GetContent();",
+      "ExcelVBA": "Dim oDocContent As TextRange\nSet oDocContent = oShape.TextFrame.TextRange"
+    },
+    {
+      "OnlyOfficeJS": "var oParagraph = oDocContent.GetElement(0);",
+      "ExcelVBA": "Dim oParagraph As ParagraphFormat\nSet oParagraph = oDocContent.ParagraphFormat"
+    },
+    {
+      "OnlyOfficeJS": "oParagraph.SetJc(\"left\");",
+      "ExcelVBA": "oParagraph.Alignment = xlLeft"
+    },
+    {
+      "OnlyOfficeJS": "oParagraph.AddText(\"This is a text inside the shape aligned left.\");",
+      "ExcelVBA": "oDocContent.Text = \"This is a text inside the shape aligned left.\""
+    },
+    {
+      "OnlyOfficeJS": "oParagraph.AddLineBreak();",
+      "ExcelVBA": "oDocContent.Text = oDocContent.Text & vbCrLf"
+    },
+    {
+      "OnlyOfficeJS": "oParagraph.AddText(\"This is a text after the line break.\");",
+      "ExcelVBA": "oDocContent.Text = oDocContent.Text & \"This is a text after the line break.\""
+    },
+    {
+      "OnlyOfficeJS": "var oParagraph2 = oParagraph.Copy();",
+      "ExcelVBA": "Dim oParagraph2 As ParagraphFormat\nSet oParagraph2 = oParagraph.Duplicate"
+    },
+    {
+      "OnlyOfficeJS": "oDocContent.Push(oParagraph2);",
+      "ExcelVBA": "oDocContent.Text = oDocContent.Text & vbCrLf & oParagraph2.Alignment"
+    }
+  ]
+}
+```

@@ -1,0 +1,43 @@
+```json
+{
+  "description": "This example adds a Run to the paragraph.",
+  "methods": [
+    {
+      "OnlyOffice JS": "var oWorksheet = Api.GetActiveSheet();",
+      "Excel VBA": "Set oWorksheet = ActiveSheet"
+    },
+    {
+      "OnlyOffice JS": "var oFill = Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61));",
+      "Excel VBA": "Set oFill = oWorksheet.Shapes.AddShape(msoShapeRectangle, 120, 70, 200, 100).Fill\noFill.ForeColor.RGB = RGB(255, 111, 61)"
+    },
+    {
+      "OnlyOffice JS": "var oStroke = Api.CreateStroke(0, Api.CreateNoFill());",
+      "Excel VBA": "With oWorksheet.Shapes.AddShape(msoShapeRectangle, 120, 70, 200, 100).Line\n    .Visible = msoFalse\nEnd With"
+    },
+    {
+      "OnlyOffice JS": "var oShape = oWorksheet.AddShape(\"flowChartOnlineStorage\", 120 * 36000, 70 * 36000, oFill, oStroke, 0, 2 * 36000, 0, 3 * 36000);",
+      "Excel VBA": "Set oShape = oWorksheet.Shapes.AddShape(msoShapeFlowchartOnlineStorage, 120, 70, 200, 100)\nWith oShape.Fill\n    .ForeColor.RGB = RGB(255, 111, 61)\nEnd With\nWith oShape.Line\n    .Visible = msoFalse\nEnd With"
+    },
+    {
+      "OnlyOffice JS": "var oDocContent = oShape.GetContent();",
+      "Excel VBA": "Set oDocContent = oShape.TextFrame2.TextRange"
+    },
+    {
+      "OnlyOffice JS": "var oParagraph = oDocContent.GetElement(0);",
+      "Excel VBA": "Set oParagraph = oDocContent.Paragraphs(1)"
+    },
+    {
+      "OnlyOffice JS": "var oRun = Api.CreateRun();",
+      "Excel VBA": "Set oRun = oParagraph.Runs.Add"
+    },
+    {
+      "OnlyOffice JS": "oRun.AddText(\"This is just a sample text run. Nothing special.\");",
+      "Excel VBA": "oRun.Text = \"This is just a sample text run. Nothing special.\""
+    },
+    {
+      "OnlyOffice JS": "oParagraph.AddElement(oRun);",
+      "Excel VBA": "' Text is already added via oRun.Text assignment"
+    }
+  ]
+}
+```

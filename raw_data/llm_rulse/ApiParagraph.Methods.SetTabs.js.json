@@ -1,0 +1,52 @@
+**Description:** This code sets custom tab stops in a shape within the active OnlyOffice sheet, adding text with specific formatting and tab stops.
+
+```json
+{
+  "RAG_Table": [
+    {
+      "OnlyOffice_JS_Method": "Api.GetActiveSheet()",
+      "Excel_VBA_Equivalent": "Set oWorksheet = ActiveSheet"
+    },
+    {
+      "OnlyOffice_JS_Method": "Api.CreateRGBColor(255, 111, 61)",
+      "Excel_VBA_Equivalent": "RGB(255, 111, 61)"
+    },
+    {
+      "OnlyOffice_JS_Method": "Api.CreateSolidFill(color)",
+      "Excel_VBA_Equivalent": "With oShape.Fill\n    .ForeColor.RGB = RGB(255, 111, 61)\n    .Solid\nEnd With"
+    },
+    {
+      "OnlyOffice_JS_Method": "Api.CreateStroke(0, Api.CreateNoFill())",
+      "Excel_VBA_Equivalent": "With oShape.Line\n    .Visible = msoFalse\nEnd With"
+    },
+    {
+      "OnlyOffice_JS_Method": "oWorksheet.AddShape(name, width, height, fill, stroke, left, top, anchor, rotation)",
+      "Excel_VBA_Equivalent": "Set oShape = oWorksheet.Shapes.AddShape(msoShapeFlowchartStorage, 150, 70, oShapeWidth, oShapeHeight)\nWith oShape\n    .Fill.ForeColor.RGB = RGB(255, 111, 61)\n    .Line.Visible = msoFalse\n    .Left = 2\n    .Top = 3\nEnd With"
+    },
+    {
+      "OnlyOffice_JS_Method": "oShape.GetContent()",
+      "Excel_VBA_Equivalent": "Set oDocContent = oShape.TextFrame2.TextRange"
+    },
+    {
+      "OnlyOffice_JS_Method": "oDocContent.GetElement(0)",
+      "Excel_VBA_Equivalent": "Set oParagraph = oDocContent.Paragraphs(1)"
+    },
+    {
+      "OnlyOffice_JS_Method": "oParagraph.SetTabs([1440, 2880, 4320], ['left', 'center', 'right'])",
+      "Excel_VBA_Equivalent": "With oParagraph.ParagraphFormat.TabStops\n    .ClearAll\n    .Add Position:=72, Alignment:=xlLeft\n    .Add Position:=144, Alignment:=xlCenter\n    .Add Position:=216, Alignment:=xlRight\nEnd With"
+    },
+    {
+      "OnlyOffice_JS_Method": "oParagraph.AddTabStop()",
+      "Excel_VBA_Equivalent": "oParagraph.Range.InsertTab"
+    },
+    {
+      "OnlyOffice_JS_Method": "oParagraph.AddText('Custom tab - 1 inch left')",
+      "Excel_VBA_Equivalent": "oParagraph.Range.Text = \"Custom tab - 1 inch left\""
+    },
+    {
+      "OnlyOffice_JS_Method": "oParagraph.AddLineBreak()",
+      "Excel_VBA_Equivalent": "oParagraph.Range.InsertParagraphAfter"
+    }
+  ]
+}
+```

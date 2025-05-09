@@ -1,0 +1,27 @@
+```json
+{
+  "description": "This example deletes the ApiCharacters object.",
+  "table": [
+    {
+      "OnlyOffice JS": "Api.GetActiveSheet()",
+      "Excel VBA": "ActiveSheet"
+    },
+    {
+      "OnlyOffice JS": "oWorksheet.GetRange(\"B1\")",
+      "Excel VBA": "Range(\"B1\")"
+    },
+    {
+      "OnlyOffice JS": "oRange.SetValue(\"This is just a sample text.\")",
+      "Excel VBA": "Range(\"B1\").Value = \"This is just a sample text.\""
+    },
+    {
+      "OnlyOffice JS": "oRange.GetCharacters(9, 4)",
+      "Excel VBA": "Range(\"B1\").Characters(Start:=9, Length:=4)"
+    },
+    {
+      "OnlyOffice JS": "oCharacters.Delete()",
+      "Excel VBA": "Range(\"B1\").Characters(Start:=9, Length:=4).Delete"
+    }
+  ]
+}
+```

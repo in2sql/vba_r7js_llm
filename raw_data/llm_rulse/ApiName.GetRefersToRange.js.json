@@ -1,0 +1,35 @@
+```json
+{
+  "description": "This example demonstrates retrieving the active worksheet, setting values in cells A1 and B1, defining a named range 'numbers' referring to A1:B1, retrieving that named range, getting its associated range, and applying bold formatting to it.",
+  "RAG_table": [
+    {
+      "OnlyOffice_JS": "var oWorksheet = Api.GetActiveSheet();",
+      "VBA": "Dim oWorksheet As Worksheet\nSet oWorksheet = ActiveSheet"
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"A1\").SetValue(\"1\");",
+      "VBA": "oWorksheet.Range(\"A1\").Value = \"1\""
+    },
+    {
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"B1\").SetValue(\"2\");",
+      "VBA": "oWorksheet.Range(\"B1\").Value = \"2\""
+    },
+    {
+      "OnlyOffice_JS": "Api.AddDefName(\"numbers\", \"Sheet1!$A$1:$B$1\");",
+      "VBA": "ThisWorkbook.Names.Add Name:=\"numbers\", RefersTo:=\"Sheet1!$A$1:$B$1\""
+    },
+    {
+      "OnlyOffice_JS": "var oDefName = Api.GetDefName(\"numbers\");",
+      "VBA": "Dim oDefName As Name\nSet oDefName = ThisWorkbook.Names(\"numbers\")"
+    },
+    {
+      "OnlyOffice_JS": "var oRange = oDefName.GetRefersToRange();",
+      "VBA": "Dim oRange As Range\nSet oRange = RefersToRange(oDefName)"
+    },
+    {
+      "OnlyOffice_JS": "oRange.SetBold(true);",
+      "VBA": "oRange.Font.Bold = True"
+    }
+  ]
+}
+```

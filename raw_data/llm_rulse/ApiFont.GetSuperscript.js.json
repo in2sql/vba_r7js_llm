@@ -1,0 +1,47 @@
+```json
+{
+  "description": "This code demonstrates how to set text in a cell, apply superscript formatting to a portion of the text, and retrieve the superscript property using OnlyOffice JavaScript API and its Excel VBA equivalents.",
+  "rag_table": [
+    {
+      "Method": "GetActiveSheet",
+      "OnlyOffice_JS": "var oWorksheet = Api.GetActiveSheet();",
+      "Excel_VBA": "Set oWorksheet = ActiveWorkbook.ActiveSheet"
+    },
+    {
+      "Method": "GetRange",
+      "OnlyOffice_JS": "var oRange = oWorksheet.GetRange(\"B1\");",
+      "Excel_VBA": "Set oRange = oWorksheet.Range(\"B1\")"
+    },
+    {
+      "Method": "SetValue",
+      "OnlyOffice_JS": "oRange.SetValue(\"This is just a sample text.\");",
+      "Excel_VBA": "oRange.Value = \"This is just a sample text.\""
+    },
+    {
+      "Method": "GetCharacters",
+      "OnlyOffice_JS": "var oCharacters = oRange.GetCharacters(9, 4);",
+      "Excel_VBA": "Set oCharacters = oRange.Characters(9, 4)"
+    },
+    {
+      "Method": "GetFont",
+      "OnlyOffice_JS": "var oFont = oCharacters.GetFont();",
+      "Excel_VBA": "Set oFont = oCharacters.Font"
+    },
+    {
+      "Method": "SetSuperscript",
+      "OnlyOffice_JS": "oFont.SetSuperscript(true);",
+      "Excel_VBA": "oFont.Superscript = True"
+    },
+    {
+      "Method": "GetSuperscript",
+      "OnlyOffice_JS": "var bSuperscript = oFont.GetSuperscript();",
+      "Excel_VBA": "bSuperscript = oFont.Superscript"
+    },
+    {
+      "Method": "SetValue",
+      "OnlyOffice_JS": "oWorksheet.GetRange(\"B3\").SetValue(\"Superscript property: \" + bSuperscript);",
+      "Excel_VBA": "oWorksheet.Range(\"B3\").Value = \"Superscript property: \" & bSuperscript"
+    }
+  ]
+}
+```

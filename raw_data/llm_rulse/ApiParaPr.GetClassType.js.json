@@ -1,0 +1,71 @@
+```
+// This example gets a class type and inserts it into the document.
+{
+  "CodeEquivalents": [
+    {
+      "OnlyOfficeJS": "var oWorksheet = Api.GetActiveSheet();",
+      "ExcelVBA": "Set oWorksheet = Api.GetActiveSheet()"
+    },
+    {
+      "OnlyOfficeJS": "var oFill = Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61));",
+      "ExcelVBA": "Set oFill = Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61))"
+    },
+    {
+      "OnlyOfficeJS": "var oStroke = Api.CreateStroke(0, Api.CreateNoFill());",
+      "ExcelVBA": "Set oStroke = Api.CreateStroke(0, Api.CreateNoFill())"
+    },
+    {
+      "OnlyOfficeJS": "var oShape = oWorksheet.AddShape(\"flowChartOnlineStorage\", 120 * 36000, 70 * 36000, oFill, oStroke, 0, 2 * 36000, 0, 3 * 36000);",
+      "ExcelVBA": "Set oShape = oWorksheet.AddShape(\"flowChartOnlineStorage\", 120 * 36000, 70 * 36000, oFill, oStroke, 0, 2 * 36000, 0, 3 * 36000)"
+    },
+    {
+      "OnlyOfficeJS": "var oDocContent = oShape.GetContent();",
+      "ExcelVBA": "Set oDocContent = oShape.GetContent()"
+    },
+    {
+      "OnlyOfficeJS": "var oParagraph = oDocContent.GetElement(0);",
+      "ExcelVBA": "Set oParagraph = oDocContent.GetElement(0)"
+    },
+    {
+      "OnlyOfficeJS": "var oParaPr = oParagraph.GetParaPr();",
+      "ExcelVBA": "Set oParaPr = oParagraph.GetParaPr()"
+    },
+    {
+      "OnlyOfficeJS": "var sClassType = oParaPr.GetClassType();",
+      "ExcelVBA": "sClassType = oParaPr.GetClassType()"
+    },
+    {
+      "OnlyOfficeJS": "oParaPr.SetIndFirstLine(1440);",
+      "ExcelVBA": "oParaPr.SetIndFirstLine 1440"
+    },
+    {
+      "OnlyOfficeJS": "oParagraph.AddText(\"This is the first paragraph with the indent of 1 inch set to the first line. \");",
+      "ExcelVBA": "oParagraph.AddText \"This is the first paragraph with the indent of 1 inch set to the first line. \""
+    },
+    {
+      "OnlyOfficeJS": "oParagraph.AddText(\"This indent is set by the paragraph style. No paragraph inline style is applied. \");",
+      "ExcelVBA": "oParagraph.AddText \"This indent is set by the paragraph style. No paragraph inline style is applied. \""
+    },
+    {
+      "OnlyOfficeJS": "oParagraph.AddText(\"These sentences are used to add lines for demonstrative purposes. \");",
+      "ExcelVBA": "oParagraph.AddText \"These sentences are used to add lines for demonstrative purposes. \""
+    },
+    {
+      "OnlyOfficeJS": "oParagraph.AddText(\"These sentences are used to add lines for demonstrative purposes.\");",
+      "ExcelVBA": "oParagraph.AddText \"These sentences are used to add lines for demonstrative purposes.\""
+    },
+    {
+      "OnlyOfficeJS": "oParagraph = Api.CreateParagraph();",
+      "ExcelVBA": "Set oParagraph = Api.CreateParagraph()"
+    },
+    {
+      "OnlyOfficeJS": "oParagraph.AddText(\"Class Type = \" + sClassType);",
+      "ExcelVBA": "oParagraph.AddText \"Class Type = \" & sClassType"
+    },
+    {
+      "OnlyOfficeJS": "oDocContent.Push(oParagraph);",
+      "ExcelVBA": "oDocContent.Push oParagraph"
+    }
+  ]
+}
+```
